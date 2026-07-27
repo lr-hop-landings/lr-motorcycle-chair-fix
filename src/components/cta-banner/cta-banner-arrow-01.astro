@@ -1,0 +1,101 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  cta: string;
+  href?: string;
+}
+
+const { title, subtitle, cta, href = "#contacts" } = Astro.props;
+---
+
+<section class="cta-arrow">
+  <div class="cta-arrow__content">
+    <h2>{title}</h2>
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+  <div class="cta-arrow__line" aria-hidden="true" />
+  <a class="cta-arrow__button" href={href}>{cta}</a>
+</section>
+
+<style>
+  .cta-arrow {
+    width: min(100%, var(--container-width, 1180px));
+    margin: var(--space-10, 40px) auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 96px auto;
+    align-items: center;
+    gap: var(--space-6, 24px);
+    padding: var(--space-8, 32px);
+    border-radius: var(--radius-card, 22px);
+    background: #000000;
+    color: var(--color-white, #ffffff);
+    box-shadow: var(--shadow-hard, 6px 6px 0 #000000);
+  }
+
+  .cta-arrow h2 {
+    margin: 0;
+    font-family: var(--font-heading, sans-serif);
+    font-size: var(--text-xl, 24px);
+    line-height: var(--leading-tight, 1.2);
+  }
+
+  .cta-arrow p {
+    margin: var(--space-2, 8px) 0 0;
+    color: #ffffff;
+    font-family: var(--font-body, sans-serif);
+    line-height: var(--leading-normal, 1.5);
+  }
+
+  .cta-arrow__line {
+    height: 2px;
+    background: #ffffff;
+    position: relative;
+  }
+
+  .cta-arrow__line::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--color-white, #ffffff);
+    border-top: 2px solid var(--color-white, #ffffff);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .cta-arrow__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 28px;
+    border-radius: var(--radius-button, 14px);
+    background: var(--color-accent, #000000);
+    color: var(--color-white, #ffffff);
+    font-family: var(--font-body, sans-serif);
+    font-weight: var(--font-bold, 700);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 820px) {
+    .cta-arrow {
+      grid-template-columns: 1fr;
+      text-align: center;
+      margin-left: var(--space-4, 16px);
+      margin-right: var(--space-4, 16px);
+      width: auto;
+    }
+
+    .cta-arrow__line {
+      display: none;
+    }
+
+    .cta-arrow__button {
+      width: 100%;
+      white-space: normal;
+    }
+  }
+</style>

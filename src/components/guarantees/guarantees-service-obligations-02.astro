@@ -1,0 +1,124 @@
+---
+interface GuaranteeItem {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  headline?: string;
+  items?: GuaranteeItem[];
+  note?: string;
+}
+
+const {
+  eyebrow = "Гарантии",
+  headline = "Что фиксируем до начала работ",
+  items = [
+    { title: "Смета", text: "Стоимость и состав работ согласуются до выезда или после первичного осмотра." },
+    { title: "Сроки", text: "Клиент понимает, когда объект будет готов к следующему этапу." },
+    { title: "Документы", text: "После обработки можно получить договор, чек и акт выполненных работ." },
+    { title: "Конфиденциальность", text: "Команда не обсуждает детали объекта и работает максимально деликатно." },
+  ],
+  note = "Подходит для сервисов, где важно снизить тревогу и показать обязательства компании.",
+} = Astro.props;
+---
+
+<section class="service-guarantees">
+  <div class="service-guarantees__inner">
+    <header>
+      {eyebrow && <p>{eyebrow}</p>}
+      <h2>{headline}</h2>
+    </header>
+    <div class="service-guarantees__grid">
+      {items.map((item) => (
+        <article>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+    {note && <footer>{note}</footer>}
+  </div>
+</section>
+
+<style>
+  .service-guarantees {
+    padding: var(--spacing-section, 96px) var(--space-4, 16px);
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .service-guarantees__inner {
+    width: min(100%, var(--container-width, 1180px));
+    margin: 0 auto;
+  }
+
+  .service-guarantees header {
+    max-width: 820px;
+    margin-bottom: 44px;
+  }
+
+  .service-guarantees p,
+  .service-guarantees footer {
+    font-family: var(--font-body, sans-serif);
+  }
+
+  .service-guarantees header p {
+    margin: 0 0 16px;
+    font-size: var(--text-xs, 12px);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .service-guarantees h2 {
+    margin: 0;
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(38px, 6vw, 82px);
+    line-height: 1;
+  }
+
+  .service-guarantees__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+  }
+
+  .service-guarantees article {
+    min-height: 260px;
+    padding: 28px;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+  }
+
+  .service-guarantees h3 {
+    margin: 0;
+    font-family: var(--font-heading, sans-serif);
+    font-size: var(--text-2xl, 28px);
+    line-height: 1.1;
+  }
+
+  .service-guarantees article p {
+    margin: 18px 0 0;
+    line-height: 1.65;
+  }
+
+  .service-guarantees footer {
+    margin-top: 28px;
+    max-width: 620px;
+    line-height: 1.62;
+  }
+
+  @media (max-width: 960px) {
+    .service-guarantees__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .service-guarantees__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

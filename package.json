@@ -1,0 +1,18 @@
+{
+  "name": "motorcycle-chair-fix-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.16.6",
+    "swiper": "^14.0.6"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}
