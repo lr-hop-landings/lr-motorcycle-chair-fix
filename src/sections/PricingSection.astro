@@ -1,0 +1,13 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+---
+
+<section class="pricing section" aria-labelledby="pricing-title"><div class="container pricing__grid"><div><p class="eyebrow">БЕЗ АБСТРАКТНОЙ «ДОГОВОРНОЙ ЦЕНЫ»</p><h2 id="pricing-title">Сначала поймем состав работ — затем назовем стоимость</h2></div><div><p>На цену влияют размер и форма сиденья, состояние основания и наполнителя, выбранный материал, количество деталей и сложность строчки.</p><p>Предварительно оцениваем по вашим ответам. Окончательную стоимость называют после осмотра и выбора материала — до начала работ.</p><ButtonLink href="#estimate" dataCta="pricing">Рассчитать стоимость <span aria-hidden="true">↘</span></ButtonLink></div></div></section>
+<style>
+  .pricing { background: var(--white); }
+  .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 9vw, 150px); align-items: start; }
+  .pricing__grid h2 { margin-bottom: 0; }
+  .pricing__grid p { max-width: 480px; color: var(--muted); }
+  :global(.pricing__grid .button) { margin-top: 13px; }
+  @media (max-width: 900px) { .pricing__grid { grid-template-columns: 1fr; } }
+</style>

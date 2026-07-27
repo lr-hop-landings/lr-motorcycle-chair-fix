@@ -1,0 +1,18 @@
+---
+import materialsStaging from "../assets/motoSeat/materialsStaging.webp";
+---
+<section class="materials section"><div class="container materials__grid"><div class="materials__texture"><img src={materialsStaging.src} alt="Образцы черного, коричневого и перфорированного обивочного материала" loading="lazy" width="1536" height="1024" /><span>ВИЗУАЛ КОНЦЕПЦИИ · MATERIAL SELECT</span></div><div><p class="eyebrow">СМОТРИМ НА ФАКТУРУ И УСЛОВИЯ ЭКСПЛУАТАЦИИ</p><h2>Материал подбираем после осмотра и уточнения сценария езды</h2><p class="section-lead">Для открытой техники важны фактура, эластичность, стойкость поверхности и совместимость со сложной формой. Не публикуем названия коллекций и свойства, пока они не подтверждены техническими данными.</p><ul class="check-list"><li>Показываем физические образцы при согласовании</li><li>Проверяем сочетание материалов и швов</li><li>Финальный оттенок выбирают не по экрану</li></ul></div></div></section>
+<style>
+  .materials { background: #e8e5df; }
+  .materials__grid { display: grid; grid-template-columns: 0.84fr 1fr; gap: clamp(40px, 8vw, 120px); align-items: center; }
+  .materials__texture { position: relative; min-height: 440px; overflow: hidden; background: #202226; }
+  .materials__texture img { width: 100%; height: 100%; min-height: 440px; object-fit: cover; filter: saturate(0.8) brightness(0.76); }
+  .materials__texture::before { position: absolute; inset: 15% -12% 16% 13%; border: 1px solid var(--orange); border-radius: 56% 39% 48% 40%; transform: rotate(-23deg); content: ""; }
+  .materials__texture::after { position: absolute; top: 49%; left: -5%; width: 110%; height: 1px; background: var(--orange); transform: rotate(-23deg); content: ""; }
+  .materials__texture span { position: absolute; right: 24px; bottom: 22px; color: var(--white); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; }
+  .check-list { display: grid; gap: 13px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .check-list li { position: relative; padding-left: 27px; }
+  .check-list li::before { position: absolute; top: 0.52em; left: 0; width: 13px; height: 2px; background: var(--orange); content: ""; }
+  @media (max-width: 900px) { .materials__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .materials__texture, .materials__texture img { min-height: 280px; } }
+</style>

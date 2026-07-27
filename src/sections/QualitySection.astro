@@ -1,0 +1,10 @@
+<section class="quality section"><div class="container quality__grid"><div><span class="quality__mark">01<br/>YEAR</span><p class="eyebrow">КОНТРОЛЬ СОГЛАСОВАННОГО РЕЗУЛЬТАТА</p><h2>Проверяем посадку чехла, швы и согласованный дизайн</h2></div><ul class="check-list"><li>Состав работ зафиксирован</li><li>Материал и дизайн согласованы</li><li>Заказ проверен перед выдачей</li><li>Гарантия 1 год заявлена на официальной странице; условия уточняются в документах к заказу</li></ul></div></section>
+<style>
+  .quality { padding-block: clamp(68px, 9vw, 126px); background: #e8e5df; }
+  .quality__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 9vw, 155px); }
+  .quality__mark { float: left; margin: 2px 21px 0 0; color: var(--orange); font-family: var(--display-font); font-size: 39px; font-weight: 800; line-height: 0.8; letter-spacing: -0.06em; }
+  .check-list { display: grid; gap: 13px; margin: 16px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); list-style: none; }
+  .check-list li { position: relative; padding-left: 27px; }
+  .check-list li::before { position: absolute; top: 0.52em; left: 0; width: 13px; height: 2px; background: var(--orange); content: ""; }
+  @media (max-width: 900px) { .quality__grid { grid-template-columns: 1fr; } }
+</style>

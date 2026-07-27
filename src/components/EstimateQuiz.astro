@@ -1,0 +1,1441 @@
+---
+interface Props {
+  prefix: string;
+}
+const { prefix } = Astro.props;
+---
+
+<div class="lead-quiz" data-quiz-root>
+  <div
+    class="lead-quiz__progress"
+    role="progressbar"
+    aria-label="Прогресс расчёта"
+    aria-valuemin="1"
+    aria-valuemax="5"
+    aria-valuenow="1"
+    data-quiz-progress
+  >
+    <span class="lead-quiz__progress-track" aria-hidden="true"
+      ><span data-quiz-progress-value></span></span
+    >
+    <strong data-quiz-progress-text>Шаг 1 из 5</strong>
+  </div>
+
+  <form class="lead-quiz__form" data-hop-lead-form novalidate aria-busy="false">
+    <input type="hidden" name="cta_source" value="direct" />
+    <input
+      type="hidden"
+      name="service_name"
+      value="Перетяжка сиденья мототехники"
+    />
+
+    <!-- Step 1: Vehicle -->
+    <fieldset
+      class="lead-quiz__step is-active"
+      data-quiz-step="1"
+      aria-labelledby={`${prefix}-question-1`}
+    >
+      <legend id={`${prefix}-question-1`} tabindex="-1">
+        <span>01</span> На какой технике сиденье?
+      </legend>
+      <p>Выберите тип техники — если сомневаетесь, это не помешает расчёту.</p>
+      <div
+        class="choice-grid choice-grid--vehicle"
+        role="radiogroup"
+        aria-labelledby={`${prefix}-question-1`}
+      >
+        <label class="choice choice--vehicle">
+          <input type="radio" name="vehicle" value="Мотоцикл" required />
+          <div class="choice__icon-wrap">
+            <svg class="choice__icon" viewBox="0 0 64 42" aria-hidden="true">
+              <circle cx="15" cy="31" r="8"></circle>
+              <circle cx="49" cy="31" r="8"></circle>
+              <path
+                d="M15 31h12l7-15h9l7 15M25 31l8-12-10-4h-7M37 16l7-8h8M34 16l-6-8"
+              ></path>
+            </svg>
+          </div>
+          <span class="choice__label">Мотоцикл</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+
+        <label class="choice choice--vehicle">
+          <input
+            type="radio"
+            name="vehicle"
+            value="Скутер или мопед"
+            required
+          />
+          <div class="choice__icon-wrap">
+            <svg class="choice__icon" viewBox="0 0 64 42" aria-hidden="true">
+              <circle cx="17" cy="31" r="8"></circle>
+              <circle cx="48" cy="31" r="8"></circle>
+              <path d="M17 31h18l4-15h11l3 15M26 16h13M42 16l4-9h8M24 31l5-15"
+              ></path>
+            </svg>
+          </div>
+          <span class="choice__label">Скутер или мопед</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+
+        <label class="choice choice--vehicle">
+          <input
+            type="radio"
+            name="vehicle"
+            value="Квадроцикл или багги"
+            required
+          />
+          <div class="choice__icon-wrap">
+            <svg class="choice__icon" viewBox="0 0 64 42" aria-hidden="true">
+              <circle cx="14" cy="31" r="8"></circle>
+              <circle cx="50" cy="31" r="8"></circle>
+              <path
+                d="M14 31h36M20 27l5-12h16l5 12M27 15l4-7h9l4 7M13 22h7M44 22h7"
+              ></path>
+            </svg>
+          </div>
+          <span class="choice__label">Квадроцикл или багги</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+
+        <label class="choice choice--vehicle">
+          <input
+            type="radio"
+            name="vehicle"
+            value="Другая мототехника"
+            required
+          />
+          <div class="choice__icon-wrap">
+            <svg class="choice__icon" viewBox="0 0 64 42" aria-hidden="true">
+              <circle cx="32" cy="21" r="15"></circle>
+              <path d="M32 13v16M24 21h16"></path>
+            </svg>
+          </div>
+          <span class="choice__label">Другая техника</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+      </div>
+      <p
+        class="field-error"
+        data-field-error="vehicle"
+        hidden
+        aria-live="polite"
+      >
+      </p>
+      <div class="lead-quiz__footer">
+        <button
+          class="button button--primary"
+          type="button"
+          data-quiz-next
+          disabled
+        >
+          Далее <span aria-hidden="true">↘</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Step 2: Task -->
+    <fieldset
+      class="lead-quiz__step"
+      data-quiz-step="2"
+      data-quiz-requires-selection="task[]"
+      aria-labelledby={`${prefix}-question-2`}
+      hidden
+    >
+      <legend id={`${prefix}-question-2`} tabindex="-1">
+        <span>02</span> Что хочется изменить?
+      </legend>
+      <p>
+        Можно выбрать несколько пунктов. Это поможет мастеру сразу понять
+        задачу.
+      </p>
+      <div
+        class="choice-grid"
+        role="group"
+        aria-labelledby={`${prefix}-question-2`}
+      >
+        <label class="choice">
+          <input
+            type="checkbox"
+            name="task[]"
+            value="Восстановить повреждённую обивку"
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Восстановить повреждённую обивку</span>
+        </label>
+        <label class="choice">
+          <input
+            type="checkbox"
+            name="task[]"
+            value="Обновить цвет или материал"
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Обновить цвет или материал</span>
+        </label>
+        <label class="choice">
+          <input
+            type="checkbox"
+            name="task[]"
+            value="Изменить форму или сделать удобнее"
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Изменить форму или сделать удобнее</span>
+        </label>
+        <label class="choice">
+          <input
+            type="checkbox"
+            name="task[]"
+            value="Нужна рекомендация мастера"
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Нужна рекомендация мастера</span>
+        </label>
+      </div>
+      <p class="field-error" data-field-error="task" hidden aria-live="polite">
+      </p>
+      <div class="lead-quiz__footer lead-quiz__footer--split">
+        <button class="button button--back" type="button" data-quiz-prev
+          >← Назад</button
+        >
+        <button
+          class="button button--primary"
+          type="button"
+          data-quiz-next
+          disabled
+        >
+          Далее <span aria-hidden="true">↘</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Step 3: Seat Status -->
+    <fieldset
+      class="lead-quiz__step"
+      data-quiz-step="3"
+      aria-labelledby={`${prefix}-question-3`}
+      hidden
+    >
+      <legend id={`${prefix}-question-3`} tabindex="-1">
+        <span>03</span> Сиденье уже снято с техники?
+      </legend>
+      <p>
+        От этого зависит, как удобнее передать его в мастерскую и какие детали
+        стоит уточнить.
+      </p>
+      <div
+        class="choice-grid"
+        role="radiogroup"
+        aria-labelledby={`${prefix}-question-3`}
+      >
+        <label class="choice">
+          <input
+            type="radio"
+            name="seat_status"
+            value="Да, сиденье уже снято"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Да, уже снято</span>
+        </label>
+        <label class="choice">
+          <input
+            type="radio"
+            name="seat_status"
+            value="Пока стоит на технике"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Пока стоит на технике</span>
+        </label>
+        <label class="choice">
+          <input
+            type="radio"
+            name="seat_status"
+            value="Нужна помощь, чтобы снять"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Нужна помощь, чтобы снять</span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="seat_status" value="Не знаю" required />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Не знаю</span>
+        </label>
+      </div>
+      <p
+        class="field-error"
+        data-field-error="seat_status"
+        hidden
+        aria-live="polite"
+      >
+      </p>
+      <div class="lead-quiz__footer lead-quiz__footer--split">
+        <button class="button button--back" type="button" data-quiz-prev
+          >← Назад</button
+        >
+        <button
+          class="button button--primary"
+          type="button"
+          data-quiz-next
+          disabled
+        >
+          Далее <span aria-hidden="true">↘</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Step 4: Filling -->
+    <fieldset
+      class="lead-quiz__step"
+      data-quiz-step="4"
+      aria-labelledby={`${prefix}-question-4`}
+      hidden
+    >
+      <legend id={`${prefix}-question-4`} tabindex="-1">
+        <span>04</span> Нужна работа с наполнителем?
+      </legend>
+      <p>
+        Так мы поймём, нужна только новая обивка или стоит скорректировать
+        анатомию посадки.
+      </p>
+      <div
+        class="choice-grid"
+        role="radiogroup"
+        aria-labelledby={`${prefix}-question-4`}
+      >
+        <label class="choice">
+          <input
+            type="radio"
+            name="filling"
+            value="Только новая обивка"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Только новая обивка</span>
+        </label>
+        <label class="choice">
+          <input
+            type="radio"
+            name="filling"
+            value="Восстановить форму или наполнитель"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Восстановить форму или наполнитель</span>
+        </label>
+        <label class="choice">
+          <input
+            type="radio"
+            name="filling"
+            value="Сделать посадку удобнее"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Сделать посадку удобнее</span>
+        </label>
+        <label class="choice">
+          <input
+            type="radio"
+            name="filling"
+            value="Нужна оценка мастера"
+            required
+          />
+          <span class="choice__control" aria-hidden="true"></span>
+          <span class="choice__label">Нужна оценка мастера</span>
+        </label>
+      </div>
+      <p
+        class="field-error"
+        data-field-error="filling"
+        hidden
+        aria-live="polite"
+      >
+      </p>
+      <div class="lead-quiz__footer lead-quiz__footer--split">
+        <button class="button button--back" type="button" data-quiz-prev
+          >← Назад</button
+        >
+        <button
+          class="button button--primary"
+          type="button"
+          data-quiz-next
+          disabled
+        >
+          Далее <span aria-hidden="true">↘</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Step 5: Contact Channel -->
+    <fieldset
+      class="lead-quiz__step"
+      data-quiz-step="5"
+      aria-labelledby={`${prefix}-question-5`}
+      hidden
+    >
+      <legend id={`${prefix}-question-5`} tabindex="-1">
+        <span>05</span> Как удобнее получить расчёт?
+      </legend>
+      <p>Выберите предпочтительный способ связи для получения результатов.</p>
+      <div
+        class="choice-grid choice-grid--contact"
+        role="radiogroup"
+        aria-labelledby={`${prefix}-question-5`}
+      >
+        <label class="choice choice--contact choice--contact-phone">
+          <input type="radio" name="contact_method" value="Телефон" required />
+          <div class="choice__icon-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7 3h3l1.4 4.1-2 1.4a15.3 15.3 0 0 0 6.1 6.1l1.4-2L21 14v3c0 1.1-.9 2-2 2C10.2 19 5 13.8 5 5c0-1.1.9-2 2-2Z"
+              ></path>
+            </svg>
+          </div>
+          <span class="choice__label">Звонок</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+
+        <label class="choice choice--contact choice--contact-vk">
+          <input
+            type="radio"
+            name="contact_method"
+            value="ВКонтакте"
+            required
+          />
+          <div class="choice__icon-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M13.8 17.5c-6.4 0-10-4.4-10.1-11.7h3.2c.1 5.4 2.5 7.7 4.4 8.2V5.8h3v4.7c1.9-.2 3.9-2.4 4.5-4.7h3c-.5 2.8-2.7 5-4.3 5.9 1.6.8 4.1 2.7 5.1 5.8h-3.3c-.7-2.2-2.5-4-5-4.2v4.2h-.5Z"
+              ></path>
+            </svg>
+          </div>
+          <span class="choice__label">ВКонтакте</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+
+        <label class="choice choice--contact choice--contact-tg">
+          <input type="radio" name="contact_method" value="Telegram" required />
+          <div class="choice__icon-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="m21.4 3.2-3 16.1c-.2 1.1-1 1.4-1.9.9l-5.2-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.2 9.5-8.6c.4-.4-.1-.6-.6-.3L5.3 12.7.2 11.1c-1.1-.3-1.1-1.1.2-1.6L20.2 2c.9-.3 1.7.2 1.2 1.2Z"
+              ></path>
+            </svg>
+          </div>
+          <span class="choice__label">Telegram</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+
+        <label class="choice choice--contact choice--contact-max">
+          <input type="radio" name="contact_method" value="MAX" required />
+          <div class="choice__icon-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12.2589 23.9315C9.90029 23.9315 8.80729 23.5862 6.90892 22.2049C5.70086 23.7588 1.89262 24.9733 1.73154 22.8955C1.73154 21.3358 1.38063 20.0177 0.995206 18.5789C0.52349 16.8062 0 14.832 0 11.9715C0 5.13969 5.58006 0 12.1956 0C18.8111 0 24 5.39869 24 12.0406C24 18.6825 18.65 23.9373 12.2589 23.9373M12.3567 5.91093C9.13519 5.74402 6.62129 7.98293 6.06903 11.4938C5.60882 14.4003 6.4257 17.94 7.12177 18.1242C7.44967 18.2048 8.28955 17.5256 8.80729 17.0019C9.65868 17.5601 10.6366 17.986 11.7239 18.0436C15.0259 18.2163 17.954 15.6263 18.1323 12.3053C18.1955 10.6964 17.6263 9.12671 16.5467 7.93255C15.4671 6.7384 13.963 6.01477 12.3567 5.91669"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <span class="choice__label">MAX</span>
+          <span class="choice__control" aria-hidden="true"></span>
+        </label>
+      </div>
+      <p
+        class="field-error"
+        data-field-error="contact_method"
+        hidden
+        aria-live="polite"
+      >
+      </p>
+      <div class="lead-quiz__footer lead-quiz__footer--split">
+        <button class="button button--back" type="button" data-quiz-prev
+          >← Назад</button
+        >
+        <button
+          class="button button--primary"
+          type="button"
+          data-quiz-next
+          disabled
+        >
+          Продолжить <span aria-hidden="true">↘</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Analysis Screen -->
+    <section
+      class="quiz-analysis"
+      data-quiz-analysis
+      hidden
+      role="status"
+      aria-live="polite"
+    >
+      <div class="quiz-analysis__loader">
+        <span class="quiz-analysis__spinner" aria-hidden="true"></span>
+        <div class="quiz-analysis__icon-pulse">
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <h3 data-quiz-analysis-heading tabindex="-1">Анализируем параметры</h3>
+      <p>
+        Сопоставляем тип техники, сложность работ и материалы. Это займёт
+        секунду...
+      </p>
+      <div class="quiz-analysis__chips">
+        <span>✓ Тип техники</span>
+        <span>✓ Состояние обивки</span>
+        <span>✓ Параметры наполнителя</span>
+      </div>
+    </section>
+
+    <!-- Contact Details Step -->
+    <section
+      class="quiz-contact"
+      data-quiz-contact
+      hidden
+      aria-labelledby={`${prefix}-contact-heading`}
+    >
+      <h3
+        id={`${prefix}-contact-heading`}
+        data-quiz-contact-heading
+        tabindex="-1"
+      >
+        Куда отправить расчёт?
+      </h3>
+      <p>
+        Подготовим точную калькуляцию и отправим результат выбранным способом.
+      </p>
+      <div class="lead-quiz__contact-grid">
+        <label class="quiz-field">
+          <span class="quiz-field__label">Как к вам обращаться</span>
+          <div class="quiz-field__input-wrap">
+            <svg
+              class="quiz-field__icon"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <input
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Ваше имя"
+              required
+            />
+          </div>
+        </label>
+
+        <label class="quiz-field">
+          <span class="quiz-field__label">Телефон для связи</span>
+          <div class="quiz-field__input-wrap">
+            <svg
+              class="quiz-field__icon"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+              ></path>
+            </svg>
+            <input
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              placeholder="+7 (___) ___-__-__"
+              required
+            />
+          </div>
+        </label>
+      </div>
+
+      <p class="consent">
+        Нажимая кнопку, вы соглашаетесь с <a
+          href="https://www.lenremont.ru/politika-obrabotki-personalnyh-dannyh.htm"
+          target="_blank"
+          rel="noopener noreferrer">политикой обработки персональных данных</a
+        >.
+      </p>
+      <p class="field-error" data-contact-error hidden aria-live="polite"></p>
+      <div class="lead-quiz__footer">
+        <button
+          class="button button--primary"
+          type="submit"
+          data-quiz-submit
+          disabled
+        >
+          Получить расчёт <span aria-hidden="true">↘</span>
+        </button>
+      </div>
+      <p class="quiz-contact__note">
+        Без спама и навязчивых звонков — только детальный расчёт по вашему
+        сиденью.
+      </p>
+    </section>
+  </form>
+
+  <!-- Final Success Screen -->
+  <section
+    class="quiz-success"
+    data-quiz-success
+    hidden
+    role="status"
+    tabindex="-1"
+  >
+    <div class="quiz-success__header">
+      <div class="quiz-success__icon-wrap">
+        <span class="quiz-success__ripple"></span>
+        <div class="quiz-success__icon">
+          <svg
+            viewBox="0 0 24 24"
+            width="36"
+            height="36"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+      <h3 data-quiz-success-title>Заявка успешно принята!</h3>
+      <p class="quiz-success__subtitle">
+        Спасибо! Мастер уже изучает параметры вашей техники и готовит расчёт.
+      </p>
+    </div>
+
+    <div class="quiz-success__timeline">
+      <h4 class="quiz-success__timeline-title">Что будет дальше:</h4>
+      <div class="quiz-success__steps">
+        <div class="quiz-success__step-item">
+          <span class="quiz-success__step-num">1</span>
+          <div class="quiz-success__step-text">
+            <strong>Оценка сложности</strong>
+            <p>Мастер подберёт оптимальные материалы и варианты строчки.</p>
+          </div>
+        </div>
+        <div class="quiz-success__step-item">
+          <span class="quiz-success__step-num">2</span>
+          <div class="quiz-success__step-text">
+            <strong>Расчёт стоимости</strong>
+            <p>Отправим 2–3 варианта сметы выбранным вами способом.</p>
+          </div>
+        </div>
+        <div class="quiz-success__step-item">
+          <span class="quiz-success__step-num">3</span>
+          <div class="quiz-success__step-text">
+            <strong>Консультация</strong>
+            <p>Ответим на вопросы и согласуем удобное время сдачи в работу.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-success__contact-direct">
+      <span>Нужен ответ прямо сейчас? Звоните мастеру:</span>
+      <a href="tel:+78123444444" class="quiz-success__phone-link"
+        >+7 (812) 344-44-44</a
+      >
+    </div>
+
+    <div class="quiz-success__footer-note">
+      <small>Окно закроется автоматически через 5 секунд</small>
+    </div>
+  </section>
+</div>
+
+<style>
+  .lead-quiz {
+    position: relative;
+    padding: clamp(24px, 4.5vw, 46px);
+    background: var(--white);
+    border-radius: 16px;
+  }
+  .lead-quiz [hidden] {
+    display: none !important;
+  }
+
+  /* Progress Bar */
+  .lead-quiz__progress {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .lead-quiz__progress-track {
+    position: relative;
+    display: block;
+    flex: 1;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #eae7e1;
+  }
+  .lead-quiz__progress-track span {
+    display: block;
+    width: 20%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 100%);
+    box-shadow: 0 0 10px rgba(18, 103, 232, 0.4);
+    transition: width 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .lead-quiz__progress strong {
+    flex: 0 0 auto;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: #f4f2ee;
+    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  /* Steps & Headers */
+  .lead-quiz__step {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    animation: quiz-fade-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .lead-quiz__step legend,
+  .quiz-analysis h3,
+  .quiz-contact h3,
+  .quiz-success h3 {
+    max-width: 680px;
+    margin: 0;
+    padding: 0;
+    color: var(--ink);
+    font-family: "Oswald Local", Impact, sans-serif;
+    font-size: clamp(27px, 3.3vw, 40px);
+    font-weight: 500;
+    line-height: 1.06;
+  }
+  .lead-quiz__step legend span {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+    color: var(--orange);
+    background: #fce6d9;
+    font-family: var(--body-font);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    vertical-align: 5px;
+  }
+  .lead-quiz__step > p {
+    max-width: 620px;
+    margin: 12px 0 26px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* Choice Cards Grid */
+  .choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .choice-grid--vehicle,
+  .choice-grid--contact {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* Base Choice Card */
+  .choice {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 74px;
+    gap: 14px;
+    padding: 16px 20px;
+    border: 1.5px solid #e3dfd7;
+    border-radius: 14px;
+    background: #ffffff !important;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+    user-select: none;
+  }
+  .choice:hover {
+    border-color: #b8b4aa;
+    background: #faf8f5 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    transform: translateY(-2px);
+  }
+  .choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  /* Choice Checked State */
+  .choice:has(input:checked) {
+    border-color: var(--blue) !important;
+    background: #f0f6ff !important;
+    box-shadow:
+      0 8px 24px rgba(18, 103, 232, 0.16),
+      inset 0 0 0 1px var(--blue);
+    transform: translateY(-2px);
+  }
+
+  .choice__label {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+  .choice:has(input:checked) .choice__label {
+    color: var(--blue-deep);
+    font-weight: 700;
+  }
+
+  /* Control Radio / Checkbox Indicator */
+  .choice__control {
+    position: relative;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b8b4aa;
+    border-radius: 50%;
+    background: var(--white);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .choice input[type="checkbox"] + .choice__control {
+    border-radius: 7px;
+  }
+  .choice input:checked + .choice__control,
+  .choice:has(input:checked) .choice__control {
+    border-color: var(--blue);
+    background: var(--blue);
+    transform: scale(1.06);
+  }
+  .choice input:checked + .choice__control::after,
+  .choice:has(input:checked) .choice__control::after {
+    width: 6px;
+    height: 10px;
+    border: solid var(--white);
+    border-width: 0 2.5px 2.5px 0;
+    content: "";
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+
+  /* Vehicle Cards */
+  .choice--vehicle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 148px;
+    padding: 20px 18px;
+    text-align: left;
+  }
+  .choice__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #fce6d9;
+    color: var(--orange);
+    transition: all 0.2s ease;
+    align-self: flex-start;
+  }
+  .choice__icon {
+    width: 36px;
+    height: 36px;
+    color: inherit;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+  }
+  .choice--vehicle:hover .choice__icon-wrap {
+    background: #f8d7c4;
+    transform: scale(1.04);
+  }
+  .choice--vehicle:has(input:checked) .choice__icon-wrap {
+    background: #dbe9fe;
+    color: var(--blue);
+    transform: scale(1.08);
+  }
+  .choice--vehicle .choice__control {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  /* Contact Method Cards */
+  .choice--contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 136px;
+    padding: 18px;
+    text-align: left;
+  }
+  .choice--contact .choice__icon-wrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #f4f2ee;
+    color: #4a4d53;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+  }
+  .choice--contact svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    color: inherit;
+    transition: all 0.2s ease;
+  }
+  .choice--contact-phone svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+  }
+  .choice--contact .choice__control {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  /* Contact Brand Tints */
+  .choice--contact-phone:has(input:checked) .choice__icon-wrap {
+    background: #ffebe0;
+    color: var(--orange);
+  }
+  .choice--contact-vk:has(input:checked) .choice__icon-wrap {
+    background: #e2f0ff;
+    color: #0077ff;
+  }
+  .choice--contact-tg:has(input:checked) .choice__icon-wrap {
+    background: #e0f4ff;
+    color: #0088cc;
+  }
+  .choice--contact-max:has(input:checked) .choice__icon-wrap {
+    background: #ede9fe;
+    color: #7358f5;
+  }
+
+  /* Footer & Buttons */
+  .lead-quiz__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eae7e1;
+  }
+  .lead-quiz__footer--split {
+    justify-content: space-between;
+  }
+  .lead-quiz__footer .button {
+    min-width: 144px;
+  }
+  .lead-quiz__footer .button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .button--back {
+    color: #4e4e49;
+    background: #ebe8e2;
+    font-weight: 600;
+  }
+  .button--back:hover {
+    background: #e1ded7;
+    color: var(--ink);
+  }
+
+  /* Analysis Screen */
+  .quiz-analysis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    padding: 30px 20px;
+    text-align: center;
+    animation: quiz-fade-in 0.3s ease;
+  }
+  .quiz-analysis__loader {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 20px;
+  }
+  .quiz-analysis__spinner {
+    position: absolute;
+    inset: 0;
+    border: 4px solid #dce9fb;
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  .quiz-analysis__icon-pulse {
+    color: var(--blue);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  .quiz-analysis h3 {
+    margin: 0 0 10px;
+  }
+  .quiz-analysis p {
+    max-width: 480px;
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .quiz-analysis__chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .quiz-analysis__chips span {
+    padding: 6px 14px;
+    border-radius: 99px;
+    background: #edf5ff;
+    color: var(--blue-deep);
+    font-size: 13px;
+    font-weight: 650;
+    border: 1px solid #cbe0fe;
+  }
+
+  /* Contact Step Form */
+  .quiz-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    animation: quiz-fade-in 0.28s ease;
+  }
+  .quiz-contact h3 {
+    margin: 0;
+    text-align: left;
+  }
+  .quiz-contact > p {
+    margin: 16px 0 24px;
+    color: var(--muted);
+    font-size: 15px;
+    text-align: left;
+  }
+  .lead-quiz__contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 560px;
+  }
+  .quiz-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .quiz-field__label {
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+  }
+  .quiz-field__input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .quiz-field__icon {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: #8b8984;
+    pointer-events: none;
+  }
+  .quiz-field input {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px 0 46px;
+    border: 1.5px solid #d4d0c7;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .quiz-field input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(18, 103, 232, 0.15);
+  }
+
+  .quiz-contact .consent {
+    width: 100%;
+    max-width: 560px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: left;
+  }
+  .quiz-contact .consent a {
+    color: var(--blue-deep);
+    text-decoration: underline;
+  }
+
+  .quiz-contact .lead-quiz__footer {
+    width: 100%;
+    max-width: 560px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #eae7e1;
+    display: flex;
+    justify-content: stretch;
+  }
+  .quiz-contact .lead-quiz__footer .button {
+    width: 100%;
+    min-height: 52px;
+    font-size: 16px;
+    border-radius: 10px;
+    justify-content: center;
+  }
+
+  .quiz-contact__note {
+    width: 100%;
+    max-width: 560px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* Errors */
+  .field-error {
+    min-height: 20px;
+    margin: 12px 0 0 !important;
+    color: #d32f2f !important;
+    font-size: 13px !important;
+    font-weight: 700;
+  }
+
+  /* Final Success Screen - Vertical Flow */
+  .quiz-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 580px;
+    margin-inline: auto;
+    padding: 10px 0;
+    text-align: center;
+    animation: quiz-scale-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .quiz-success__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .quiz-success__icon-wrap {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 18px;
+  }
+  .quiz-success__ripple {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    animation: ripple 2s infinite;
+  }
+  .quiz-success__icon {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    color: var(--white);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+  }
+  .quiz-success h3 {
+    margin: 0 0 8px;
+  }
+  .quiz-success__subtitle {
+    max-width: 520px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* Success Timeline Box - Vertical Flow */
+  .quiz-success__timeline {
+    position: relative;
+    width: 100%;
+    margin: 20px 0 24px;
+    padding: 24px 26px;
+    border: 1px solid #e5e2db;
+    border-radius: 14px;
+    background: #f8f7f4;
+    text-align: left;
+  }
+  .quiz-success__timeline-title {
+    margin: 0 0 20px;
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  .quiz-success__steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-left: 4px;
+    text-align: left;
+  }
+  .quiz-success__steps::before {
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: 17px;
+    width: 2px;
+    background: #d8d4cb;
+    content: "";
+  }
+  .quiz-success__step-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+  }
+  .quiz-success__step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 0 0 4px #f8f7f4;
+  }
+  .quiz-success__step-text {
+    flex: 1;
+    font-size: 14px;
+    text-align: left;
+  }
+  .quiz-success__step-text strong {
+    display: block;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    text-align: left;
+  }
+  .quiz-success__step-text p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  /* Direct Phone Banner - Vertical Flow */
+  .quiz-success__contact-direct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: #edf4fe;
+    color: var(--ink-2);
+    font-size: 14px;
+    text-align: center;
+  }
+  .quiz-success__phone-link {
+    color: var(--blue-deep);
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: color 0.16s ease;
+  }
+  .quiz-success__phone-link:hover {
+    color: var(--orange);
+  }
+
+  .quiz-success__footer-note small {
+    display: block;
+    margin-top: 18px;
+    color: #939089;
+    font-size: 12px;
+  }
+
+  /* Animations */
+  @keyframes quiz-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes quiz-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.7;
+    }
+  }
+  @keyframes ripple {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 768px) {
+    .choice-grid--vehicle,
+    .choice-grid--contact {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 560px) {
+    .lead-quiz {
+      padding: 20px 16px;
+    }
+    .lead-quiz__progress {
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .lead-quiz__progress strong {
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+    .choice-grid,
+    .lead-quiz__contact-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .choice-grid--vehicle,
+    .choice-grid--contact {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .choice {
+      min-height: 64px;
+      padding: 14px 16px;
+    }
+    .choice--vehicle {
+      min-height: 124px;
+      padding: 16px 14px;
+    }
+    .choice--contact {
+      min-height: 118px;
+      padding: 14px;
+    }
+    .lead-quiz__footer {
+      margin-top: 24px;
+      padding-top: 18px;
+    }
+    .lead-quiz__footer .button {
+      min-width: 0;
+    }
+    .lead-quiz__footer .button--back {
+      padding-inline: 16px;
+    }
+    .quiz-success__timeline {
+      padding: 16px 18px;
+    }
+  }
+</style>

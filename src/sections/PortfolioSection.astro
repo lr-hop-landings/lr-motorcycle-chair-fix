@@ -1,0 +1,57 @@
+---
+import workshopStaging from "../assets/motoSeat/workshopStaging.webp";
+import finishedSeatStaging from "../assets/motoSeat/finishedSeatStaging.webp";
+import materialsStaging from "../assets/motoSeat/materialsStaging.webp";
+import ButtonLink from "../components/ButtonLink.astro";
+
+const caseStudies = [
+  { number: "01", before: workshopStaging, after: finishedSeatStaging, title: "Контрастная строчка и двухфактурная обивка", text: "Сценарий обновления посадочной зоны с акцентом на материал и линию шва.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · МОТОСИДЕНЬЕ" },
+  { number: "02", before: materialsStaging, after: finishedSeatStaging, title: "Фактура, цвет и посадка в одном решении", text: "Концепт, в котором выбор покрытия и форма сиденья рассматриваются вместе.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · ПОДБОР МАТЕРИАЛА" },
+  { number: "03", before: workshopStaging, after: materialsStaging, title: "Детали, которые меняют впечатление", text: "Вариант сочетания материалов для обсуждения до начала пошива.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · ДИЗАЙН" }
+];
+---
+
+<section class="portfolio section section--dark" id="portfolio" aria-labelledby="portfolio-title"><div class="container portfolio__intro"><div><p class="eyebrow">ИСТОРИИ ОБНОВЛЕНИЯ</p><h2 id="portfolio-title">Детали, в которых видно новое ощущение от сиденья</h2><p class="section-lead">Потяните ленту, чтобы посмотреть визуальные сценарии. Реальные кейсы будут добавлены после получения прав на публикацию.</p></div><div class="portfolio__actions"><ButtonLink href="#estimate" variant="outline" dataCta="portfolio">Запросить похожий результат <span aria-hidden="true">↘</span></ButtonLink><div class="case-nav" aria-label="Навигация по кейсам"><button type="button" class="case-nav__button" data-case-prev>Назад</button><button type="button" class="case-nav__button" data-case-next>Далее</button></div></div></div><div class="portfolio__carousel"><div class="swiper case-swiper" data-case-swiper aria-roledescription="carousel" aria-label="Лента визуальных сценариев"><div class="swiper-wrapper">{caseStudies.map((caseStudy) => <article class="swiper-slide case-card" data-case-card style="--compare-position: 50%;"><div class="case-card__media"><img class="case-card__image" src={caseStudy.after.src} alt={`Визуал концепции: ${caseStudy.title}`} loading="lazy" width="1536" height="1024" /><div class="case-card__before"><img class="case-card__image" src={caseStudy.before.src} alt="" loading="lazy" width="1536" height="1024" /></div><span class="case-card__label case-card__label--before">Исходная точка</span><span class="case-card__label case-card__label--after">Концепт</span><input class="case-card__range" type="range" min="18" max="82" value="50" aria-label={`Сравнение визуалов: ${caseStudy.title}`} /></div><div class="case-card__body"><p>{caseStudy.tags}</p><span>{caseStudy.number} / 03</span><h3>{caseStudy.title}</h3><div><b>Сценарий</b><p>{caseStudy.text}</p></div></div></article>)}</div><div class="case-swiper__pagination" data-case-pagination></div></div></div></section>
+
+<script>
+  import Swiper from 'swiper';
+  import { A11y, Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  document.querySelectorAll('[data-case-card]').forEach((card) => { const range = card.querySelector('.case-card__range'); range?.addEventListener('input', () => card.style.setProperty('--compare-position', `${range.value}%`)); });
+  const caseSwiper = document.querySelector('[data-case-swiper]');
+  if (caseSwiper) new Swiper(caseSwiper, { modules: [A11y, Navigation, Pagination], slidesPerView: 'auto', spaceBetween: 22, grabCursor: true, navigation: { prevEl: '[data-case-prev]', nextEl: '[data-case-next]' }, pagination: { el: '[data-case-pagination]', clickable: true }, a11y: { prevSlideMessage: 'Предыдущий кейс', nextSlideMessage: 'Следующий кейс' }, breakpoints: { 760: { spaceBetween: 28 } } });
+</script>
+
+<style>
+  .portfolio { overflow: hidden; padding-block: clamp(68px, 9vw, 130px); background: #1d191a; }
+  .portfolio__intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 36px; align-items: end; margin-bottom: 48px; }
+  .portfolio h2 { max-width: 720px; font-family: var(--body-font); font-size: clamp(38px, 4.1vw, 59px); font-weight: 500; letter-spacing: -0.055em; }
+  .portfolio__intro .section-lead { max-width: 680px; margin-bottom: 0; color: #bdb8b7; }
+  .portfolio__actions { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+  .case-nav { display: flex; gap: 9px; }
+  .case-nav__button { min-width: 94px; min-height: 42px; padding: 9px 15px; border: 1px solid rgb(255 255 255 / 32%); border-radius: 999px; color: #f6f0eb; background: transparent; cursor: pointer; font-size: 12px; font-weight: 750; }
+  .portfolio__carousel { width: calc(100% - max(var(--gutter), (100% - var(--container-width)) / 2)); margin-left: max(var(--gutter), (100% - var(--container-width)) / 2); }
+  .case-swiper { overflow: visible; }
+  .case-swiper .swiper-slide { width: min(760px, calc(100vw - max(72px, var(--gutter) * 2))); height: auto; }
+  .case-card { display: grid; overflow: hidden; min-height: 580px; border: 1px solid rgb(255 255 255 / 16%); border-radius: 30px; background: #231e1f; }
+  .case-card__media { position: relative; min-height: 340px; overflow: hidden; background: #0d0d0e; }
+  .case-card__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .case-card__before { position: absolute; z-index: 2; inset: 0; clip-path: inset(0 calc(100% - var(--compare-position)) 0 0); }
+  .case-card__before::after { position: absolute; top: 0; bottom: 0; left: var(--compare-position); width: 1px; background: rgb(255 255 255 / 88%); content: ""; }
+  .case-card__label { position: absolute; z-index: 3; top: 23px; padding: 8px 14px; border-radius: 999px; color: var(--white); background: rgb(29 25 26 / 70%); font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .case-card__label--before { left: 23px; }
+  .case-card__label--after { right: 23px; color: #241f20; background: #f7f2ed; }
+  .case-card__range { position: absolute; z-index: 4; inset: 0; width: 100%; height: 100%; margin: 0; cursor: ew-resize; opacity: 0; }
+  .case-card__body { display: grid; grid-template-columns: auto 1fr; column-gap: 24px; align-content: start; padding: 25px 28px 31px; }
+  .case-card__body > p { grid-column: 1 / -1; margin: 0 0 20px; color: #d0a993; font-size: 10px; font-weight: 800; letter-spacing: 0.09em; }
+  .case-card__body > span { grid-row: span 2; color: var(--orange); font-size: 12px; font-weight: 800; writing-mode: vertical-rl; }
+  .case-card__body h3 { margin: 0 0 16px; color: #f8f4f0; font-size: clamp(24px, 2.2vw, 31px); font-weight: 500; }
+  .case-card__body div { grid-column: 2; max-width: 470px; padding-top: 15px; border-top: 1px solid rgb(255 255 255 / 15%); }
+  .case-card__body div p { margin: 0; color: #c7c0bf; font-size: 14px; }
+  :global(.case-swiper__pagination .swiper-pagination-bullet) { width: 25px; height: 2px; margin: 25px 8px 0 0 !important; border-radius: 0; background: rgb(255 255 255 / 32%); opacity: 1; }
+  :global(.case-swiper__pagination .swiper-pagination-bullet-active) { background: var(--orange); }
+  @media (max-width: 900px) { .portfolio__intro { grid-template-columns: 1fr; gap: 25px; } .portfolio__actions { flex-direction: row; align-items: flex-start; justify-content: space-between; } }
+  @media (max-width: 640px) { .portfolio__intro { margin-bottom: 32px; } .portfolio__actions { flex-direction: column; align-items: stretch; } :global(.portfolio__actions .button) { width: 100%; } .case-nav { justify-content: space-between; } .case-nav__button { flex: 1; } .portfolio__carousel { width: calc(100% - var(--gutter)); margin-left: var(--gutter); } .case-swiper .swiper-slide { width: calc(100vw - var(--gutter) * 2); } .case-card { min-height: 0; border-radius: 22px; } .case-card__media { min-height: 270px; } .case-card__body { column-gap: 17px; padding: 20px 19px 24px; } }
+</style>

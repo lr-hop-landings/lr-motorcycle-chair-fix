@@ -1,0 +1,180 @@
+---
+import EstimateQuiz from "../components/EstimateQuiz.astro";
+---
+
+<section class="estimate section" id="estimate" aria-labelledby="estimate-title" tabindex="-1">
+  <div class="container estimate__form-wrap">
+    <header class="quiz-header">
+      <p class="quiz-header__badge"><span aria-hidden="true">◷</span> Расчёт за 2 минуты</p>
+      <h2 id="estimate-title">Узнайте предварительную стоимость перетяжки сиденья</h2>
+      <p class="section-lead">Ответьте на пять коротких вопросов. Точные размеры не понадобятся — мастер разберётся по вашим ответам.</p>
+    </header>
+    <EstimateQuiz prefix="inline" />
+  </div>
+</section>
+
+<dialog class="quiz-modal" data-quiz-modal aria-label="Расчёт перетяжки сиденья">
+  <div class="quiz-modal__dialog">
+    <button class="quiz-modal__close" type="button" data-quiz-modal-close aria-label="Закрыть квиз">×</button>
+    <EstimateQuiz prefix="modal" />
+  </div>
+</dialog>
+
+<script>
+  const modal = document.querySelector('[data-quiz-modal]');
+
+  const setupQuiz = (root) => {
+    const form = root.querySelector('form');
+    const steps = Array.from(root.querySelectorAll('[data-quiz-step]'));
+    const progress = root.querySelector('[data-quiz-progress]');
+    const progressValue = root.querySelector('[data-quiz-progress-value]');
+    const progressText = root.querySelector('[data-quiz-progress-text]');
+    const analysis = root.querySelector('[data-quiz-analysis]');
+    const contact = root.querySelector('[data-quiz-contact]');
+    const success = root.querySelector('[data-quiz-success]');
+    const phone = form.querySelector('input[name="phone"]');
+    let activeStep = 0;
+    let view = 'questions';
+    let analysisTimer;
+    let closeTimer;
+
+    const getStepError = (step) => {
+      const selectionName = step.dataset.quizRequiresSelection;
+      if (selectionName && !step.querySelector(`input[name="${selectionName}"]:checked`)) return 'Выберите хотя бы один вариант.';
+      const radios = [...new Set(Array.from(step.querySelectorAll('input[type="radio"][required]')).map((input) => input.name))];
+      return radios.some((name) => !step.querySelector(`input[name="${name}"]:checked`)) ? 'Выберите вариант, чтобы продолжить.' : null;
+    };
+
+    const getContactError = () => {
+      const name = form.querySelector('input[name="name"]');
+      if (!name.value.trim()) return 'Введите имя.';
+      if (phone.value.replace(/\D/g, '').length !== 11) return 'Введите телефон в формате +7 (___) ___-__-__.';
+      return null;
+    };
+
+    const setButton = (button, valid) => { if (button) { button.disabled = !valid; button.setAttribute('aria-disabled', String(!valid)); } };
+    const render = (focus = false) => {
+      steps.forEach((step, index) => {
+        const current = view === 'questions' && index === activeStep;
+        step.hidden = !current;
+        step.classList.toggle('is-active', current);
+      });
+      analysis.hidden = view !== 'analysis';
+      contact.hidden = view !== 'contact';
+      success.hidden = view !== 'success';
+      progress.hidden = view !== 'questions';
+      if (view === 'questions') {
+        const number = activeStep + 1;
+        progress.setAttribute('aria-valuenow', String(number));
+        progressValue.style.width = `${(number / steps.length) * 100}%`;
+        progressText.textContent = `Шаг ${number} из ${steps.length}`;
+        const step = steps[activeStep];
+        step.querySelector('[data-field-error]').hidden = true;
+        setButton(step.querySelector('[data-quiz-next]'), !getStepError(step));
+      }
+      if (view === 'contact') setButton(contact.querySelector('[data-quiz-submit]'), !getContactError());
+      if (focus) window.setTimeout(() => {
+        const target = view === 'questions' ? steps[activeStep].querySelector('legend') : view === 'contact' ? contact.querySelector('[data-quiz-contact-heading]') : success;
+        target?.focus({ preventScroll: true });
+      }, 0);
+    };
+
+    const resetQuiz = () => {
+      window.clearTimeout(analysisTimer);
+      window.clearTimeout(closeTimer);
+      form.reset();
+      activeStep = 0;
+      view = 'questions';
+      form.setAttribute('aria-busy', 'false');
+      render();
+    };
+
+    const showSuccess = () => {
+      view = 'success';
+      render(true);
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        resetQuiz();
+        const dialog = root.closest('dialog');
+        if (dialog?.open) dialog.close();
+      }, 5000);
+    };
+
+    const advance = () => {
+      const step = steps[activeStep];
+      const error = getStepError(step);
+      if (error) { const element = step.querySelector('[data-field-error]'); element.textContent = error; element.hidden = false; return; }
+      if (activeStep < steps.length - 1) { activeStep += 1; render(true); return; }
+      view = 'analysis';
+      form.setAttribute('aria-busy', 'true');
+      render(true);
+      window.clearTimeout(analysisTimer);
+      analysisTimer = window.setTimeout(() => { view = 'contact'; form.setAttribute('aria-busy', 'false'); render(true); }, 1800);
+    };
+
+    form.addEventListener('change', (event) => {
+      const field = event.target;
+      if (view === 'questions') {
+        const step = steps[activeStep];
+        render();
+        if (field.type === 'radio' && step.contains(field) && !getStepError(step)) window.setTimeout(() => {
+          if (view === 'questions' && steps[activeStep] === step) advance();
+        }, 350);
+      } else if (view === 'contact') render();
+    });
+    form.addEventListener('input', () => { if (view === 'contact') render(); });
+    form.querySelectorAll('[data-quiz-next]').forEach((button) => button.addEventListener('click', advance));
+    form.querySelectorAll('[data-quiz-prev]').forEach((button) => button.addEventListener('click', () => { if (activeStep > 0) { activeStep -= 1; render(true); } }));
+    phone.addEventListener('input', (event) => {
+      const raw = event.target.value.replace(/\D/g, '');
+      const digits = (raw.length > 10 && /^[78]/.test(raw) ? raw.slice(1) : raw).slice(0, 10);
+      let value = '+7';
+      if (digits) value += ` (${digits.slice(0, 3)}`;
+      if (digits.length >= 3) value += ')';
+      if (digits.length > 3) value += ` ${digits.slice(3, 6)}`;
+      if (digits.length > 6) value += `-${digits.slice(6, 8)}`;
+      if (digits.length > 8) value += `-${digits.slice(8, 10)}`;
+      event.target.value = value;
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const error = getContactError();
+      if (error) { const element = contact.querySelector('[data-contact-error]'); element.textContent = error; element.hidden = false; return; }
+      showSuccess();
+    });
+    render();
+    return { resetQuiz, render };
+  };
+
+  const quizzes = new Map(Array.from(document.querySelectorAll('[data-quiz-root]')).map((root) => [root, setupQuiz(root)]));
+  const modalRoot = modal?.querySelector('[data-quiz-root]');
+  const modalQuiz = modalRoot ? quizzes.get(modalRoot) : null;
+  const openModal = (source) => {
+    if (!modal || !modalQuiz) return;
+    modalRoot.querySelector('input[name="cta_source"]').value = source || 'direct';
+    if (!modal.open) modal.showModal();
+    document.body.classList.add('quiz-modal-open');
+    modalQuiz.render(true);
+  };
+  document.querySelectorAll('[data-cta], a[href="#estimate"]').forEach((trigger) => trigger.addEventListener('click', (event) => { event.preventDefault(); openModal(trigger.dataset.cta); }));
+  modal?.querySelector('[data-quiz-modal-close]').addEventListener('click', () => { modalQuiz?.resetQuiz(); modal.close(); });
+  modal?.addEventListener('click', (event) => { if (event.target === modal) { modalQuiz?.resetQuiz(); modal.close(); } });
+  modal?.addEventListener('close', () => { document.body.classList.remove('quiz-modal-open'); modalQuiz?.resetQuiz(); });
+</script>
+
+<style>
+  .estimate { background: var(--paper); }
+  .estimate__form-wrap { width: min(100%, 1040px); margin-inline: auto; }
+  .quiz-header { max-width: 780px; margin: 0 auto 32px; text-align: center; }
+  .quiz-header h2, .quiz-header .section-lead { margin-inline: auto; }
+  .quiz-header__badge { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 15px; padding: 6px 10px; border: 1px solid #c8d7ef; border-radius: 999px; color: var(--blue-deep); background: #eaf3ff; font-size: 12px; font-weight: 800; }
+  .quiz-header__badge span { font-size: 17px; line-height: 0; }
+  .estimate :global(.lead-quiz) { max-width: 820px; margin: 0 auto; border: 1px solid #d8d5cf; border-radius: 12px; box-shadow: 0 18px 44px rgb(22 23 25 / 6%); }
+  .quiz-modal { width: min(920px, calc(100% - 28px)); max-height: min(840px, calc(100dvh - 28px)); padding: 0; border: 0; border-radius: 13px; background: transparent; overflow: visible; }
+  .quiz-modal::backdrop { background: rgb(15 17 21 / 70%); backdrop-filter: blur(4px); }
+  .quiz-modal__dialog { position: relative; max-height: inherit; overflow: auto; border-radius: inherit; background: var(--white); }
+  .quiz-modal__close { position: absolute; z-index: 2; top: 13px; right: 13px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; color: #66655f; background: #eceae5; cursor: pointer; font-size: 26px; line-height: 1; transition: color .15s, background-color .15s; }
+  .quiz-modal__close:hover { color: var(--white); background: var(--ink); }
+  .quiz-modal :global(.lead-quiz__progress) { padding-right: 48px; }
+  @media (max-width: 560px) { .quiz-modal { width: 100%; max-height: 100dvh; border-radius: 0; } .quiz-modal__dialog { min-height: 100dvh; border-radius: 0; } }
+</style>

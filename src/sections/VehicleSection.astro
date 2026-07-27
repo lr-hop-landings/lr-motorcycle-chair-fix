@@ -1,0 +1,28 @@
+---
+const vehicleTypes = [
+  ["Мотоциклы и скутеры", "Восстановление обивки, обновление внешнего вида и подбор фактуры с учетом посадки."],
+  ["Квадроциклы и багги", "Работаем с сиденьями сложной формы и подбираем вариант под условия эксплуатации."],
+  ["Другая мототехника", "Расскажите о технике в квизе — проверим возможность работы именно с вашим сиденьем."]
+];
+import ButtonLink from "../components/ButtonLink.astro";
+---
+
+<section class="vehicles section" aria-labelledby="vehicles-title"><div class="container"><p class="eyebrow">ОТ ГОРОДСКОГО СКУТЕРА ДО ТЕХНИКИ ОТКРЫТОГО ТИПА</p><div class="section-head"><h2 id="vehicles-title">Какие сиденья можно обсудить со специалистом</h2><p>Конструкция и условия эксплуатации отличаются — поэтому решение начинаем с коротких вопросов о конкретном сиденье.</p></div><div class="vehicles__grid">{vehicleTypes.map(([name, text], index) => <article class="vehicle"><span>0{index + 1}</span><h3>{name}</h3><p>{text}</p><ButtonLink href="#estimate" dataCta="vehicleTypes" className="vehicle__link">Рассчитать перетяжку <b>↘</b></ButtonLink></article>)}</div></div></section>
+
+<style>
+  .vehicles { background: var(--white); }
+  .section-head { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: end; margin-bottom: 42px; }
+  .section-head h2 { margin: 0; }
+  .section-head p { max-width: 420px; margin: 0 0 5px; color: var(--muted); }
+  .vehicles__grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+  .vehicle { min-height: 272px; padding: 27px 28px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .vehicle:first-child { padding-left: 0; }
+  .vehicle:last-child { padding-right: 0; border-right: 0; }
+  .vehicle > span { color: var(--orange); font-size: 13px; font-weight: 800; letter-spacing: 0.1em; }
+  .vehicle h3 { margin: 34px 0 8px; }
+  .vehicle p { min-height: 75px; margin-bottom: 18px; color: var(--muted); font-size: 14px; }
+  :global(.vehicle__link) { min-height: auto; padding: 0; border: 0; border-radius: 0; color: var(--blue); font-size: 14px; font-weight: 800; }
+  .vehicle b { margin-left: 7px; }
+  @media (max-width: 900px) { .section-head { grid-template-columns: 1fr; gap: 0; } }
+  @media (max-width: 640px) { .vehicles__grid { grid-template-columns: 1fr; } .vehicle, .vehicle:first-child, .vehicle:last-child { min-height: unset; padding: 25px 0; border-right: 0; } .vehicle p { min-height: 0; } }
+</style>

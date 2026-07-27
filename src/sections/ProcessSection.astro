@@ -1,0 +1,13 @@
+---
+const steps = ["Отвечаете на короткие вопросы и описываете задачу.", "Получаете предварительную оценку и возможные варианты.", "Согласовываем передачу сиденья или техники.", "После осмотра выбираем материал, дизайн и окончательную стоимость.", "Проверяем посадку чехла и выдаем заказ."];
+---
+<section class="process section section--dark" id="process" aria-labelledby="process-title"><div class="container"><p class="eyebrow">ВЫ КОНТРОЛИРУЕТЕ РЕЗУЛЬТАТ ДО НАЧАЛА ПОШИВА</p><h2 id="process-title">Как проходит перетяжка сиденья</h2><ol class="timeline">{steps.map((step, index) => <li><span>0{index + 1}</span><p>{step}</p></li>)}</ol></div></section>
+<style>
+  .process h2 { margin-bottom: 52px; }
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); margin: 0; padding: 0; list-style: none; }
+  .timeline li { position: relative; min-height: 185px; padding: 42px 24px 0 0; border-top: 1px solid #65676b; }
+  .timeline li::before { position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); content: ""; }
+  .timeline span { color: var(--orange); font-size: 13px; font-weight: 800; letter-spacing: 0.1em; }
+  .timeline p { max-width: 180px; margin-top: 14px; color: #dbdddf; font-size: 14px; }
+  @media (max-width: 900px) { .timeline { grid-template-columns: 1fr; } .timeline li { min-height: unset; padding: 0 0 32px 36px; border-top: 0; border-left: 1px solid #65676b; } .timeline li::before { top: 5px; left: -5px; } .timeline p { max-width: 540px; margin: 9px 0 0; } }
+</style>

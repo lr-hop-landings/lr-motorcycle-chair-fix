@@ -1,0 +1,28 @@
+---
+const proofItems = [
+  ["01", "Предварительная оценка по ответам", "Ответьте на короткие вопросы — уточним задачу и порядок стоимости."],
+  ["02", "Материал и дизайн согласуем заранее", "Обсуждаем применимые образцы, сочетания, строчку и детали до раскроя."],
+  ["03", "Договор и согласованная стоимость", "После осмотра согласуем окончательную цену и оформляем договор оказания услуг."],
+  ["04", "Гарантия 1 год", "Гарантийный срок заявлен на официальной странице; условия фиксируются в документах на заказ."]
+];
+---
+
+<section class="proof section" aria-labelledby="proof-title">
+  <div class="container"><p class="eyebrow">СНАЧАЛА СОГЛАСОВАНИЕ — ЗАТЕМ РАБОТА</p><h2 id="proof-title">Понятно, что меняем, каким материалом и за какую сумму</h2><div class="accent-line"></div><div class="proof__grid">{proofItems.map(([number, heading, text]) => <article class="proof__item"><span>{number}</span><h3>{heading}</h3><p>{text}</p></article>)}</div></div>
+</section>
+
+<style>
+  .proof { background: var(--white); }
+  .proof h2, .proof .eyebrow { text-align: center; }
+  .proof h2 { margin-inline: auto; }
+  .accent-line { width: 46px; height: 2px; margin: 25px auto 44px; background: var(--orange); }
+  .proof__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .proof__item { min-height: 205px; padding: 0 28px; border-right: 1px solid var(--line); }
+  .proof__item:first-child { padding-left: 0; }
+  .proof__item:last-child { padding-right: 0; border: 0; }
+  .proof__item span { display: inline-block; margin-bottom: 22px; color: var(--orange); font-size: 13px; font-weight: 800; letter-spacing: 0.1em; }
+  .proof__item h3 { margin-bottom: 10px; font-size: 18px; }
+  .proof__item p { margin: 0; color: var(--muted); font-size: 14px; }
+  @media (max-width: 900px) { .proof__grid { grid-template-columns: repeat(2, 1fr); gap: 28px 0; } .proof__item { min-height: 170px; } .proof__item:nth-child(2) { border: 0; } .proof__item:nth-child(3) { padding-left: 0; } }
+  @media (max-width: 640px) { .proof__grid { grid-template-columns: 1fr; gap: 0; } .proof__item, .proof__item:nth-child(2), .proof__item:nth-child(3), .proof__item:last-child { min-height: unset; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); } .proof__item:last-child { border-bottom: 0; } .proof__item span { margin-bottom: 12px; } }
+</style>

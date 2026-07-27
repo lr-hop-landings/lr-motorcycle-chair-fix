@@ -1,210 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const title = "Перетяжка сидений мотоциклов и квадроциклов в СПб | Ленремонт";
-const description = "Перетяжка и ремонт сидений мотоциклов, квадроциклов и другой мототехники в Санкт-Петербурге. Подбор материала и предварительный расчет по фото.";
-const phone = "+7 (812) 344-44-44";
-const proof = [
-  ["01", "Предварительная оценка по фото", "Пришлите несколько ракурсов — уточним задачу и порядок стоимости."],
-  ["02", "Материал и дизайн согласуем заранее", "Обсуждаем применимые образцы, сочетания, строчку и детали до раскроя."],
-  ["03", "Договор и согласованная стоимость", "После осмотра согласуем окончательную цену и оформляем договор оказания услуг."],
-  ["04", "Гарантия 1 год", "Гарантийный срок заявлен на официальной странице; условия фиксируются в документах на заказ."]
-];
-const vehicles = [
-  ["Мотоциклы и скутеры", "Восстановление обивки, обновление внешнего вида и подбор фактуры с учетом посадки."],
-  ["Квадроциклы и багги", "Работаем с сиденьями сложной формы и подбираем вариант под условия эксплуатации."],
-  ["Другая мототехника", "Пришлите фото — проверим возможность работы именно с вашим сиденьем."]
-];
-const process = ["Присылаете фото и описываете задачу.", "Получаете предварительную оценку и возможные варианты.", "Согласовываем передачу сиденья или техники.", "После осмотра выбираем материал, дизайн и окончательную стоимость.", "Проверяем посадку чехла и выдаем заказ."];
-const faqs = [
-  ["Какие фотографии нужны для расчета?", "Нужны 2–4 кадра: общий вид сиденья, повреждение крупно и, если сиденье снято, нижняя сторона с креплениями. Можно приложить пример желаемого результата."],
-  ["Можно ли назвать цену только по фотографии?", "По фото можно сориентировать по возможному решению и порядку стоимости. Окончательная цена зависит от состояния основания и наполнителя, формы, материала и сложности пошива; ее согласуют после осмотра."],
-  ["Какие материалы можно выбрать?", "Конкретный материал рекомендуют после осмотра и уточнения условий эксплуатации. Перед началом работ согласуют фактуру, цвет и детали дизайна."],
-  ["Есть ли гарантия?", "На официальной странице для перетяжки заявлена гарантия 1 год. Перед началом работ уточните, что входит в гарантию, исключения и документ, который ее подтверждает."],
-  ["Как передать сиденье?", "Сценарий передачи согласуют после предварительной оценки. Доступность и стоимость доставки зависят от адреса и габаритов; подтвердим их до оформления."]
-];
-const caseStudies = [
-  { number: "01", before: "/assets/moto-seat/workshop-staging.png", after: "/assets/moto-seat/finished-seat-staging.png", title: "Контрастная строчка и двухфактурная обивка", text: "Сценарий обновления посадочной зоны с акцентом на материал и линию шва.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · МОТОСИДЕНЬЕ" },
-  { number: "02", before: "/assets/moto-seat/materials-staging.png", after: "/assets/moto-seat/finished-seat-staging.png", title: "Фактура, цвет и посадка в одном решении", text: "Концепт, в котором выбор покрытия и форма сиденья рассматриваются вместе.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · ПОДБОР МАТЕРИАЛА" },
-  { number: "03", before: "/assets/moto-seat/workshop-staging.png", after: "/assets/moto-seat/materials-staging.png", title: "Детали, которые меняют впечатление", text: "Вариант сочетания материалов для обсуждения до начала пошива.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · ДИЗАЙН" }
-];
-const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name: "Перетяжка сидений мототехники", provider: { "@type": "Organization", name: "Ленремонт", telephone: "+78123444444" }, areaServed: { "@type": "City", name: "Санкт-Петербург" }, description };
+import HeroSection from "../sections/HeroSection.astro";
+import ProofSection from "../sections/ProofSection.astro";
+import EstimateSection from "../sections/EstimateSection.astro";
+import VehicleSection from "../sections/VehicleSection.astro";
+import PortfolioSection from "../sections/PortfolioSection.astro";
+import ServiceOptionsSection from "../sections/ServiceOptionsSection.astro";
+import MaterialsSection from "../sections/MaterialsSection.astro";
+import PricingSection from "../sections/PricingSection.astro";
+import ProcessSection from "../sections/ProcessSection.astro";
+import LogisticsSection from "../sections/LogisticsSection.astro";
+import QualitySection from "../sections/QualitySection.astro";
+import FaqSection from "../sections/FaqSection.astro";
+import ContactSection from "../sections/ContactSection.astro";
+import FinalCtaSection from "../sections/FinalCtaSection.astro";
+import StickyCta from "../sections/StickyCta.astro";
+import ServiceSchema from "../sections/ServiceSchema.astro";
 ---
-<BaseLayout title={title} description={description}>
+
+<BaseLayout
+  title="Перетяжка сидений мотоциклов и квадроциклов в СПб | Ленремонт"
+  description="Перетяжка и ремонт сидений мотоциклов, квадроциклов и другой мототехники в Санкт-Петербурге. Подбор материала и предварительный расчет после короткого квиза."
+>
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__copy container">
-        <p class="eyebrow">МАСТЕРСКАЯ · САНКТ-ПЕТЕРБУРГ И ЛО</p>
-        <h1 id="hero-title"><span>Перетяжка сидений</span><span>мотоциклов, квадроциклов</span><span>и другой мототехники</span></h1>
-        <p class="hero__lead">Восстановим поврежденную обивку или изменим внешний вид сиденья. Подберем материал под вашу технику и предварительно рассчитаем работу по фотографиям.</p>
-        <ul class="hero__benefits" aria-label="Преимущества мастерской">
-          <li>Итоговую стоимость согласуем до начала работы</li>
-          <li>Гарантия на перетяжку — 1 год</li>
-          <li>Доставка техники в мастерскую и обратно</li>
-        </ul>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#estimate" data-cta="hero"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7.5h3l1.35-2h7.3l1.35 2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13.5" r="3.25"/></svg>Рассчитать перетяжку по фото</a>
-          <a class="button button--ghost" href="#portfolio">Посмотреть работы</a>
-        </div>
-      </div>
-      <div class="hero__drawing" aria-hidden="true"><svg class="hero__measure" viewBox="0 0 580 205"><path class="hero__seat-outline" d="M95 109c16-32 48-47 82-49 39-3 70 11 102 16 46 8 79 4 126 21 29 10 57 31 87 56l-59 7c-32-24-63-35-99-39-47-5-87 2-132 1-43-1-79-6-107-13Z"/><path class="hero__seat-dots" d="M111 106c24-25 49-33 77-35 34-2 61 10 96 16 46 8 81 6 116 20"/><path class="hero__dimension" d="M60 160h421M60 139v42M481 139v42M77 160h387M77 155l-11 5 11 5M464 155l11 5-11 5M61 55v82M82 55H40M82 137H40M61 72v48M56 72l5-11 5 11M56 120l5 11 5-11"/><text x="241" y="184">680</text><text x="14" y="103">320</text></svg></div>
-      <div class="hero__visual" aria-label="Staging-визуал процесса перетяжки">
-        <img src="/assets/moto-seat/workshop-staging.png" alt="Staging-визуал: мастер прошивает обивку мотоциклетного сиденья на промышленной машине" width="1536" height="1024" fetchpriority="high" />
-        <span class="hero__stamp">ВИЗУАЛ КОНЦЕПЦИИ · ЗАМЕНИТЬ НА ФОТО МАСТЕРСКОЙ</span>
-      </div>
-    </section>
-
-    <section class="proof section" aria-labelledby="proof-title">
-      <div class="container"><p class="eyebrow">СНАЧАЛА СОГЛАСОВАНИЕ — ЗАТЕМ РАБОТА</p><h2 id="proof-title">Понятно, что меняем, каким материалом и за какую сумму</h2><div class="accent-line"></div>
-        <div class="proof__grid">{proof.map(([number, heading, text]) => <article class="proof__item"><span>{number}</span><h3>{heading}</h3><p>{text}</p></article>)}</div>
-      </div>
-    </section>
-
-    <section class="estimate section" id="estimate" aria-labelledby="estimate-title">
-      <div class="container estimate__grid">
-        <div class="estimate__form-wrap"><p class="eyebrow">НЕ НУЖНО ОПИСЫВАТЬ ПОВРЕЖДЕНИЕ СЛОВАМИ</p><h2 id="estimate-title" tabindex="-1">Покажите сиденье — подскажем возможный вариант и порядок стоимости</h2><p class="section-lead">Сфотографируйте сиденье целиком, повреждение крупно и нижнюю сторону, если сиденье уже снято.</p>
-          <form class="lead-quiz" data-lead-root data-hop-lead-form novalidate>
-            <input type="hidden" name="cta_source" value="direct" />
-            <div class="lead-quiz__progress" aria-live="polite"><div class="lead-quiz__progress-meta"><span>ПРЕДВАРИТЕЛЬНЫЙ РАСЧЁТ</span><strong data-quiz-counter>ВЫ ПРОШЛИ 1 ИЗ 4 ШАГОВ</strong></div><div class="lead-quiz__progress-track" aria-hidden="true"><span data-quiz-progress></span></div></div>
-
-            <fieldset class="lead-quiz__step is-active" data-quiz-step="1">
-              <legend>На какой технике нужно перетянуть сиденье?</legend>
-              <p>Это поможет сразу передать заявку подходящему специалисту.</p>
-              <div class="quiz-choice-grid">
-                <label class="quiz-choice"><input type="radio" name="vehicle" value="Мотоцикл или скутер" required /><span><b>01</b>Мотоцикл или скутер</span></label>
-                <label class="quiz-choice"><input type="radio" name="vehicle" value="Квадроцикл или багги" required /><span><b>02</b>Квадроцикл или багги</span></label>
-                <label class="quiz-choice"><input type="radio" name="vehicle" value="Другая мототехника" required /><span><b>03</b>Другая мототехника</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="lead-quiz__step" data-quiz-step="2" hidden>
-              <legend>Что вы хотите изменить?</legend>
-              <p>Можно выбрать главный сценарий — детали обсудим по фотографиям.</p>
-              <div class="quiz-choice-grid">
-                <label class="quiz-choice"><input type="radio" name="task" value="Восстановить обивку" required /><span><b>01</b>Восстановить обивку</span></label>
-                <label class="quiz-choice"><input type="radio" name="task" value="Обновить дизайн" required /><span><b>02</b>Обновить дизайн</span></label>
-                <label class="quiz-choice"><input type="radio" name="task" value="Нужна консультация" required /><span><b>03</b>Нужна консультация</span></label>
-              </div>
-              <label class="quiz-field" for="model">Модель техники <em>необязательно</em><input id="model" name="model" type="text" autocomplete="off" placeholder="Например, Honda CB 400" /></label>
-            </fieldset>
-
-            <fieldset class="lead-quiz__step" data-quiz-step="3" hidden>
-              <legend>Добавьте 2–4 фотографии сиденья</legend>
-              <p>Нужны общий вид, повреждение крупно и крепления. Это можно сделать прямо с телефона.</p>
-              <label class="upload" for="photos"><span class="upload__mark">+</span><span><strong>Выберите фотографии</strong><small>Общий вид, повреждение и крепления</small></span><output id="file-output">Файлы не выбраны</output></label>
-              <input id="photos" name="photos[]" type="file" accept="image/*" capture="environment" multiple required />
-            </fieldset>
-
-            <fieldset class="lead-quiz__step" data-quiz-step="4" hidden>
-              <legend>Куда отправить предварительный расчёт?</legend>
-              <p>Оставьте контакт — мастер ответит по вашему сиденью.</p>
-              <div class="lead-quiz__contact-grid">
-                <label class="quiz-field" for="phone">Телефон для ответа<input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required /></label>
-                <label class="quiz-field" for="contact">Как удобнее ответить<select id="contact" name="contact_method" required><option value="">Выберите способ</option><option>Звонок</option><option>WhatsApp</option><option>Telegram</option></select></label>
-              </div>
-              <label class="quiz-field" for="comment">Комментарий <em>необязательно</em><textarea id="comment" name="comment" rows="3" placeholder="Например, хочется изменить цвет или фактуру"></textarea></label>
-              <label class="consent"><input type="checkbox" name="privacy_consent" required /> <span>Соглашаюсь с <a href="https://www.lenremont.ru/politika-obrabotki-personalnyh-dannyh.htm">политикой обработки персональных данных</a>.</span></label>
-            </fieldset>
-
-            <div class="lead-quiz__actions"><button class="button button--back" type="button" data-quiz-back hidden>Назад</button><button class="button button--primary" type="button" data-quiz-next>Далее <span aria-hidden="true">↘</span></button><button class="button button--primary" type="submit" data-quiz-submit hidden>Получить предварительный расчёт <span aria-hidden="true">↘</span></button></div>
-            <p class="form-message" data-quiz-message aria-live="polite">Телефон нужен только для ответа по вашему сиденью. Перед публикацией подключите реальный обработчик заявки.</p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="vehicles section" aria-labelledby="vehicles-title"><div class="container"><p class="eyebrow">ОТ ГОРОДСКОГО СКУТЕРА ДО ТЕХНИКИ ОТКРЫТОГО ТИПА</p><div class="section-head"><h2 id="vehicles-title">Какие сиденья можно показать специалисту</h2><p>Конструкция и условия эксплуатации отличаются — поэтому решение начинается с фотографии конкретного сиденья.</p></div><div class="vehicles__grid">{vehicles.map(([name, text], i) => <article class="vehicle"><span>0{i + 1}</span><h3>{name}</h3><p>{text}</p><a href="#estimate" data-cta="vehicle_types">Показать сиденье <b>↘</b></a></article>)}</div></div></section>
-
-    <section class="portfolio section section--dark" id="portfolio" aria-labelledby="portfolio-title">
-      <div class="container portfolio__intro"><div><p class="eyebrow">ИСТОРИИ ОБНОВЛЕНИЯ</p><h2 id="portfolio-title">Детали, в которых видно новое ощущение от сиденья</h2><p class="section-lead">Потяните ленту, чтобы посмотреть визуальные сценарии. Реальные кейсы с подтверждёнными фотографиями будут добавлены после получения прав на публикацию.</p></div><div class="portfolio__actions"><a class="button button--outline" href="#estimate" data-cta="portfolio">Запросить похожий результат <span aria-hidden="true">↘</span></a><div class="case-nav" aria-label="Навигация по кейсам"><button type="button" class="case-nav__button" data-case-prev>Назад</button><button type="button" class="case-nav__button" data-case-next>Далее</button></div></div></div>
-      <div class="portfolio__carousel">
-        <div class="swiper case-swiper" data-case-swiper aria-roledescription="carousel" aria-label="Лента визуальных сценариев">
-          <div class="swiper-wrapper">
-            {caseStudies.map((caseStudy) => <article class="swiper-slide case-card" data-case-card style="--compare-position: 50%;"><div class="case-card__media"><img class="case-card__image" src={caseStudy.after} alt={`Визуал концепции: ${caseStudy.title}`} loading="lazy" width="1536" height="1024" /><div class="case-card__before"><img class="case-card__image" src={caseStudy.before} alt="" loading="lazy" width="1536" height="1024" /></div><span class="case-card__label case-card__label--before">Исходная точка</span><span class="case-card__label case-card__label--after">Концепт</span><input class="case-card__range" type="range" min="18" max="82" value="50" aria-label={`Сравнение визуалов: ${caseStudy.title}`} /></div><div class="case-card__body"><p>{caseStudy.tags}</p><span>{caseStudy.number} / 03</span><h3>{caseStudy.title}</h3><div><b>Сценарий</b><p>{caseStudy.text}</p></div></div></article>)}
-          </div>
-          <div class="case-swiper__pagination" data-case-pagination></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="options section" aria-labelledby="options-title"><div class="container"><p class="eyebrow">РАБОТАЕМ С ЗАДАЧЕЙ, А НЕ ТОЛЬКО С ВЕРХНИМ СЛОЕМ</p><h2 id="options-title">Что обсудим вместе с перетяжкой</h2><div class="options__grid"><article><span class="option-number">01</span><h3>Восстановить</h3><p>Если обивка изношена или повреждена, сначала оценим состояние сиденья и применимый объем работ.</p></article><article><span class="option-number">02</span><h3>Изменить посадку</h3><p>Вопросы формы и наполнителя решаются только после осмотра и подтверждения возможности доработки.</p></article><article><span class="option-number">03</span><h3>Изменить дизайн</h3><p>Фактуру, цвет, сочетания и строчку согласуем заранее — до начала пошива.</p></article></div></div></section>
-
-    <section class="materials section"><div class="container materials__grid"><div class="materials__texture"><img src="/assets/moto-seat/materials-staging.png" alt="Staging-визуал образцов черного, коричневого и перфорированного обивочного материала" loading="lazy" width="1536" height="1024" /><span>ВИЗУАЛ КОНЦЕПЦИИ · MATERIAL SELECT</span></div><div><p class="eyebrow">СМОТРИМ НА ФАКТУРУ И УСЛОВИЯ ЭКСПЛУАТАЦИИ</p><h2>Материал подбираем после осмотра и уточнения сценария езды</h2><p class="section-lead">Для открытой техники важны фактура, эластичность, стойкость поверхности и совместимость со сложной формой. Не публикуем названия коллекций и свойства, пока они не подтверждены техническими данными.</p><ul class="check-list"><li>Показываем физические образцы при согласовании</li><li>Проверяем сочетание материалов и швов</li><li>Финальный оттенок выбирают не по экрану</li></ul></div></div></section>
-
-    <section class="pricing section" aria-labelledby="pricing-title"><div class="container pricing__grid"><div><p class="eyebrow">БЕЗ АБСТРАКТНОЙ «ДОГОВОРНОЙ ЦЕНЫ»</p><h2 id="pricing-title">Сначала поймем состав работ — затем назовем стоимость</h2></div><div><p>На цену влияют размер и форма сиденья, состояние основания и наполнителя, выбранный материал, количество деталей и сложность строчки.</p><p>Предварительно оцениваем по фото. Окончательную стоимость называют после осмотра и выбора материала — до начала работ.</p><a class="button button--primary" href="#estimate" data-cta="pricing">Рассчитать по фото <span aria-hidden="true">↘</span></a></div></div></section>
-
-    <section class="process section section--dark" id="process" aria-labelledby="process-title"><div class="container"><p class="eyebrow">ВЫ КОНТРОЛИРУЕТЕ РЕЗУЛЬТАТ ДО НАЧАЛА ПОШИВА</p><h2 id="process-title">Как проходит перетяжка сиденья</h2><ol class="timeline">{process.map((step, i) => <li><span>0{i + 1}</span><p>{step}</p></li>)}</ol></div></section>
-
-    <section class="logistics section"><div class="container logistics__grid"><div><p class="eyebrow">ВЫБЕРИТЕ УДОБНЫЙ СПОСОБ ПЕРЕДАЧИ</p><h2>Способ передачи согласуем заранее</h2><p class="section-lead">Можно обсудить доставку техники в мастерскую и обратно. Точный адрес приема снятых сидений и применимость доставки к ним требуют отдельного подтверждения — поэтому в этой версии мы их не выдумываем.</p></div><div class="logistics__call"><span>КОНСУЛЬТАЦИЯ</span><a href="tel:+78123444444">{phone}</a><p>Диспетчерская работает круглосуточно, без выходных.</p><a href="#estimate" data-cta="logistics">Или отправить фото →</a></div></div></section>
-
-    <section class="quality section"><div class="container quality__grid"><div><span class="quality__mark">01<br/>YEAR</span><p class="eyebrow">КОНТРОЛЬ СОГЛАСОВАННОГО РЕЗУЛЬТАТА</p><h2>Проверяем посадку чехла, швы и согласованный дизайн</h2></div><ul class="check-list"><li>Состав работ зафиксирован</li><li>Материал и дизайн согласованы</li><li>Заказ проверен перед выдачей</li><li>Гарантия 1 год заявлена на официальной странице; условия уточняются в документах к заказу</li></ul></div></section>
-
-    <section class="faq section" aria-labelledby="faq-title"><div class="container faq__inner"><p class="eyebrow">КОРОТКО О ГЛАВНОМ</p><h2 id="faq-title">Частые вопросы</h2>{faqs.map(([question, answer], i) => <details class="faq__item" open={i === 0}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
-
-    <section class="social-contact section section--dark" aria-labelledby="social-contact-title"><div class="container social-contact__grid"><div class="social-contact__intro"><p class="eyebrow">БЫСТРАЯ СВЯЗЬ ПО ФОТО</p><h2 id="social-contact-title">Покажите сиденье там, где вам удобно</h2><p>Отправьте фотографии в мессенджер — уточним задачу и подскажем следующий шаг.</p><ol class="social-contact__steps"><li><b>01</b><span>Сделайте 2–4 фото: общий вид, повреждение и крепления</span></li><li><b>02</b><span>Выберите удобный мессенджер или отсканируйте QR-код</span></li><li><b>03</b><span>Специалист посмотрит фото и ответит по вашему сиденью</span></li></ol></div><div class="social-contact__links"><p>Или напишите нам в соцсетях:</p><div class="social-contact__cards"><a class="social-card social-card--tg" href="https://telegram.me/lenremont_bot" target="_blank" rel="noopener noreferrer"><span class="social-card__button"><svg aria-hidden="true" viewBox="0 0 24 20" fill="currentColor"><path d="M21.9539.1766S24.174-.6891 23.989 1.4133c-.0617.8657-.6167 3.8957-1.0489 7.1731l-1.48 9.7073s-.1234 1.4226-1.2335 1.67c-1.1102.2474-2.7752-.8657-3.0836-1.113-.2467-.1855-4.625-2.9683-6.1672-4.3287-.4317-.371-.925-1.1131.0617-1.9796l6.4756-6.1836c.7401-.742.7401-2.4734-2.3436-.371L7.2761 11.8638s-.9867.6183-2.8368.0618L.4305 10.6888S-1.0496 9.7613 1.4789 8.8337C7.6461 5.9274 15.2317 2.9592 21.9539.1766Z"/></svg>Telegram</span><img src="/assets/social/lr-qr-tg.webp" alt="QR-код Telegram Ленремонт" loading="lazy" width="196" height="196" /><small>@lenremont_bot</small></a><a class="social-card social-card--vk" href="https://vk.ru/lenremont" target="_blank" rel="noopener noreferrer"><span class="social-card__button"><svg aria-hidden="true" viewBox="0 0 67 42" fill="currentColor"><path d="M35.9736 41.625C13.4075 41.625.5363 26 0 0h11.3037c.3713 19.0833 8.7046 27.1666 15.3049 28.8333V0h10.644V16.4582C43.7708 15.7499 50.6181 8.25 52.9284 0h10.644C61.7983 10.1667 54.3726 17.6666 49.0921 20.7499c5.2805 2.4991 13.7389 9.0417 16.955 20.8751H54.3314c-2.5164-7.9164-8.7868-14.0417-17.0787-14.875v14.875h-1.2791Z"/></svg>ВКонтакте</span><img src="/assets/social/lr-qr-vk.webp" alt="QR-код ВКонтакте Ленремонт" loading="lazy" width="196" height="196" /><small>vk.ru/lenremont</small></a><a class="social-card social-card--max" href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noopener noreferrer"><span class="social-card__button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2589 23.9315c-2.3586 0-3.4516-.3453-5.35-1.7266-1.2081 1.5537-5.0163 2.7681-5.1774.6906 0-1.5597-.3509-2.878-.7363-4.3168C.5235 16.8062 0 14.832 0 11.9715 0 5.1397 5.5801 0 12.1956 0 18.8111 0 24 5.3987 24 12.0406c0 6.642-5.35 11.8967-11.7411 11.8967m.0978-18.0206c-3.2217-.1668-5.7354 2.072-6.2877 5.5839-.4603 2.9065.3567 6.446 1.0527 6.6302.3279.0806 1.1675-.5987 1.6855-1.1221.851.5586 1.8287.984 2.916 1.0416 3.3022.1727 6.2308-2.4175 6.4092-5.7385.0632-1.6086-.5062-3.1786-1.5859-4.3721-1.0797-1.194-2.1593-1.9178-3.7392-2.023Z"/></svg>MAX</span><img src="/assets/social/lr-qr-max.webp" alt="QR-код MAX Ленремонт" loading="lazy" width="196" height="196" /><small>max.ru</small></a></div><div class="social-contact__phone"><span>Предпочитаете звонок?</span><a href="tel:+78123444444">{phone}</a></div><p class="social-contact__note">Покажите сиденье на фото — ответим по применимому варианту без обязательства оформлять заказ.</p></div></div></section>
-
-    <section class="final-cta" aria-labelledby="final-title"><div class="container final-cta__inner"><p class="eyebrow">НАЧНИТЕ С НЕСКОЛЬКИХ ФОТОГРАФИЙ</p><h2 id="final-title">Покажите сиденье — обсудим применимый вариант</h2><p>Для первичной оценки подготовьте общий вид, повреждение крупно и нижнюю сторону, если сиденье снято.</p><div class="final-cta__actions"><a class="button button--primary" href="#estimate" data-cta="final_cta">Рассчитать перетяжку по фото <span aria-hidden="true">↘</span></a><a class="phone-link" href="tel:+78123444444">{phone}<small>диспетчерская 24/7</small></a></div></div></section>
+    <HeroSection />
+    <ProofSection />
+    <EstimateSection />
+    <VehicleSection />
+    <PortfolioSection />
+    <ServiceOptionsSection />
+    <MaterialsSection />
+    <PricingSection />
+    <ProcessSection />
+    <LogisticsSection />
+    <QualitySection />
+    <FaqSection />
+    <ContactSection />
   </main>
-  <nav class="sticky-cta" aria-label="Быстрые действия"><a href="#estimate" data-cta="sticky">Фото</a><a href="tel:+78123444444">Позвонить</a></nav>
-  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
-  <script>
-    import Swiper from 'swiper';
-    import { A11y, Navigation, Pagination } from 'swiper/modules';
-    import 'swiper/css';
-    import 'swiper/css/pagination';
-
-    const form = document.querySelector('.lead-quiz');
-    const output = document.querySelector('#file-output');
-    const photos = document.querySelector('#photos');
-    const source = document.querySelector('input[name="cta_source"]');
-    const estimateTitle = document.querySelector('#estimate-title');
-    document.querySelectorAll('[data-cta]').forEach((link) => link.addEventListener('click', () => { if (source) source.value = link.dataset.cta || 'direct'; window.setTimeout(() => estimateTitle?.focus({ preventScroll: true }), 350); }));
-    photos?.addEventListener('change', () => { const count = photos.files?.length || 0; output.textContent = count ? `Выбрано: ${count}` : 'Файлы не выбраны'; });
-    if (form) {
-      const steps = Array.from(form.querySelectorAll('[data-quiz-step]'));
-      const counter = form.querySelector('[data-quiz-counter]');
-      const progress = form.querySelector('[data-quiz-progress]');
-      const message = form.querySelector('[data-quiz-message]');
-      const back = form.querySelector('[data-quiz-back]');
-      const next = form.querySelector('[data-quiz-next]');
-      const submit = form.querySelector('[data-quiz-submit]');
-      let activeStep = 0;
-      const showStep = (index) => {
-        activeStep = index;
-        steps.forEach((step, stepIndex) => { const current = stepIndex === index; step.hidden = !current; step.classList.toggle('is-active', current); });
-        counter.textContent = `ВЫ ПРОШЛИ ${index + 1} ИЗ ${steps.length} ШАГОВ`;
-        progress.style.width = `${((index + 1) / steps.length) * 100}%`;
-        back.hidden = index === 0;
-        next.hidden = index === steps.length - 1;
-        submit.hidden = index !== steps.length - 1;
-        message.textContent = index === steps.length - 1 ? 'Телефон нужен только для ответа по вашему сиденью. Перед публикацией подключите реальный обработчик заявки.' : '';
-      };
-      const validateStep = (step) => {
-        const count = photos?.files?.length || 0;
-        if (step.contains(photos) && (count < 2 || count > 4)) { message.textContent = 'Добавьте от 2 до 4 фотографий, чтобы перейти дальше.'; return false; }
-        const fields = Array.from(step.querySelectorAll('input[required], select[required], textarea[required]'));
-        const valid = fields.every((field) => field.checkValidity());
-        if (!valid) { message.textContent = 'Выберите вариант или заполните обязательное поле.'; const invalid = fields.find((field) => !field.checkValidity()); invalid?.reportValidity(); return false; }
-        return true;
-      };
-      next?.addEventListener('click', () => { if (!validateStep(steps[activeStep])) return; showStep(Math.min(activeStep + 1, steps.length - 1)); steps[activeStep].querySelector('legend')?.focus?.(); });
-      back?.addEventListener('click', () => showStep(Math.max(activeStep - 1, 0)));
-      form.addEventListener('submit', (event) => { event.preventDefault(); if (!validateStep(steps[activeStep]) || !form.checkValidity()) { message.textContent = 'Проверьте обязательные поля на этом шаге.'; return; } message.textContent = 'Форма готова к отправке. Для доставки заявки подключите утверждённый CRM или серверный обработчик.'; });
-      showStep(0);
-    }
-    document.querySelectorAll('[data-case-card]').forEach((card) => { const range = card.querySelector('.case-card__range'); range?.addEventListener('input', () => card.style.setProperty('--compare-position', `${range.value}%`)); });
-    const caseSwiper = document.querySelector('[data-case-swiper]');
-    if (caseSwiper) new Swiper(caseSwiper, { modules: [A11y, Navigation, Pagination], slidesPerView: 'auto', spaceBetween: 22, grabCursor: true, navigation: { prevEl: '[data-case-prev]', nextEl: '[data-case-next]' }, pagination: { el: '[data-case-pagination]', clickable: true }, a11y: { prevSlideMessage: 'Предыдущий кейс', nextSlideMessage: 'Следующий кейс' }, breakpoints: { 760: { spaceBetween: 28 } } });
-    const heroActions = document.querySelector('.hero__actions');
-    if (heroActions && !document.querySelector('.hero__social')) {
-      const heroSocial = document.createElement('div');
-      heroSocial.className = 'hero__social';
-      heroSocial.setAttribute('aria-label', 'Написать в мессенджер');
-      heroSocial.innerHTML = '<div class="hero__social-label">Или напишите нам в мессенджере</div><div class="hero__social-links"><a class="hero__social-link hero__social-link--tg" href="https://telegram.me/lenremont_bot" target="_blank" rel="noopener noreferrer"><span>Telegram</span><img class="hero__social-qr" src="/assets/social/lr-qr-tg.webp" alt="QR-код Telegram" width="196" height="196" /></a><a class="hero__social-link hero__social-link--vk" href="https://vk.ru/lenremont" target="_blank" rel="noopener noreferrer"><span>ВКонтакте</span><img class="hero__social-qr" src="/assets/social/lr-qr-vk.webp" alt="QR-код ВКонтакте" width="196" height="196" /></a><a class="hero__social-link hero__social-link--max" href="https://max.ru/id471902475874_3_bot" target="_blank" rel="noopener noreferrer"><span>MAX</span><img class="hero__social-qr" src="/assets/social/lr-qr-max.webp" alt="QR-код MAX" width="196" height="196" /></a></div><div class="hero__social-label">Или звоните по телефону</div><a class="hero__social-phone" href="tel:+78123444444">+7 (812) 344-44-44</a>';
-      heroActions.insertAdjacentElement('afterend', heroSocial);
-    }
-    const sticky = document.querySelector('.sticky-cta');
-    const heroCta = document.querySelector('[data-cta="hero"]');
-    if (sticky && heroCta && 'IntersectionObserver' in window) new IntersectionObserver(([entry]) => sticky.classList.toggle('is-visible', !entry.isIntersecting), { threshold: .1 }).observe(heroCta);
-  </script>
+  <StickyCta />
+  <ServiceSchema />
 </BaseLayout>

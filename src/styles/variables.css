@@ -1,0 +1,16 @@
+:root {
+  --ink: #17181b;
+  --ink-2: #24262a;
+  --paper: #f4f1eb;
+  --white: #ffffff;
+  --blue: #1267e8;
+  --blue-deep: #0c50bc;
+  --orange: #f06a20;
+  --line: #d7d2c8;
+  --muted: #65676c;
+  --display-font: "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body-font: Inter, Arial, sans-serif;
+  --container-width: 1200px;
+  --gutter: clamp(16px, 3vw, 32px);
+  --section-space: clamp(64px, 8vw, 120px);
+}

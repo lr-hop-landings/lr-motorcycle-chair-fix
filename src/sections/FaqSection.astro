@@ -1,0 +1,21 @@
+---
+const questions = [
+  ["Как получить предварительный расчет?", "Ответьте на вопросы о технике, состоянии сиденья и желаемом результате. Затем оставьте контакты — специалист подготовит ориентир и при необходимости уточнит детали."],
+  ["От чего зависит стоимость?", "На цену влияют состояние основания и наполнителя, форма, материал и сложность пошива. Окончательную цену согласуют после осмотра."],
+  ["Какие материалы можно выбрать?", "Конкретный материал рекомендуют после осмотра и уточнения условий эксплуатации. Перед началом работ согласуют фактуру, цвет и детали дизайна."],
+  ["Есть ли гарантия?", "На официальной странице для перетяжки заявлена гарантия 1 год. Перед началом работ уточните, что входит в гарантию, исключения и документ, который ее подтверждает."],
+  ["Как передать сиденье?", "Сценарий передачи согласуют после предварительной оценки. Доступность и стоимость доставки зависят от адреса и габаритов; подтвердим их до оформления."]
+];
+---
+<section class="faq section" aria-labelledby="faq-title"><div class="container faq__inner"><p class="eyebrow">КОРОТКО О ГЛАВНОМ</p><h2 id="faq-title">Частые вопросы</h2>{questions.map(([question, answer], index) => <details class="faq__item" open={index === 0}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
+<style>
+  .faq { background: var(--white); }
+  .faq__inner { max-width: 900px; }
+  .faq__item { border-top: 1px solid var(--line); }
+  .faq__item:last-child { border-bottom: 1px solid var(--line); }
+  .faq__item summary { display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 24px 0; cursor: pointer; font-size: 19px; font-weight: 800; list-style: none; }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary span { color: var(--orange); font-size: 28px; font-weight: 400; transition: transform 0.2s; }
+  .faq__item[open] summary span { transform: rotate(45deg); }
+  .faq__item p { max-width: 720px; margin: -5px 0 0; padding: 0 0 25px; color: var(--muted); }
+</style>

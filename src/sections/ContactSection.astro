@@ -1,0 +1,186 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+---
+
+<section
+  class="social-contact section section--dark"
+  aria-labelledby="social-contact-title"
+>
+  <div class="container social-contact__grid">
+    <div class="social-contact__intro">
+      <p class="eyebrow">БЫСТРАЯ СВЯЗЬ</p><h2 id="social-contact-title">
+        Узнайте о возможном варианте там, где вам удобно
+      </h2><p>
+        Ответьте на вопросы в квизе или напишите нам в мессенджер — уточним задачу
+        и подскажем следующий шаг.
+      </p><ol class="social-contact__steps">
+        <li>
+          <b>01</b><span
+            >Ответьте на короткие вопросы о технике и сиденье</span
+          >
+        </li><li>
+          <b>02</b><span
+            >Выберите удобный мессенджер или отсканируйте QR-код</span
+          >
+        </li><li>
+          <b>03</b><span
+            >Специалист уточнит детали и ответит по вашему сиденью</span
+          >
+        </li>
+      </ol>
+    </div><div class="social-contact__links">
+      <div class="contacts-cta__actions">
+        <ButtonLink variant="ghost" href="#estimate" dataCta="finalCta">
+          Рассчитать перетяжку <span aria-hidden="true">↘</span>
+        </ButtonLink>
+        <a class="phone-link" href="tel:+78123444444">
+          +7 (812) 344-44-44<small>диспетчерская 24/7</small>
+        </a>
+      </div>
+      <p>Или напишите нам в соцсетях:</p>
+      <SocialLinks />
+      <div class="social-contact__phone">
+        <span>Предпочитаете звонок?</span>
+        <a href="tel:+78123444444"> +7 (812) 344-44-44 </a>
+      </div><p class="social-contact__note">
+        Оставьте заявку — ответим по применимому варианту без обязательства
+        оформлять заказ.
+      </p>
+    </div>
+  </div>
+</section>
+<style>
+  .social-contact {
+    position: relative;
+    overflow: hidden;
+    background: #17181b;
+  }
+  .social-contact::before {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 86% 46%,
+      rgb(240 106 32 / 12%),
+      transparent 28%
+    );
+    content: "";
+  }
+  .contacts-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .phone-link {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .phone-link small {
+    color: #aeb0b4;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .final-cta__actions {
+      align-items: stretch;
+      gap: 20px;
+    }
+    :global(.final-cta .button) {
+      width: 100%;
+    }
+  }
+  .social-contact__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+    gap: clamp(42px, 9vw, 140px);
+    padding-top: 36px;
+    border-top: 1px solid rgb(255 255 255 / 24%);
+  }
+  .social-contact h2 {
+    max-width: 650px;
+    margin-bottom: 24px;
+    font-size: clamp(38px, 4.3vw, 62px);
+  }
+  .social-contact__intro > p:not(.eyebrow) {
+    max-width: 520px;
+    color: #c8cbce;
+    font-size: 17px;
+  }
+  .social-contact__steps {
+    display: grid;
+    margin: 35px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .social-contact__steps li {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    padding: 16px 0;
+    border-top: 1px solid rgb(255 255 255 / 16%);
+    color: #e5e4e1;
+    font-size: 14px;
+  }
+  .social-contact__steps li:last-child {
+    border-bottom: 1px solid rgb(255 255 255 / 16%);
+  }
+  .social-contact__steps b {
+    color: var(--orange);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .social-contact__links > p {
+    margin: 0 0 15px;
+    color: #b9b7b5;
+    font-size: 13px;
+  }
+  .social-contact__phone {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgb(255 255 255 / 18%);
+  }
+  .social-contact__phone span,
+  .social-contact__note {
+    color: #bcbab7;
+    font-size: 13px;
+  }
+  .social-contact__phone a {
+    color: var(--white);
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration-color: var(--orange);
+    text-underline-offset: 5px;
+  }
+  .social-contact__links > .social-contact__note {
+    max-width: 590px;
+    margin: 22px 0 0;
+    color: #aeadab;
+    font-size: 12px;
+  }
+  @media (max-width: 900px) {
+    .social-contact__grid {
+      grid-template-columns: 1fr;
+      gap: 44px;
+    }
+  }
+  @media (max-width: 640px) {
+    .social-contact__grid {
+      padding-top: 25px;
+    }
+    .social-contact__phone {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+</style>

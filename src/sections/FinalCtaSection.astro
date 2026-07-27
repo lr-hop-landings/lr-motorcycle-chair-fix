@@ -1,0 +1,80 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+---
+
+<section class="final-cta" aria-labelledby="final-title">
+  <div class="container final-cta__inner">
+    <p class="eyebrow">НАЧНИТЕ С РАСЧЁТА</p><h2 id="final-title">
+      Ответьте на несколько вопросов — обсудим применимый вариант
+    </h2><p>
+      Квиз поможет мастеру понять задачу и подготовить предварительный
+      ориентир по стоимости.
+    </p>
+    <div class="final-cta__actions">
+      <ButtonLink href="#estimate" dataCta="finalCta">
+        Рассчитать перетяжку <span aria-hidden="true">↘</span>
+      </ButtonLink>
+      <a class="phone-link" href="tel:+78123444444">
+        +7 (812) 344-44-44<small>диспетчерская 24/7</small>
+      </a>
+    </div>
+  </div>
+</section>
+<style>
+  .final-cta {
+    padding-block: clamp(76px, 11vw, 145px)
+      calc(clamp(76px, 11vw, 145px) + 24px);
+    color: var(--white);
+    background: var(--ink);
+  }
+  .final-cta__inner {
+    position: relative;
+  }
+  .final-cta__inner::after {
+    position: absolute;
+    right: 0;
+    bottom: -14px;
+    width: min(42vw, 450px);
+    height: 1px;
+    background: var(--orange);
+    content: "";
+  }
+  .final-cta h2 {
+    max-width: 850px;
+    font-size: clamp(44px, 5.1vw, 76px);
+  }
+  .final-cta p:not(.eyebrow) {
+    max-width: 610px;
+    color: #d4d6d9;
+    font-size: 18px;
+  }
+  .final-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .phone-link {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .phone-link small {
+    color: #aeb0b4;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .final-cta__actions {
+      align-items: stretch;
+      gap: 20px;
+    }
+    :global(.final-cta .button) {
+      width: 100%;
+    }
+  }
+</style>
