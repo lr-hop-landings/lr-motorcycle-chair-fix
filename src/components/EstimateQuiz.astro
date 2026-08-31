@@ -519,7 +519,7 @@ const { prefix } = Astro.props;
         Подготовим точную калькуляцию и отправим результат выбранным способом.
       </p>
       <div class="lead-quiz__contact-grid">
-        <label class="quiz-field">
+        <label class="quiz-field" for={`${prefix}-contact-name`}>
           <span class="quiz-field__label">Как к вам обращаться</span>
           <div class="quiz-field__input-wrap">
             <svg
@@ -533,16 +533,16 @@ const { prefix } = Astro.props;
                 clip-rule="evenodd"></path>
             </svg>
             <input
+              id={`${prefix}-contact-name`}
               name="name"
               type="text"
               autocomplete="name"
               placeholder="Ваше имя"
-              required
             />
           </div>
         </label>
 
-        <label class="quiz-field">
+        <label class="quiz-field" for={`${prefix}-contact-phone`}>
           <span class="quiz-field__label">Телефон для связи</span>
           <div class="quiz-field__input-wrap">
             <svg
@@ -555,11 +555,14 @@ const { prefix } = Astro.props;
               ></path>
             </svg>
             <input
+              id={`${prefix}-contact-phone`}
               name="phone"
               type="tel"
               inputmode="tel"
               autocomplete="tel"
               placeholder="+7 (___) ___-__-__"
+              maxlength="18"
+              aria-describedby={`${prefix}-contact-error`}
               required
             />
           </div>
@@ -573,7 +576,13 @@ const { prefix } = Astro.props;
           rel="noopener noreferrer">политикой обработки персональных данных</a
         >.
       </p>
-      <p class="field-error" data-contact-error hidden aria-live="polite"></p>
+      <p
+        class="field-error"
+        id={`${prefix}-contact-error`}
+        data-contact-error
+        hidden
+        aria-live="polite"
+      ></p>
       <div class="lead-quiz__footer">
         <button
           class="button button--primary"
@@ -1115,6 +1124,17 @@ const { prefix } = Astro.props;
     outline: none;
     border-color: var(--blue);
     box-shadow: 0 0 0 3px rgba(18, 103, 232, 0.15);
+  }
+  .quiz-field input.is-invalid,
+  .quiz-field input[aria-invalid="true"] {
+    border-color: #d32f2f;
+    background-color: #fff9f9;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.12);
+  }
+  .quiz-field input.is-invalid:focus,
+  .quiz-field input[aria-invalid="true"]:focus {
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.22);
   }
 
   .quiz-contact .consent {

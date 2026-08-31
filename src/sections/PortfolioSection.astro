@@ -1,27 +1,141 @@
 ---
-import workshopStaging from "../assets/motoSeat/workshopStaging.webp";
 import finishedSeatStaging from "../assets/motoSeat/finishedSeatStaging.webp";
-import materialsStaging from "../assets/motoSeat/materialsStaging.webp";
+import wornSeatBefore from "../assets/motoSeat/case01-before-cracked.webp";
+import sportAfter from "../assets/motoSeat/case02-sport-after.webp";
+import sportBefore from "../assets/motoSeat/case02-before-cracked.webp";
+import cafeAfter from "../assets/motoSeat/case03-cafe-after.webp";
+import cafeBefore from "../assets/motoSeat/case03-before-cracked.webp";
+import cruiserAfter from "../assets/motoSeat/case04-cruiser-after.webp";
+import cruiserBefore from "../assets/motoSeat/case04-before-cracked.webp";
+import scooterAfter from "../assets/motoSeat/case05-scooter-after.webp";
+import scooterBefore from "../assets/motoSeat/case05-before-cracked.webp";
+import enduroAfter from "../assets/motoSeat/case06-enduro-after.webp";
+import enduroBefore from "../assets/motoSeat/case06-before-cracked.webp";
+import atvAfter from "../assets/motoSeat/case07-atv-after.webp";
+import atvBefore from "../assets/motoSeat/case07-before-cracked.webp";
+import touringAfter from "../assets/motoSeat/case08-touring-after.webp";
+import touringBefore from "../assets/motoSeat/case08-before-cracked.webp";
 import ButtonLink from "../components/ButtonLink.astro";
 
 const caseStudies = [
-  { number: "01", before: workshopStaging, after: finishedSeatStaging, title: "Контрастная строчка и двухфактурная обивка", text: "Сценарий обновления посадочной зоны с акцентом на материал и линию шва.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · МОТОСИДЕНЬЕ" },
-  { number: "02", before: materialsStaging, after: finishedSeatStaging, title: "Фактура, цвет и посадка в одном решении", text: "Концепт, в котором выбор покрытия и форма сиденья рассматриваются вместе.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · ПОДБОР МАТЕРИАЛА" },
-  { number: "03", before: workshopStaging, after: materialsStaging, title: "Детали, которые меняют впечатление", text: "Вариант сочетания материалов для обсуждения до начала пошива.", tags: "ВИЗУАЛ КОНЦЕПЦИИ · ДИЗАЙН" }
+  { number: "01", after: finishedSeatStaging, before: wornSeatBefore, title: "Двухфактурная обивка с контрастной строчкой", text: "Новый чехол вместо потрескавшегося покрытия и разрыва по краю.", tags: "МОТОСИДЕНЬЕ · ДВУХФАКТУРНАЯ ОБИВКА" },
+  { number: "02", after: sportAfter, before: sportBefore, title: "Спортбайк: микрозамша и красная строчка", text: "Восстановление потертой посадки и поврежденных боковин.", tags: "СПОРТБАЙК · МИКРОЗАМША" },
+  { number: "03", after: cafeAfter, before: cafeBefore, title: "Кафе-рейсер: новая кожаная посадка", text: "Обновление сухой растрескавшейся обивки со следами износа.", tags: "КАФЕ-РЕЙСЕР · РЕБРИСТАЯ ФАКТУРА" },
+  { number: "04", after: cruiserAfter, before: cruiserBefore, title: "Круизер: обновление двухуровневого седла", text: "Вместо продавленного покрытия и разрыва на пассажирской части.", tags: "КРУИЗЕР · ДВУХУРОВНЕВОЕ СЕДЛО" },
+  { number: "05", after: scooterAfter, before: scooterBefore, title: "Скутер: новая влагостойкая обивка", text: "Покрытие без сухих трещин, выгоревшей окантовки и разошедшегося шва.", tags: "СКУТЕР · ВЛАГОСТОЙКИЙ ВИНИЛ" },
+  { number: "06", after: enduroAfter, before: enduroBefore, title: "Эндуро: тяговая фактура для активной езды", text: "Износостойкий чехол вместо вытертой и надорванной посадочной зоны.", tags: "ЭНДУРО · ЦЕПКАЯ ФАКТУРА" },
+  { number: "07", after: atvAfter, before: atvBefore, title: "Квадроцикл: прочное покрытие для открытой техники", text: "Обновление покрытия с трещинами, потертостями и разрывом у шва.", tags: "КВАДРОЦИКЛ · УСИЛЕННЫЕ ШВЫ" },
+  { number: "08", after: touringAfter, before: touringBefore, title: "Туринговое сиденье для дальней дороги", text: "Восстановленная посадка вместо выцветшего и поврежденного покрытия.", tags: "ТУРИНГ · КОМФОРТНАЯ ПОСАДКА" },
 ];
 ---
 
-<section class="portfolio section section--dark" id="portfolio" aria-labelledby="portfolio-title"><div class="container portfolio__intro"><div><p class="eyebrow">ИСТОРИИ ОБНОВЛЕНИЯ</p><h2 id="portfolio-title">Детали, в которых видно новое ощущение от сиденья</h2><p class="section-lead">Потяните ленту, чтобы посмотреть визуальные сценарии. Реальные кейсы будут добавлены после получения прав на публикацию.</p></div><div class="portfolio__actions"><ButtonLink href="#estimate" variant="outline" dataCta="portfolio">Запросить похожий результат <span aria-hidden="true">↘</span></ButtonLink><div class="case-nav" aria-label="Навигация по кейсам"><button type="button" class="case-nav__button" data-case-prev>Назад</button><button type="button" class="case-nav__button" data-case-next>Далее</button></div></div></div><div class="portfolio__carousel"><div class="swiper case-swiper" data-case-swiper aria-roledescription="carousel" aria-label="Лента визуальных сценариев"><div class="swiper-wrapper">{caseStudies.map((caseStudy) => <article class="swiper-slide case-card" data-case-card style="--compare-position: 50%;"><div class="case-card__media"><img class="case-card__image" src={caseStudy.after.src} alt={`Визуал концепции: ${caseStudy.title}`} loading="lazy" width="1536" height="1024" /><div class="case-card__before"><img class="case-card__image" src={caseStudy.before.src} alt="" loading="lazy" width="1536" height="1024" /></div><span class="case-card__label case-card__label--before">Исходная точка</span><span class="case-card__label case-card__label--after">Концепт</span><input class="case-card__range" type="range" min="18" max="82" value="50" aria-label={`Сравнение визуалов: ${caseStudy.title}`} /></div><div class="case-card__body"><p>{caseStudy.tags}</p><span>{caseStudy.number} / 03</span><h3>{caseStudy.title}</h3><div><b>Сценарий</b><p>{caseStudy.text}</p></div></div></article>)}</div><div class="case-swiper__pagination" data-case-pagination></div></div></div></section>
+<section class="portfolio section section--dark" id="portfolio" aria-labelledby="portfolio-title">
+  <div class="container portfolio__intro">
+    <div>
+      <p class="eyebrow">ДО И ПОСЛЕ · 8 КЕЙСОВ</p>
+      <h2 id="portfolio-title">Один ракурс — заметная разница</h2>
+      <p class="section-lead">
+        Сначала показываем результат, затем — тот же кадр с естественными следами износа.
+        Потяните разделитель, чтобы сравнить состояние обивки.
+      </p>
+    </div>
+    <div class="portfolio__actions">
+      <ButtonLink href="#estimate" variant="outline" dataCta="portfolio">
+        Рассчитать похожую работу <span aria-hidden="true">↘</span>
+      </ButtonLink>
+    </div>
+  </div>
+
+  <div class="portfolio__carousel">
+    <div class="swiper case-swiper" data-case-swiper aria-roledescription="carousel" aria-label="Кейсы до и после">
+      <div class="swiper-wrapper">
+        {caseStudies.map((caseStudy) => (
+          <article class="swiper-slide case-card" data-case-card style="--compare-position: 52%;">
+        <div class="case-card__media">
+          <img
+            class="case-card__image case-card__image--before-base"
+            src={caseStudy.before.src}
+            alt={`До обновления: ${caseStudy.title}`}
+            loading="lazy"
+            width="1536"
+            height="1024"
+          />
+          <img
+            class="case-card__image case-card__image--after"
+            src={caseStudy.after.src}
+            alt={`После обновления: ${caseStudy.title}`}
+            loading="lazy"
+            width="1536"
+            height="1024"
+          />
+          <div class="case-card__before">
+            <img class="case-card__image" src={caseStudy.before.src} alt="" loading="lazy" width="1536" height="1024" />
+          </div>
+          <div class="case-card__divider" aria-hidden="true"><span>↔</span></div>
+          <span class="case-card__label case-card__label--before">До</span>
+          <span class="case-card__label case-card__label--after">После</span>
+          <input
+            class="case-card__range"
+            type="range"
+            min="12"
+            max="88"
+            value="52"
+            aria-label={`Сравнение состояния сиденья: до и после. ${caseStudy.title}`}
+            aria-describedby={`case-comparison-hint-${caseStudy.number}`}
+          />
+        </div>
+        <div class="case-card__body">
+          <p>{caseStudy.tags}</p>
+          <div>
+            <span class="case-card__number">{caseStudy.number}</span>
+            <div>
+              <h3>{caseStudy.title}</h3>
+              <p>{caseStudy.text}</p>
+            </div>
+          </div>
+          <p class="case-card__hint" id={`case-comparison-hint-${caseStudy.number}`}>
+            <span aria-hidden="true">↔</span> Потяните оранжевый разделитель
+          </p>
+        </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio__bottom-action container">
+    <ButtonLink href="#estimate" variant="outline" dataCta="portfolio">
+      Рассчитать похожую работу <span aria-hidden="true">↘</span>
+    </ButtonLink>
+  </div>
+</section>
 
 <script>
   import Swiper from 'swiper';
-  import { A11y, Navigation, Pagination } from 'swiper/modules';
+  import { A11y } from 'swiper/modules';
   import 'swiper/css';
-  import 'swiper/css/pagination';
 
-  document.querySelectorAll('[data-case-card]').forEach((card) => { const range = card.querySelector('.case-card__range'); range?.addEventListener('input', () => card.style.setProperty('--compare-position', `${range.value}%`)); });
+  document.querySelectorAll('[data-case-card]').forEach((card) => {
+    const range = card.querySelector<HTMLInputElement>('.case-card__range');
+    const updatePosition = () => card.style.setProperty('--compare-position', `${range?.value ?? 52}%`);
+    range?.addEventListener('input', updatePosition);
+  });
   const caseSwiper = document.querySelector('[data-case-swiper]');
-  if (caseSwiper) new Swiper(caseSwiper, { modules: [A11y, Navigation, Pagination], slidesPerView: 'auto', spaceBetween: 22, grabCursor: true, navigation: { prevEl: '[data-case-prev]', nextEl: '[data-case-next]' }, pagination: { el: '[data-case-pagination]', clickable: true }, a11y: { prevSlideMessage: 'Предыдущий кейс', nextSlideMessage: 'Следующий кейс' }, breakpoints: { 760: { spaceBetween: 28 } } });
+  if (caseSwiper) {
+    new Swiper(caseSwiper, {
+      modules: [A11y],
+      slidesPerView: 1.1,
+      spaceBetween: 14,
+      grabCursor: true,
+      a11y: { prevSlideMessage: 'Предыдущий кейс', nextSlideMessage: 'Следующий кейс' },
+      breakpoints: {
+        768: {
+          slidesPerView: 'auto',
+          spaceBetween: 28,
+        },
+      },
+    });
+  }
 </script>
 
 <style>
@@ -29,29 +143,76 @@ const caseStudies = [
   .portfolio__intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 36px; align-items: end; margin-bottom: 48px; }
   .portfolio h2 { max-width: 720px; font-family: var(--body-font); font-size: clamp(38px, 4.1vw, 59px); font-weight: 500; letter-spacing: -0.055em; }
   .portfolio__intro .section-lead { max-width: 680px; margin-bottom: 0; color: #bdb8b7; }
-  .portfolio__actions { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
-  .case-nav { display: flex; gap: 9px; }
-  .case-nav__button { min-width: 94px; min-height: 42px; padding: 9px 15px; border: 1px solid rgb(255 255 255 / 32%); border-radius: 999px; color: #f6f0eb; background: transparent; cursor: pointer; font-size: 12px; font-weight: 750; }
+  .portfolio__actions { display: flex; align-items: flex-end; }
+  .portfolio__bottom-action { display: none; }
   .portfolio__carousel { width: calc(100% - max(var(--gutter), (100% - var(--container-width)) / 2)); margin-left: max(var(--gutter), (100% - var(--container-width)) / 2); }
   .case-swiper { overflow: visible; }
   .case-swiper .swiper-slide { width: min(760px, calc(100vw - max(72px, var(--gutter) * 2))); height: auto; }
-  .case-card { display: grid; overflow: hidden; min-height: 580px; border: 1px solid rgb(255 255 255 / 16%); border-radius: 30px; background: #231e1f; }
-  .case-card__media { position: relative; min-height: 340px; overflow: hidden; background: #0d0d0e; }
+  .case-card { overflow: hidden; border: 1px solid rgb(255 255 255 / 16%); border-radius: 28px; background: #231e1f; }
+  .case-card__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: #0d0d0e; }
   .case-card__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .case-card__image--before-base { display: none; }
   .case-card__before { position: absolute; z-index: 2; inset: 0; clip-path: inset(0 calc(100% - var(--compare-position)) 0 0); }
-  .case-card__before::after { position: absolute; top: 0; bottom: 0; left: var(--compare-position); width: 1px; background: rgb(255 255 255 / 88%); content: ""; }
-  .case-card__label { position: absolute; z-index: 3; top: 23px; padding: 8px 14px; border-radius: 999px; color: var(--white); background: rgb(29 25 26 / 70%); font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-  .case-card__label--before { left: 23px; }
-  .case-card__label--after { right: 23px; color: #241f20; background: #f7f2ed; }
-  .case-card__range { position: absolute; z-index: 4; inset: 0; width: 100%; height: 100%; margin: 0; cursor: ew-resize; opacity: 0; }
-  .case-card__body { display: grid; grid-template-columns: auto 1fr; column-gap: 24px; align-content: start; padding: 25px 28px 31px; }
-  .case-card__body > p { grid-column: 1 / -1; margin: 0 0 20px; color: #d0a993; font-size: 10px; font-weight: 800; letter-spacing: 0.09em; }
-  .case-card__body > span { grid-row: span 2; color: var(--orange); font-size: 12px; font-weight: 800; writing-mode: vertical-rl; }
-  .case-card__body h3 { margin: 0 0 16px; color: #f8f4f0; font-size: clamp(24px, 2.2vw, 31px); font-weight: 500; }
-  .case-card__body div { grid-column: 2; max-width: 470px; padding-top: 15px; border-top: 1px solid rgb(255 255 255 / 15%); }
-  .case-card__body div p { margin: 0; color: #c7c0bf; font-size: 14px; }
-  :global(.case-swiper__pagination .swiper-pagination-bullet) { width: 25px; height: 2px; margin: 25px 8px 0 0 !important; border-radius: 0; background: rgb(255 255 255 / 32%); opacity: 1; }
-  :global(.case-swiper__pagination .swiper-pagination-bullet-active) { background: var(--orange); }
-  @media (max-width: 900px) { .portfolio__intro { grid-template-columns: 1fr; gap: 25px; } .portfolio__actions { flex-direction: row; align-items: flex-start; justify-content: space-between; } }
-  @media (max-width: 640px) { .portfolio__intro { margin-bottom: 32px; } .portfolio__actions { flex-direction: column; align-items: stretch; } :global(.portfolio__actions .button) { width: 100%; } .case-nav { justify-content: space-between; } .case-nav__button { flex: 1; } .portfolio__carousel { width: calc(100% - var(--gutter)); margin-left: var(--gutter); } .case-swiper .swiper-slide { width: calc(100vw - var(--gutter) * 2); } .case-card { min-height: 0; border-radius: 22px; } .case-card__media { min-height: 270px; } .case-card__body { column-gap: 17px; padding: 20px 19px 24px; } }
+  .case-card__before img { filter: grayscale(.1) contrast(.9);}
+  .case-card__divider { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--compare-position); width: 2px; transform: translateX(-50%); background: #fff; box-shadow: 0 0 0 1px rgb(0 0 0 / 18%); pointer-events: none; }
+  .case-card__divider span { position: absolute; top: 50%; left: 50%; display: grid; width: 46px; height: 46px; place-items: center; border: 3px solid #fff; border-radius: 50%; color: #fff; background: var(--orange); box-shadow: 0 5px 16px rgb(0 0 0 / 28%); font-size: 19px; font-weight: 800; line-height: 1; transform: translate(-50%, -50%); }
+  .case-card__label { position: absolute; z-index: 3; top: 20px; padding: 7px 12px; border-radius: 999px; color: var(--white); background: rgb(29 25 26 / 76%); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; pointer-events: none; }
+  .case-card__label--before { left: 20px; }
+  .case-card__label--after { right: 20px; color: #241f20; background: #f7f2ed; }
+  .case-card__range { position: absolute; z-index: 4; inset: 0; width: 100%; height: 100%; margin: 0; cursor: ew-resize; opacity: 0.001; }
+  .case-card__media:has(.case-card__range:focus-visible) { outline: 3px solid var(--orange); outline-offset: -3px; }
+  .case-card__body { padding: 23px 25px 25px; }
+  .case-card__body > p:first-child { margin: 0 0 16px; color: #d0a993; font-size: 9px; font-weight: 800; letter-spacing: 0.09em; }
+  .case-card__body > div { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: start; }
+  .case-card__number { color: var(--orange); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; writing-mode: vertical-rl; }
+  .case-card__body h3 { margin: 0 0 9px; color: #f8f4f0; font-size: clamp(24px, 2.2vw, 32px); font-weight: 500; }
+  .case-card__body > div p { margin: 0; color: #c7c0bf; font-size: 14px; line-height: 1.45; }
+  .case-card__hint { display: flex; align-items: center; gap: 9px; margin: 20px 0 0; padding-top: 14px; border-top: 1px solid rgb(255 255 255 / 15%); color: #e5d4cb; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; }
+  .case-card__hint span { color: var(--orange); font-size: 18px; }
+
+  @keyframes mobileFadeInOut {
+    0%, 14.3% {
+      opacity: 0;
+    }
+    50%, 64.3% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .portfolio__intro { grid-template-columns: 1fr; gap: 25px; }
+    .portfolio__actions { justify-content: flex-start; }
+    .case-card__body h3 { font-size: 26px; }
+  }
+
+  @media (max-width: 767px) {
+    .portfolio__intro { margin-bottom: 24px; }
+    .portfolio__intro .section-lead { font-size: 15px; }
+    .portfolio__actions { display: none !important; }
+    .portfolio__bottom-action { display: block; margin-top: 24px; }
+    .portfolio__bottom-action :global(.button) { width: 100%; }
+    .portfolio__carousel { width: calc(100% - var(--gutter)); margin-left: var(--gutter); }
+    .case-swiper .swiper-slide { width: auto; }
+    .case-card { border-radius: 20px; }
+    .case-card__image--before-base { display: block; z-index: 1; filter: grayscale(.1) contrast(.9); }
+    .case-card__before { display: none !important; }
+    .case-card__image--after { display: block; z-index: 2; opacity: 0; }
+    :global(.swiper-slide-active) .case-card__image--after { animation: mobileFadeInOut 7s ease-in-out infinite; }
+    .case-card__label { display: none !important; }
+    .case-card__divider { display: none !important; }
+    .case-card__range { display: none !important; }
+    .case-card__hint { display: none !important; }
+    .case-card__body { padding: 18px 16px 20px; }
+    .case-card__body > div { gap: 14px; }
+    .case-card__body h3 { font-size: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.swiper-slide-active) .case-card__image--after {
+      animation: none !important;
+    }
+  }
 </style>

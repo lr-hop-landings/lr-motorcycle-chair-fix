@@ -76,7 +76,6 @@ const socialLinks = [
             width="196"
             height="196"
           />
-          <small>{social.handle}</small>
         </a>
       ))}
     </div>
@@ -216,24 +215,39 @@ const socialLinks = [
 
   @media (max-width: 900px) {
     .social-links__qr {
-      display: none;
+      display: none !important;
     }
   }
 
   @media (max-width: 640px) {
+    .social-links--compact,
     .social-links--cards {
-      gap: 8px;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .social-links__link {
+      width: 100%;
+      min-height: 48px;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    .social-links__card {
+      width: 100%;
     }
 
     .social-links__card > span {
-      min-height: 46px;
-      gap: 6px;
-      padding-inline: 5px;
-      font-size: 12px;
+      width: 100%;
+      min-height: 48px;
+      font-size: 14px;
+      border-radius: 8px;
     }
 
-    .social-links__card > img {
-      padding: 5px;
+    .social-links__card > img,
+    .social-links__qr {
+      display: none !important;
     }
   }
 </style>

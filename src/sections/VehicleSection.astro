@@ -7,7 +7,7 @@ const vehicleTypes = [
 import ButtonLink from "../components/ButtonLink.astro";
 ---
 
-<section class="vehicles section" aria-labelledby="vehicles-title"><div class="container"><p class="eyebrow">ОТ ГОРОДСКОГО СКУТЕРА ДО ТЕХНИКИ ОТКРЫТОГО ТИПА</p><div class="section-head"><h2 id="vehicles-title">Какие сиденья можно обсудить со специалистом</h2><p>Конструкция и условия эксплуатации отличаются — поэтому решение начинаем с коротких вопросов о конкретном сиденье.</p></div><div class="vehicles__grid">{vehicleTypes.map(([name, text], index) => <article class="vehicle"><span>0{index + 1}</span><h3>{name}</h3><p>{text}</p><ButtonLink href="#estimate" dataCta="vehicleTypes" className="vehicle__link">Рассчитать перетяжку <b>↘</b></ButtonLink></article>)}</div></div></section>
+<section class="vehicles section" aria-labelledby="vehicles-title"><div class="container"><p class="eyebrow">ОТ ГОРОДСКОГО СКУТЕРА ДО ТЕХНИКИ ОТКРЫТОГО ТИПА</p><div class="section-head"><h2 id="vehicles-title">Какие сиденья можно обсудить со специалистом</h2><p>Конструкция и условия эксплуатации отличаются — поэтому решение начинаем с коротких вопросов о конкретном сиденье.</p></div><div class="vehicles__grid">{vehicleTypes.map(([name, text], index) => <article class="vehicle"><span>0{index + 1}</span><h3>{name}</h3><p>{text}</p><ButtonLink href="#callback" dataCta="callback_vehicle" className="vehicle__link">Оставить заявку <b>↘</b></ButtonLink></article>)}</div></div></section>
 
 <style>
   .vehicles { background: var(--white); }

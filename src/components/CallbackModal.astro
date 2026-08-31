@@ -1,0 +1,827 @@
+---
+---
+
+<dialog class="callback-modal" data-callback-modal aria-label="Быстрая заявка на перетяжку">
+  <div class="callback-modal__dialog">
+    <button
+      class="callback-modal__close"
+      type="button"
+      data-callback-modal-close
+      aria-label="Закрыть окно"
+    >
+      ×
+    </button>
+
+    <!-- Main Form View -->
+    <div class="callback-modal__content" data-callback-form-view>
+      <header class="callback-modal__header">
+        <p class="callback-modal__badge">
+          <span aria-hidden="true">◷</span> Быстрая заявка
+        </p>
+        <h3 id="callback-modal-title">Оставить заявку на перетяжку</h3>
+        <p class="callback-modal__lead">
+          Укажите номер телефона — специалист свяжется с вами, ответит на вопросы
+          и предварительно сориентирует по стоимости.
+        </p>
+      </header>
+
+      <form class="callback-form" data-hop-lead-form novalidate>
+        <input type="hidden" name="cta_source" value="hero" />
+        <input
+          type="hidden"
+          name="service_name"
+          value="Быстрая заявка на перетяжку сиденья"
+        />
+        <input type="hidden" name="contact_method" value="Телефон" />
+
+        <div class="callback-form__fields">
+          <label class="quiz-field" for="callback-name">
+            <span class="quiz-field__label">Как к вам обращаться</span>
+            <div class="quiz-field__input-wrap">
+              <svg
+                class="quiz-field__icon"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <input
+                id="callback-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Ваше имя (необязательно)"
+              />
+            </div>
+          </label>
+
+          <label class="quiz-field" for="callback-phone">
+            <span class="quiz-field__label">Телефон для связи *</span>
+            <div class="quiz-field__input-wrap">
+              <svg
+                class="quiz-field__icon"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                ></path>
+              </svg>
+              <input
+                id="callback-phone"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="+7 (___) ___-__-__"
+                maxlength="18"
+                aria-describedby="callback-error"
+                required
+              />
+            </div>
+          </label>
+        </div>
+
+        <p class="consent">
+          Нажимая кнопку, вы соглашаетесь с <a
+            href="https://www.lenremont.ru/politika-obrabotki-personalnyh-dannyh.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+            >политикой обработки персональных данных</a
+          >.
+        </p>
+
+        <p
+          class="field-error"
+          id="callback-error"
+          data-callback-error
+          hidden
+          aria-live="polite"
+        >
+        </p>
+
+        <div class="callback-form__footer">
+          <button
+            class="button button--primary callback-submit"
+            type="submit"
+            data-callback-submit
+            disabled
+          >
+            Отправить заявку <span aria-hidden="true">↘</span>
+          </button>
+        </div>
+
+        <p class="callback-note">
+          Без спама и навязчивых звонков — перезвонит только мастер по перетяжке.
+        </p>
+      </form>
+    </div>
+
+    <!-- Success View -->
+    <div
+      class="callback-success"
+      data-callback-success
+      hidden
+      role="status"
+      tabindex="-1"
+    >
+      <div class="callback-success__icon-wrap">
+        <span class="callback-success__ripple"></span>
+        <div class="callback-success__icon">
+          <svg
+            viewBox="0 0 24 24"
+            width="36"
+            height="36"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+      <h3 data-callback-success-title>Заявка успешно отправлена!</h3>
+      <p class="callback-success__text">
+        Мастер уже получил уведомление и свяжется с вами в ближайшее время.
+      </p>
+
+      <div class="callback-success__direct">
+        <span>Срочный вопрос? Звоните диспетчеру:</span>
+        <a href="tel:+78123444444" class="callback-success__phone"
+          >+7 (812) 344-44-44</a
+        >
+      </div>
+
+      <div class="callback-success__footer">
+        <button
+          type="button"
+          class="button button--primary callback-success__btn"
+          data-callback-modal-close
+        >
+          Понятно
+        </button>
+        <small class="callback-success__timer"
+          >Окно закроется автоматически через 5 секунд</small
+        >
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const formatRussianPhone = (rawDigits: string) => {
+    if (!rawDigits) return '';
+    let localDigits = rawDigits;
+    if (localDigits.startsWith('7') || localDigits.startsWith('8')) {
+      localDigits = localDigits.slice(1);
+    }
+    localDigits = localDigits.slice(0, 10);
+
+    if (localDigits.length === 0) {
+      return (rawDigits.startsWith('7') || rawDigits.startsWith('8')) ? '+7 (' : '';
+    }
+
+    let formatted = '+7 (' + localDigits.slice(0, 3);
+    if (localDigits.length >= 3) {
+      formatted += ') ' + localDigits.slice(3, 6);
+    }
+    if (localDigits.length >= 6) {
+      formatted += '-' + localDigits.slice(6, 8);
+    }
+    if (localDigits.length >= 8) {
+      formatted += '-' + localDigits.slice(8, 10);
+    }
+    return formatted;
+  };
+
+  const getCursorPositionAfterDigits = (formatted: string, targetDigits: number) => {
+    if (targetDigits <= 0) return 0;
+    let count = 0;
+    for (let i = 0; i < formatted.length; i++) {
+      if (/\d/.test(formatted[i])) {
+        count++;
+        if (count === targetDigits) {
+          let next = i + 1;
+          while (next < formatted.length && (formatted[next] === ')' || formatted[next] === ' ' || formatted[next] === '-')) {
+            next++;
+          }
+          return next;
+        }
+      }
+    }
+    return formatted.length;
+  };
+
+  const validatePhone = (phoneValue: string) => {
+    const digits = phoneValue.replace(/\D/g, '');
+    if (!digits || (digits.length <= 1 && (phoneValue.startsWith('+7') || phoneValue.startsWith('8')))) {
+      return { valid: false, error: 'Укажите номер телефона для связи' };
+    }
+    let localDigits = digits;
+    if (digits.startsWith('7') || digits.startsWith('8')) {
+      localDigits = digits.slice(1);
+    }
+    if (localDigits.length < 10) {
+      return { valid: false, error: 'Введите номер телефона полностью: +7 (___) ___-__-__' };
+    }
+    return { valid: true, error: null, normalized: `+7${localDigits.slice(0, 10)}` };
+  };
+
+  const setupCallbackModal = () => {
+    const modal = document.querySelector<HTMLDialogElement>('[data-callback-modal]');
+    if (!modal) return;
+
+    const form = modal.querySelector<HTMLFormElement>('form');
+    const formView = modal.querySelector<HTMLElement>('[data-callback-form-view]');
+    const successView = modal.querySelector<HTMLElement>('[data-callback-success]');
+    const phoneInput = modal.querySelector<HTMLInputElement>('input[name="phone"]');
+    const submitBtn = modal.querySelector<HTMLButtonElement>('[data-callback-submit]');
+    const errorEl = modal.querySelector<HTMLElement>('[data-callback-error]');
+    let autoCloseTimer: number | undefined;
+
+    const updatePhoneStatus = (isValid: boolean) => {
+      if (!phoneInput) return;
+      if (isValid) {
+        phoneInput.classList.remove('is-invalid');
+        phoneInput.setAttribute('aria-invalid', 'false');
+      } else {
+        phoneInput.classList.add('is-invalid');
+        phoneInput.setAttribute('aria-invalid', 'true');
+      }
+    };
+
+    const updateSubmitButton = () => {
+      if (!phoneInput || !submitBtn) return;
+      const phoneVal = validatePhone(phoneInput.value);
+      submitBtn.disabled = !phoneVal.valid;
+      submitBtn.setAttribute('aria-disabled', String(!phoneVal.valid));
+    };
+
+    const resetModal = () => {
+      window.clearTimeout(autoCloseTimer);
+      if (form) form.reset();
+      if (phoneInput) {
+        phoneInput.classList.remove('is-invalid');
+        phoneInput.removeAttribute('aria-invalid');
+      }
+      if (errorEl) {
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+      }
+      if (formView) formView.hidden = false;
+      if (successView) successView.hidden = true;
+      updateSubmitButton();
+    };
+
+    const showSuccess = () => {
+      if (formView) formView.hidden = true;
+      if (successView) {
+        successView.hidden = false;
+        successView.focus({ preventScroll: true });
+      }
+      window.clearTimeout(autoCloseTimer);
+      autoCloseTimer = window.setTimeout(() => {
+        if (modal.open) {
+          modal.close();
+          resetModal();
+        }
+      }, 5000);
+    };
+
+    const openModal = (source = 'hero') => {
+      resetModal();
+      const sourceInput = modal.querySelector<HTMLInputElement>('input[name="cta_source"]');
+      if (sourceInput) sourceInput.value = source;
+      if (!modal.open) modal.showModal();
+      document.body.classList.add('callback-modal-open');
+      phoneInput?.focus({ preventScroll: true });
+    };
+
+    const closeModal = () => {
+      if (modal.open) modal.close();
+      document.body.classList.remove('callback-modal-open');
+      resetModal();
+    };
+
+    // Phone Input handling
+    phoneInput?.addEventListener('input', (event) => {
+      const input = event.target as HTMLInputElement;
+      const raw = input.value;
+      const cursorPos = input.selectionStart || 0;
+      const digitsBeforeCursor = raw.slice(0, cursorPos).replace(/\D/g, '').length;
+      const allDigits = raw.replace(/\D/g, '');
+
+      const isInitialDigit = allDigits.length === 1 && !raw.startsWith('+7') && !raw.startsWith('8');
+      const formatted = formatRussianPhone(allDigits);
+      input.value = formatted;
+
+      let targetDigits = digitsBeforeCursor;
+      if (isInitialDigit) {
+        targetDigits = 2;
+      } else if (allDigits.length > 0 && (allDigits.startsWith('7') || allDigits.startsWith('8')) && digitsBeforeCursor === 1) {
+        targetDigits = 1;
+      }
+
+      const newCursor = getCursorPositionAfterDigits(formatted, targetDigits);
+      input.setSelectionRange(newCursor, newCursor);
+
+      const phoneVal = validatePhone(formatted);
+      if (phoneVal.valid) {
+        updatePhoneStatus(true);
+        if (errorEl && !errorEl.hidden) {
+          errorEl.hidden = true;
+          errorEl.textContent = '';
+        }
+      }
+      updateSubmitButton();
+    });
+
+    phoneInput?.addEventListener('keydown', (event) => {
+      if (event.key === 'Backspace') {
+        const input = event.target as HTMLInputElement;
+        const start = input.selectionStart;
+        const end = input.selectionEnd;
+
+        if (start === end && start !== null && start > 0) {
+          const prevChar = input.value[start - 1];
+          if (/\D/.test(prevChar)) {
+            event.preventDefault();
+            let pos = start - 1;
+            while (pos >= 0 && /\D/.test(input.value[pos])) {
+              pos--;
+            }
+            if (pos >= 0 && /\d/.test(input.value[pos])) {
+              const digits = input.value.replace(/\D/g, '');
+              if (digits.length <= 1) {
+                input.value = '';
+                updatePhoneStatus(true);
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+                return;
+              }
+              const val = input.value;
+              const rawBefore = val.slice(0, pos).replace(/\D/g, '');
+              const rawAfter = val.slice(pos + 1).replace(/\D/g, '');
+              const newRaw = rawBefore + rawAfter;
+              const formatted = formatRussianPhone(newRaw);
+              input.value = formatted;
+              const newCursor = getCursorPositionAfterDigits(formatted, rawBefore.length);
+              input.setSelectionRange(newCursor, newCursor);
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+          }
+        }
+      }
+    });
+
+    phoneInput?.addEventListener('paste', (event) => {
+      event.preventDefault();
+      const pasted = (event.clipboardData || (window as any).clipboardData)?.getData('text') || '';
+      const pastedDigits = pasted.replace(/\D/g, '');
+      if (!pastedDigits) return;
+
+      const formatted = formatRussianPhone(pastedDigits);
+      if (phoneInput) {
+        phoneInput.value = formatted;
+        phoneInput.setSelectionRange(formatted.length, formatted.length);
+        phoneInput.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+
+    phoneInput?.addEventListener('blur', () => {
+      if (!phoneInput) return;
+      const digits = phoneInput.value.replace(/\D/g, '');
+      if (digits.length <= 1) {
+        phoneInput.value = '';
+        phoneInput.classList.remove('is-invalid');
+        phoneInput.removeAttribute('aria-invalid');
+      } else {
+        const phoneVal = validatePhone(phoneInput.value);
+        updatePhoneStatus(phoneVal.valid);
+        if (!phoneVal.valid && errorEl) {
+          errorEl.textContent = phoneVal.error;
+          errorEl.hidden = false;
+        }
+      }
+    });
+
+    // Form submission
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!phoneInput) return;
+      const phoneVal = validatePhone(phoneInput.value);
+      if (!phoneVal.valid) {
+        updatePhoneStatus(false);
+        if (errorEl) {
+          errorEl.textContent = phoneVal.error;
+          errorEl.hidden = false;
+        }
+        phoneInput.focus();
+        return;
+      }
+      if (errorEl) {
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+      }
+      showSuccess();
+    });
+
+    // Open trigger listeners
+    document.querySelectorAll('[data-callback-open], [data-cta^="callback"], a[href="#callback"]').forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const source = (trigger as HTMLElement).dataset.callbackOpen || (trigger as HTMLElement).dataset.cta || 'direct';
+        openModal(source);
+      });
+    });
+
+    // Close triggers
+    modal.querySelectorAll('[data-callback-modal-close]').forEach((btn) => {
+      btn.addEventListener('click', closeModal);
+    });
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    modal.addEventListener('close', () => {
+      document.body.classList.remove('callback-modal-open');
+      resetModal();
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCallbackModal);
+  } else {
+    setupCallbackModal();
+  }
+</script>
+
+<style>
+  [hidden] {
+    display: none !important;
+  }
+
+  .callback-modal {
+    width: min(540px, calc(100% - 28px));
+    max-height: min(820px, calc(100dvh - 28px));
+    padding: 0;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .callback-modal::backdrop {
+    background: rgb(15 17 21 / 75%);
+    backdrop-filter: blur(5px);
+  }
+
+  .callback-modal__dialog {
+    position: relative;
+    max-height: inherit;
+    overflow-y: auto;
+    border-radius: inherit;
+    background: var(--white);
+    box-shadow: 0 24px 60px rgb(0 0 0 / 24%);
+  }
+
+  .callback-modal__close {
+    position: absolute;
+    z-index: 3;
+    top: 14px;
+    right: 14px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    color: #66655f;
+    background: #eceae5;
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 1;
+    transition:
+      color 0.15s,
+      background-color 0.15s;
+  }
+
+  .callback-modal__close:hover {
+    color: var(--white);
+    background: var(--ink);
+  }
+
+  .callback-modal__content {
+    padding: clamp(28px, 6vw, 40px) clamp(22px, 5vw, 36px);
+  }
+
+  .callback-modal__header {
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .callback-modal__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 12px;
+    padding: 5px 11px;
+    border: 1px solid #c8d7ef;
+    border-radius: 999px;
+    color: var(--blue-deep);
+    background: #eaf3ff;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .callback-modal__badge span {
+    font-size: 16px;
+    line-height: 0;
+  }
+
+  .callback-modal__header h3 {
+    margin: 0 0 10px;
+    color: var(--ink);
+    font-size: clamp(23px, 3vw, 28px);
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .callback-modal__lead {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .callback-form__fields {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .quiz-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+  }
+
+  .quiz-field__label {
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .quiz-field__input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .quiz-field__icon {
+    position: absolute;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    color: #8b8984;
+    pointer-events: none;
+  }
+
+  .quiz-field input {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px 0 46px;
+    border: 1.5px solid #d4d0c7;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .quiz-field input:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(18, 103, 232, 0.15);
+  }
+
+  .quiz-field input.is-invalid,
+  .quiz-field input[aria-invalid="true"] {
+    border-color: #d32f2f;
+    background-color: #fff9f9;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.12);
+  }
+
+  .quiz-field input.is-invalid:focus,
+  .quiz-field input[aria-invalid="true"]:focus {
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.22);
+  }
+
+  .consent {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  .consent a {
+    color: var(--blue-deep);
+    text-decoration: underline;
+  }
+
+  .field-error {
+    min-height: 20px;
+    margin: 10px 0 0;
+    color: #d32f2f;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .callback-form__footer {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #eae7e1;
+  }
+
+  .callback-submit {
+    width: 100%;
+    min-height: 52px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    justify-content: center;
+  }
+
+  .callback-note {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Success View */
+  .callback-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(36px, 7vw, 48px) clamp(22px, 5vw, 36px);
+    text-align: center;
+    animation: callback-fade-in 0.3s ease;
+  }
+
+  @keyframes callback-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .callback-success__icon-wrap {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 20px;
+  }
+
+  .callback-success__ripple {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    animation: callback-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  }
+
+  @keyframes callback-pulse {
+    0% {
+      transform: scale(0.92);
+      opacity: 0.9;
+    }
+    70% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+
+  .callback-success__icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #10b981;
+    color: var(--white);
+    box-shadow: 0 10px 22px rgba(16, 185, 129, 0.35);
+  }
+
+  .callback-success h3 {
+    margin: 0 0 10px;
+    color: var(--ink);
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .callback-success__text {
+    max-width: 380px;
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .callback-success__direct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 14px;
+    border-radius: 10px;
+    background: #f5f4ef;
+  }
+
+  .callback-success__direct span {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .callback-success__phone {
+    color: var(--ink);
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .callback-success__phone:hover {
+    color: var(--blue);
+  }
+
+  .callback-success__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .callback-success__btn {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 10px;
+    font-size: 15px;
+    justify-content: center;
+  }
+
+  .callback-success__timer {
+    color: #9a9893;
+    font-size: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .callback-modal {
+      width: calc(100% - 20px);
+      max-height: calc(100dvh - 32px);
+      margin: auto;
+      border-radius: 18px;
+    }
+
+    .callback-modal__dialog {
+      min-height: unset;
+      border-radius: 18px;
+    }
+
+    .callback-modal__content {
+      padding: 24px 16px 20px;
+    }
+  }
+</style>
