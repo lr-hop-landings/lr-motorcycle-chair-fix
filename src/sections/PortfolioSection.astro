@@ -19,7 +19,6 @@ import ButtonLink from "../components/ButtonLink.astro";
 
 const caseStudies = [
   {
-    number: "01",
     after: finishedSeatStaging,
     before: wornSeatBefore,
     title: "Двухфактурная обивка с контрастной строчкой",
@@ -27,7 +26,6 @@ const caseStudies = [
     tags: "МОТОСИДЕНЬЕ · ДВУХФАКТУРНАЯ ОБИВКА",
   },
   {
-    number: "02",
     after: sportAfter,
     before: sportBefore,
     title: "Спортбайк: микрозамша и красная строчка",
@@ -35,7 +33,6 @@ const caseStudies = [
     tags: "СПОРТБАЙК · МИКРОЗАМША",
   },
   {
-    number: "03",
     after: cafeAfter,
     before: cafeBefore,
     title: "Кафе-рейсер: новая кожаная посадка",
@@ -43,7 +40,6 @@ const caseStudies = [
     tags: "КАФЕ-РЕЙСЕР · РЕБРИСТАЯ ФАКТУРА",
   },
   {
-    number: "04",
     after: cruiserAfter,
     before: cruiserBefore,
     title: "Круизер: обновление двухуровневого седла",
@@ -51,7 +47,6 @@ const caseStudies = [
     tags: "КРУИЗЕР · ДВУХУРОВНЕВОЕ СЕДЛО",
   },
   {
-    number: "05",
     after: scooterAfter,
     before: scooterBefore,
     title: "Скутер: новая влагостойкая обивка",
@@ -59,7 +54,6 @@ const caseStudies = [
     tags: "СКУТЕР · ВЛАГОСТОЙКИЙ ВИНИЛ",
   },
   {
-    number: "06",
     after: enduroAfter,
     before: enduroBefore,
     title: "Эндуро: тяговая фактура для активной езды",
@@ -67,7 +61,6 @@ const caseStudies = [
     tags: "ЭНДУРО · ЦЕПКАЯ ФАКТУРА",
   },
   {
-    number: "07",
     after: atvAfter,
     before: atvBefore,
     title: "Квадроцикл: прочное покрытие для открытой техники",
@@ -75,7 +68,6 @@ const caseStudies = [
     tags: "КВАДРОЦИКЛ · УСИЛЕННЫЕ ШВЫ",
   },
   {
-    number: "08",
     after: touringAfter,
     before: touringBefore,
     title: "Туринговое сиденье для дальней дороги",
@@ -170,7 +162,6 @@ const caseStudies = [
               <div class="case-card__body">
                 <p>{caseStudy.tags}</p>
                 <div>
-                  <span class="case-card__number">{caseStudy.number}</span>
                   <div>
                     <h3>{caseStudy.title}</h3>
                     <p>{caseStudy.text}</p>
@@ -467,7 +458,7 @@ const caseStudies = [
       opacity: 0;
     }
     :global(.swiper-slide-active) .case-card__image--after {
-      animation: mobileFadeInOut 7s ease-in-out infinite;
+      animation: mobileFadeInOut 5s ease-in-out infinite;
     }
     .case-card__label {
       display: none !important;

@@ -46,13 +46,20 @@ const classes = ["button", `button--${variant}`, className].filter(Boolean).join
     background: var(--blue-deep);
   }
 
-  .button--ghost,
   .button--outline {
     color: inherit;
     border-color: currentColor;
   }
 
-  .button--ghost:hover,
+  .button--ghost{
+    color: var(--blue);
+    border-color: var(--white);
+    background-color: var(--white);
+  }
+
+  .button--ghost:hover{
+    background: var(--paper);
+  }
   .button--outline:hover {
     background: rgb(255 255 255 / 11%);
   }

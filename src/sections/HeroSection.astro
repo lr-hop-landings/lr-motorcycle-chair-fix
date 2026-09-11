@@ -34,10 +34,10 @@ import SocialLinks from "../components/SocialLinks.astro";
       >
     </div>
     <div class="hero__social">
-      <div class="hero__social-label">Или напишите нам в мессенджере</div>
-      <SocialLinks isCompact />
       <div class="hero__social-label">Также можете позвонить по номеру</div>
       <a class="hero__phone" href="tel:+78123444444">+7 (812) 344-44-44</a>
+      <div class="hero__social-label">Или написать нам в мессенджере</div>
+      <SocialLinks isCompact />
     </div>
   </div>
   <!-- <div class="hero__drawing" aria-hidden="true">
@@ -317,7 +317,7 @@ import SocialLinks from "../components/SocialLinks.astro";
   }
   @media (max-width: 640px) {
     .hero h1 {
-      font-size: 44px;
+      font-size: 40px;
       line-height: 1.02;
     }
     .hero h1 span {
@@ -341,6 +341,11 @@ import SocialLinks from "../components/SocialLinks.astro";
       right: 12px;
       bottom: 12px;
       font-size: 8px;
+    }
+  }
+  @media (max-width: 480px){
+    .hero h1 {
+      font-size: 28px;
     }
   }
 </style>
