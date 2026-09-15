@@ -32,13 +32,13 @@ function render(focus = true) {
     const count = state.step === 4 ? 'Анализ ответов' : state.step >= 5 ? 'Готово · все ответы учтены' : `Вопрос ${state.step + 1} из 4`;
     let body = '';
     if (state.step === 0) {
-        body = `<h2 id="question-title" tabindex="-1">Что нужно вашему сиденью?</h2><div class="choices">${Object.entries(branches).map(([key, v]) => optionButton(v.label, key, state.intent === key, v.description, v.icon)).join('')}</div><div class="quiz-foot"><span class="small muted">4 вопроса — и вариант решения</span><span class="small muted">Выберите вашу задачу ↗</span></div>`;
+        body = `<h2 id="question-title" tabindex="-1">Что нужно вашему сиденью?</h2><div class="choices">${Object.entries(branches).map(([key, v]) => optionButton(v.label, key, state.intent === key, v.description, v.icon)).join('')}</div>`;
     }
     if (state.step === 1) {
         body = `<h2 id="question-title" tabindex="-1">${current.question}</h2><div class="choices">${current.options.map((v, i) => optionButton(v.label, i, state.detail === i)).join('')}</div><div class="quiz-foot"><button class="text-link" type="button" data-back>← Назад</button><span class="small muted">Выберите ответ, чтобы продолжить</span></div>`;
     }
     if (state.step === 2) {
-        body = `<h2 id="question-title" tabindex="-1">На какой технике установлено сиденье?</h2><div class="choices">${vehicles.map((v, i) => optionButton(v, i, state.vehicle === i)).join('')}</div><div class="quiz-foot"><button class="text-link" type="button" data-back>← Назад</button><button class="btn" type="button" data-next ${state.vehicle === null ? 'disabled' : ''}>Далее ${icon('arrow')}</button></div><p class="small muted" style="margin-top:10px">Далее выберем удобный способ связи.</p>`;
+        body = `<h2 id="question-title" tabindex="-1">На какой технике установлено сиденье?</h2><div class="choices">${vehicles.map((v, i) => optionButton(v, i, state.vehicle === i)).join('')}</div><div class="quiz-foot"><button class="text-link" type="button" data-back>← Назад</button></div><p class="small muted" style="margin-top:10px">Далее выберем удобный способ связи.</p>`;
     }
     if (state.step === 3) {
         body = `<h2 id="question-title" tabindex="-1">Как с вами связаться?</h2><p class="quiz-step-note">Выберите, где удобнее обсудить ваше сиденье со специалистом.</p><div class="choices">${contactMethods.map((method, index) => optionButton(method, index, state.method === index, index === 0 ? 'Позвонить по телефону' : 'Написать в ' + method, index === 0 ? 'phone' : '')).join('')}</div><div class="quiz-foot"><button class="text-link" type="button" data-back>← Назад</button><span class="small muted">После выбора подготовим результат</span></div>`;
@@ -68,11 +68,8 @@ function render(focus = true) {
         }
         else if (state.step === 2) {
             state.vehicle = Number(b.dataset.choice);
-            // Update the selection without re-rendering the question.
-            app.querySelectorAll('[data-choice]').forEach(choice => {
-                choice.setAttribute('aria-pressed', String(choice === b));
-            });
-            app.querySelector('[data-next]').disabled = false;
+            state.step = 3;
+            render();
         }
         else if (state.step === 3) {
             state.method = Number(b.dataset.choice);
@@ -80,8 +77,6 @@ function render(focus = true) {
         }
     }));
     app.querySelector('[data-back]')?.addEventListener('click', () => { clearAnalysis(); state.step = state.step >= 4 ? 3 : state.step - 1; render(); });
-    app.querySelector('[data-next]')?.addEventListener('click', () => { if (state.step === 1 && state.detail === null || state.step === 2 && state.vehicle === null)
-        return; state.step++; render(); });
     app.querySelector('[data-reset]')?.addEventListener('click', () => { clearAnalysis(); Object.assign(state, initialState); render(); });
     app.querySelector('[data-prepare]')?.addEventListener('click', openContact);
     setupLeadForm();

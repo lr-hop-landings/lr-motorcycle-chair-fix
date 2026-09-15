@@ -78,12 +78,10 @@ body:has(dialog[open]) .mobile-bar { visibility: hidden; }
   :root { --gutter: 18px; --section-space: 55px; }
   html { scroll-padding-top: 18px; }
   body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
-  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .hero .photo-panel { display: block; min-height: 220px; height: 220px; }
+  .hero > .wrap { display: flex; flex-direction: column; }
+  .hero-grid { display: contents; }
+  .hero .photo-panel { display: block; order: -1; width: 100%; min-height: 220px; height: 220px; margin-bottom: 24px; }
   .hero .photo-panel img { object-position: center 52%; }
-  .hero .photo-caption { left: 22px; bottom: 20px; }
-  .hero .photo-caption p { font-size: 25px; }
-  .hero .photo-caption small { margin-top: 8px; }
   .hero .photo-tag { top: 18px; left: 22px; }
   .hero .quiz { scroll-margin-top: 18px; }
   .contact { margin-bottom: 24px; }
