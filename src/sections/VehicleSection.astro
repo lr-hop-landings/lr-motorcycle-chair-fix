@@ -18,11 +18,11 @@ import ButtonLink from "../components/ButtonLink.astro";
 
 <section class="vehicles section" aria-labelledby="vehicles-title">
   <div class="container">
-    <p class="eyebrow">ОТ ГОРОДСКОГО СКУТЕРА ДО ТЕХНИКИ ОТКРЫТОГО ТИПА</p><div
+    <p class="eyebrow">ДЛЯ ВАШЕЙ ТЕХНИКИ</p><div
       class="section-head"
     >
       <h2 id="vehicles-title">
-        Какие сиденья можно обсудить со специалистом
+        Мотоциклы, квадроциклы и не только
       </h2><p>
         Конструкция и условия эксплуатации отличаются — поэтому решение начинаем
         с коротких вопросов о конкретном сиденье.
@@ -72,20 +72,21 @@ import ButtonLink from "../components/ButtonLink.astro";
   .vehicles__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
+    gap: 20px;
   }
   .vehicle {
     min-height: 272px;
     padding: 27px 28px 24px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--bg);
   }
   .vehicle:first-child {
-    padding-left: 0;
+    padding-left: 28px;
   }
   .vehicle:last-child {
-    padding-right: 0;
-    border-right: 0;
+    padding-right: 28px;
+
   }
   .vehicle > span {
     color: var(--orange);
@@ -94,13 +95,13 @@ import ButtonLink from "../components/ButtonLink.astro";
     letter-spacing: 0.1em;
   }
   .vehicle h3 {
-    margin: 34px 0 8px;
+    margin: 0 0 14px;
   }
   .vehicle p {
     min-height: 75px;
     margin-bottom: 18px;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 17px;
   }
   :global(.vehicle__link) {
     min-height: auto;
@@ -128,7 +129,7 @@ import ButtonLink from "../components/ButtonLink.astro";
     .vehicle:first-child,
     .vehicle:last-child {
       min-height: unset;
-      padding: 25px 0;
+      padding: 25px;
       border-right: 0;
     }
     .vehicle p {

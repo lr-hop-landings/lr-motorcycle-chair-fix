@@ -92,8 +92,8 @@ const caseStudies = [
       </p>
     </div>
     <div class="portfolio__actions">
-      <ButtonLink href="#estimate" variant="outline" dataCta="portfolio">
-        Рассчитать похожую работу <span aria-hidden="true">↘</span>
+      <ButtonLink href="#quiz" variant="outline" dataCta="portfolio">
+        Подобрать похожее решение <span aria-hidden="true">↘</span>
       </ButtonLink>
     </div>
   </div>
@@ -176,7 +176,7 @@ const caseStudies = [
   </div>
 
   <div class="portfolio__bottom-action container">
-    <ButtonLink href="#estimate" variant="outline" dataCta="portfolio">
+    <ButtonLink href="#quiz" variant="outline" dataCta="portfolio">
       Рассчитать похожую работу <span aria-hidden="true">↘</span>
     </ButtonLink>
   </div>
@@ -218,7 +218,7 @@ const caseStudies = [
   .portfolio {
     overflow: hidden;
     padding-block: clamp(68px, 9vw, 130px);
-    background: #1d191a;
+    background: var(--night);
   }
   .portfolio__intro {
     display: grid;
@@ -231,7 +231,7 @@ const caseStudies = [
     max-width: 720px;
     font-family: var(--body-font);
     font-size: clamp(38px, 4.1vw, 59px);
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: -0.055em;
   }
   .portfolio__intro .section-lead {
@@ -261,7 +261,7 @@ const caseStudies = [
     overflow: hidden;
     border: 1px solid rgb(255 255 255 / 16%);
     border-radius: 28px;
-    background: #231e1f;
+    background: #103761;
   }
   .case-card__media {
     position: relative;
@@ -311,7 +311,8 @@ const caseStudies = [
     border: 3px solid #fff;
     border-radius: 50%;
     color: #fff;
-    background: var(--orange);
+    background: var(--yellow);
+    color: var(--ink);
     box-shadow: 0 5px 16px rgb(0 0 0 / 28%);
     font-size: 19px;
     font-weight: 800;
@@ -359,7 +360,7 @@ const caseStudies = [
   }
   .case-card__body > p:first-child {
     margin: 0 0 16px;
-    color: #d0a993;
+    color: var(--cyan);
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 0.09em;

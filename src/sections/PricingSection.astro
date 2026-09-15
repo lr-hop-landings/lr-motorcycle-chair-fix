@@ -1,13 +1,46 @@
----
-import ButtonLink from "../components/ButtonLink.astro";
----
-
-<section class="pricing section" aria-labelledby="pricing-title"><div class="container pricing__grid"><div><p class="eyebrow">БЕЗ АБСТРАКТНОЙ «ДОГОВОРНОЙ ЦЕНЫ»</p><h2 id="pricing-title">Сначала поймем состав работ — затем назовем стоимость</h2></div><div><p>На цену влияют размер и форма сиденья, состояние основания и наполнителя, выбранный материал, количество деталей и сложность строчки.</p><p>Предварительно оцениваем по вашим ответам. Окончательную стоимость называют после осмотра и выбора материала — до начала работ.</p><ButtonLink href="#estimate" dataCta="pricing">Рассчитать стоимость <span aria-hidden="true">↘</span></ButtonLink></div></div></section>
-<style>
-  .pricing { background: var(--white); }
-  .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 9vw, 150px); align-items: start; }
-  .pricing__grid h2 { margin-bottom: 0; }
-  .pricing__grid p { max-width: 480px; color: var(--muted); }
-  :global(.pricing__grid .button) { margin-top: 13px; }
-  @media (max-width: 900px) { .pricing__grid { grid-template-columns: 1fr; } }
-</style>
+<section class="section price-area" id="cost">
+<div class="wrap price-layout">
+<div class="price-intro">
+<div class="eyebrow">Стоимость без догадок</div>
+<h2>Сначала задача.<br>Затем цена.</h2>
+<p>Новый чехол и изменение формы сиденья — разные работы. Чтобы оценка была полезной, нужно понять, что меняем.</p>
+<div class="price-cta">
+<a class="btn" href="#contact" data-contact>Обсудить стоимость по фото <svg>
+<use href="#arrow"/>
+</svg>
+</a>
+</div>
+</div>
+<div>
+<div class="price-list">
+<article class="price-row">
+<span class="number">01</span>
+<div>
+<h3>Замена обивки</h3>
+<p>Размер сиденья, выбранный материал и сложность пошива чехла.</p>
+</div>
+</article>
+<article class="price-row">
+<span class="number">02</span>
+<div>
+<h3>Индивидуальный дизайн</h3>
+<p>Сочетания материалов, рисунок строчки и количество деталей.</p>
+</div>
+</article>
+<article class="price-row">
+<span class="number">03</span>
+<div>
+<h3>Работа с посадкой</h3>
+<p>Состояние наполнителя, конструкция и возможные изменения формы.</p>
+</div>
+</article>
+</div>
+<div class="price-note">
+<svg>
+<use href="#camera"/>
+</svg>
+<p>Начать оценку можно по фото. Для проверки состояния под обивкой может потребоваться осмотр. Итоговую стоимость согласуем до работ.</p>
+</div>
+</div>
+</div>
+</section>
