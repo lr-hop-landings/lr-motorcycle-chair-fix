@@ -98,13 +98,22 @@ svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke
 .price-layout{display:grid;grid-template-columns:.85fr 1.3fr;gap:70px}
 .price-intro h2{margin:18px 0 24px}
 .price-intro p{color:var(--muted)}
+.price-intro .price-source{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;line-height:1.55}
 .price-list{border-top:1px solid var(--line)}
-.price-row{display:grid;grid-template-columns:42px 1fr;gap:15px;padding:27px 0;border-bottom:1px solid var(--line)}
+.price-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:15px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
 .price-row .number{font-size:15px;color:var(--blue);font-weight:750;padding-top:5px}
-.price-row h3{font-size:25px;margin-bottom:8px}
-.price-row p{font-size:17px;color:var(--muted)}
+.price-row h3{font-size:22px;margin-bottom:6px}
+.price-row p{font-size:15px;color:var(--muted)}
+.price-row__value{padding-top:2px;color:var(--ink);font-size:21px;line-height:1.25;white-space:nowrap;text-align:right}
+.price-adjustments{margin-top:20px;padding:17px 20px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+.price-adjustments p{display:flex;justify-content:space-between;gap:20px;font-size:14px}
+.price-adjustments p+p{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.price-adjustments span{color:var(--muted)}
+.price-adjustments strong{white-space:nowrap}
 .price-note{margin-top:25px;background:var(--soft);padding:22px;border-radius:15px;display:flex;gap:15px;font-size:16px}
 .price-note svg{color:var(--blue);margin-top:3px}
+.price-note--scope strong{display:block;margin-bottom:5px}
+.price-note--scope p{color:var(--muted);font-size:15px}
 .price-cta{margin-top:24px}
 
 .material-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
@@ -218,8 +227,9 @@ to{opacity:1;transform:translateY(0)}
 .approach p{font-size:17px}
 .price-layout,.material-grid,.faq-layout{grid-template-columns:1fr;gap:26px}
 .price-intro h2,.material-copy h2,.faq-layout h2{font-size:36px}
-.price-row{padding:23px 0;grid-template-columns:28px 1fr;gap:8px}
-.price-row h3{font-size:25px}
+.price-row{padding:20px 0;grid-template-columns:28px minmax(0,1fr) auto;gap:8px 12px}
+.price-row h3{font-size:21px}
+.price-row__value{font-size:19px}
 .price-cta .btn{width:100%}
 .material-photo{order:2}
 .material-photo img{aspect-ratio:1.4}
@@ -255,6 +265,10 @@ dialog{padding:24px 20px}
 .choice small{font-size:14px}
 .hero-intro p{font-size:17px}
 .choice strong{font-size:18px}
+.price-row{grid-template-columns:25px 1fr}
+.price-row__value{grid-column:2;text-align:left;padding-top:4px}
+.price-adjustments p{display:grid;gap:4px}
+.price-adjustments strong{white-space:normal}
 }
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}

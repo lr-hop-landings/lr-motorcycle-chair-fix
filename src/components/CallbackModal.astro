@@ -1,8 +1,11 @@
 ---
+import type { VehiclePage } from "../data/vehicles";
+interface Props { vehicle?: VehiclePage; }
+const { vehicle } = Astro.props;
 ---
 
-<dialog class="callback-modal" data-callback-modal aria-label="Быстрая заявка на перетяжку">
-  <div class="callback-modal__dialog">
+<dialog id="callback" class="callback-modal" data-callback-modal aria-label="Быстрая заявка на перетяжку">
+  <div class="callback-modal__dialog" data-lead-root>
     <button
       class="callback-modal__close"
       type="button"
@@ -25,14 +28,17 @@
         </p>
       </header>
 
-      <form class="callback-form" data-hop-lead-form novalidate>
+      <form class="callback-form" data-hop-lead-form method="post" novalidate>
         <input type="hidden" name="cta_source" value="hero" />
         <input
           type="hidden"
           name="service_name"
-          value="Быстрая заявка на перетяжку сиденья"
+          value={vehicle?.service ?? "Быстрая заявка на перетяжку сиденья"}
         />
         <input type="hidden" name="contact_method" value="Телефон" />
+        <input type="hidden" name="vehicle_type" value={vehicle?.singular ?? ""} />
+        <input type="hidden" name="vehicle_slug" value={vehicle?.slug ?? ""} />
+        <input type="hidden" name="page_path" value={Astro.url.pathname} />
 
         <div class="callback-form__fields">
           <label class="quiz-field" for="callback-name">
@@ -116,6 +122,11 @@
           </button>
         </div>
 
+        <p class="quiz-submit-status" data-submit-status role="status" hidden></p>
+        <div class="quiz-submit-fallback" data-submit-fallback hidden>
+          <a href="tel:+78123444444">Позвонить +7 (812) 344-44-44</a>
+          <button type="button" data-callback-modal-close>Вернуться к способам связи</button>
+        </div>
         <p class="callback-note">
           Без спама и навязчивых звонков — перезвонит только мастер по перетяжке.
         </p>
@@ -126,6 +137,7 @@
     <div
       class="callback-success"
       data-callback-success
+      data-lead-success
       hidden
       role="status"
       tabindex="-1"
@@ -150,7 +162,7 @@
       </div>
       <h3 data-callback-success-title>Заявка успешно отправлена!</h3>
       <p class="callback-success__text">
-        Мастер уже получил уведомление и свяжется с вами в ближайшее время.
+        Специалист свяжется с вами, чтобы обсудить сиденье и уточнить детали.
       </p>
 
       <div class="callback-success__direct">
@@ -168,9 +180,6 @@
         >
           Понятно
         </button>
-        <small class="callback-success__timer"
-          >Окно закроется автоматически через 5 секунд</small
-        >
       </div>
     </div>
   </div>
@@ -245,7 +254,7 @@
     const phoneInput = modal.querySelector<HTMLInputElement>('input[name="phone"]');
     const submitBtn = modal.querySelector<HTMLButtonElement>('[data-callback-submit]');
     const errorEl = modal.querySelector<HTMLElement>('[data-callback-error]');
-    let autoCloseTimer: number | undefined;
+    let callbackTrigger: HTMLElement | null = null;
 
     const updatePhoneStatus = (isValid: boolean) => {
       if (!phoneInput) return;
@@ -266,7 +275,10 @@
     };
 
     const resetModal = () => {
-      window.clearTimeout(autoCloseTimer);
+      const status = form?.querySelector<HTMLElement>('[data-submit-status]');
+      const fallback = form?.querySelector<HTMLElement>('[data-submit-fallback]');
+      if (status) status.hidden = true;
+      if (fallback) fallback.hidden = true;
       if (form) form.reset();
       if (phoneInput) {
         phoneInput.classList.remove('is-invalid');
@@ -281,25 +293,16 @@
       updateSubmitButton();
     };
 
-    const showSuccess = () => {
-      if (formView) formView.hidden = true;
-      if (successView) {
-        successView.hidden = false;
-        successView.focus({ preventScroll: true });
-      }
-      window.clearTimeout(autoCloseTimer);
-      autoCloseTimer = window.setTimeout(() => {
-        if (modal.open) {
-          modal.close();
-          resetModal();
-        }
-      }, 5000);
-    };
-
     const openModal = (source = 'hero') => {
+      callbackTrigger = document.activeElement as HTMLElement;
       resetModal();
       const sourceInput = modal.querySelector<HTMLInputElement>('input[name="cta_source"]');
       if (sourceInput) sourceInput.value = source;
+      const quiz = document.querySelector<HTMLElement>('#quiz-app');
+      for (const [name, value] of Object.entries({ vehicle_type: quiz?.dataset.selectedVehicle, vehicle_slug: quiz?.dataset.selectedVehicleSlug, service_name: quiz?.dataset.selectedService })) {
+        const input = form?.elements.namedItem(name) as HTMLInputElement | null;
+        if (input && value) input.value = value;
+      }
       if (!modal.open) modal.showModal();
       document.body.classList.add('callback-modal-open');
       phoneInput?.focus({ preventScroll: true });
@@ -414,10 +417,11 @@
 
     // Form submission
     form?.addEventListener('submit', (event) => {
-      event.preventDefault();
       if (!phoneInput) return;
       const phoneVal = validatePhone(phoneInput.value);
       if (!phoneVal.valid) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
         updatePhoneStatus(false);
         if (errorEl) {
           errorEl.textContent = phoneVal.error;
@@ -430,7 +434,7 @@
         errorEl.hidden = true;
         errorEl.textContent = '';
       }
-      showSuccess();
+      phoneInput.value = phoneVal.normalized!;
     });
 
     // Open trigger listeners
@@ -456,6 +460,7 @@
     modal.addEventListener('close', () => {
       document.body.classList.remove('callback-modal-open');
       resetModal();
+      callbackTrigger?.focus({ preventScroll: true });
     });
   };
 

@@ -1,0 +1,12 @@
+{
+  "prompt": "Origin record only (not a generation prompt). Pre-existing repository asset: src/assets/motoSeat/case01-before-cracked.webp. Original provenance and generation prompt unknown. Used as an illustration; not evidence of an actual completed order.",
+  "createdAt": "2026-09-16T10:55:58.637Z",
+  "recordType": "origin-record-not-generation-prompt",
+  "origin": "pre-existing repository asset",
+  "asset": "src/assets/motoSeat/case01-before-cracked.webp",
+  "originalProvenance": "unknown",
+  "generationPrompt": null,
+  "usage": "illustration",
+  "disclosure": "Used as an illustration; not evidence of an actual completed order.",
+  "sha256": "a8fc4fe87881137c9eb9dd555b3be7a55fceacd3a0f70abd65af0ac1a177a6e5"
+}

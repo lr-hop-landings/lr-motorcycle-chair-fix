@@ -1,17 +1,45 @@
 ---
 import MessengerCards from "../components/MessengerCards.astro";
+import type { VehiclePage } from "../data/vehicles";
+interface Props {
+  vehicle?: VehiclePage;
+}
+const { vehicle } = Astro.props;
 ---
+
 <section class="wrap contact" id="contact">
-<div>
-<div class="eyebrow">Начните с вашего сиденья</div>
-<h2>Покажите.<br>Расскажите.<br>Обсудим.</h2>
-<p>Добавьте модель техники и напишите, что хотите изменить. Прикрепите общий вид сверху, сбоку и детали крупным планом.</p>
-<a class="contact-phone" href="tel:+78123444444">+7 (812) 344-44-44</a>
-<p class="small">Если удобнее обсудить голосом</p>
-<div class="contact-extra"><a class="text-link" href="#quiz">Подобрать решение ↗</a><a class="text-link" href="#callback" data-cta="callback_contact">Заказать звонок ↗</a></div>
-</div>
-<div>
-<MessengerCards stacked />
-<p class="small">Мессенджер откроется отдельно. Прикрепите фотографии и отправьте сообщение там.</p>
-</div>
+  <div>
+    <div class="eyebrow">Начните с вашего сиденья</div>
+    <h2>Покажите.<br />Расскажите.<br />Обсудим.</h2>
+    <p>
+      {
+        vehicle?.contact ??
+          "Добавьте модель техники и напишите, что хотите изменить. Прикрепите общий вид сверху, сбоку и детали крупным планом."
+      }
+    </p>
+    <a class="contact-phone" href="tel:+78123444444">+7 (812) 344-44-44</a>
+    <p class="small">Если удобнее обсудить голосом</p>
+    <div class="contact-extra">
+      <a class="text-link" href="#quiz">Подобрать решение ↗</a><a
+        class="text-link"
+        href="#callback"
+        data-cta="callback_contact">Заказать звонок ↗</a>
+    </div>
+    {
+      vehicle && (
+        <p class="contact-extra">
+          <a class="text-link" href="#contact" data-contact>
+            Подготовить сообщение о сиденье ↗
+          </a>
+        </p>
+      )
+    }
+  </div>
+  <div>
+    <MessengerCards stacked />
+    <p class="small">
+      Мессенджер откроется отдельно. Прикрепите фотографии и отправьте сообщение
+      там.
+    </p>
+  </div>
 </section>

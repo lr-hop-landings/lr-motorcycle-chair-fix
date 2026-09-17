@@ -1,4 +1,24 @@
 ---
-const schema = { "@context": "https://schema.org", "@type": "Service", name: "Перетяжка сидений мототехники", provider: { "@type": "Organization", name: "Ленремонт", telephone: "+78123444444" }, areaServed: { "@type": "City", name: "Санкт-Петербург" }, description: "Перетяжка и ремонт сидений мотоциклов, квадроциклов и другой мототехники в Санкт-Петербурге. Подбор решения после короткого квиза и предварительная оценка стоимости по фото." };
+interface Props {
+  name?: string;
+  description?: string;
+}
+const {
+  name = "Перетяжка сидений мототехники",
+  description = "Перетяжка и ремонт сидений мотоциклов, квадроциклов и другой мототехники в Санкт-Петербурге. Подбор решения после короткого квиза и предварительная оценка стоимости по фото.",
+} = Astro.props;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name,
+  provider: {
+    "@type": "Organization",
+    name: "Ленремонт",
+    telephone: "+78123444444",
+  },
+  areaServed: { "@type": "City", name: "Санкт-Петербург" },
+  description,
+};
 ---
-<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

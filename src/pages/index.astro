@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../sections/HeroSection.astro";
 import HeroMessengers from "../sections/HeroMessengers.astro";
 import ProofSection from "../sections/ProofSection.astro";
-import TypesSection from "../sections/TypesSection.astro";
 
 import VehicleSection from "../sections/VehicleSection.astro";
 import PortfolioSection from "../sections/PortfolioSection.astro";
@@ -23,13 +22,13 @@ import CallbackModal from "../components/CallbackModal.astro";
 <BaseLayout
   title="Перетяжка сидений мотоциклов и квадроциклов в СПб | Ленремонт"
   description="Перетяжка и ремонт сидений мотоциклов, квадроциклов и другой мототехники в Санкт-Петербурге. Ответьте на четыре вопроса и выберите удобный способ обратной связи."
+  canonical={Astro.site ? new URL("/", Astro.site).href : "https://www.lenremont.ru/peretyazhka-sidenya-motoczikla.htm"}
 >
   <a class="skip" href="#quiz">Перейти к подбору</a>
   <main id="top">
     <HeroSection />
     <HeroMessengers />
     <ProofSection />
-    <TypesSection />
     <VehicleSection />
     <PortfolioSection />
     <ServiceOptionsSection />

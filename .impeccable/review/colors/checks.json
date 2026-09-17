@@ -1,0 +1,156 @@
+{
+  "cards": [
+    {
+      "bg": "rgb(36, 79, 157)",
+      "href": "/motocikly/",
+      "text": "color(srgb 0.871176 0.896471 0.942353)",
+      "title": "Мотоциклы"
+    },
+    {
+      "bg": "rgb(0, 109, 104)",
+      "href": "/skutery/",
+      "text": "color(srgb 0.85 0.914118 0.911176)",
+      "title": "Скутеры"
+    },
+    {
+      "bg": "rgb(82, 99, 47)",
+      "href": "/kvadrocikly/",
+      "text": "color(srgb 0.898235 0.908235 0.877647)",
+      "title": "Квадроциклы"
+    },
+    {
+      "bg": "rgb(151, 70, 47)",
+      "href": "/baggi/",
+      "text": "color(srgb 0.938824 0.891176 0.877647)",
+      "title": "Багги"
+    }
+  ],
+  "metrics": [
+    {
+      "slug": "skutery",
+      "accent": "rgb(179, 238, 226)",
+      "heading": "rgb(255, 255, 255)",
+      "hero": "rgb(0, 109, 104)",
+      "intro": "color(srgb 0.85 0.914118 0.911176)",
+      "messengers": "rgb(0, 109, 104)",
+      "photoBg": "rgb(179, 238, 226)",
+      "photoText": "rgb(18, 52, 84)",
+      "quizAccent": "rgb(0, 109, 104)",
+      "quizBackground": "rgb(255, 255, 255)",
+      "quizSoft": "color(srgb 0.92 0.954196 0.952627)",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "slug": "motocikly",
+      "accent": "rgb(185, 215, 255)",
+      "heading": "rgb(255, 255, 255)",
+      "hero": "rgb(36, 79, 157)",
+      "intro": "color(srgb 0.871176 0.896471 0.942353)",
+      "messengers": "rgb(36, 79, 157)",
+      "photoBg": "rgb(185, 215, 255)",
+      "photoText": "rgb(18, 52, 84)",
+      "quizAccent": "rgb(36, 79, 157)",
+      "quizBackground": "rgb(255, 255, 255)",
+      "quizSoft": "color(srgb 0.931294 0.944784 0.969255)",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "slug": "kvadrocikly",
+      "accent": "rgb(219, 236, 164)",
+      "heading": "rgb(255, 255, 255)",
+      "hero": "rgb(82, 99, 47)",
+      "intro": "color(srgb 0.898235 0.908235 0.877647)",
+      "messengers": "rgb(82, 99, 47)",
+      "photoBg": "rgb(219, 236, 164)",
+      "photoText": "rgb(18, 52, 84)",
+      "quizAccent": "rgb(82, 99, 47)",
+      "quizBackground": "rgb(255, 255, 255)",
+      "quizSoft": "color(srgb 0.945726 0.951059 0.934745)",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "slug": "baggi",
+      "accent": "rgb(255, 206, 177)",
+      "heading": "rgb(255, 255, 255)",
+      "hero": "rgb(151, 70, 47)",
+      "intro": "color(srgb 0.938824 0.891176 0.877647)",
+      "messengers": "rgb(151, 70, 47)",
+      "photoBg": "rgb(255, 206, 177)",
+      "photoText": "rgb(18, 52, 84)",
+      "quizAccent": "rgb(151, 70, 47)",
+      "quizBackground": "rgb(255, 255, 255)",
+      "quizSoft": "color(srgb 0.967373 0.941961 0.934745)",
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "slug": "motocikly",
+      "viewport": "mobile",
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "slug": "skutery",
+      "viewport": "mobile",
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "slug": "kvadrocikly",
+      "viewport": "mobile",
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "slug": "baggi",
+      "viewport": "mobile",
+      "scrollWidth": 375,
+      "width": 390
+    }
+  ],
+  "contrast": [
+    {
+      "slug": "skutery",
+      "intro": 4.95,
+      "white": 6.2,
+      "accent": 4.8,
+      "quizAccent": 5.51,
+      "photoCaption": 9.88,
+      "sameAsCard": true,
+      "continuousBackground": true
+    },
+    {
+      "slug": "motocikly",
+      "intro": 6.17,
+      "white": 7.84,
+      "accent": 5.31,
+      "quizAccent": 6.92,
+      "photoCaption": 8.65,
+      "sameAsCard": true,
+      "continuousBackground": true
+    },
+    {
+      "slug": "kvadrocikly",
+      "intro": 5.31,
+      "white": 6.59,
+      "accent": 5.2,
+      "quizAccent": 5.89,
+      "photoCaption": 10.06,
+      "sameAsCard": true,
+      "continuousBackground": true
+    },
+    {
+      "slug": "baggi",
+      "intro": 5.19,
+      "white": 6.5,
+      "accent": 4.55,
+      "quizAccent": 5.77,
+      "photoCaption": 8.95,
+      "sameAsCard": true,
+      "continuousBackground": true
+    }
+  ]
+}

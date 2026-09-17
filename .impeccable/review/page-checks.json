@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "home",
+    "viewport": "desktop",
+    "h1": "Перетяжка мотосидений под вашу задачу.",
+    "preset": "",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "slug": "motocikly",
+    "viewport": "desktop",
+    "h1": "Перетяжка сидений мотоциклов в Санкт-Петербурге",
+    "preset": "Мотоцикл",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "slug": "skutery",
+    "viewport": "desktop",
+    "h1": "Перетяжка сидений скутеров в Санкт-Петербурге",
+    "preset": "Скутер",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "slug": "kvadrocikly",
+    "viewport": "desktop",
+    "h1": "Перетяжка сидений квадроциклов в Санкт-Петербурге",
+    "preset": "Квадроцикл",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "slug": "baggi",
+    "viewport": "desktop",
+    "h1": "Перетяжка сидений багги в Санкт-Петербурге",
+    "preset": "Багги",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "slug": "home",
+    "viewport": "mobile",
+    "preset": "",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "slug": "motocikly",
+    "viewport": "mobile",
+    "preset": "Мотоцикл",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "slug": "skutery",
+    "viewport": "mobile",
+    "preset": "Скутер",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "slug": "kvadrocikly",
+    "viewport": "mobile",
+    "preset": "Квадроцикл",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "slug": "baggi",
+    "viewport": "mobile",
+    "preset": "Багги",
+    "scrollWidth": 390,
+    "width": 390
+  }
+]

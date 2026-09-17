@@ -1,0 +1,12 @@
+{
+  "prompt": "Origin record only (not a generation prompt). Pre-existing repository asset: public/assets/social/lr-qr-max.webp. Original provenance and generation prompt unknown. Existing contact QR graphic; not evidence of an actual completed order.",
+  "createdAt": "2026-09-16T10:55:58.679Z",
+  "recordType": "origin-record-not-generation-prompt",
+  "origin": "pre-existing repository asset",
+  "asset": "public/assets/social/lr-qr-max.webp",
+  "originalProvenance": "unknown",
+  "generationPrompt": null,
+  "usage": "contact-qr-graphic",
+  "disclosure": "Existing contact QR graphic; not evidence of an actual completed order.",
+  "sha256": "3897eb0a3c59c29894598b9db072f1b1f371b86a0bc48831ac1ca7aa3af1d13a"
+}

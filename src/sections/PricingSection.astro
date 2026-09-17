@@ -1,9 +1,29 @@
+---
+import type { VehiclePage } from "../data/vehicles";
+interface Props { vehicle?: VehiclePage; }
+const { vehicle } = Astro.props;
+const factors = vehicle?.pricing ?? [
+  { title: "Замена обивки", text: "Размер сиденья, выбранный материал и сложность пошива чехла." },
+  { title: "Индивидуальный дизайн", text: "Сочетания материалов, рисунок строчки и количество деталей." },
+  { title: "Работа с посадкой", text: "Состояние наполнителя, конструкция и возможные изменения формы." },
+];
+// Прайс-лист 2026: раздел «Автомобили», работы с кожаными сиденьями.
+const seatPrices = [
+  { title: "Чистка и защитная обработка", detail: "1 посадочное место", price: "2 000–3 000 ₽" },
+  { title: "Покраска боковой поддержки", detail: "локальная реставрация", price: "7 000 ₽" },
+  { title: "Покраска центрального сегмента", detail: "без боковых поддержек", price: "8 000 ₽" },
+  { title: "Покраска подушки или спинки", detail: "один элемент сиденья", price: "10 000 ₽" },
+  { title: "Покраска лицевой поверхности", detail: "базовая стоимость", price: "14 000 ₽" },
+  { title: "Покраска сиденья целиком", detail: "лицевая сторона и спинка", price: "18 000 ₽" },
+];
+---
 <section class="section price-area" id="cost">
 <div class="wrap price-layout">
 <div class="price-intro">
-<div class="eyebrow">Стоимость без догадок</div>
-<h2>Сначала задача.<br>Затем цена.</h2>
-<p>Новый чехол и изменение формы сиденья — разные работы. Чтобы оценка была полезной, нужно понять, что меняем.</p>
+<div class="eyebrow">Прайс-лист 2026</div>
+<h2>Актуальные цены на кожаные сиденья</h2>
+<p>В прайсе указаны цены на чистку и реставрацию кожаных элементов. Перетяжка, новый чехол и изменение формы рассчитываются отдельно после оценки сиденья.</p>
+<p class="price-source">Цены взяты из раздела «Автомобили». Применимость технологии к мотосиденью уточним по фото или после осмотра.</p>
 <div class="price-cta">
 <a class="btn" href="#contact" data-contact>Обсудить стоимость по фото <svg>
 <use href="#arrow"/>
@@ -12,34 +32,27 @@
 </div>
 </div>
 <div>
-<div class="price-list">
-<article class="price-row">
-<span class="number">01</span>
-<div>
-<h3>Замена обивки</h3>
-<p>Размер сиденья, выбранный материал и сложность пошива чехла.</p>
+<div class="price-list" aria-label="Цены на работы с кожаными сиденьями">
+{seatPrices.map(({ title, detail, price }, index) => (
+  <article class="price-row">
+    <span class="number">{String(index + 1).padStart(2, "0")}</span>
+    <div class="price-row__copy"><h3>{title}</h3><p>{detail}</p></div>
+    <strong class="price-row__value">{price}</strong>
+  </article>
+))}
 </div>
-</article>
-<article class="price-row">
-<span class="number">02</span>
-<div>
-<h3>Индивидуальный дизайн</h3>
-<p>Сочетания материалов, рисунок строчки и количество деталей.</p>
+<div class="price-adjustments" aria-label="Доплаты по прайс-листу">
+  <p><span>Серьёзные загрязнения</span><strong>+20–50% к чистке</strong></p>
+  <p><span>Маскировка контрастного шва</span><strong>+50 ₽ / см</strong></p>
 </div>
-</article>
-<article class="price-row">
-<span class="number">03</span>
-<div>
-<h3>Работа с посадкой</h3>
-<p>Состояние наполнителя, конструкция и возможные изменения формы.</p>
-</div>
-</article>
-</div>
-<div class="price-note">
+<div class="price-note price-note--scope">
 <svg>
 <use href="#camera"/>
 </svg>
-<p>Начать оценку можно по фото. Для проверки состояния под обивкой может потребоваться осмотр. Итоговую стоимость согласуем до работ.</p>
+<div>
+  <strong>Перетяжку рассчитываем индивидуально</strong>
+  <p>{factors.map(({ title }) => title).join(" · ")}. Для проверки состояния под обивкой может потребоваться осмотр. Итоговую стоимость согласуем до работ.</p>
+</div>
 </div>
 </div>
 </div>

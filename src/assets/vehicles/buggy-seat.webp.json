@@ -1,0 +1,16 @@
+{
+  "prompt": "Use case: product-mockup\nAsset type: photorealistic hero illustration for an upholstery workshop landing page; this is a generated illustration, not documentary evidence of an actual completed job.\nPrimary request: Create one landscape 3:2 image, 1536 x 1024 pixels or higher, of a single realistic modern off-road buggy / UTV bucket seat standing upright on an upholstery workshop bench.\nSubject: A complete tall bucket seat with its full integrated headrest, backrest, supportive side bolsters and seat cushion visible. Front three-quarter view, at seat height, with two believable integrated harness openings high in the backrest. Matte charcoal-black upholstery, fine natural grain, neatly fitted panels, subtle deep navy-blue stitching and restrained deep-blue side accent. Precise, plausible premium upholstery craftsmanship.\nScene/backdrop: Understated real-looking upholstery workshop with a dark organized tool wall softly blurred in the background and a warm grey worn workbench. Restrained warm ambient tones. The bench surface below the seat remains visible. No distracting foreground props.\nStyle/medium: Premium product photography, natural physical materials, crisp stitching and seam details, soft directional warm window/workshop light, gentle shadows, realistic perspective and proportions, modest depth of field, neutral subdued contrast.\nComposition/framing: One seat centered in the landscape frame with generous empty margins on all sides; keep the entire seat comfortably within the central 55 percent of image width and central 84 percent of image height so the image also works cropped to a portrait hero. Show the complete top and bottom without clipping. The seat is the dominant focal point.\nConstraints: No human, no hands, no logos, no lettering, no text, no watermarks, no motorcycle saddle, no car interior, no steering wheel, no second seat, no racing decals. This must unmistakably be a freestanding full-back buggy / UTV bucket seat, not a low motorcycle saddle. Opaque full-frame image.",
+  "createdAt": "2026-09-16T10:29:18.431Z",
+  "kind": "generated-illustration",
+  "tool": "native image_gen.imagegen",
+  "generatedAt": "2026-09-16",
+  "asset": "buggy-seat.webp",
+  "intendedUse": "Hero illustration for buggy/UTV seat upholstery landing page",
+  "disclosure": "Сгенерированная иллюстрация кресла багги; не фотография выполненной работы.",
+  "sourcePath": "C:\\Users\\User\\.codex\\generated_images\\01a0a9c1-0f64-7d03-ad61-4564a95ce7a0\\exec-1b86e3fa-34cd-4228-a856-9ae865f929a4.png",
+  "width": 1536,
+  "height": 1024,
+  "conversion": "PNG to WebP with sharp, quality 88, effort 6; no crop or creative editing",
+  "alt": "Чёрное ковшеобразное кресло багги с тёмно-синей строчкой на верстаке в мастерской — иллюстрация.",
+  "sourceSha256": "4c3e3e2b35d6e316ff28b6343e399af6f2aff290ec98a96af6a199052b6cfad1"
+}

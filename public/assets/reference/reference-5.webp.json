@@ -1,0 +1,12 @@
+{
+  "prompt": "Origin record only (not a generation prompt). Pre-existing repository asset: public/assets/reference/reference-5.webp. Original provenance and generation prompt unknown. Used as an illustration; not evidence of an actual completed order.",
+  "createdAt": "2026-09-16T10:55:58.677Z",
+  "recordType": "origin-record-not-generation-prompt",
+  "origin": "pre-existing repository asset",
+  "asset": "public/assets/reference/reference-5.webp",
+  "originalProvenance": "unknown",
+  "generationPrompt": null,
+  "usage": "illustration",
+  "disclosure": "Used as an illustration; not evidence of an actual completed order.",
+  "sha256": "90784e0e660cff0b98ee9558a1a07fea8e1a43ff9b9b1361c6bd3942d28b12b3"
+}

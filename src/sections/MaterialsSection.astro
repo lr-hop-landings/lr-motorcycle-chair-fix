@@ -1,27 +1,31 @@
+---
+import type { VehiclePage } from "../data/vehicles";
+interface Props { vehicle?: VehiclePage; }
+const { vehicle } = Astro.props;
+const details = vehicle?.materials.details ?? [
+  { title: "Цвет", text: "Один оттенок или сочетание нескольких." },
+  { title: "Фактура", text: "Поверхность, которую хочется рассмотреть ближе." },
+  { title: "Строчка", text: "Спокойный рисунок или заметный акцент." },
+];
+---
 <section class="section" id="materials">
-<div class="wrap material-grid">
+<div class:list={["wrap material-grid", { "material-grid--vehicle": vehicle }]}>
 <figure class="material-photo">
 <img src="/assets/reference/reference-5.webp" alt="Иллюстрация сочетания фактур и оттенков обивки" width="1536" height="1024" loading="lazy">
 </figure>
 <div class="material-copy">
 <div class="eyebrow">Из деталей складывается вид</div>
-<h2>Сиденье должно<br>подходить вам.</h2>
-<p>Покажите пример, который нравится, или начните с цвета. Фактуру, сочетания и строчку подбираем под выбранный дизайн.</p>
+<h2>{vehicle ? vehicle.materials.title : <>Сиденье должно<br/>подходить вам.</>}</h2>
+<p>{vehicle?.materials.text ?? "Покажите пример, который нравится, или начните с цвета. Фактуру, сочетания и строчку подбираем под выбранный дизайн."}</p>
 <div class="details-list">
-<div class="detail-row">
-<strong>Цвет</strong>
-<span>Один оттенок или сочетание нескольких.</span>
-</div>
-<div class="detail-row">
-<strong>Фактура</strong>
-<span>Поверхность, которую хочется рассмотреть ближе.</span>
-</div>
-<div class="detail-row">
-<strong>Строчка</strong>
-<span>Спокойный рисунок или заметный акцент.</span>
-</div>
+{details.map(({ title, text }) => <div class="detail-row"><strong>{title}</strong><span>{text}</span></div>)}
 </div>
 <p class="material-note">Покажем физические образцы при согласовании. Материал подбираем с учётом условий эксплуатации, а финальный оттенок выбираем по образцу.</p>
 </div>
 </div>
 </section>
+
+<style>
+  .material-grid--vehicle .detail-row { grid-template-columns: 145px minmax(0, 1fr); }
+  @media (max-width: 760px) { .material-grid--vehicle .detail-row { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
+</style>

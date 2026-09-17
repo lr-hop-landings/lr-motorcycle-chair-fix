@@ -16,12 +16,15 @@ const branches = {
             { label: 'Пока трудно описать', title: 'Начните с одной ситуации', advice: 'Расскажите, в какой поездке стало неудобно и что хотелось изменить. Подбирать материал самостоятельно не нужно.', factor: 'Для выбора решения сначала потребуется уточнить проблему. Стоимость зависит от подходящего объёма работ.' }
         ] }
 };
-const vehicles = ['Мотоцикл', 'Скутер', 'Квадроцикл или багги', 'Другая техника'];
+const app = document.getElementById('quiz-app'), dialog = document.getElementById('contact-dialog');
+const vehicleOptions = JSON.parse(app.dataset.vehicleOptions);
+const vehicles = vehicleOptions.map(vehicle => vehicle.label);
+const fixedVehicle = vehicleOptions.findIndex(vehicle => vehicle.slug === app.dataset.vehicle);
+const questionSteps = fixedVehicle >= 0 ? [0, 1, 3] : [0, 1, 2, 3];
 const contactMethods = ['Телефон', 'MAX', 'Telegram', 'VK'];
-const initialState = { step: 0, intent: null, detail: null, vehicle: null, method: null, phone: '', profile: '', consent: false };
+const initialState = { step: 0, intent: null, detail: null, vehicle: fixedVehicle >= 0 ? fixedVehicle : null, method: null, phone: '', profile: '', consent: false };
 const state = { ...initialState };
 let analysisTimers = [];
-const app = document.getElementById('quiz-app'), dialog = document.getElementById('contact-dialog');
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const icon = n => `<svg aria-hidden="true"><use href="#${n}"/></svg>`;
 function optionButton(label, index, selected, description = '', symbol = '') {
@@ -29,7 +32,7 @@ function optionButton(label, index, selected, description = '', symbol = '') {
 }
 function render(focus = true) {
     const current = branches[state.intent];
-    const count = state.step === 4 ? 'Анализ ответов' : state.step >= 5 ? 'Готово · все ответы учтены' : `Вопрос ${state.step + 1} из 4`;
+    const count = state.step === 4 ? 'Анализ ответов' : state.step >= 5 ? 'Готово · все ответы учтены' : `Вопрос ${questionSteps.indexOf(state.step) + 1} из ${questionSteps.length}`;
     let body = '';
     if (state.step === 0) {
         body = `<h2 id="question-title" tabindex="-1">Что нужно вашему сиденью?</h2><div class="choices">${Object.entries(branches).map(([key, v]) => optionButton(v.label, key, state.intent === key, v.description, v.icon)).join('')}</div>`;
@@ -49,10 +52,13 @@ function render(focus = true) {
     if (state.step === 5) {
         const result = current.options[state.detail];
         const method = contactMethods[state.method];
-        body = `<section class="quiz-recommendation" aria-labelledby="question-title"><span class="result-label">РЕКОМЕНДАЦИЯ ПО ВАШИМ ОТВЕТАМ</span><h2 id="question-title" tabindex="-1">${result.title}</h2><div class="quiz-summary"><strong>${escapeHtml(vehicles[state.vehicle])}</strong><span>${escapeHtml(current.label)} · ${escapeHtml(current.options[state.detail].label)}</span></div><p class="result-body">${result.advice}</p><p class="result-note"><strong>Что влияет на оценку:</strong> ${result.factor}</p></section><div class="quiz-lead-intro"><h3>Обсудим ваше сиденье?</h3><p class="quiz-step-note">${state.method === 0 ? 'Оставьте номер — специалист позвонит, уточнит детали и обсудит предварительную стоимость.' : `Оставьте номер для связи в ${method}. Специалист уточнит детали и обсудит предварительную стоимость.`}</p></div><form class="quiz-lead-form" data-hop-lead-form method="post" novalidate><label for="quiz-phone">Номер телефона</label><input id="quiz-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="24" required aria-describedby="quiz-phone-error"><p id="quiz-phone-error" class="quiz-field-error" hidden></p>${state.method === 2 || state.method === 3 ? `<label for="quiz-profile">${state.method === 2 ? 'Имя пользователя или ссылка в Telegram' : 'Ссылка на профиль VK'} <span class="muted">· необязательно</span></label><input id="quiz-profile" name="contact_profile" autocomplete="off" maxlength="200" placeholder="${state.method === 2 ? '@username' : 'vk.ru/username'}"><p class="small muted">Поможет найти вас, если профиль недоступен по номеру.</p>` : ''}<label class="quiz-consent"><input name="privacy_consent" type="checkbox" value="1" required><span>Согласен на обработку персональных данных по <a href="https://www.lenremont.ru/politika-obrabotki-personalnyh-dannyh.htm" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a></span></label><p class="quiz-field-error" id="quiz-consent-error" hidden>Подтвердите согласие на обработку персональных данных.</p><button class="btn" type="submit">${state.method === 0 ? 'Жду звонка' : `Свяжитесь со мной в ${method}`} ${icon('arrow')}</button><p class="quiz-submit-status" role="status" hidden></p><div class="quiz-submit-fallback" hidden><a class="text-link" href="tel:+78123444444">Позвонить +7 (812) 344-44-44</a><button class="text-link" type="button" data-prepare>Отправить ответы в мессенджере ↗</button></div></form><div data-lead-success hidden role="status"><span class="result-label">ЗАЯВКА ПОЛУЧЕНА</span><h3>Спасибо! Будем на связи</h3><p>Вы выбрали: ${method}. Специалист получит ваши ответы вместе с заявкой.</p></div><div class="quiz-foot"><button class="text-link" type="button" data-back>Изменить ответы</button><button class="text-link" type="button" data-reset>Начать заново</button></div>`;
+        body = `<section class="quiz-recommendation" aria-labelledby="question-title"><span class="result-label">РЕКОМЕНДАЦИЯ ПО ВАШИМ ОТВЕТАМ</span><h2 id="question-title" tabindex="-1">${result.title}</h2><div class="quiz-summary"><strong>${escapeHtml(vehicles[state.vehicle])}</strong><span>${escapeHtml(current.label)} · ${escapeHtml(current.options[state.detail].label)}</span></div><p class="result-body">${result.advice}</p><p class="result-note"><strong>Что влияет на оценку:</strong> ${result.factor}</p></section><div class="quiz-lead-intro"><h3>Обсудим ваше сиденье?</h3><p class="quiz-step-note">${state.method === 0 ? 'Оставьте номер — специалист позвонит, уточнит детали и обсудит предварительную стоимость.' : `Оставьте номер для связи в ${method}. Специалист уточнит детали и обсудит предварительную стоимость.`}</p></div><form class="quiz-lead-form" data-hop-lead-form method="post" novalidate><label for="quiz-phone">Номер телефона</label><input id="quiz-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="24" required aria-describedby="quiz-phone-error"><p id="quiz-phone-error" class="quiz-field-error" hidden></p>${state.method === 2 || state.method === 3 ? `<label for="quiz-profile">${state.method === 2 ? 'Имя пользователя или ссылка в Telegram' : 'Ссылка на профиль VK'} <span class="muted">· необязательно</span></label><input id="quiz-profile" name="contact_profile" autocomplete="off" maxlength="200" placeholder="${state.method === 2 ? '@username' : 'vk.ru/username'}"><p class="small muted">Поможет найти вас, если профиль недоступен по номеру.</p>` : ''}<label class="quiz-consent"><input name="privacy_consent" type="checkbox" value="1" required><span>Согласен на обработку персональных данных по <a href="https://www.lenremont.ru/politika-obrabotki-personalnyh-dannyh.htm" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a></span></label><p class="quiz-field-error" id="quiz-consent-error" hidden>Подтвердите согласие на обработку персональных данных.</p><button class="btn" type="submit">${state.method === 0 ? 'Жду звонка' : `Свяжитесь со мной в ${method}`} ${icon('arrow')}</button><p class="quiz-submit-status" data-submit-status role="status" hidden></p><div class="quiz-submit-fallback" data-submit-fallback hidden><a class="text-link" href="tel:+78123444444">Позвонить +7 (812) 344-44-44</a><button class="text-link" type="button" data-prepare>Отправить ответы в мессенджере ↗</button></div></form><div data-lead-success hidden role="status"><span class="result-label">ЗАЯВКА ПОЛУЧЕНА</span><h3>Спасибо! Будем на связи</h3><p>Вы выбрали: ${method}. Специалист получит ваши ответы вместе с заявкой.</p></div><div class="quiz-foot"><button class="text-link" type="button" data-back>Изменить ответы</button><button class="text-link" type="button" data-reset>Начать заново</button></div>`;
     }
+    app.dataset.selectedVehicle = vehicles[state.vehicle] || '';
+    app.dataset.selectedVehicleSlug = vehicleOptions[state.vehicle]?.slug || '';
+    app.dataset.selectedService = vehicleOptions[state.vehicle]?.service || 'Перетяжка сиденья мототехники';
     app.hidden = false;
-    app.innerHTML = `<div class="quiz-head"><span aria-live="polite">${count}</span><span class="progress" aria-hidden="true">${[0, 1, 2, 3].map(i => `<i class="${i <= state.step ? 'active' : ''}"></i>`).join('')}</span></div><div class="enter">${body}</div>`;
+    app.innerHTML = `<div class="quiz-head"><span aria-live="polite">${count}</span><span class="progress" aria-hidden="true">${questionSteps.map(i => `<i class="${i <= state.step ? 'active' : ''}"></i>`).join('')}</span></div><div class="enter">${body}</div>`;
     app.querySelectorAll('[data-choice]').forEach(b => b.addEventListener('click', () => {
         if (state.step === 0) {
             if (state.intent !== b.dataset.choice)
@@ -63,7 +69,7 @@ function render(focus = true) {
         }
         else if (state.step === 1) {
             state.detail = Number(b.dataset.choice);
-            state.step = 2;
+            state.step = fixedVehicle >= 0 ? 3 : 2;
             render();
         }
         else if (state.step === 2) {
@@ -76,7 +82,7 @@ function render(focus = true) {
             startAnalysis();
         }
     }));
-    app.querySelector('[data-back]')?.addEventListener('click', () => { clearAnalysis(); state.step = state.step >= 4 ? 3 : state.step - 1; render(); });
+    app.querySelector('[data-back]')?.addEventListener('click', () => { clearAnalysis(); state.step = state.step >= 4 ? 3 : questionSteps[Math.max(0, questionSteps.indexOf(state.step) - 1)]; render(); });
     app.querySelector('[data-reset]')?.addEventListener('click', () => { clearAnalysis(); Object.assign(state, initialState); render(); });
     app.querySelector('[data-prepare]')?.addEventListener('click', openContact);
     setupLeadForm();
@@ -116,7 +122,9 @@ function normalizePhone(value) {
 }
 function leadPayload() {
     return {
-        service_name: 'Перетяжка сиденья мототехники',
+        service_name: vehicleOptions[state.vehicle]?.service || 'Перетяжка сиденья мототехники',
+        vehicle_slug: vehicleOptions[state.vehicle]?.slug || '',
+        page_path: app.dataset.pagePath,
         cta_source: 'hero_quiz',
         vehicle_type: vehicles[state.vehicle],
         task_type: branches[state.intent].label,
@@ -192,18 +200,18 @@ function setupLeadForm() {
 // Prevent native navigation only when no delegated handler claimed the submission.
 window.addEventListener('submit', event => {
     const form = event.target;
-    if (!form.matches?.('#quiz-app [data-hop-lead-form]') || event.defaultPrevented) return;
+    if (!form.matches?.('.quiz-lead-form, .callback-form') || event.defaultPrevented) return;
     event.preventDefault();
-    const status = form.querySelector('.quiz-submit-status');
+    const status = form.querySelector('[data-submit-status]');
     status.hidden = false;
     status.textContent = 'Отправка заявки сейчас недоступна. Свяжитесь с нами по телефону или в мессенджере.';
-    form.querySelector('.quiz-submit-fallback').hidden = false;
+    form.querySelector('[data-submit-fallback]').hidden = false;
 });
 
 function messageText() {
     const b = branches[state.intent];
     if (!b)
-        return 'Здравствуйте! Хочу обсудить перетяжку сиденья.\nМодель техники: \nЧто хочу изменить: \nПодскажите, что нужно для предварительной оценки. Фотографии приложу в сообщении.';
+        return `Здравствуйте! Хочу обсудить перетяжку сиденья.\n${state.vehicle === null ? '' : 'Техника: ' + vehicles[state.vehicle] + '.\n'}Модель техники: \nЧто хочу изменить: \nПодскажите, что нужно для предварительной оценки. Фотографии приложу в сообщении.`;
     return `Здравствуйте! Хочу обсудить перетяжку сиденья.\nТехника: ${state.vehicle === null ? 'уточню в сообщении' : vehicles[state.vehicle]}.\nЗадача: ${b.label}.${state.detail === null ? '' : '\nПодробности: ' + b.options[state.detail].label + '.'}${state.method === null ? '' : '\nСпособ связи: ' + contactMethods[state.method] + '.'}${normalizePhone(state.phone) ? '\nТелефон: ' + normalizePhone(state.phone) : ''}${state.profile.trim() ? '\nПрофиль: ' + state.profile.trim() : ''}\nПодскажите, какой вариант возможен и что нужно для предварительной оценки. Фотографии приложу в сообщении.`;
 }
 let contactTrigger = null;

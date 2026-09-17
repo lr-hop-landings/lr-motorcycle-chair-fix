@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { vehiclePages, type VehiclePage } from "../data/vehicles";
+import { caseStudies } from "../data/cases";
+import HeroSection from "../sections/HeroSection.astro";
+import HeroMessengers from "../sections/HeroMessengers.astro";
+import ProofSection from "../sections/ProofSection.astro";
+import VehicleSection from "../sections/VehicleSection.astro";
+import PortfolioSection from "../sections/PortfolioSection.astro";
+import ServiceOptionsSection from "../sections/ServiceOptionsSection.astro";
+import MaterialsSection from "../sections/MaterialsSection.astro";
+import PricingSection from "../sections/PricingSection.astro";
+import ProcessSection from "../sections/ProcessSection.astro";
+import LogisticsSection from "../sections/LogisticsSection.astro";
+import QualitySection from "../sections/QualitySection.astro";
+import FaqSection from "../sections/FaqSection.astro";
+import ContactSection from "../sections/ContactSection.astro";
+import ServiceSchema from "../sections/ServiceSchema.astro";
+import CallbackModal from "../components/CallbackModal.astro";
+import MobileActions from "../components/MobileActions.astro";
+
+export function getStaticPaths() {
+  return vehiclePages.map(vehicle => ({ params: { vehicle: vehicle.slug }, props: { vehicle } }));
+}
+
+interface Props { vehicle: VehiclePage; }
+const { vehicle } = Astro.props;
+const title = `${vehicle.service} в СПб | Ленремонт`;
+const description = `${vehicle.service} в Санкт-Петербурге. ${vehicle.cardText} Подберите решение и обсудите стоимость по фото.`;
+const canonical = Astro.site ? new URL(`/${vehicle.slug}/`, Astro.site).href : undefined;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <a class="skip" href="#quiz">Перейти к подбору</a>
+  <main id="top">
+    <HeroSection vehicle={vehicle} />
+    <HeroMessengers />
+    <ProofSection />
+    <VehicleSection activeVehicleSlug={vehicle.slug} />
+    {caseStudies.some(item => item.vehicle === vehicle.slug) && <PortfolioSection vehicleSlug={vehicle.slug} />}
+    <ServiceOptionsSection vehicle={vehicle} />
+    <MaterialsSection vehicle={vehicle} />
+    <PricingSection vehicle={vehicle} />
+    <ProcessSection />
+    <LogisticsSection vehicle={vehicle} />
+    <QualitySection />
+    <FaqSection vehicle={vehicle} />
+    <ContactSection vehicle={vehicle} />
+  </main>
+  <ServiceSchema name={vehicle.service} description={description} />
+  <CallbackModal vehicle={vehicle} />
+  <MobileActions />
+</BaseLayout>

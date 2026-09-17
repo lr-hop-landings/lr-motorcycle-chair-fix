@@ -1,0 +1,10 @@
+{
+  "prompt": "Create a photorealistic premium commercial hero photograph for a Russian vehicle-seat upholstery workshop website. 3:2 landscape composition. Main subject: a freshly reupholstered motorcycle seat in the foreground on a dark gray workshop bench, three-quarter view, elegant black technical leather with a deep navy center insert, subtle perforation, precise warm orange double stitching, realistic foam shape and craftsmanship. Keep the seat large, sharp, and visually dominant, positioned slightly right of center so it remains clear in a tall web crop. Background: a spacious modern dark upholstery workshop with soft cinematic depth of field; include recognizable but restrained out-of-focus silhouettes of a scooter, an ATV/quad bike, and a buggy roll cage parked farther back, suggesting the workshop handles several vehicle types. The background vehicles must stay secondary and must not compete with the seat. Lighting: controlled softbox key light on the seat, cool blue ambient workshop light with small warm practical highlights, rich but natural contrast. Clean professional environment, realistic materials and proportions, no people, no hands, no logos, no brands, no text, no labels, no watermark. Do not create a collage, split screen, showroom, or fantasy concept art. The result should feel like a real high-end product photo shot in one location.",
+  "createdAt": "2026-09-17",
+  "recordType": "generation-prompt",
+  "origin": "OpenAI built-in image generation",
+  "asset": "public/assets/reference/hero-main-multivehicle.webp",
+  "usage": "main-page hero illustration",
+  "disclosure": "AI-generated illustrative image; not evidence of an actual completed order.",
+  "sha256": "06560f687d0f15f4b01b1461c51e843d9b3353fe72ba3613fe3b9f437e5b91a2"
+}

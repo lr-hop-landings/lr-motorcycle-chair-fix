@@ -1,5 +1,15 @@
+---
+import { vehiclePages, type VehiclePage } from "../data/vehicles";
+interface Props { vehicle?: VehiclePage; }
+const { vehicle } = Astro.props;
+const vehicleOptions = [
+  ...vehiclePages.map(({ slug, singular, service }) => ({ slug, label: singular, service })),
+  { slug: "other", label: "Другая техника", service: "Перетяжка сиденья мототехники" },
+];
+---
+{vehicle && <p class="quiz-vehicle">{vehicle.forVehicle}</p>}
 <noscript><h2>Покажите ваше сиденье</h2><p>Напишите модель техники и что хотите изменить. Добавьте фотографии в мессенджере.</p><a class="text-link" href="#contact">Выбрать мессенджер →</a></noscript>
-<div id="quiz-app" data-lead-root hidden></div>
+<div id="quiz-app" data-lead-root data-vehicle={vehicle?.slug} data-vehicle-options={JSON.stringify(vehicleOptions)} data-page-path={Astro.url.pathname} hidden></div>
 <dialog id="contact-dialog" aria-labelledby="dialog-title">
 <div class="dialog-head">
 <h2 id="dialog-title">Обсудить ваше сиденье</h2>
@@ -26,3 +36,7 @@
 <script>
   import "../scripts/moto-quiz.js";
 </script>
+
+<style>
+  .quiz-vehicle { margin: 0 0 14px; color: var(--blue); font-size: 14px; font-weight: 750; }
+</style>

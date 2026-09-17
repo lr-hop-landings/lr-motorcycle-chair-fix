@@ -1,35 +1,78 @@
 ---
 import EstimateQuiz from "../components/EstimateQuiz.astro";
 import MotoSymbols from "../components/MotoSymbols.astro";
+import type { VehiclePage } from "../data/vehicles";
+interface Props {
+  vehicle?: VehiclePage;
+}
+const { vehicle } = Astro.props;
+const photo = vehicle?.image ?? {
+  src: "/assets/reference/hero-main-multivehicle.webp",
+  alt: "Мотосиденье с синей вставкой на фоне скутера, квадроцикла и багги в мастерской",
+  width: 1536,
+  height: 1024,
+};
 ---
 
 <MotoSymbols />
-<section class="hero" aria-labelledby="hero-title">
+<section
+  class:list={["hero", { "hero--vehicle": vehicle }]}
+  style={vehicle &&
+    `--vehicle-color: ${vehicle.theme.color}; --blue: ${vehicle.theme.color}; --cyan: ${vehicle.theme.accent}; --soft: color-mix(in srgb, ${vehicle.theme.color} 8%, white)`}
+  aria-labelledby="hero-title"
+>
   <div class="wrap">
+    {
+      vehicle && (
+        <a class="hero-back" href="#vehicles-title">
+          Все виды техники
+        </a>
+      )
+    }
     <div class="hero-intro">
       <div>
         <div class="eyebrow">Санкт-Петербург и Ленинградская область</div>
-        <h1 id="hero-title">Перетяжка мотосидений <em>под вашу задачу.</em></h1>
+        <h1 id="hero-title">
+          {
+            vehicle ? (
+              <>
+                {vehicle.service} <em>в Санкт-Петербурге</em>
+              </>
+            ) : (
+              <>
+                Перетяжка мотосидений <em>под вашу задачу.</em>
+              </>
+            )
+          }
+        </h1>
       </div>
       <p>
-        Порвалась обивка, хочется другой дизайн или неудобно сидеть? Начните с
-        того, что хотите изменить.
+        {
+          vehicle?.intro ??
+            "Порвалась обивка, хочется другой дизайн или неудобно сидеть? Начните с того, что хотите изменить."
+        }
       </p>
     </div>
     <div class="hero-grid">
       <div class="quiz" id="quiz">
         <span id="estimate" aria-hidden="true"></span>
-        <EstimateQuiz />
+        <EstimateQuiz vehicle={vehicle} />
       </div>
       <figure class="photo-panel">
         <img
-          src="/assets/reference/reference-4.webp"
-          alt="Иллюстрация мотосиденья с контрастной обивкой и строчкой"
-          width="1536"
-          height="1024"
+          src={photo.src}
+          alt={photo.alt}
+          width={photo.width}
+          height={photo.height}
           fetchpriority="high"
         />
-        <span class="photo-tag">Цвет · фактура · строчка</span>
+        <figcaption class="photo-tag">
+          {
+            vehicle
+              ? "Иллюстрация · вариант оформления"
+              : "Цвет · фактура · строчка"
+          }
+        </figcaption>
       </figure>
     </div>
     <div class="hero-call">
@@ -42,6 +85,96 @@ import MotoSymbols from "../components/MotoSymbols.astro";
 </section>
 
 <style>
+  .hero-back {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--cyan);
+    font-size: 14px;
+    text-underline-offset: 5px;
+  }
+  .hero-back:hover {
+    text-decoration: underline;
+  }
+  .hero--vehicle {
+    background: var(--night);
+  }
+  .hero--vehicle::before {
+    background:
+      radial-gradient(
+        ellipse 48% 72% at 88% 46%,
+        color-mix(in srgb, var(--vehicle-color) 82%, var(--night)) 0%,
+        transparent 60%
+      ),
+      linear-gradient(
+        112deg,
+        transparent 50%,
+        color-mix(in srgb, var(--vehicle-color) 40%, var(--night)) 100%
+      );
+  }
+  .hero--vehicle .hero-intro p {
+    color: #c0d0e3;
+  }
+  .hero--vehicle .hero-back:focus-visible,
+  .hero--vehicle .hero-call a:focus-visible {
+    outline-color: var(--cyan);
+  }
+  .hero--vehicle .quiz :global(:focus-visible) {
+    outline-color: var(--blue);
+  }
+  .hero--vehicle .hero-intro {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  }
+  .hero--vehicle h1 {
+    font-size: clamp(38px, 4.6vw, 66px);
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+  .hero--vehicle .hero-intro p {
+    padding-top: 0;
+  }
+  .hero--vehicle .photo-panel {
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+    align-self: center;
+    box-shadow: 0 24px 54px
+      color-mix(in srgb, var(--vehicle-color) 28%, transparent);
+  }
+  .hero--vehicle .photo-panel img {
+    object-position: center;
+  }
+  .hero--vehicle .photo-tag {
+    font-size: 11px;
+    max-width: calc(100% - 40px);
+  }
+  @media (max-width: 760px) {
+    .hero--vehicle::before {
+      background: radial-gradient(
+        ellipse 95% 42% at 88% 22%,
+        color-mix(in srgb, var(--vehicle-color) 68%, var(--night)) 0%,
+        transparent 72%
+      );
+    }
+    .hero--vehicle .hero-intro {
+      display: block;
+    }
+    .hero--vehicle .hero-intro p {
+      margin-top: 20px;
+    }
+    .hero--vehicle .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .hero--vehicle .photo-panel {
+      order: initial;
+      height: auto;
+      min-height: 0;
+      margin: 4px 0 0;
+    }
+    .hero--vehicle h1 {
+      font-size: clamp(32px, 8.8vw, 48px);
+      line-height: 1.08;
+    }
+  }
   .hero-call {
     display: grid;
     grid-template-columns: minmax(0, 1fr);

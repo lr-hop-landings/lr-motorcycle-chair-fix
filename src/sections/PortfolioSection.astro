@@ -1,190 +1,54 @@
 ---
-import finishedSeatStaging from "../assets/motoSeat/finishedSeatStaging.webp";
-import wornSeatBefore from "../assets/motoSeat/case01-before-cracked.webp";
-import sportAfter from "../assets/motoSeat/case02-sport-after.webp";
-import sportBefore from "../assets/motoSeat/case02-before-cracked.webp";
-import cafeAfter from "../assets/motoSeat/case03-cafe-after.webp";
-import cafeBefore from "../assets/motoSeat/case03-before-cracked.webp";
-import cruiserAfter from "../assets/motoSeat/case04-cruiser-after.webp";
-import cruiserBefore from "../assets/motoSeat/case04-before-cracked.webp";
-import scooterAfter from "../assets/motoSeat/case05-scooter-after.webp";
-import scooterBefore from "../assets/motoSeat/case05-before-cracked.webp";
-import enduroAfter from "../assets/motoSeat/case06-enduro-after.webp";
-import enduroBefore from "../assets/motoSeat/case06-before-cracked.webp";
-import atvAfter from "../assets/motoSeat/case07-atv-after.webp";
-import atvBefore from "../assets/motoSeat/case07-before-cracked.webp";
-import touringAfter from "../assets/motoSeat/case08-touring-after.webp";
-import touringBefore from "../assets/motoSeat/case08-before-cracked.webp";
+import { caseStudies as allCases } from "../data/cases";
 import ButtonLink from "../components/ButtonLink.astro";
-
-const caseStudies = [
-  {
-    after: finishedSeatStaging,
-    before: wornSeatBefore,
-    title: "Двухфактурная обивка с контрастной строчкой",
-    text: "Заводская обивка растрескалась от солнца, появился разрыв по боковому шву. Полностью заменили чехол, скомбинировав нескользящую фактуру по центру и прочную гладкую экокожу по бокам. Швы усилили влагостойкой капроновой нитью и подчеркнули контрастной отстрочкой.",
-    tags: "МОТОСИДЕНЬЕ · ДВУХФАКТУРНАЯ ОБИВКА",
-  },
-  {
-    after: sportAfter,
-    before: sportBefore,
-    title: "Спортбайк: микрозамша и красная строчка",
-    text: "Потертая посадочная зона и поврежденные боковины после интенсивных трек-дней. Сняли старый чехол, восстановили геометрию поролона и перетянули премиальной микрозамшей. Цепкий материал исключает соскальзывание в поворотах, а красная строчка подчеркнула динамичный стиль.",
-    tags: "СПОРТБАЙК · МИКРОЗАМША",
-  },
-  {
-    after: cafeAfter,
-    before: cafeBefore,
-    title: "Кафе-рейсер: новая кожаная посадка",
-    text: "Старое покрытие рассохлось от времени, наполнитель просел под весом райдера. Сформировали классическую ребристую прострочку (roll & pleat) на износостойкой текстурированной экокоже. Добавили упругий демпфирующий слой и вернули сиденью эталонный винтажный вид.",
-    tags: "КАФЕ-РЕЙСЕР · РЕБРИСТАЯ ФАКТУРА",
-  },
-  {
-    after: cruiserAfter,
-    before: cruiserBefore,
-    title: "Круизер: обновление двухуровневого седла",
-    text: "Продавленная пассажирская секция, разрыв винила на изгибе и потеря формы после дальних поездок. Восстановили анатомический упор для поясницы, нарастили плотный ППУ и скроили новый чехол по лекалам. Седло стало ощутимо комфортнее и получило благородный матовый цвет.",
-    tags: "КРУИЗЕР · ДВУХУРОВНЕВОЕ СЕДЛО",
-  },
-  {
-    after: scooterAfter,
-    before: scooterBefore,
-    title: "Скутер: новая влагостойкая обивка",
-    text: "Глубокие трещины от перепадов температур, выгоревшая окантовка и промокание наполнителя. Просушили основание и перетянули бесшовным морским винилом с защитой от ультрафиолета. Новое покрытие не дубеет на холоде и рассчитано на ежедневную эксплуатацию в любую погоду.",
-    tags: "СКУТЕР · ВЛАГОСТОЙКИЙ ВИНИЛ",
-  },
-  {
-    after: enduroAfter,
-    before: enduroBefore,
-    title: "Эндуро: тяговая фактура для активной езды",
-    text: "Потертая до основы посадочная зона и надорванные края от жесткой экипировки и грязи. Сшили чехол из суперпрочного нескользящего материала с поперечными цепкими ребрами (ribbed grip). Дополнительно загерметизировали швы для защиты от воды под давлением на мойках.",
-    tags: "ЭНДУРО · ЦЕПКАЯ ФАКТУРА",
-  },
-  {
-    after: atvAfter,
-    before: atvBefore,
-    title: "Квадроцикл: прочное покрытие для открытой техники",
-    text: "Множественные порезы от веток, разошедшиеся стыки и впитавший влагу поролон после оффроуда. Заменили поврежденный сектор наполнителя, проклеили гидроизоляционную мембрану и натянули армированный винил. Двойная строчка выдерживает максимальные нагрузки и любые погодные условия.",
-    tags: "КВАДРОЦИКЛ · УСИЛЕННЫЕ ШВЫ",
-  },
-  {
-    after: touringAfter,
-    before: touringBefore,
-    title: "Туринговое сиденье для дальней дороги",
-    text: "Выцветшее покрытие, натертости от боковых сумок и потеря эластичности в зоне водителя. Интегрировали специальную гелевую вставку, выровняли анатомию и перетянули дышащей экокожей. Устранили точки пикового давления, сделав многочасовые путешествия комфортными без боли в спине.",
-    tags: "ТУРИНГ · КОМФОРТНАЯ ПОСАДКА",
-  },
-];
+interface Props { vehicleSlug?: string; }
+const { vehicleSlug } = Astro.props;
+const illustrative = Boolean(vehicleSlug);
+const caseStudies = vehicleSlug ? allCases.filter(item => item.vehicle === vehicleSlug) : allCases.filter(item => item.featured);
+const single = caseStudies.length === 1;
 ---
-
-<section
-  class="portfolio section section--dark"
-  id="portfolio"
-  aria-labelledby="portfolio-title"
->
+<section class:list={["portfolio section section--dark", { "portfolio--single": single, "portfolio--illustrative": illustrative }]} id="portfolio" aria-labelledby="portfolio-title">
   <div class="container portfolio__intro">
     <div>
-      <p class="eyebrow">ДО И ПОСЛЕ · 8 КЕЙСОВ</p>
+      <p class="eyebrow">ДО И ПОСЛЕ · {caseStudies.length} КЕЙСОВ</p>
       <h2 id="portfolio-title">Один ракурс — заметная разница</h2>
-      <p class="section-lead">
-        Сначала показываем результат, затем — тот же кадр с естественными
-        следами износа. Потяните разделитель, чтобы сравнить состояние обивки.
-      </p>
+      <p class="section-lead">{illustrative ? "Иллюстративные пары для обсуждения обивки, фактуры и строчки. Потяните разделитель и покажите понравившиеся детали." : "Сначала показываем результат, затем — тот же кадр с естественными следами износа. Потяните разделитель, чтобы сравнить состояние обивки."}</p>
     </div>
-    <div class="portfolio__actions">
-      <ButtonLink href="#quiz" variant="outline" dataCta="portfolio">
-        Подобрать похожее решение <span aria-hidden="true">↘</span>
-      </ButtonLink>
-    </div>
+    <div class="portfolio__actions"><ButtonLink href="#quiz" variant="outline" dataCta="portfolio">Подобрать похожее решение <span aria-hidden="true">↘</span></ButtonLink></div>
   </div>
-
   <div class="portfolio__carousel">
-    <div
-      class="swiper case-swiper"
-      data-case-swiper
-      aria-roledescription="carousel"
-      aria-label="Кейсы до и после"
-    >
+    <div class="swiper case-swiper" data-case-swiper={single ? undefined : true} aria-roledescription={single ? undefined : "carousel"} aria-label="Кейсы до и после">
       <div class="swiper-wrapper">
-        {
-          caseStudies.map((caseStudy) => (
-            <article
-              class="swiper-slide case-card"
-              data-case-card
-              style="--compare-position: 52%;"
-            >
-              <div class="case-card__media">
-                <img
-                  class="case-card__image case-card__image--before-base"
-                  src={caseStudy.before.src}
-                  alt={`До обновления: ${caseStudy.title}`}
-                  loading="lazy"
-                  width="1536"
-                  height="1024"
-                />
-                <img
-                  class="case-card__image case-card__image--after"
-                  src={caseStudy.after.src}
-                  alt={`После обновления: ${caseStudy.title}`}
-                  loading="lazy"
-                  width="1536"
-                  height="1024"
-                />
-                <div class="case-card__before">
-                  <img
-                    class="case-card__image"
-                    src={caseStudy.before.src}
-                    alt=""
-                    loading="lazy"
-                    width="1536"
-                    height="1024"
-                  />
-                </div>
-                <div class="case-card__divider" aria-hidden="true">
-                  <span>↔</span>
-                </div>
-                <span class="case-card__label case-card__label--before">
-                  До
-                </span>
-                <span class="case-card__label case-card__label--after">
-                  После
-                </span>
-                <input
-                  class="case-card__range"
-                  type="range"
-                  min="12"
-                  max="88"
-                  value="52"
-                  aria-label={`Сравнение состояния сиденья: до и после. ${caseStudy.title}`}
-                  aria-describedby={`case-comparison-hint-${caseStudy.number}`}
-                />
-              </div>
-              <div class="case-card__body">
-                <p>{caseStudy.tags}</p>
-                <div>
-                  <div>
-                    <h3>{caseStudy.title}</h3>
-                    <p>{caseStudy.text}</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))
-        }
+        {caseStudies.map(item => (
+          <article class="swiper-slide case-card" data-case-card style="--compare-position: 52%;">
+            <div class="case-card__media">
+              <>
+                <img class="case-card__image case-card__image--before-base" src={item.before.src} alt={'До обновления: ' + item.title} loading="lazy" width={item.before.width} height={item.before.height} />
+                <img class="case-card__image case-card__image--after" src={item.after.src} alt={'После обновления: ' + item.title} loading="lazy" width={item.after.width} height={item.after.height} />
+                <div class="case-card__before"><img class="case-card__image" src={item.before.src} alt="" loading="lazy" width={item.before.width} height={item.before.height} /></div>
+                <div class="case-card__divider" aria-hidden="true"><span>↔</span></div>
+                <span class="case-card__label case-card__label--before">До</span><span class="case-card__label case-card__label--after">После</span>
+                <input class="case-card__range" type="range" min="12" max="88" value="52" aria-label={'Сравнение состояния сиденья: до и после. ' + item.title} />
+              </>
+            </div>
+            <div class="case-card__body">
+              <p>{item.tags}</p>
+              <div><div><h3>{item.title}</h3><p>{item.text}</p></div></div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </div>
-
-  <div class="portfolio__bottom-action container">
-    <ButtonLink href="#quiz" variant="outline" dataCta="portfolio">
-      Рассчитать похожую работу <span aria-hidden="true">↘</span>
-    </ButtonLink>
-  </div>
+  {!single && <div class="container portfolio__controls" role="group" aria-label="Листать кейсы">
+    <button type="button" data-case-prev aria-label="Предыдущий пример"><svg aria-hidden="true"><use href="#arrow" /></svg></button>
+    <button type="button" data-case-next aria-label="Следующий пример"><svg aria-hidden="true"><use href="#arrow" /></svg></button>
+  </div>}
+  <div class="portfolio__bottom-action container"><ButtonLink href="#quiz" variant="outline" dataCta="portfolio">Подобрать похожее решение <span aria-hidden="true">↘</span></ButtonLink></div>
 </section>
-
 <script>
   import Swiper from "swiper";
-  import { A11y } from "swiper/modules";
+  import { A11y, Navigation } from "swiper/modules";
   import "swiper/css";
 
   document.querySelectorAll("[data-case-card]").forEach((card) => {
@@ -196,7 +60,8 @@ const caseStudies = [
   const caseSwiper = document.querySelector("[data-case-swiper]");
   if (caseSwiper) {
     new Swiper(caseSwiper, {
-      modules: [A11y],
+      modules: [A11y, Navigation],
+      navigation: { prevEl: "[data-case-prev]", nextEl: "[data-case-next]" },
       slidesPerView: 1.1,
       spaceBetween: 14,
       grabCursor: true,
@@ -215,6 +80,19 @@ const caseStudies = [
 </script>
 
 <style>
+  .portfolio__controls { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+  .portfolio__controls button { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--cyan); border-radius: 12px; color: var(--cyan); background: transparent; cursor: pointer; }
+  .portfolio__controls button:hover { background: #9ee4fc22; }
+  .portfolio__controls button:disabled { opacity: .35; cursor: default; }
+  .portfolio__controls svg { width: 22px; height: 22px; }
+  [data-case-prev] svg { transform: rotate(180deg); }
+  .portfolio--single .portfolio__carousel { width: min(var(--container-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+  .portfolio--single .swiper-wrapper { display: block; }
+  .portfolio--single .case-swiper .swiper-slide { width: 100%; }
+  .portfolio--single .case-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .portfolio--single .case-card__body { align-self: center; }
+  @media(max-width: 767px) { .portfolio--single .case-card { grid-template-columns: minmax(0, 1fr); } }
+
   .portfolio {
     overflow: hidden;
     padding-block: clamp(68px, 9vw, 130px);
@@ -391,20 +269,6 @@ const caseStudies = [
     line-height: 1.45;
   }
 
-  @keyframes mobileFadeInOut {
-    0%,
-    14.3% {
-      opacity: 0;
-    }
-    50%,
-    64.3% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
   @media (max-width: 900px) {
     .portfolio__intro {
       grid-template-columns: 1fr;
@@ -445,33 +309,22 @@ const caseStudies = [
     .case-card {
       border-radius: 20px;
     }
-    .case-card__image--before-base {
-      display: block;
-      z-index: 1;
-      filter: grayscale(0.1) contrast(0.9);
-    }
-    .case-card__before {
-      display: none !important;
-    }
-    .case-card__image--after {
-      display: block;
-      z-index: 2;
-      opacity: 0;
-    }
-    :global(.swiper-slide-active) .case-card__image--after {
-      animation: mobileFadeInOut 5s ease-in-out infinite;
-    }
     .case-card__label {
-      display: none !important;
+      top: 12px;
+      padding: 6px 9px;
+      font-size: 8px;
     }
-    .case-card__divider {
-      display: none !important;
+    .case-card__label--before {
+      left: 12px;
     }
-    .case-card__range {
-      display: none !important;
+    .case-card__label--after {
+      right: 12px;
     }
-    .case-card__hint {
-      display: none !important;
+    .case-card__divider span {
+      width: 38px;
+      height: 38px;
+      border-width: 2px;
+      font-size: 16px;
     }
     .case-card__body {
       padding: 18px 16px 20px;
@@ -484,9 +337,4 @@ const caseStudies = [
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    :global(.swiper-slide-active) .case-card__image--after {
-      animation: none !important;
-    }
-  }
 </style>
