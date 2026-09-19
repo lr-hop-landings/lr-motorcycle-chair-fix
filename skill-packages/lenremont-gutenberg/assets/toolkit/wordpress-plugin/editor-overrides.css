@@ -1,0 +1,5 @@
+/* Reveal a demo quiz step selected through List View, only in the editor. */
+.editor-styles-wrapper .lr-reference .lr-demo-step[hidden]:is(.is-selected, :has(.is-selected)),
+.editor-styles-wrapper #hop-gutenberg.lr-reference .lr-demo-step[hidden]:is(.is-selected, :has(.is-selected)) {
+  display: block !important;
+}

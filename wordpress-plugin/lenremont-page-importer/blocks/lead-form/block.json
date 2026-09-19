@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lenremont/lead-form",
+  "version": "0.1.0",
+  "title": "Форма заявки Ленремонт",
+  "category": "widgets",
+  "icon": "phone",
+  "description": "Компактная форма заявки для сервисной страницы.",
+  "textdomain": "lenremont-page-importer",
+  "attributes": {
+    "title": { "type": "string", "default": "Обсудим вашу задачу?" },
+    "text": { "type": "string", "default": "Оставьте телефон — специалист уточнит детали и предварительно оценит работу." },
+    "service": { "type": "string", "default": "Перетяжка сиденья" },
+    "buttonLabel": { "type": "string", "default": "Жду звонка" }
+  },
+  "supports": {
+    "inserter": false,
+    "align": ["wide", "full"],
+    "html": false,
+    "spacing": { "margin": true }
+  },
+  "editorScript": "lenremont-page-importer-blocks",
+  "style": "lenremont-page-importer",
+  "viewScript": "lenremont-page-importer-interactions",
+  "render": "file:./render.php"
+}

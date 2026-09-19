@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lenremont/quiz",
+  "version": "0.1.0",
+  "title": "Квиз Ленремонт",
+  "category": "widgets",
+  "icon": "forms",
+  "description": "Короткий квиз для первичной оценки задачи.",
+  "textdomain": "lenremont-page-importer",
+  "attributes": {
+    "title": { "type": "string", "default": "Что нужно вашему сиденью?" },
+    "intro": { "type": "string", "default": "Выберите задачу — подскажем, с чего начать." },
+    "service": { "type": "string", "default": "Перетяжка сиденья" },
+    "flow": { "type": "object", "default": {} },
+    "options": {
+      "type": "array",
+      "default": ["Восстановить обивку", "Изменить дизайн", "Разобраться с посадкой"]
+    }
+  },
+  "supports": {
+    "inserter": false,
+    "align": ["wide", "full"],
+    "html": false,
+    "spacing": { "margin": true }
+  },
+  "editorScript": "lenremont-page-importer-blocks",
+  "style": "lenremont-page-importer",
+  "viewScript": "lenremont-page-importer-interactions",
+  "render": "file:./render.php"
+}

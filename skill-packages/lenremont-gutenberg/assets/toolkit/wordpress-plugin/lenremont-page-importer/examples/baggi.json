@@ -1,0 +1,3382 @@
+{
+  "version": 2,
+  "profile": "astro-main-v1",
+  "rootId": "hop-gutenberg",
+  "title": "Перетяжка сидений багги в СПб",
+  "slug": "peretyazhka-sidenij-mototransporta-baggi",
+  "path": "/peretyazhka-sidenij-mototransporta-baggi/",
+  "vehicle": "baggi",
+  "source": "src/pages/[vehicle].astro",
+  "before": [
+    {
+      "type": "element",
+      "tag": "a",
+      "attributes": {
+        "class": "skip",
+        "href": "#quiz"
+      },
+      "children": [
+        {
+          "type": "text",
+          "tag": "span",
+          "raw": true,
+          "text": "Перейти к подбору",
+          "attributes": {}
+        }
+      ]
+    },
+    {
+      "type": "art",
+      "key": "art-7ae22d763e16"
+    }
+  ],
+  "sections": [
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "hero hero--vehicle",
+          "style": "--vehicle-color: #97462f; --blue: #97462f; --cyan: #ffceb1; --soft: color-mix(in srgb, #97462f 8%, white)",
+          "aria-labelledby": "hero-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "a",
+                "attributes": {
+                  "class": "hero-back",
+                  "href": "/peretyazhka-sidenij-mototransporta/"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "raw": true,
+                    "text": " Все виды техники ",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "hero-intro"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "eyebrow"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "raw": true,
+                            "text": "Санкт-Петербург и Ленинградская область",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h1",
+                        "text": " Перетяжка сидений багги<em>в Санкт-Петербурге</em>  ",
+                        "attributes": {
+                          "id": "hero-title"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": " Обивка подушки, спинки или всего комплекта кресел. Покажите конструкцию вашего сиденья — обсудим объём работ, материал и оформление. ",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "hero-grid"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "quiz",
+                      "id": "quiz"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "",
+                        "attributes": {
+                          "id": "estimate",
+                          "aria-hidden": "true"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Для багги",
+                        "attributes": {
+                          "class": "quiz-vehicle"
+                        }
+                      },
+                      {
+                        "type": "quiz",
+                        "attributes": {
+                          "id": "quiz-app",
+                          "data-lead-root": "",
+                          "data-vehicle": "baggi",
+                          "data-vehicle-options": "[{\"slug\":\"motocikly\",\"label\":\"Мотоцикл\",\"service\":\"Перетяжка сидений мотоциклов\"},{\"slug\":\"skutery\",\"label\":\"Скутер\",\"service\":\"Перетяжка сидений скутеров\"},{\"slug\":\"kvadrocikly\",\"label\":\"Квадроцикл\",\"service\":\"Перетяжка сидений квадроциклов\"},{\"slug\":\"baggi\",\"label\":\"Багги\",\"service\":\"Перетяжка сидений багги\"},{\"slug\":\"other\",\"label\":\"Другая техника\",\"service\":\"Перетяжка сиденья мототехники\"}]",
+                          "data-page-path": "/peretyazhka-sidenij-mototransporta-baggi/",
+                          "hidden": ""
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "key": "contact-dialog"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "figure",
+                    "attributes": {
+                      "class": "photo-panel"
+                    },
+                    "children": [
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/buggy-seat.DZkq3uPp.webp",
+                          "alt": "Иллюстрация кресла багги с высокой спинкой, боковинами и чёрной обивкой",
+                          "width": "1536",
+                          "height": "1024",
+                          "fetchpriority": "high"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "tag": "figcaption",
+                        "text": " Иллюстрация · вариант оформления ",
+                        "attributes": {
+                          "class": "photo-tag"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "hero-call"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": " <span>Также можете позвонить нам по телефону</span> ",
+                    "attributes": {
+                      "class": "hero-contact-title"
+                    }
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "href": "tel:+78123444444"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "+7 (812) 344-44-44",
+                        "attributes": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Перетяжка сидений баггив Санкт-Петербурге"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "hero-messengers",
+          "aria-label": "Связаться в мессенджере"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap"
+            },
+            "children": [
+              {
+                "type": "text",
+                "tag": "h2",
+                "text": " <span>Или написать в мессенджере</span> ",
+                "attributes": {
+                  "class": "hero-contact-title hero-messengers__label"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "messenger-cards"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "hero-messenger hero-messenger--telegram",
+                      "href": "https://telegram.me/lenremont_bot",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "Открыть Telegram"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "strong",
+                        "text": "Telegram",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nОтправить фото <span aria-hidden=\"true\">↗</span> ",
+                        "attributes": {
+                          "class": "hero-messenger__action"
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/lr-qr-tg.webp",
+                          "alt": "QR-код Telegram Ленремонт",
+                          "width": "140",
+                          "height": "140",
+                          "loading": "lazy"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "hero-messenger hero-messenger--max",
+                      "href": "https://max.ru/id471902475874_3_bot",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "Открыть MAX"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "strong",
+                        "text": "MAX",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nОтправить фото <span aria-hidden=\"true\">↗</span> ",
+                        "attributes": {
+                          "class": "hero-messenger__action"
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/lr-qr-max.webp",
+                          "alt": "QR-код MAX Ленремонт",
+                          "width": "140",
+                          "height": "140",
+                          "loading": "lazy"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "hero-messenger hero-messenger--vk",
+                      "href": "https://vk.ru/lenremont",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "Открыть VK"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "strong",
+                        "text": "VK",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nОтправить фото <span aria-hidden=\"true\">↗</span> ",
+                        "attributes": {
+                          "class": "hero-messenger__action"
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/lr-qr-vk.webp",
+                          "alt": "QR-код VK Ленремонт",
+                          "width": "140",
+                          "height": "140",
+                          "loading": "lazy"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Или написать в мессенджере"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "benefits",
+          "aria-label": "Преимущества"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap benefit-grid"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "article",
+                "attributes": {
+                  "class": "benefit"
+                },
+                "children": [
+                  {
+                    "type": "art",
+                    "key": "art-29957a08a87f"
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Цена<br>до работы",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Сначала определяем объём и стоимость. Затем приступаем.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "article",
+                "attributes": {
+                  "class": "benefit"
+                },
+                "children": [
+                  {
+                    "type": "art",
+                    "key": "art-509008042447"
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Ваш цвет.<br>Ваш дизайн.",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Фактуру, сочетания и строчку выбираем до пошива.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "article",
+                "attributes": {
+                  "class": "benefit"
+                },
+                "children": [
+                  {
+                    "type": "art",
+                    "key": "art-ffbd4c257cbb"
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "1 год<br>гарантии",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Условия фиксируем в документах на заказ.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "article",
+                "attributes": {
+                  "class": "benefit"
+                },
+                "children": [
+                  {
+                    "type": "art",
+                    "key": "art-ab507c89f67f"
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Начните<br>с фотографии",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Покажите сиденье и расскажите, что хотите изменить.",
+                    "attributes": {}
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Ценадо работы"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "vehicles section vehicles--nav",
+          "aria-labelledby": "vehicles-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container"
+            },
+            "children": [
+              {
+                "type": "text",
+                "tag": "p",
+                "text": " ВЫБЕРИТЕ ТИП ТЕХНИКИ ",
+                "attributes": {
+                  "class": "eyebrow"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "section-head"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": " Перейти к другому разделу ",
+                    "attributes": {
+                      "id": "vehicles-title"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": " На каждой странице — подходящие примеры, варианты работ и вопросы для оценки сиденья. ",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "vehicles__grid"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #244f9d",
+                      "href": "/peretyazhka-sidenij-mototransporta-motocikly/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Мотоциклы",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Обивка, индивидуальный дизайн и посадка водителя и пассажира.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #006d68",
+                      "href": "/peretyazhka-sidenij-mototransporta-skutery/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Скутеры",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Восстановление обивки и подбор покрытия для ежедневных поездок.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #52632f",
+                      "href": "/peretyazhka-sidenij-mototransporta-kvadrocikly/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Квадроциклы",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Обивка и фактура с учётом активной эксплуатации открытой техники.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "vehicle vehicle--active",
+                      "style": "--vehicle-color: #97462f",
+                      "aria-label": "Багги — текущий раздел"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Багги",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Перетяжка подушек, спинок и отдельных кресел или комплекта.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "Текущий раздел",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Перейти к другому разделу"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "portfolio section section--dark portfolio--illustrative",
+          "id": "portfolio",
+          "aria-labelledby": "portfolio-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container portfolio__intro"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "ДО И ПОСЛЕ · 5 КЕЙСОВ",
+                    "attributes": {
+                      "class": "eyebrow"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "Один ракурс — заметная разница",
+                    "attributes": {
+                      "id": "portfolio-title"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Иллюстративные пары для обсуждения обивки, фактуры и строчки. Потяните разделитель и покажите понравившиеся детали.",
+                    "attributes": {
+                      "class": "section-lead"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "portfolio__actions"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "button button--outline",
+                      "href": "#quiz",
+                      "data-cta": "portfolio"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Подобрать похожее решение ",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "↘",
+                        "attributes": {
+                          "aria-hidden": "true"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "portfolio__carousel"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "swiper case-swiper",
+                  "data-case-swiper": "true",
+                  "aria-roledescription": "carousel",
+                  "aria-label": "Кейсы до и после"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "swiper-wrapper"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide case-card",
+                          "data-case-card": "",
+                          "style": "--compare-position: 52%;"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__media"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--before-base",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-01-before.BEnon9mU.webp",
+                                  "alt": "До обновления: Кресло багги: графит и оранжевая строчка",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--after",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-01-after.Dt4ECjGQ.webp",
+                                  "alt": "После обновления: Кресло багги: графит и оранжевая строчка",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__before"
+                                },
+                                "children": [
+                                  {
+                                    "type": "image",
+                                    "attributes": {
+                                      "class": "case-card__image",
+                                      "src": "{{pluginUrl}}/assets/reference/buggy-01-before.BEnon9mU.webp",
+                                      "alt": "",
+                                      "loading": "lazy",
+                                      "width": "1536",
+                                      "height": "1024"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__divider",
+                                  "aria-hidden": "true"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "tag": "span",
+                                    "text": "↔",
+                                    "attributes": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "До",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--before"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "После",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--after"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "input",
+                                "attributes": {
+                                  "class": "case-card__range",
+                                  "type": "range",
+                                  "min": "12",
+                                  "max": "88",
+                                  "value": "52",
+                                  "aria-label": "Сравнение состояния сиденья: до и после. Кресло багги: графит и оранжевая строчка"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__body"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "БАГГИ · КОВШООБРАЗНОЕ КРЕСЛО",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {},
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "attributes": {},
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "tag": "h3",
+                                        "text": "Кресло багги: графит и оранжевая строчка",
+                                        "attributes": {}
+                                      },
+                                      {
+                                        "type": "text",
+                                        "tag": "p",
+                                        "text": "До: протёртая боковина, пыль и растянутые центральные панели. После: матовые боковины, цепкая середина и контрастная строчка.",
+                                        "attributes": {}
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide case-card",
+                          "data-case-card": "",
+                          "style": "--compare-position: 52%;"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__media"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--before-base",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-02-before.CehwAvne.webp",
+                                  "alt": "До обновления: Чёрное кресло с оливковой вставкой",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--after",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-02-after.CvwjTYWZ.webp",
+                                  "alt": "После обновления: Чёрное кресло с оливковой вставкой",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__before"
+                                },
+                                "children": [
+                                  {
+                                    "type": "image",
+                                    "attributes": {
+                                      "class": "case-card__image",
+                                      "src": "{{pluginUrl}}/assets/reference/buggy-02-before.CehwAvne.webp",
+                                      "alt": "",
+                                      "loading": "lazy",
+                                      "width": "1536",
+                                      "height": "1024"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__divider",
+                                  "aria-hidden": "true"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "tag": "span",
+                                    "text": "↔",
+                                    "attributes": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "До",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--before"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "После",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--after"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "input",
+                                "attributes": {
+                                  "class": "case-card__range",
+                                  "type": "range",
+                                  "min": "12",
+                                  "max": "88",
+                                  "value": "52",
+                                  "aria-label": "Сравнение состояния сиденья: до и после. Чёрное кресло с оливковой вставкой"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__body"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "БАГГИ · ЦЕПКАЯ ЦЕНТРАЛЬНАЯ ЗОНА",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {},
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "attributes": {},
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "tag": "h3",
+                                        "text": "Чёрное кресло с оливковой вставкой",
+                                        "attributes": {}
+                                      },
+                                      {
+                                        "type": "text",
+                                        "tag": "p",
+                                        "text": "До: разорванный входной валик, трещины и потёртые центральные панели. После: восстановленные боковины, оливковая фактура и рыжая строчка.",
+                                        "attributes": {}
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide case-card",
+                          "data-case-card": "",
+                          "style": "--compare-position: 52%;"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__media"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--before-base",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-03-before.DRg3V5y0.webp",
+                                  "alt": "До обновления: Двухместная лавка с ромбами",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--after",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-03-after.DVnRapS-.webp",
+                                  "alt": "После обновления: Двухместная лавка с ромбами",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__before"
+                                },
+                                "children": [
+                                  {
+                                    "type": "image",
+                                    "attributes": {
+                                      "class": "case-card__image",
+                                      "src": "{{pluginUrl}}/assets/reference/buggy-03-before.DRg3V5y0.webp",
+                                      "alt": "",
+                                      "loading": "lazy",
+                                      "width": "1536",
+                                      "height": "1024"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__divider",
+                                  "aria-hidden": "true"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "tag": "span",
+                                    "text": "↔",
+                                    "attributes": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "До",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--before"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "После",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--after"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "input",
+                                "attributes": {
+                                  "class": "case-card__range",
+                                  "type": "range",
+                                  "min": "12",
+                                  "max": "88",
+                                  "value": "52",
+                                  "aria-label": "Сравнение состояния сиденья: до и после. Двухместная лавка с ромбами"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__body"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "БАГГИ · ДВУХМЕСТНАЯ ЛАВКА",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {},
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "attributes": {},
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "tag": "h3",
+                                        "text": "Двухместная лавка с ромбами",
+                                        "attributes": {}
+                                      },
+                                      {
+                                        "type": "text",
+                                        "tag": "p",
+                                        "text": "До: продавленные посадочные зоны и затёртые внешние углы. После: чёрная рамка, тёплые вставки и ромбовидная прострочка спинки.",
+                                        "attributes": {}
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide case-card",
+                          "data-case-card": "",
+                          "style": "--compare-position: 52%;"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__media"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--before-base",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-04-before.Mrm5cNFq.webp",
+                                  "alt": "До обновления: Спортивное кресло в чёрном и бордовом",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--after",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-04-after.BlX9tjxn.webp",
+                                  "alt": "После обновления: Спортивное кресло в чёрном и бордовом",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__before"
+                                },
+                                "children": [
+                                  {
+                                    "type": "image",
+                                    "attributes": {
+                                      "class": "case-card__image",
+                                      "src": "{{pluginUrl}}/assets/reference/buggy-04-before.Mrm5cNFq.webp",
+                                      "alt": "",
+                                      "loading": "lazy",
+                                      "width": "1536",
+                                      "height": "1024"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__divider",
+                                  "aria-hidden": "true"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "tag": "span",
+                                    "text": "↔",
+                                    "attributes": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "До",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--before"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "После",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--after"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "input",
+                                "attributes": {
+                                  "class": "case-card__range",
+                                  "type": "range",
+                                  "min": "12",
+                                  "max": "88",
+                                  "value": "52",
+                                  "aria-label": "Сравнение состояния сиденья: до и после. Спортивное кресло в чёрном и бордовом"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__body"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "БАГГИ · БОРДОВАЯ ВСТАВКА",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {},
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "attributes": {},
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "tag": "h3",
+                                        "text": "Спортивное кресло в чёрном и бордовом",
+                                        "attributes": {}
+                                      },
+                                      {
+                                        "type": "text",
+                                        "tag": "p",
+                                        "text": "До: выцветшая красная середина, треснувший кант и разрыв нижней боковины. После: бордовая цепкая вставка и обновлённые чёрные валики.",
+                                        "attributes": {}
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide case-card",
+                          "data-case-card": "",
+                          "style": "--compare-position: 52%;"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__media"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--before-base",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-05-before.Cg89Fbf8.webp",
+                                  "alt": "До обновления: Премиальное кресло с коньячной перфорацией",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "case-card__image case-card__image--after",
+                                  "src": "{{pluginUrl}}/assets/reference/buggy-05-after.BpfGc6jg.webp",
+                                  "alt": "После обновления: Премиальное кресло с коньячной перфорацией",
+                                  "loading": "lazy",
+                                  "width": "1536",
+                                  "height": "1024"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__before"
+                                },
+                                "children": [
+                                  {
+                                    "type": "image",
+                                    "attributes": {
+                                      "class": "case-card__image",
+                                      "src": "{{pluginUrl}}/assets/reference/buggy-05-before.Cg89Fbf8.webp",
+                                      "alt": "",
+                                      "loading": "lazy",
+                                      "width": "1536",
+                                      "height": "1024"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {
+                                  "class": "case-card__divider",
+                                  "aria-hidden": "true"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "tag": "span",
+                                    "text": "↔",
+                                    "attributes": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "До",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--before"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "После",
+                                "attributes": {
+                                  "class": "case-card__label case-card__label--after"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "input",
+                                "attributes": {
+                                  "class": "case-card__range",
+                                  "type": "range",
+                                  "min": "12",
+                                  "max": "88",
+                                  "value": "52",
+                                  "aria-label": "Сравнение состояния сиденья: до и после. Премиальное кресло с коньячной перфорацией"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "case-card__body"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "БАГГИ · ПЕРФОРИРОВАННАЯ ВСТАВКА",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "attributes": {},
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "attributes": {},
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "tag": "h3",
+                                        "text": "Премиальное кресло с коньячной перфорацией",
+                                        "attributes": {}
+                                      },
+                                      {
+                                        "type": "text",
+                                        "tag": "p",
+                                        "text": "До: растрескавшиеся светлые панели, грязь и повреждённый нижний шов. После: перфорированная коньячная середина и гладкие чёрные боковины.",
+                                        "attributes": {}
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container portfolio__controls",
+              "role": "group",
+              "aria-label": "Листать кейсы"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "button",
+                "attributes": {
+                  "type": "button",
+                  "data-case-prev": "",
+                  "aria-label": "Предыдущий пример"
+                },
+                "children": [
+                  {
+                    "type": "art",
+                    "key": "art-0ca2e6b81f82"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "button",
+                "attributes": {
+                  "type": "button",
+                  "data-case-next": "",
+                  "aria-label": "Следующий пример"
+                },
+                "children": [
+                  {
+                    "type": "art",
+                    "key": "art-0ca2e6b81f82"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "portfolio__bottom-action container"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "a",
+                "attributes": {
+                  "class": "button button--outline",
+                  "href": "#quiz",
+                  "data-cta": "portfolio"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "raw": true,
+                    "text": "Подобрать похожее решение ",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "↘",
+                    "attributes": {
+                      "aria-hidden": "true"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Один ракурс — заметная разница"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "section solutions--vehicle",
+          "id": "solutions"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "section-top"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "Что можно изменить<br>в вашем сиденье",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Начинаем с нужного результата. Под него определяем объём работ.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "approaches"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "article",
+                    "attributes": {
+                      "class": "approach"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "diagram",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "01 / ОБИВКА",
+                            "attributes": {
+                              "class": "index"
+                            }
+                          },
+                          {
+                            "type": "art",
+                            "key": "art-88fb5e6b457a"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "approach-body"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Вернуть аккуратный вид",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": " Потёрлись боковины, порвалась подушка или обивка спинки? Покажите кресло целиком и каждый повреждённый участок. Объём работ зависит от его конструкции. ",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "attributes": {
+                              "class": "text-link",
+                              "href": "#quiz",
+                              "data-intent": "restore"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "raw": true,
+                                "text": "Подобрать восстановление ",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "↗",
+                                "attributes": {
+                                  "aria-hidden": "true"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "article",
+                    "attributes": {
+                      "class": "approach"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "diagram",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "02 / ДИЗАЙН",
+                            "attributes": {
+                              "class": "index"
+                            }
+                          },
+                          {
+                            "type": "art",
+                            "key": "art-1a8d77bafda7"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "approach-body"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Добавить свой характер",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": " Обсудите сочетание цвета, вставок и строчки для одного кресла или комплекта. Фото салона поможет выбрать оформление в характере багги. ",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "attributes": {
+                              "class": "text-link",
+                              "href": "#quiz",
+                              "data-intent": "design"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "raw": true,
+                                "text": "Обсудить новый дизайн ",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "↗",
+                                "attributes": {
+                                  "aria-hidden": "true"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "article",
+                    "attributes": {
+                      "class": "approach"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "diagram",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "03 / ПОСАДКА",
+                            "attributes": {
+                              "class": "index"
+                            }
+                          },
+                          {
+                            "type": "art",
+                            "key": "art-d7cb9e587ecc"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "approach-body"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Разобраться с неудобством",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": " Не устраивает подушка или ощущается просевший участок? Опишите проблему и покажите профиль кресла. Возможность работы с наполнителем оцениваем после осмотра. ",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "attributes": {
+                              "class": "text-link",
+                              "href": "#quiz",
+                              "data-intent": "comfort"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "raw": true,
+                                "text": "Описать мою ситуацию ",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "↗",
+                                "attributes": {
+                                  "aria-hidden": "true"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Что можно изменитьв вашем сиденье"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "section",
+          "id": "materials"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap material-grid material-grid--vehicle"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "figure",
+                "attributes": {
+                  "class": "material-photo"
+                },
+                "children": [
+                  {
+                    "type": "image",
+                    "attributes": {
+                      "src": "{{pluginUrl}}/assets/reference/reference-5.webp",
+                      "alt": "Иллюстрация сочетания фактур и оттенков обивки",
+                      "width": "1536",
+                      "height": "1024",
+                      "loading": "lazy"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "material-copy"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "eyebrow"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Из деталей складывается вид",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "Подушка, спинка и боковины",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "У кресла багги несколько разных зон. Покажите их на фото: обсудим детали обивки, рисунок швов и сочетание материалов с учётом конструкции.",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "details-list"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "detail-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "Посадочная зона",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "Фактура подушки и спинки под условия эксплуатации.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "detail-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "Боковины",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "Их форма, края и места частого контакта при посадке.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "detail-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "Комплект",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "Единое оформление нескольких кресел или обновление одного.",
+                            "attributes": {}
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Покажем физические образцы при согласовании. Материал подбираем с учётом условий эксплуатации, а финальный оттенок выбираем по образцу.",
+                    "attributes": {
+                      "class": "material-note"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Подушка, спинка и боковины"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "section price-area",
+          "id": "cost"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap price-layout"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "price-intro"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "eyebrow"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Прайс-лист 2026",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "Актуальные цены на кожаные сиденья",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "В прайсе указаны цены на чистку и реставрацию кожаных элементов. Перетяжка, новый чехол и изменение формы рассчитываются отдельно после оценки сиденья.",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Цены взяты из раздела «Автомобили». Применимость технологии к мотосиденью уточним по фото или после осмотра.",
+                    "attributes": {
+                      "class": "price-source"
+                    }
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "price-cta"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "btn",
+                          "href": "#contact",
+                          "data-contact": ""
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "raw": true,
+                            "text": "Обсудить стоимость по фото ",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "art",
+                            "key": "art-cdc8e95a42b1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "price-list",
+                      "aria-label": "Цены на работы с кожаными сиденьями"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "price-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "01",
+                            "attributes": {
+                              "class": "number"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "price-row__copy"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Чистка и защитная обработка",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "1 посадочное место",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "2 000–3 000 ₽",
+                            "attributes": {
+                              "class": "price-row__value"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "price-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "02",
+                            "attributes": {
+                              "class": "number"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "price-row__copy"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Покраска боковой поддержки",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "локальная реставрация",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "7 000 ₽",
+                            "attributes": {
+                              "class": "price-row__value"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "price-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "03",
+                            "attributes": {
+                              "class": "number"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "price-row__copy"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Покраска центрального сегмента",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "без боковых поддержек",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "8 000 ₽",
+                            "attributes": {
+                              "class": "price-row__value"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "price-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "04",
+                            "attributes": {
+                              "class": "number"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "price-row__copy"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Покраска подушки или спинки",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "один элемент сиденья",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "10 000 ₽",
+                            "attributes": {
+                              "class": "price-row__value"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "price-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "05",
+                            "attributes": {
+                              "class": "number"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "price-row__copy"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Покраска лицевой поверхности",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "базовая стоимость",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "14 000 ₽",
+                            "attributes": {
+                              "class": "price-row__value"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "price-row"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "06",
+                            "attributes": {
+                              "class": "number"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "price-row__copy"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Покраска сиденья целиком",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "лицевая сторона и спинка",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "18 000 ₽",
+                            "attributes": {
+                              "class": "price-row__value"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "price-adjustments",
+                      "aria-label": "Доплаты по прайс-листу"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "<span>Серьёзные загрязнения</span><strong>+20–50% к чистке</strong>",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "<span>Маскировка контрастного шва</span><strong>+50 ₽ / см</strong>",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "price-note price-note--scope"
+                    },
+                    "children": [
+                      {
+                        "type": "art",
+                        "key": "art-ab507c89f67f"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {},
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "strong",
+                            "text": "Перетяжку рассчитываем индивидуально",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "Количество кресел · Подушка, спинка и боковины · Материал и дополнительные работы. Для проверки состояния под обивкой может потребоваться осмотр. Итоговую стоимость согласуем до работ.",
+                            "attributes": {}
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Актуальные цены на кожаные сиденья"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "wrap process section--dark",
+          "id": "process",
+          "aria-labelledby": "process-title"
+        },
+        "children": [
+          {
+            "type": "text",
+            "tag": "p",
+            "text": "КАК ВСЁ ПРОХОДИТ",
+            "attributes": {
+              "class": "eyebrow"
+            }
+          },
+          {
+            "type": "text",
+            "tag": "h2",
+            "text": "От вашей идеи<br>к готовому сиденью",
+            "attributes": {
+              "id": "process-title"
+            }
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "attributes": {
+              "class": "timeline"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "li",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "01",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Опишите задачу",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Пройдите короткий подбор и выберите удобный способ обратной связи.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "02",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Покажите сиденье",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Отправьте фотографии в мессенджере. Специалист обсудит вариант и предварительную стоимость.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "03",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Передайте сиденье",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Согласуем приём сиденья или техники и возможность доставки.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "04",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Согласуйте детали",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "После осмотра выберем материал, дизайн, окончательную стоимость и срок.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "05",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Примите работу",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Проверим посадку чехла, швы и детали. Вы получите готовое сиденье и документы на заказ.",
+                    "attributes": {}
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "От вашей идеик готовому сиденью"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "logistics section"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container logistics__grid"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "ВЫБЕРИТЕ УДОБНЫЙ СПОСОБ ПЕРЕДАЧИ",
+                    "attributes": {
+                      "class": "eyebrow"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "\nСпособ передачи согласуем заранее\n",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": " Покажите кресла и их крепления, укажите количество и габариты. Сообщите, сняты ли они с багги. По этим данным согласуем способ передачи, место приёма и возможность доставки. ",
+                    "attributes": {
+                      "class": "section-lead"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "logistics__call"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "text": "КОНСУЛЬТАЦИЯ",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "href": "tel:+78123444444"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "+7 (812) 344-44-44",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Диспетчерская работает круглосуточно, без выходных.",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "href": "#callback",
+                      "data-cta": "callback_logistics"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Или оставить заявку →",
+                        "attributes": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Способ передачи согласуем заранее"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "quality section",
+          "aria-labelledby": "quality-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container quality__grid"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "КОНТРОЛЬ СОГЛАСОВАННОГО РЕЗУЛЬТАТА",
+                    "attributes": {
+                      "class": "eyebrow"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "Проверяем посадку чехла, швы и согласованный дизайн",
+                    "attributes": {
+                      "id": "quality-title"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "ul",
+                "attributes": {
+                  "class": "check-list"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Состав работ зафиксирован",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Материал и дизайн согласованы",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Заказ проверен перед выдачей",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": " Гарантия 1 год — условия фиксируем в документах на заказ ",
+                        "attributes": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Проверяем посадку чехла, швы и согласованный дизайн"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "section",
+          "id": "faq"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap faq-layout"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "eyebrow"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Перед обращением",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "Остались<br>вопросы?",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Вот что полезно знать до передачи сиденья.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Подойдёт ли услуга для моих кресел?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Пришлите фото кресла спереди, сбоку и сзади, укажите модель багги. Возможность перетяжки и объём работ зависят от конструкции обивки и основания.",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Можно перетянуть одно кресло?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Укажите нужное количество и покажите остальные кресла для подбора сочетания. Совпадение с прежним материалом обсуждается по образцам, а не только по фотографии.",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Что будет с отверстиями под ремни?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Покажите отверстия и их окантовку крупным планом. Обсуждаем работу с обивкой вокруг существующих элементов; изменение ремней, креплений и силовой конструкции в этот подбор не входит.",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Можно узнать цену по фото?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Фотографии помогают определить задачу и начать оценку. Окончательная стоимость зависит от материала и объёма работ. Если нужно проверить состояние под чехлом, потребуется осмотр.",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Сколько длится работа?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Срок согласовываем для конкретного заказа с учётом материала и объёма изменений. Если сиденье нужно к поездке, сразу укажите дату.",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Какие материалы можно выбрать?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Подберём материал под конструкцию сиденья и условия эксплуатации. До начала работ покажем образцы, согласуем фактуру, цвет и строчку.",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "details",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "summary",
+                        "text": "Есть ли гарантия?",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Гарантия на перетяжку — 1 год. Объём гарантии и её условия фиксируем в документах на заказ.",
+                        "attributes": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Осталисьвопросы?"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "wrap contact",
+          "id": "contact"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {},
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "eyebrow"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "raw": true,
+                    "text": "Начните с вашего сиденья",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "tag": "h2",
+                "text": "Покажите.<br>Расскажите.<br>Обсудим.",
+                "attributes": {}
+              },
+              {
+                "type": "text",
+                "tag": "p",
+                "text": " Укажите модель багги и количество кресел. Покажите их целиком, подушки, спинки и боковины. Если есть отверстия под ремни, добавьте их крупным планом. ",
+                "attributes": {}
+              },
+              {
+                "type": "element",
+                "tag": "a",
+                "attributes": {
+                  "class": "contact-phone",
+                  "href": "tel:+78123444444"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "span",
+                    "raw": true,
+                    "text": "+7 (812) 344-44-44",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "tag": "p",
+                "text": "Если удобнее обсудить голосом",
+                "attributes": {
+                  "class": "small"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "contact-extra"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "text-link",
+                      "href": "#quiz"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Подобрать решение ↗",
+                        "attributes": {}
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "text-link",
+                      "href": "#callback",
+                      "data-cta": "callback_contact"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "raw": true,
+                        "text": "Заказать звонок ↗",
+                        "attributes": {}
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "tag": "p",
+                "text": " <a class=\"text-link\" href=\"#contact\" data-contact=\"\">\nПодготовить сообщение о сиденье ↗\n</a> ",
+                "attributes": {
+                  "class": "contact-extra"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {},
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "messenger-cards messenger-cards--stacked"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "hero-messenger hero-messenger--telegram",
+                      "href": "https://telegram.me/lenremont_bot",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "Открыть Telegram"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "strong",
+                        "text": "Telegram",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nОтправить фото <span aria-hidden=\"true\">↗</span> ",
+                        "attributes": {
+                          "class": "hero-messenger__action"
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/lr-qr-tg.webp",
+                          "alt": "QR-код Telegram Ленремонт",
+                          "width": "140",
+                          "height": "140",
+                          "loading": "lazy"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "hero-messenger hero-messenger--max",
+                      "href": "https://max.ru/id471902475874_3_bot",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "Открыть MAX"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "strong",
+                        "text": "MAX",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nОтправить фото <span aria-hidden=\"true\">↗</span> ",
+                        "attributes": {
+                          "class": "hero-messenger__action"
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/lr-qr-max.webp",
+                          "alt": "QR-код MAX Ленремонт",
+                          "width": "140",
+                          "height": "140",
+                          "loading": "lazy"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "hero-messenger hero-messenger--vk",
+                      "href": "https://vk.ru/lenremont",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "Открыть VK"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "strong",
+                        "text": "VK",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nОтправить фото <span aria-hidden=\"true\">↗</span> ",
+                        "attributes": {
+                          "class": "hero-messenger__action"
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "attributes": {
+                          "src": "{{pluginUrl}}/assets/reference/lr-qr-vk.webp",
+                          "alt": "QR-код VK Ленремонт",
+                          "width": "140",
+                          "height": "140",
+                          "loading": "lazy"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "tag": "p",
+                "text": "\nМессенджер откроется отдельно. Прикрепите фотографии и отправьте сообщение\n      там.\n",
+                "attributes": {
+                  "class": "small"
+                }
+              }
+            ]
+          }
+        ],
+        "name": "Покажите.Расскажите.Обсудим."
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "widget",
+      "key": "callback-baggi"
+    },
+    {
+      "type": "widget",
+      "key": "mobile-bar"
+    }
+  ],
+  "seo": {
+    "title": "Перетяжка сидений багги в СПб | Ленремонт",
+    "description": "Перетяжка сидений багги в Санкт-Петербурге. Обновление обивки подушек, спинок, отдельных кресел и комплектов. Подбор дизайна и оценка работы по фото.",
+    "breadcrumbsTitle": "Перетяжка сидений багги",
+    "ogTitle": "Перетяжка сидений багги в СПб | Ленремонт",
+    "ogDescription": "Перетяжка сидений багги в Санкт-Петербурге. Обновление обивки подушек, спинок, отдельных кресел и комплектов. Подбор дизайна и оценка работы по фото."
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lenremont Gutenberg"
+  short_description: "Страницы, паттерны и инструменты WP-импортера"
+  default_prompt: "Используй $lenremont-gutenberg для сборки и проверки страницы WordPress с нашим плагином."

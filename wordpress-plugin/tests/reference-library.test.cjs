@@ -1,0 +1,12 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const moduleShim = { exports: {} };
+new Function('module', fs.readFileSync(__dirname + '/../lenremont-page-importer/assets/reference-library.js', 'utf8'))(moduleShim);
+const { conflict } = moduleShim.exports;
+const block = (attributes, innerBlocks = []) => ({ attributes, innerBlocks });
+assert.equal(conflict([block({ attributes: { id: 'quiz-app' } })], [block({}, [block({ attributes: { id: 'quiz-app' } })])]), true);
+assert.equal(conflict([block({ anchor: 'portfolio-title' })], [block({ attributes: { id: 'portfolio-title' } })]), true);
+assert.equal(conflict([block({ metadata: { lrSourceSection: 'hero' } })], [block({ metadata: { lrSourceSection: 'hero' } })]), true);
+assert.equal(conflict([block({ anchor: 'quality-title' })], [block({ anchor: 'hero-title' })]), false);
+assert.equal(conflict([block({ attributes: { href: '#quiz' } })], [block({ anchor: 'quiz' })]), false);
+console.log('PASS reference section keys, native/custom IDs and link-only non-conflict');

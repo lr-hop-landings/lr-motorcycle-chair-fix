@@ -1,0 +1,17 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const moduleShim = { exports: {} };
+new Function('module', fs.readFileSync(path.join(__dirname, '../lenremont-page-importer/assets/library.js'), 'utf8'))(moduleShim);
+const { prepare, classVariant } = moduleShim.exports;
+const block = (attributes, innerBlocks = []) => ({ attributes, innerBlocks });
+const existing = [block({ anchor: 'hop-gutenberg' }, [block({ anchor: 'lr-ai-contact' }), block({ anchor: 'lr-ai-contact-2' })])];
+const incoming = [block({ anchor: 'lr-ai-contact' }, [block({ url: '#lr-ai-contact' }), block({ url: 'https://example.com/#lr-ai-contact' })])];
+prepare(incoming, existing);
+assert.equal(incoming[0].attributes.anchor, 'lr-ai-contact-3');
+assert.equal(incoming[0].innerBlocks[0].attributes.url, '#lr-ai-contact-3');
+assert.equal(incoming[0].innerBlocks[1].attributes.url, 'https://example.com/#lr-ai-contact');
+assert.equal(existing[0].innerBlocks[0].attributes.anchor, 'lr-ai-contact');
+assert.equal(classVariant('lr-ai-section lr-ai-dark custom', ['lr-ai-dark', 'lr-ai-soft'], 'lr-ai-soft'), 'lr-ai-section custom lr-ai-soft');
+assert.equal(classVariant('lr-ai-section lr-ai-dark', ['lr-ai-dark', 'lr-ai-soft'], ''), 'lr-ai-section');
+console.log('PASS library anchors, internal links and isolated variants');

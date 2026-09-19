@@ -1,0 +1,270 @@
+/* Lenremont design system. No theme-global selectors or JavaScript dependency.
+ * The class works by itself; the optional ID retains the landing integration.
+ */
+@font-face {
+	font-family: "LR Design Manrope";
+	src: url("reference/reference-1.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "LR Design Manrope";
+	src: url("reference/reference-2.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "LR Design Manrope";
+	src: url("reference/reference-3.ttf") format("truetype");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) {
+	/* Primitives: project palette and dimension scale. */
+	--lr-ai-navy: #082b56;
+	--lr-ai-blue: #1259b5;
+	--lr-ai-blue-hover: #0b458f;
+	--lr-ai-cyan: #9ee4fc;
+	--lr-ai-white: #fff;
+	--lr-ai-cloud: #f3f5f7;
+	--lr-ai-slate: #53677e;
+	--lr-ai-mist: #d6e0e9;
+	--lr-ai-dark-muted: #c4d4e5;
+	--lr-ai-dark-surface: #163c66;
+	--lr-ai-font: "LR Design Manrope", "Segoe UI", sans-serif;
+	--lr-ai-space-1: 8px;
+	--lr-ai-space-2: 16px;
+	--lr-ai-space-3: 24px;
+	--lr-ai-space-4: 32px;
+	--lr-ai-radius: 14px;
+	/* Semantic defaults. Override these on a section for local variations. */
+	--lr-ai-text: var(--lr-ai-navy);
+	--lr-ai-heading: var(--lr-ai-text);
+	--lr-ai-muted: var(--lr-ai-slate);
+	--lr-ai-bg: var(--lr-ai-white);
+	--lr-ai-surface: var(--lr-ai-cloud);
+	--lr-ai-border: var(--lr-ai-mist);
+	--lr-ai-accent: var(--lr-ai-blue);
+	--lr-ai-content-width: 1280px;
+	--lr-ai-gutter: clamp(18px, 4vw, 32px);
+	--lr-ai-section-space: clamp(48px, 7vw, 94px);
+	/* Component tokens. */
+	--lr-ai-button-bg: var(--lr-ai-blue);
+	--lr-ai-button-text: var(--lr-ai-white);
+	--lr-ai-button-hover: var(--lr-ai-blue-hover);
+	--lr-ai-card-padding: clamp(20px, 3vw, 32px);
+	--lr-ai-card-radius: var(--lr-ai-radius);
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	isolation: isolate;
+	color: var(--lr-ai-text);
+	background: var(--lr-ai-bg);
+	font: 400 18px/1.6 var(--lr-ai-font);
+	letter-spacing: normal;
+	text-transform: none;
+	text-align: start;
+}
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page),
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) *,
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) *::before,
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) *::after { box-sizing: border-box; }
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(h1,h2,h3,h4,h5,h6,p,figure,blockquote,ul,ol) {
+	margin: 0;
+	font-family: inherit;
+	font-style: normal;
+	text-shadow: none;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(h1,h2,h3,h4,h5,h6) {
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: -.025em;
+	text-transform: none;
+	text-wrap: balance;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(h1,h2,h3,h4,h5,h6):not(.has-text-color) { color: inherit; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) h1 { font-size: clamp(34px, 4.5vw, 56px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) h2 { font-size: clamp(28px, 3.2vw, 40px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) h3 { font-size: clamp(21px, 2.2vw, 26px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(h4,h5,h6) { font-size: 20px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(a):not(.has-text-color) { color: inherit; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(a) { text-underline-offset: .18em; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(img,video) { max-width: 100%; height: auto; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(button,input,select,textarea) { font: inherit; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where(a,button,input,select,textarea,summary):focus-visible {
+	outline: 3px solid var(--lr-ai-accent);
+	outline-offset: 4px;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) :where([hidden]) { display: none !important; }
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-section {
+	margin: 0;
+	padding: var(--lr-ai-section-space) var(--lr-ai-gutter);
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-section:not(.has-background) { background: var(--lr-ai-bg); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-section:not(.has-text-color) { color: var(--lr-ai-text); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-container {
+	width: 100%;
+	max-width: var(--lr-ai-content-width);
+	margin-inline: auto;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-stack > * + * { margin-block-start: var(--lr-ai-space-3); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--lr-ai-space-3);
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-grid > * { min-width: 0; margin-block: 0; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-hero-grid { align-items: center; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-card {
+	padding: var(--lr-ai-card-padding);
+	border: 1px solid var(--lr-ai-border);
+	border-radius: var(--lr-ai-card-radius);
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-card:not(.has-background) { background: var(--lr-ai-surface); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-eyebrow {
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-eyebrow:not(.has-text-color),
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-accent:not(.has-text-color) { color: var(--lr-ai-accent); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-lead { max-width: 65ch; font-size: clamp(18px, 2vw, 21px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-muted:not(.has-text-color) { color: var(--lr-ai-muted); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-small { font-size: 15px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-price { font-size: 26px; font-weight: 800; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-media { overflow: hidden; border-radius: var(--lr-ai-radius); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-media img { display: block; width: 100%; }
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-buttons { display: flex; flex-wrap: wrap; gap: var(--lr-ai-space-2); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 14px 24px;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	font: 600 16px/1.3 var(--lr-ai-font);
+	text-align: center;
+	text-decoration: none;
+	text-transform: none;
+	box-shadow: none;
+	transition: background-color .16s ease, transform .16s ease;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button .wp-block-button__link:not(.has-background) { background: var(--lr-ai-button-bg); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button .wp-block-button__link:not(.has-text-color) { color: var(--lr-ai-button-text); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button .wp-block-button__link:not(.has-background):hover { background: var(--lr-ai-button-hover); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button .wp-block-button__link:active { transform: translateY(1px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button--outline {
+	--lr-ai-button-bg: transparent;
+	--lr-ai-button-text: var(--lr-ai-text);
+	--lr-ai-button-hover: var(--lr-ai-surface);
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button--outline .wp-block-button__link { border-color: currentColor; }
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-faq {
+	padding-block: var(--lr-ai-space-3);
+	border-bottom: 1px solid var(--lr-ai-border);
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-faq summary { cursor: pointer; font-weight: 800; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-faq > :not(summary) { margin-top: var(--lr-ai-space-2); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-review { border: 0; padding: 0; font-style: normal; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-review cite { display: block; margin-top: var(--lr-ai-space-2); font-size: 15px; font-style: normal; }
+
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-dark {
+	--lr-ai-text: var(--lr-ai-white);
+	--lr-ai-heading: var(--lr-ai-white);
+	--lr-ai-muted: var(--lr-ai-dark-muted);
+	--lr-ai-bg: var(--lr-ai-navy);
+	--lr-ai-surface: var(--lr-ai-dark-surface);
+	--lr-ai-border: var(--lr-ai-dark-muted);
+	--lr-ai-accent: var(--lr-ai-cyan);
+	--lr-ai-button-bg: var(--lr-ai-cyan);
+	--lr-ai-button-text: var(--lr-ai-navy);
+	--lr-ai-button-hover: var(--lr-ai-white);
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-soft { --lr-ai-bg: var(--lr-ai-cloud); --lr-ai-surface: var(--lr-ai-white); }
+
+/* Library variations affect only their own section. */
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-compact { --lr-ai-section-space: clamp(24px, 4vw, 48px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-spacious { --lr-ai-section-space: clamp(72px, 9vw, 128px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-prose { max-width: 75ch; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-media img { aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* Restrained library layouts; no external widgets or sliders required. */
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) ::selection { color: var(--lr-ai-navy); background: var(--lr-ai-cyan); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-row { padding-block: var(--lr-ai-space-3); border-bottom: 1px solid var(--lr-ai-border); align-items: center; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-row .lr-ai-price { font-variant-numeric: tabular-nums; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-plain-item { padding-top: var(--lr-ai-space-3); border-top: 1px solid var(--lr-ai-border); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-centered { max-width: 820px; margin-inline: auto; text-align: center; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-centered .lr-ai-buttons { justify-content: center; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-narrow { max-width: 760px; margin-inline: auto; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz {
+	--lr-ai-text: var(--lr-ai-navy); --lr-ai-muted: var(--lr-ai-slate); --lr-ai-accent: var(--lr-ai-blue);
+	color: var(--lr-ai-text); background: var(--lr-ai-white); border: 1px solid var(--lr-ai-mist);
+	border-radius: var(--lr-ai-radius); padding: clamp(20px, 3vw, 36px); min-width: 0;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz h2 { font-size: clamp(24px, 2.5vw, 30px); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz h3 { font-size: 22px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz h3[tabindex="-1"]:focus { outline: none; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz > * + *,
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz form > * + * { margin-top: 16px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-progress { margin-block: 24px 16px; font-size: 14px; color: var(--lr-ai-muted); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-options { display: grid; gap: 10px; margin-top: 20px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz--cards .lr-ai-quiz-options { grid-template-columns: repeat(2, minmax(0,1fr)); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-option {
+	display: block; width: 100%; padding: 16px 18px; min-height: 52px; border: 1px solid var(--lr-ai-mist);
+	border-radius: 8px; background: var(--lr-ai-white); color: var(--lr-ai-navy); box-shadow: none;
+	font: 600 16px/1.45 var(--lr-ai-font); text-align: left; text-transform: none; cursor: pointer; overflow-wrap: anywhere;
+}
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-option:hover { background: var(--lr-ai-cloud); border-color: var(--lr-ai-blue); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-option[aria-pressed="true"] { background: var(--lr-ai-cloud); border-color: var(--lr-ai-blue); box-shadow: inset 0 0 0 1px var(--lr-ai-blue); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) [data-lr-service-panels] { transition: opacity 150ms ease-out; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-changing { opacity: 0; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 20px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-nav button { padding: 10px 0; border: 0; background: transparent; color: var(--lr-ai-blue); text-decoration: underline; text-underline-offset: .2em; font-size: 15px; box-shadow: none; cursor: pointer; text-transform: none; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-summary { margin: 20px 0; font-size: 15px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-summary dt { color: var(--lr-ai-muted); margin-top: 12px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-summary dd { margin: 4px 0 0; font-weight: 600; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-phone { display: grid; gap: 8px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-phone input { width: 100%; min-height: 48px; border: 1px solid var(--lr-ai-mist); background: var(--lr-ai-white); color: var(--lr-ai-navy); padding: 12px; border-radius: 8px; box-shadow: none; caret-color: var(--lr-ai-blue); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-phone input::placeholder { color: var(--lr-ai-slate); opacity: 1; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 3px; accent-color: var(--lr-ai-blue); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-submit { border: 0; border-radius: 8px; min-height: 48px; padding: 14px 24px; background: var(--lr-ai-blue); color: var(--lr-ai-white); font-weight: 600; cursor: pointer; box-shadow: none; text-transform: none; }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz-submit:hover { background: var(--lr-ai-blue-hover); }
+:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz button:disabled { opacity: .6; cursor: wait; }
+
+/* Keep the library's nested grids out of Gutenberg's default text column. */
+.editor-styles-wrapper .lr-ai-page { max-width: none; }
+.editor-styles-wrapper .lr-ai-page .wp-block-group { max-width: none; margin-inline: 0; }
+.editor-styles-wrapper .lr-ai-page .lr-ai-container { max-width: var(--lr-ai-content-width); margin-inline: auto; }
+.editor-styles-wrapper .lr-ai-page .lr-ai-prose { max-width: 75ch; }
+.editor-styles-wrapper .lr-ai-page .lr-ai-centered { max-width: 820px; margin-inline: auto; }
+.editor-styles-wrapper .lr-ai-page .lr-ai-quiz-narrow { max-width: 760px; margin-inline: auto; }
+.editor-styles-wrapper .lr-ai-page .wp-block-image { max-width: 100%; }
+
+@media (max-width: 960px) {
+	:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+	:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-grid { grid-template-columns: minmax(0, 1fr); }
+	:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button { width: 100%; }
+	:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-quiz--cards .lr-ai-quiz-options { grid-template-columns: minmax(0,1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+	:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) .lr-ai-button .wp-block-button__link { transition: none; }
+	:is(#hop-gutenberg.lr-ai-page, .lr-ai-page) [data-lr-service-panels] { transition: none; }
+}

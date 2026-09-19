@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lenremont/service-quiz",
+  "version": "0.10.0",
+  "title": "Ленремонт · Квиз услуги",
+  "category": "widgets",
+  "icon": "forms",
+  "description": "Настраиваемые вопросы, плавные переходы и форма с интеграцией HTML On Page Lead Capture.",
+  "textdomain": "lenremont-page-importer",
+  "attributes": {
+    "title": { "type": "string", "default": "Расскажите о вашей задаче" },
+    "intro": { "type": "string", "default": "Несколько вопросов помогут подготовиться к разговору." },
+    "service": { "type": "string", "default": "Консультация по услуге" },
+    "resultTitle": { "type": "string", "default": "Обсудим детали" },
+    "buttonLabel": { "type": "string", "default": "Связаться со мной" },
+    "variant": { "type": "string", "default": "list", "enum": ["list", "cards"] },
+    "questions": { "type": "array", "default": [
+      { "title": "С чем нужна помощь?", "options": ["Ремонт", "Обновление", "Нужен совет"] },
+      { "title": "Что уже известно о задаче?", "options": ["Могу описать подробно", "Есть фотографии", "Нужна помощь с оценкой"] },
+      { "title": "Как удобнее обсудить детали?", "options": ["По телефону", "Сначала уточнить условия"] }
+    ] }
+  },
+  "supports": { "html": false, "multiple": true },
+  "editorScript": "lenremont-service-quiz-editor",
+  "style": "lenremont-design-system",
+  "viewScript": "lenremont-service-quiz-view",
+  "render": "file:./render.php"
+}

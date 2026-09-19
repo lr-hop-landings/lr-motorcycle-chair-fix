@@ -1,0 +1,160 @@
+/*
+ * Scoped defaults for imported content; do not reset the surrounding theme.
+ * The original landing stylesheet loads after this reset.
+ */
+#hop-gutenberg {
+	width: 100%;
+	max-width: none !important;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	isolation: isolate;
+	letter-spacing: normal;
+	text-wrap: wrap;
+}
+
+#hop-gutenberg,
+#hop-gutenberg *,
+#hop-gutenberg *::before,
+#hop-gutenberg *::after {
+	box-sizing: border-box;
+}
+
+#hop-gutenberg :where(h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+	font-style: normal;
+	text-wrap: wrap;
+}
+
+#hop-gutenberg :where(ul, ol) {
+	margin: 0;
+	padding: 0;
+}
+
+/* Theme headings often set color directly instead of inheriting the section.
+ * Gutenberg's explicit colors (palette or inline) remain authoritative.
+ * Low specificity lets the original section typography override these defaults.
+ */
+#hop-gutenberg :where(h1, h2, h3, h4, h5, h6) {
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: normal;
+	text-transform: none;
+	text-shadow: none;
+}
+
+#hop-gutenberg :where(h1, h2, h3, h4, h5, h6):where(:not(.has-text-color)) {
+	color: inherit;
+}
+
+#hop-gutenberg :where(button, input, textarea, select) {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+
+#hop-gutenberg :where(button) {
+	border: 0;
+}
+
+#hop-gutenberg :where(a) {
+	color: inherit;
+	text-decoration: none;
+}
+
+#hop-gutenberg :where(img, picture, video, canvas, svg) {
+	display: block;
+	max-width: 100%;
+}
+
+#hop-gutenberg :where(img, video) {
+	height: auto;
+}
+
+#hop-gutenberg :where(table) {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+#hop-gutenberg :where(summary) {
+	cursor: pointer;
+}
+
+#hop-gutenberg :where([hidden]) {
+	display: none !important;
+}
+
+#hop-gutenberg :where(.wp-block-group) {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+
+#hop-gutenberg :where(.wp-block-group) > * {
+	margin-block: 0;
+}
+
+/* Classic Gutenberg caps every .wp-block (including our custom sections) at
+ * the theme's content width. Reset before the original component styles. */
+.editor-styles-wrapper #hop-gutenberg :where(.wp-block) {
+	max-width: none;
+	margin: 0;
+}
+
+/* Use Any Font applies a global heading family with !important on lenremont.ru.
+ * Counter only that property inside the exact-reference landing profile. */
+#hop-gutenberg.lr-reference :is(h1, h2, h3, h4, h5, h6):not(.has-custom-font-family):not([style*="font-family"]) {
+	font-family: "LR Reference Manrope", "Segoe UI", sans-serif !important;
+}
+
+#hop-gutenberg :where(.wp-block-details) {
+	padding: 0;
+}
+
+/* Theme flow rules also target the last dialog; keep native modal centering. */
+#hop-gutenberg dialog {
+	margin: auto !important;
+}
+
+#hop-gutenberg > main {
+	margin: 0;
+	padding: 0;
+}
+
+.lr-page-canvas:has(#hop-gutenberg) {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.lr-page-canvas:has(#hop-gutenberg) > .wp-block-post-content {
+	max-width: none;
+	margin: 0;
+}
+
+#hop-gutenberg :where(.lr-widget-editor) {
+	margin: 16px 0;
+	padding: 16px;
+	border: 1px dashed #53677e;
+	color: #092c56;
+	background: #fff;
+	font: 14px/1.5 sans-serif;
+}
+
+#hop-gutenberg :where(.lr-art-editor) {
+	display: contents;
+}
+
+/* Editor-only: keep all carousel cards selectable and dialogs out of the canvas. */
+.editor-styles-wrapper #hop-gutenberg .swiper-wrapper {
+	overflow-x: auto;
+}
+
+.editor-styles-wrapper #hop-gutenberg .case-card {
+	flex-shrink: 0;
+}
+
+.editor-styles-wrapper #hop-gutenberg .case-card__range {
+	pointer-events: none;
+}

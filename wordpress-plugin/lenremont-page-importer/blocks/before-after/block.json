@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lenremont/before-after",
+  "version": "0.1.0",
+  "title": "До и после",
+  "category": "media",
+  "icon": "image-flip-horizontal",
+  "description": "Интерактивное сравнение двух фотографий.",
+  "textdomain": "lenremont-page-importer",
+  "attributes": {
+    "title": { "type": "string", "default": "Результат работы" },
+    "beforeUrl": { "type": "string", "default": "" },
+    "beforeAlt": { "type": "string", "default": "До ремонта" },
+    "afterUrl": { "type": "string", "default": "" },
+    "afterAlt": { "type": "string", "default": "После ремонта" }
+  },
+  "supports": {
+    "inserter": false,
+    "align": ["wide", "full"],
+    "html": false,
+    "spacing": { "margin": true }
+  },
+  "editorScript": "lenremont-page-importer-blocks",
+  "style": "lenremont-page-importer",
+  "viewScript": "lenremont-page-importer-interactions",
+  "render": "file:./render.php"
+}

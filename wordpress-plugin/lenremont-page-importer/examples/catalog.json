@@ -1,0 +1,47 @@
+[
+  {
+    "key": "main",
+    "sourcePath": "/",
+    "path": "/peretyazhka-sidenij-mototransporta/",
+    "example": "main-motorcycle-seats.json",
+    "title": "Перетяжка сидений мотоциклов и квадроциклов в СПб",
+    "slug": "peretyazhka-sidenij-mototransporta",
+    "sections": 13
+  },
+  {
+    "key": "motocikly",
+    "sourcePath": "/motocikly/",
+    "path": "/peretyazhka-sidenij-mototransporta-motocikly/",
+    "example": "motocikly.json",
+    "title": "Перетяжка сидений мотоциклов в СПб",
+    "slug": "peretyazhka-sidenij-mototransporta-motocikly",
+    "sections": 13
+  },
+  {
+    "key": "skutery",
+    "sourcePath": "/skutery/",
+    "path": "/peretyazhka-sidenij-mototransporta-skutery/",
+    "example": "skutery.json",
+    "title": "Перетяжка сидений скутеров в СПб",
+    "slug": "peretyazhka-sidenij-mototransporta-skutery",
+    "sections": 13
+  },
+  {
+    "key": "kvadrocikly",
+    "sourcePath": "/kvadrocikly/",
+    "path": "/peretyazhka-sidenij-mototransporta-kvadrocikly/",
+    "example": "kvadrocikly.json",
+    "title": "Перетяжка сидений квадроциклов в СПб",
+    "slug": "peretyazhka-sidenij-mototransporta-kvadrocikly",
+    "sections": 13
+  },
+  {
+    "key": "baggi",
+    "sourcePath": "/baggi/",
+    "path": "/peretyazhka-sidenij-mototransporta-baggi/",
+    "example": "baggi.json",
+    "title": "Перетяжка сидений багги в СПб",
+    "slug": "peretyazhka-sidenij-mototransporta-baggi",
+    "sections": 13
+  }
+]

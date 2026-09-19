@@ -51,17 +51,21 @@ const single = caseStudies.length === 1;
   import { A11y, Navigation } from "swiper/modules";
   import "swiper/css";
 
-  document.querySelectorAll("[data-case-card]").forEach((card) => {
+  const hopRoot = document.getElementById("hop-gutenberg") || document;
+  hopRoot.querySelectorAll("[data-case-card]").forEach((card) => {
     const range = card.querySelector<HTMLInputElement>(".case-card__range");
     const updatePosition = () =>
       card.style.setProperty("--compare-position", `${range?.value ?? 52}%`);
     range?.addEventListener("input", updatePosition);
   });
-  const caseSwiper = document.querySelector("[data-case-swiper]");
+  const caseSwiper = hopRoot.querySelector("[data-case-swiper]");
   if (caseSwiper) {
     new Swiper(caseSwiper, {
       modules: [A11y, Navigation],
-      navigation: { prevEl: "[data-case-prev]", nextEl: "[data-case-next]" },
+      navigation: {
+        prevEl: hopRoot.querySelector("[data-case-prev]"),
+        nextEl: hopRoot.querySelector("[data-case-next]"),
+      },
       slidesPerView: 1.1,
       spaceBetween: 14,
       grabCursor: true,

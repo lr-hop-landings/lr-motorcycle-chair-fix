@@ -49,7 +49,7 @@ body:has(dialog[open]) .mobile-bar { visibility: hidden; }
 .result-body, .result-note { overflow-wrap: anywhere; }
 .quiz-step-note { margin: 0 0 22px; color: var(--muted); font-size: 17px; }
 .quiz-analysis { padding: 30px 0 16px; }
-.quiz-analysis__spinner { display: block; width: 48px; height: 48px; margin-bottom: 24px; border: 4px solid var(--soft); border-top-color: var(--blue); border-radius: 50%; animation: quiz-spin .8s linear infinite; }
+.quiz-analysis__spinner { display: block; width: 48px; height: 48px; margin-bottom: 24px; border: 4px solid var(--soft); border-top-color: var(--blue); border-radius: 50%; animation: hop-quiz-spin .8s linear infinite; }
 .quiz-analysis__steps { display: grid; gap: 14px; margin: 28px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 16px; }
 .quiz-analysis__steps li { display: flex; align-items: center; gap: 12px; }
 .quiz-analysis__steps li::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
@@ -72,7 +72,7 @@ body:has(dialog[open]) .mobile-bar { visibility: hidden; }
 .quiz-recommendation .result-note { margin: 0; font-size: 15px; }
 .quiz-lead-intro { border-top: 1px solid var(--line); padding-top: 24px; }
 .quiz-lead-intro h3 { margin: 0 0 10px; font-size: 24px; line-height: 1.25; }
-@keyframes quiz-spin { to { transform: rotate(360deg); } }
+@keyframes hop-quiz-spin { to { transform: rotate(360deg); } }
 @media (max-width: 1050px) { :root { --section-space: 70px; } }
 @media (max-width: 760px) {
   :root { --gutter: 18px; --section-space: 55px; }

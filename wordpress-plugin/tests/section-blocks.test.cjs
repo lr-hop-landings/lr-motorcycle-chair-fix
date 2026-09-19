@@ -1,0 +1,14 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const sandbox = {module:{exports:{}}};
+new Function('module', fs.readFileSync(require('node:path').join(__dirname, '../lenremont-page-importer/assets/section-blocks.js'), 'utf8'))(sandbox.module);
+const api = sandbox.module.exports;
+assert.equal(api.blockName({name:'lenremont/source-prices'}), 'lenremont/section-prices');
+const child = {name:'core/heading',clientId:'child',attributes:{content:'Edited'},innerBlocks:[]};
+const section = {name:'lenremont/section-prices',clientId:'section',attributes:{},innerBlocks:[child]};
+const root = {name:'core/group',clientId:'root',attributes:{anchor:'hop-gutenberg'},innerBlocks:[section]};
+assert.deepEqual(api.template([section]), [['lenremont/section-prices',{},[['core/heading',{content:'Edited'},[]]]]]);
+assert.deepEqual(api.without([root], 'section')[0].innerBlocks, []);
+assert.equal(root.innerBlocks[0].innerBlocks[0].attributes.content, 'Edited');
+assert.equal(api.without([root], 'missing')[0].innerBlocks.length, 1);
+console.log('PASS section naming, templates, immutable duplicate-check tree.');

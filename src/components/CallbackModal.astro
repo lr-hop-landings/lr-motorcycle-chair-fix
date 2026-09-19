@@ -245,7 +245,8 @@ const { vehicle } = Astro.props;
   };
 
   const setupCallbackModal = () => {
-    const modal = document.querySelector<HTMLDialogElement>('[data-callback-modal]');
+    const hopRoot = document.getElementById('hop-gutenberg') || document;
+    const modal = hopRoot.querySelector<HTMLDialogElement>('[data-callback-modal]');
     if (!modal) return;
 
     const form = modal.querySelector<HTMLFormElement>('form');
@@ -298,7 +299,7 @@ const { vehicle } = Astro.props;
       resetModal();
       const sourceInput = modal.querySelector<HTMLInputElement>('input[name="cta_source"]');
       if (sourceInput) sourceInput.value = source;
-      const quiz = document.querySelector<HTMLElement>('#quiz-app');
+      const quiz = hopRoot.querySelector<HTMLElement>('#quiz-app');
       for (const [name, value] of Object.entries({ vehicle_type: quiz?.dataset.selectedVehicle, vehicle_slug: quiz?.dataset.selectedVehicleSlug, service_name: quiz?.dataset.selectedService })) {
         const input = form?.elements.namedItem(name) as HTMLInputElement | null;
         if (input && value) input.value = value;
@@ -438,7 +439,7 @@ const { vehicle } = Astro.props;
     });
 
     // Open trigger listeners
-    document.querySelectorAll('[data-callback-open], [data-cta^="callback"], a[href="#callback"]').forEach((trigger) => {
+    hopRoot.querySelectorAll('[data-callback-open], [data-cta^="callback"], a[href="#callback"]').forEach((trigger) => {
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
         const source = (trigger as HTMLElement).dataset.callbackOpen || (trigger as HTMLElement).dataset.cta || 'direct';
@@ -691,10 +692,10 @@ const { vehicle } = Astro.props;
     align-items: center;
     padding: clamp(36px, 7vw, 48px) clamp(22px, 5vw, 36px);
     text-align: center;
-    animation: callback-fade-in 0.3s ease;
+    animation: hop-callback-fade-in 0.3s ease;
   }
 
-  @keyframes callback-fade-in {
+  @keyframes hop-callback-fade-in {
     from {
       opacity: 0;
       transform: scale(0.96);
@@ -719,10 +720,10 @@ const { vehicle } = Astro.props;
     inset: -6px;
     border-radius: 50%;
     background: rgba(16, 185, 129, 0.15);
-    animation: callback-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    animation: hop-callback-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
   }
 
-  @keyframes callback-pulse {
+  @keyframes hop-callback-pulse {
     0% {
       transform: scale(0.92);
       opacity: 0.9;

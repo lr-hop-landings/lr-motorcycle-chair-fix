@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>Проверка сохранности текста при импорте</title>
+<style>body{font:18px/1.6 system-ui;max-width:950px;margin:48px auto;padding:24px} .pass{color:#166534}.fail{color:#b91c1c}</style>
+<h1>Проверка импортера в браузере</h1>
+<ol id="results"></ol>
+<p id="summary">Проверка…</p>
+<script>
+window.wp = { blocks: { createBlock: (name, attributes = {}, innerBlocks = []) => ({ name, attributes, innerBlocks }) } };
+</script>
+<script src="../assets/reference-blocks.js"></script>
+<script src="../assets/converter.js"></script>
+<script>
+(async () => {
+  const results = document.querySelector('#results');
+  let failed = 0, passed = 0;
+  function check(name, condition) {
+    const item = document.createElement('li');
+    item.textContent = (condition ? 'PASS: ' : 'FAIL: ') + name;
+    item.className = condition ? 'pass' : 'fail';
+    results.append(item);
+    if (condition) passed++; else failed++;
+  }
+  function flatten(blocks) { return blocks.flatMap(block => [block, ...flatten(block.innerBlocks || [])]); }
+  try {
+    const source = await (await fetch('../examples/main-motorcycle-seats.json')).text();
+    const manifest = JSON.parse(source.replaceAll('{{pluginUrl}}', new URL('../', location).href.replace(/\/$/, '')));
+    const conversion = LenremontPageConverter.convertManifest(manifest);
+    const all = flatten(conversion.blocks);
+	check('Все блоки находятся внутри #hop-gutenberg', conversion.blocks.length === 1 && conversion.blocks[0].attributes.anchor === 'hop-gutenberg');
+    check('Все 13 секций перенесены', conversion.summary.sections === 13);
+    check('Главный заголовок и выделение сохранены', all.some(b => b.name === 'core/heading' && b.attributes.content.replace(/\s+/g,' ').trim() === 'Перетяжка мотосидений <em>под вашу задачу.</em>'));
+    const fields = { 'core/heading': 'content', 'core/paragraph': 'content', 'core/button': 'text', 'core/list-item': 'content', 'core/details': 'summary' };
+    const textBlocks = all.filter(b => fields[b.name]);
+    check('Ни один текстовый блок не пустой (' + textBlocks.length + ')', textBlocks.every(b => b.attributes[fields[b.name]]?.trim()));
+    check('Все 8 вопросов FAQ перенесены', all.filter(b => b.name === 'lenremont/element' && b.attributes.tag === 'details').length === 8);
+    check('Кнопки вложены в блок Buttons', all.every(b => b.innerBlocks.every(child => child.name !== 'core/button' || b.name === 'core/buttons')));
+    check('Все 8 сравнений до/после перенесены', all.filter(b => b.name === 'lenremont/element' && b.attributes.attributes['data-case-card'] !== undefined).length === 8);
+    check('Все диалоги и мобильная панель перенесены', all.filter(b=>b.name === 'lenremont/reference-widget').length === 3);
+    check('Страница не спрятана в HTML-блок', all.every(b=>b.name !== 'core/html'));
+    check('Отступы исходного HTML не стали переносами строк', all.filter(b=>b.name==='core/paragraph').every(b=>!/[\r\n]/.test(b.attributes.content)));
+    check('Текст кнопки сохраняет исходный текстовый узел', all.some(b=>b.name==='lenremont/text' && b.attributes.raw && b.attributes.text==='Подобрать похожее решение '));
+    const safeAttrs = LenremontReferenceBlocks.cleanAttributes({href:'javascript:alert(1)',onclick:'bad()',style:'background:url(https://bad.test/);--vehicle-color:#244f9d'});
+    check('Reference-режим не пропускает обработчики и опасные стили', safeAttrs.href==='' && !safeAttrs.onclick && safeAttrs.style==='--vehicle-color:#244f9d');
+    const test = LenremontPageConverter.convertManifest({sections:[{type:'content',blocks:[
+      {type:'paragraph',text:'Обычный русский текст &amp; цена 2 000 ₽'},
+      {type:'paragraph',text:'<div>Текст <strong>с выделением</strong> <em>и курсивом</em></div>'},
+      {type:'paragraph',text:'<script>alert(1)<\/script><img src=x onerror="alert(1)"><a href="javascript:alert(1)" onclick="alert(1)">Ссылка</a>'},
+      {type:'paragraph',text:'<a href="https://example.test/" target="_blank" onclick="bad()">Безопасная ссылка</a>'}
+    ]}]});
+    const paragraphs = flatten(test.blocks).filter(b=>b.name === 'core/paragraph').map(b=>b.attributes.content);
+    check('Обычный текст не удаляется DOMParser', paragraphs[0] === 'Обычный русский текст &amp; цена 2 000 ₽');
+    check('Вложенное форматирование сохраняется', paragraphs[1] === 'Текст <strong>с выделением</strong> <em>и курсивом</em>');
+    check('Скрипты, обработчики и опасные URL удаляются', paragraphs[2] === '<a>Ссылка</a>');
+    check('Безопасная ссылка сохраняется', paragraphs[3] === '<a href="https://example.test/" target="_blank" rel="noopener noreferrer">Безопасная ссылка</a>');
+    const html = LenremontPageConverter.convertHtml('<section><h2>Заголовок HTML</h2><p>Текст <strong>HTML</strong></p></section>');
+    check('HTML-режим тоже сохраняет текст', flatten(html.blocks).some(b=>b.attributes.content === 'Текст <strong>HTML</strong>'));
+  } catch(error) { check(error.message, false); }
+  document.querySelector('#summary').textContent = `Пройдено: ${passed}. Ошибок: ${failed}.`;
+  document.title = failed ? 'FAIL — импорт' : 'PASS — импорт';
+})();
+</script>
+</html>

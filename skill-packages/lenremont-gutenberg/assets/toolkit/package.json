@@ -1,0 +1,8 @@
+{
+  "name": "lenremont-gutenberg-workbench",
+  "version": "0.13.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "dependencies": { "postcss": "8.5.22" }
+}
