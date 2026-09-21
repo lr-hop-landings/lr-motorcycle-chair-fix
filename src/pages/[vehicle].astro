@@ -4,6 +4,7 @@ import { vehiclePages, type VehiclePage } from "../data/vehicles";
 import { caseStudies } from "../data/cases";
 import HeroSection from "../sections/HeroSection.astro";
 import HeroMessengers from "../sections/HeroMessengers.astro";
+import WorkshopsMapSection from "../sections/WorkshopsMapSection.astro";
 import ProofSection from "../sections/ProofSection.astro";
 import VehicleSection from "../sections/VehicleSection.astro";
 import PortfolioSection from "../sections/PortfolioSection.astro";
@@ -35,6 +36,7 @@ const canonical = Astro.site ? new URL(`/${vehicle.slug}/`, Astro.site).href : u
   <main id="top">
     <HeroSection vehicle={vehicle} />
     <HeroMessengers />
+    <WorkshopsMapSection />
     <ProofSection />
     <VehicleSection activeVehicleSlug={vehicle.slug} />
     {caseStudies.some(item => item.vehicle === vehicle.slug) && <PortfolioSection vehicleSlug={vehicle.slug} />}

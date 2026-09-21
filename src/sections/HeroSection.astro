@@ -6,12 +6,29 @@ interface Props {
   vehicle?: VehiclePage;
 }
 const { vehicle } = Astro.props;
-const photo = vehicle?.image ?? {
-  src: "/assets/reference/hero-main-multivehicle.webp",
-  alt: "Мотосиденье с синей вставкой на фоне скутера, квадроцикла и багги в мастерской",
-  width: 1536,
-  height: 1024,
-};
+const heroComparisons = {
+  home: {
+    before: { src: "/assets/reference/hero-new-landscape/home-before.webp", alt: "До перетяжки: изношенное мотоциклетное сиденье", width: 1200, height: 900 },
+    after: { src: "/assets/reference/hero-new-landscape/home-after.webp", alt: "После перетяжки: обновлённое мотоциклетное сиденье", width: 1200, height: 900 },
+  },
+  motocikly: {
+    before: { src: "/assets/reference/hero-new-landscape/motocikly-before.webp", alt: "До перетяжки: изношенное спортивное мотосиденье", width: 1200, height: 900 },
+    after: { src: "/assets/reference/hero-new-landscape/motocikly-after.webp", alt: "После перетяжки: спортивное мотосиденье с красной строчкой", width: 1200, height: 900 },
+  },
+  skutery: {
+    before: { src: "/assets/reference/hero-new-landscape/skutery-before.webp", alt: "До перетяжки: выцветшее сиденье скутера", width: 1200, height: 900 },
+    after: { src: "/assets/reference/hero-new-landscape/skutery-after.webp", alt: "После перетяжки: сиденье скутера с бирюзовой вставкой", width: 1200, height: 900 },
+  },
+  kvadrocikly: {
+    before: { src: "/assets/reference/hero-new-landscape/kvadrocikly-before.webp", alt: "До перетяжки: повреждённое сиденье квадроцикла", width: 1200, height: 900 },
+    after: { src: "/assets/reference/hero-new-landscape/kvadrocikly-after.webp", alt: "После перетяжки: сиденье квадроцикла с оливковыми панелями", width: 1200, height: 900 },
+  },
+  baggi: {
+    before: { src: "/assets/reference/hero-new-landscape/baggi-before.webp", alt: "До перетяжки: изношенное кресло багги", width: 1200, height: 900 },
+    after: { src: "/assets/reference/hero-new-landscape/baggi-after.webp", alt: "После перетяжки: кресло багги с оранжевыми вставками", width: 1200, height: 900 },
+  },
+} as const;
+const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons] ?? heroComparisons.home;
 ---
 
 <MotoSymbols />
@@ -40,7 +57,7 @@ const photo = vehicle?.image ?? {
               </>
             ) : (
               <>
-                Перетяжка мотосидений <em>под вашу задачу.</em>
+                Перетяжка мотосидений в СПб <em>под вашу задачу.</em>
               </>
             )
           }
@@ -58,21 +75,17 @@ const photo = vehicle?.image ?? {
         <span id="estimate" aria-hidden="true"></span>
         <EstimateQuiz vehicle={vehicle} />
       </div>
-      <figure class="photo-panel">
-        <img
-          src={photo.src}
-          alt={photo.alt}
-          width={photo.width}
-          height={photo.height}
-          fetchpriority="high"
-        />
-        <figcaption class="photo-tag">
-          {
-            vehicle
-              ? "Иллюстрация · вариант оформления"
-              : "Цвет · фактура · строчка"
-          }
-        </figcaption>
+      <figure class="photo-panel photo-panel--compare">
+        <div class="hero-compare" style="--compare-position: 52%">
+          <img class="hero-compare__image" src={comparison.after.src} alt={comparison.after.alt} width={comparison.after.width} height={comparison.after.height} fetchpriority="high" />
+          <div class="hero-compare__before">
+            <img class="hero-compare__image" src={comparison.before.src} alt={comparison.before.alt} width={comparison.before.width} height={comparison.before.height} />
+          </div>
+          <div class="hero-compare__divider" aria-hidden="true"><span>↔</span></div>
+          <span class="hero-compare__label hero-compare__label--before" aria-hidden="true">До</span>
+          <span class="hero-compare__label hero-compare__label--after" aria-hidden="true">После</span>
+          <input class="hero-compare__range" type="range" min="12" max="88" value="52" aria-label={`Сравнение сиденья ${vehicle ? vehicle.name.toLowerCase() : "мотоцикла"} до и после перетяжки`} />
+        </div>
       </figure>
     </div>
     <div class="hero-call">
@@ -83,6 +96,13 @@ const photo = vehicle?.image ?? {
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll(".hero-compare").forEach((compare) => {
+    const range = compare.querySelector<HTMLInputElement>(".hero-compare__range");
+    range?.addEventListener("input", () => compare.style.setProperty("--compare-position", `${range.value}%`));
+  });
+</script>
 
 <style>
   .hero-back {
@@ -134,13 +154,112 @@ const photo = vehicle?.image ?? {
   }
   .hero--vehicle .photo-panel {
     min-height: 0;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
     align-self: center;
     box-shadow: 0 24px 54px
       color-mix(in srgb, var(--vehicle-color) 28%, transparent);
   }
   .hero--vehicle .photo-panel img {
     object-position: center;
+  }
+  .hero-grid {
+    min-width: 0;
+  }
+  .hero-grid > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .photo-panel {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+  .photo-panel > img {
+    filter: saturate(1.08) brightness(1.06) contrast(1.03);
+  }
+  .hero-compare {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: #0d0d0e;
+  }
+  .hero-compare__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.08) brightness(1.06) contrast(1.03);
+  }
+  .hero-compare__before {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    overflow: hidden;
+    clip-path: inset(0 calc(100% - var(--compare-position)) 0 0);
+  }
+  .hero-compare__divider {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: var(--compare-position);
+    width: 3px;
+    transform: translateX(-50%);
+    background: #fff;
+    box-shadow: 0 0 0 1px #0000002e;
+    pointer-events: none;
+  }
+  .hero-compare__divider span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: var(--ink);
+    background: var(--yellow);
+    box-shadow: 0 5px 16px #00000047;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+  }
+  .hero-compare__label {
+    position: absolute;
+    z-index: 3;
+    top: 18px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #fff;
+    background: #1d1919c2;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  .hero-compare__label--before { left: 18px; }
+  .hero-compare__label--after { right: 18px; color: #241f20; background: #f7f2ed; }
+  .hero-compare__range {
+    position: absolute;
+    z-index: 6;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: ew-resize;
+    opacity: .001;
+    touch-action: pan-y;
+  }
+  .hero-compare:has(.hero-compare__range:focus-visible) {
+    outline: 3px solid var(--cyan);
+    outline-offset: -3px;
   }
   .hero--vehicle .photo-tag {
     font-size: 11px;
@@ -170,6 +289,34 @@ const photo = vehicle?.image ?? {
       min-height: 0;
       margin: 4px 0 0;
     }
+    .hero .photo-panel--compare {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      margin-top: 16px;
+      border-radius: 18px;
+    }
+    .hero .photo-panel--compare .hero-compare__divider span {
+      width: 56px;
+      height: 56px;
+      font-size: 21px;
+    }
+    .hero .photo-panel--compare .hero-compare__label {
+      top: 12px;
+      padding: 7px 10px;
+      font-size: 9px;
+    }
+    .hero .photo-panel--compare .hero-compare__label--before { left: 12px; }
+    .hero .photo-panel--compare .hero-compare__label--after { right: 12px; }
+    .hero .photo-panel--compare .hero-compare__before {
+      clip-path: inset(0);
+      animation: hero-compare-mobile-fade 6s ease-in-out infinite;
+    }
+    .hero .photo-panel--compare .hero-compare__divider,
+    .hero .photo-panel--compare .hero-compare__label,
+    .hero .photo-panel--compare .hero-compare__range {
+      display: none;
+    }
     .hero--vehicle h1 {
       font-size: clamp(32px, 8.8vw, 48px);
       line-height: 1.08;
@@ -193,5 +340,18 @@ const photo = vehicle?.image ?? {
   .hero-call a:hover {
     text-decoration: underline;
     text-underline-offset: 6px;
+  }
+
+  @keyframes hero-compare-mobile-fade {
+    0%, 22% { opacity: 1; }
+    48%, 72% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero .photo-panel--compare .hero-compare__before {
+      animation: none;
+      opacity: 1;
+    }
   }
 </style>
