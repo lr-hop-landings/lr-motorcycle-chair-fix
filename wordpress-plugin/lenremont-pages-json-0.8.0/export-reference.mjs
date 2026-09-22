@@ -1,4 +1,4 @@
-/** Export the five built, user-owned Astro landings as Gutenberg primitives.
+/** Export every built, user-owned Astro landing as Gutenberg primitives.
  * Run after `npm run build`. Generated assets are scoped to this import profile.
  */
 import fs from 'node:fs/promises';
@@ -7,14 +7,14 @@ import crypto from 'node:crypto';
 import { parse, serialize, serializeOuter } from 'parse5';
 import postcss from 'postcss';
 
-const root = path.resolve(import.meta.dirname, '..');
+const root = path.resolve(import.meta.dirname, '..', '..');
 const plugin = path.join(root, 'wordpress-plugin/lenremont-page-importer');
 const out = path.join(plugin, 'assets/reference');
 await fs.mkdir(out, { recursive: true });
 await fs.mkdir(path.join(plugin, 'blocks/reference-widget/templates'), { recursive: true });
 const pages = [
   { key: 'main', sourcePath: '/', path: '/peretyazhka-sidenij-mototransporta/', example: 'main-motorcycle-seats.json' },
-  ...['motocikly', 'skutery', 'kvadrocikly', 'baggi'].map(key => ({ key, sourcePath: `/${key}/`, path: `/peretyazhka-sidenij-mototransporta-${key}/`, example: `${key}.json` }))
+  ...['motocikly', 'skutery', 'kvadrocikly', 'baggi', 'pitbajki', 'enduro', 'choppery', 'mototurizm'].map(key => ({ key, sourcePath: `/${key}/`, path: `/peretyazhka-sidenij-mototransporta-${key}/`, example: `${key}.json` }))
 ];
 const walk = (node, fn) => { fn(node); (node.childNodes || []).forEach(n => walk(n, fn)); };
 const find = (node, predicate) => { let result; walk(node, n => { if (!result && predicate(n)) result = n; }); return result; };
@@ -26,7 +26,7 @@ const widgets = {};
 let sharedCss, sharedScripts;
 const catalog = [];
 const rootId = 'hop-gutenberg';
-const pageSeo = JSON.parse(await fs.readFile(path.join(root, 'wordpress-plugin/seo-pages.json'), 'utf8'));
+const pageSeo = JSON.parse(await fs.readFile(path.join(import.meta.dirname, 'seo-pages.json'), 'utf8'));
 // Keep exact-profile styles out of the reusable design-system pages, including
 // the editor canvas where both stylesheets are registered at the same time.
 const referenceScope = '#' + rootId + '.lr-reference';
@@ -81,6 +81,10 @@ function convert(node) {
     widgets[key] = markup;
     return { type: 'widget', key };
   }
+  // The map itself is rendered by the Dynamic Map WordPress plugin. Keep the
+  // surrounding Astro section/list in the reference tree, but replace the
+  // client-only <div id="dmap"> with a safe server-rendered widget.
+  if (at.id === 'dmap') return { type: 'widget', key: 'dynamic-map' };
   if (at.id === 'quiz-app') {
     return { type: 'quiz', attributes: at };
   }
@@ -157,9 +161,23 @@ for (const href of cssLinks) {
 await fs.writeFile(path.join(out, 'original.css'), css);
 
 // Original reviewed interaction code, NOT scripts taken from an incoming JSON.
-if (scripts.length !== 3) throw new Error('Unexpected interaction bundle count.');
+if (scripts.length !== 4) throw new Error('Unexpected interaction bundle count.');
 for (const [index, src] of scripts.entries()) {
-  await fs.copyFile(path.join(root, 'dist', '.' + src), path.join(out, 'interaction-' + index + '.js'));
+  const source = path.join(root, 'dist', '.' + src);
+  const destination = path.join(out, 'interaction-' + index + '.js');
+  await fs.copyFile(source, destination);
+
+  // Interaction bundles can import hashed runtime chunks (for example Swiper).
+  // Copy those relative dependencies next to the bundle; otherwise the module
+  // loads with a 404 in WordPress even though the interaction file itself exists.
+  const code = await fs.readFile(source, 'utf8');
+  const dependencies = [...code.matchAll(/from\s*["']\.\/([^"']+\.js)["']/g)].map(match => match[1]);
+  for (const filename of new Set(dependencies)) {
+    const dependencySource = path.join(root, 'dist', '_astro', filename);
+    if (dependencySource.startsWith(path.join(root, 'dist', '_astro') + path.sep) && await fs.stat(dependencySource).catch(() => null)) {
+      await fs.copyFile(dependencySource, path.join(out, filename));
+    }
+  }
 }
 }
 for (const [source, filename] of images) await fs.copyFile(source, path.join(out, filename));
@@ -170,4 +188,4 @@ for (const [key, markup] of Object.entries(widgets)) {
 await fs.writeFile(path.join(out, 'art.json'), JSON.stringify(art, null, 2) + '\n');
 await fs.writeFile(path.join(plugin, 'examples/catalog.json'), JSON.stringify(catalog, null, 2) + '\n');
 console.log(JSON.stringify({ pages: catalog, images: images.size, art: Object.keys(art).length, widgets: Object.keys(widgets) }));
-await import('./build-editor-styles.mjs');
+await import('../build-editor-styles.mjs');

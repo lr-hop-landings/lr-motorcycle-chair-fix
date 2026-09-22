@@ -4,7 +4,8 @@ const path = require('node:path');
 const base = path.join(__dirname, '../lenremont-page-importer');
 const mod = {exports:{}};
 new Function('module', fs.readFileSync(path.join(base, 'assets/neutral-library.js'), 'utf8'))(mod);
-for (const file of ['main-motorcycle-seats','motocikly','skutery','kvadrocikly','baggi']) {
+const catalog = JSON.parse(fs.readFileSync(path.join(base, 'examples/catalog.json'), 'utf8'));
+for (const file of catalog.map(page => page.example.replace(/\.json$/, ''))) {
   const input = JSON.parse(fs.readFileSync(path.join(base, 'examples', file+'.json'), 'utf8'));
   const before = JSON.stringify(input);
   const result = mod.exports.manifest(input, '/plugin/placeholder.svg');
@@ -26,4 +27,4 @@ for (const file of ['main-motorcycle-seats','motocikly','skutery','kvadrocikly',
   result.before.forEach(visit); result.sections.forEach(s=>visit(s.tree));
   assert.ok(pictures > 0); assert.equal(quiz, 1);
 }
-console.log('PASS all five neutral manifests: immutable sources, placeholder copy/images, no real destinations, neutral quiz.');
+console.log('PASS all neutral manifests: immutable sources, placeholder copy/images, no real destinations, neutral quiz.');

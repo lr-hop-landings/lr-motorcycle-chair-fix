@@ -7,24 +7,14 @@
   "path": "/peretyazhka-sidenij-mototransporta-skutery/",
   "vehicle": "skutery",
   "source": "src/pages/[vehicle].astro",
+  "seo": {
+    "title": "Перетяжка сидений скутеров в СПб | Ленремонт",
+    "description": "Перетяжка сидений скутеров и максискутеров в Санкт-Петербурге. Замена изношенной обивки, подбор материала и дизайна. Предварительная оценка по фото.",
+    "breadcrumbsTitle": "Перетяжка сидений скутеров",
+    "ogTitle": "Перетяжка сидений скутеров в СПб | Ленремонт",
+    "ogDescription": "Перетяжка сидений скутеров и максискутеров в Санкт-Петербурге. Замена изношенной обивки, подбор материала и дизайна. Предварительная оценка по фото."
+  },
   "before": [
-    {
-      "type": "element",
-      "tag": "a",
-      "attributes": {
-        "class": "skip",
-        "href": "#quiz"
-      },
-      "children": [
-        {
-          "type": "text",
-          "tag": "span",
-          "raw": true,
-          "text": "Перейти к подбору",
-          "attributes": {}
-        }
-      ]
-    },
     {
       "type": "art",
       "key": "art-7ae22d763e16"
@@ -51,74 +41,57 @@
             "children": [
               {
                 "type": "element",
-                "tag": "a",
-                "attributes": {
-                  "class": "hero-back",
-                  "href": "/peretyazhka-sidenij-mototransporta/"
-                },
-                "children": [
-                  {
-                    "type": "text",
-                    "tag": "span",
-                    "raw": true,
-                    "text": " Все виды техники ",
-                    "attributes": {}
-                  }
-                ]
-              },
-              {
-                "type": "element",
-                "tag": "div",
-                "attributes": {
-                  "class": "hero-intro"
-                },
-                "children": [
-                  {
-                    "type": "element",
-                    "tag": "div",
-                    "attributes": {},
-                    "children": [
-                      {
-                        "type": "element",
-                        "tag": "div",
-                        "attributes": {
-                          "class": "eyebrow"
-                        },
-                        "children": [
-                          {
-                            "type": "text",
-                            "tag": "span",
-                            "raw": true,
-                            "text": "Санкт-Петербург и Ленинградская область",
-                            "attributes": {}
-                          }
-                        ]
-                      },
-                      {
-                        "type": "text",
-                        "tag": "h1",
-                        "text": " Перетяжка сидений скутеров<em>в Санкт-Петербурге</em>  ",
-                        "attributes": {
-                          "id": "hero-title"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "tag": "p",
-                    "text": " Растрескалась обивка, разошёлся шов или хочется обновить длинное сиденье? Подберём вариант с учётом ежедневных поездок, формы и состояния вашего сиденья. ",
-                    "attributes": {}
-                  }
-                ]
-              },
-              {
-                "type": "element",
                 "tag": "div",
                 "attributes": {
                   "class": "hero-grid"
                 },
                 "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "hero-intro"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {},
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "eyebrow"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "raw": true,
+                                "text": "Санкт-Петербург и Ленинградская область",
+                                "attributes": {}
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "tag": "h1",
+                            "text": " Перетяжка сидений скутеров<em>в Санкт-Петербурге</em>  ",
+                            "attributes": {
+                              "id": "hero-title"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": " Растрескалась обивка, разошёлся шов или хочется обновить длинное сиденье? Подберём вариант с учётом ежедневных поездок, формы и состояния вашего сиденья. ",
+                        "attributes": {}
+                      }
+                    ]
+                  },
                   {
                     "type": "element",
                     "tag": "div",
@@ -150,7 +123,7 @@
                           "id": "quiz-app",
                           "data-lead-root": "",
                           "data-vehicle": "skutery",
-                          "data-vehicle-options": "[{\"slug\":\"motocikly\",\"label\":\"Мотоцикл\",\"service\":\"Перетяжка сидений мотоциклов\"},{\"slug\":\"skutery\",\"label\":\"Скутер\",\"service\":\"Перетяжка сидений скутеров\"},{\"slug\":\"kvadrocikly\",\"label\":\"Квадроцикл\",\"service\":\"Перетяжка сидений квадроциклов\"},{\"slug\":\"baggi\",\"label\":\"Багги\",\"service\":\"Перетяжка сидений багги\"},{\"slug\":\"other\",\"label\":\"Другая техника\",\"service\":\"Перетяжка сиденья мототехники\"}]",
+                          "data-vehicle-options": "[{\"slug\":\"motocikly\",\"label\":\"Мотоцикл\",\"service\":\"Перетяжка сидений мотоциклов\"},{\"slug\":\"skutery\",\"label\":\"Скутер\",\"service\":\"Перетяжка сидений скутеров\"},{\"slug\":\"kvadrocikly\",\"label\":\"Квадроцикл\",\"service\":\"Перетяжка сидений квадроциклов\"},{\"slug\":\"baggi\",\"label\":\"Багги\",\"service\":\"Перетяжка сидений багги\"},{\"slug\":\"pitbajki\",\"label\":\"Питбайк\",\"service\":\"Перетяжка сидений питбайков\"},{\"slug\":\"enduro\",\"label\":\"Эндуро\",\"service\":\"Перетяжка сидений эндуро\"},{\"slug\":\"choppery\",\"label\":\"Чоппер или круизер\",\"service\":\"Перетяжка сидений чопперов и круизеров\"},{\"slug\":\"mototurizm\",\"label\":\"Туринговый мотоцикл\",\"service\":\"Перетяжка сидений туринговых мотоциклов\"},{\"slug\":\"other\",\"label\":\"Другая техника\",\"service\":\"Перетяжка сиденья мототехники\"}]",
                           "data-page-path": "/peretyazhka-sidenij-mototransporta-skutery/",
                           "hidden": ""
                         }
@@ -165,26 +138,72 @@
                     "type": "element",
                     "tag": "figure",
                     "attributes": {
-                      "class": "photo-panel"
+                      "class": "photo-panel photo-panel--compare"
                     },
                     "children": [
                       {
-                        "type": "image",
+                        "type": "element",
+                        "tag": "div",
                         "attributes": {
-                          "src": "{{pluginUrl}}/assets/reference/case05-scooter-after.DsMnU7E3.webp",
-                          "alt": "Иллюстрация длинного сиденья скутера с синей обивкой и светлым кантом",
-                          "width": "1536",
-                          "height": "1024",
-                          "fetchpriority": "high"
-                        }
-                      },
-                      {
-                        "type": "text",
-                        "tag": "figcaption",
-                        "text": " Иллюстрация · вариант оформления ",
-                        "attributes": {
-                          "class": "photo-tag"
-                        }
+                          "class": "hero-stack-compare"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "hero-stack-compare__frame hero-stack-compare__frame--before"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "hero-stack-compare__image",
+                                  "src": "{{pluginUrl}}/assets/reference/skutery-before.webp",
+                                  "alt": "До перетяжки: выцветшее сиденье скутера",
+                                  "width": "1200",
+                                  "height": "900",
+                                  "fetchpriority": "high"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "До перетяжки",
+                                "attributes": {
+                                  "class": "hero-stack-compare__label"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "hero-stack-compare__frame hero-stack-compare__frame--after"
+                            },
+                            "children": [
+                              {
+                                "type": "image",
+                                "attributes": {
+                                  "class": "hero-stack-compare__image",
+                                  "src": "{{pluginUrl}}/assets/reference/skutery-after.webp",
+                                  "alt": "После перетяжки: сиденье скутера с бирюзовой вставкой",
+                                  "width": "1200",
+                                  "height": "900"
+                                }
+                              },
+                              {
+                                "type": "text",
+                                "tag": "span",
+                                "text": "После перетяжки",
+                                "attributes": {
+                                  "class": "hero-stack-compare__label"
+                                }
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                   }
@@ -224,21 +243,7 @@
                 ]
               }
             ]
-          }
-        ],
-        "name": "Перетяжка сидений скутеровв Санкт-Петербурге"
-      }
-    },
-    {
-      "type": "reference",
-      "tree": {
-        "type": "element",
-        "tag": "section",
-        "attributes": {
-          "class": "hero-messengers",
-          "aria-label": "Связаться в мессенджере"
-        },
-        "children": [
+          },
           {
             "type": "element",
             "tag": "div",
@@ -272,6 +277,10 @@
                       "aria-label": "Открыть Telegram"
                     },
                     "children": [
+                      {
+                        "type": "art",
+                        "key": "art-67ad417c4c96"
+                      },
                       {
                         "type": "text",
                         "tag": "strong",
@@ -310,6 +319,10 @@
                     },
                     "children": [
                       {
+                        "type": "art",
+                        "key": "art-8ee002cafc1f"
+                      },
+                      {
                         "type": "text",
                         "tag": "strong",
                         "text": "MAX",
@@ -347,6 +360,10 @@
                     },
                     "children": [
                       {
+                        "type": "art",
+                        "key": "art-905d6c7011be"
+                      },
+                      {
                         "type": "text",
                         "tag": "strong",
                         "text": "VK",
@@ -377,7 +394,768 @@
             ]
           }
         ],
-        "name": "Или написать в мессенджере"
+        "name": "Перетяжка сидений скутеровв Санкт-Петербурге"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
+          "class": "workshops-map section",
+          "aria-labelledby": "workshops-map-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "wrap"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "section-top"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "eyebrow"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "raw": true,
+                            "text": "25 точек в Санкт-Петербурге и области",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h2",
+                        "text": "Выберите удобную мастерскую",
+                        "attributes": {
+                          "id": "workshops-map-title"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Все адреса Ленремонта на одной карте. Нажмите на точку, чтобы увидеть адрес, метро и телефон.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "workshops-map__layout"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "workshops-map__canvas",
+                      "data-workshop-map": "",
+                      "aria-label": "Карта мастерских Ленремонта"
+                    },
+                    "children": [
+                      {
+                        "type": "widget",
+                        "key": "dynamic-map"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "workshops-map__list",
+                      "aria-label": "Список мастерских"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-1",
+                          "href": "#workshop-1",
+                          "data-workshop-index": "0"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "01",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Пр. Просвещения</small> <strong>пр. Просвещения, д.20</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-2",
+                          "href": "#workshop-2",
+                          "data-workshop-index": "1"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "02",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Пр. Ветеранов</small> <strong>пр. Ветеранов, д.9</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-3",
+                          "href": "#workshop-3",
+                          "data-workshop-index": "2"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "03",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Ул. Дыбенко</small> <strong>пр. Большевиков, д.25</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-4",
+                          "href": "#workshop-4",
+                          "data-workshop-index": "3"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "04",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Комендантский пр.</small> <strong>пр. Авиаконструкторов, д.4</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-5",
+                          "href": "#workshop-5",
+                          "data-workshop-index": "4"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "05",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Приморская</small> <strong>ул. Кораблестроителей, д.30</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-6",
+                          "href": "#workshop-6",
+                          "data-workshop-index": "5"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "06",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Академическая</small> <strong>пр. Науки, д.8, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-7",
+                          "href": "#workshop-7",
+                          "data-workshop-index": "6"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "07",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Озерки, м. Пр. Просвещения</small> <strong>пр. Луначарского, д.56, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-8",
+                          "href": "#workshop-8",
+                          "data-workshop-index": "7"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "08",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Автово</small> <strong>пр. Маршала Жукова, д.35, к.3</strong> <span class=\"workshop-card__phone\">+7 (812) 665-21-19</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-9",
+                          "href": "#workshop-9",
+                          "data-workshop-index": "8"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "09",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Елизаровская</small> <strong>пр. Елизарова, д.36</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-10",
+                          "href": "#workshop-10",
+                          "data-workshop-index": "9"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "10",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Международная</small> <strong>ул. Белы Куна, д.20, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-11",
+                          "href": "#workshop-11",
+                          "data-workshop-index": "10"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "11",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Пионерская</small> <strong>пр. Испытателей, д.11, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-12",
+                          "href": "#workshop-12",
+                          "data-workshop-index": "11"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "12",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Гражданский пр.</small> <strong>ул. Ушинского, д.25, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-13",
+                          "href": "#workshop-13",
+                          "data-workshop-index": "12"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "13",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Звёздная</small> <strong>ул. Звёздная, д.5, к.1 (вход с улицы)</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-14",
+                          "href": "#workshop-14",
+                          "data-workshop-index": "13"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "14",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Парк Победы, м. Московская</small> <strong>ул. Фрунзе, д.3</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-15",
+                          "href": "#workshop-15",
+                          "data-workshop-index": "14"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "15",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Пр. Большевиков</small> <strong>пр. Пятилеток, д.14, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-16",
+                          "href": "#workshop-16",
+                          "data-workshop-index": "15"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "16",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Выборгская</small> <strong>ул. Минеральная, д.13Ц</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-17",
+                          "href": "#workshop-17",
+                          "data-workshop-index": "16"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "17",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Ладожская</small> <strong>пр. Косыгина, д.28, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-18",
+                          "href": "#workshop-18",
+                          "data-workshop-index": "17"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "18",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Парк Победы</small> <strong>пр. Юрия Гагарина, д.15</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-19",
+                          "href": "#workshop-19",
+                          "data-workshop-index": "18"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "19",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Московская</small> <strong>пр. Московский, 212, Дом Советов, 1 этаж, кабинет 1130, вход у кафе Авантаж</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-20",
+                          "href": "#workshop-20",
+                          "data-workshop-index": "19"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "20",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Фрунзенская</small> <strong>ул. Киевская, д.32В</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-21",
+                          "href": "#workshop-21",
+                          "data-workshop-index": "20"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "21",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Купчино</small> <strong>ул. Ярослава Гашека, д.4, к.1</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-22",
+                          "href": "#workshop-22",
+                          "data-workshop-index": "21"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "22",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "  <strong>ст. ЖД Колпино, ул. Тверская, д.1/13</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-23",
+                          "href": "#workshop-23",
+                          "data-workshop-index": "22"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "23",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Удельная</small> <strong>пр. Энгельса, д.19</strong> <span class=\"workshop-card__phone\">+7 (812) 501-93-90</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-24",
+                          "href": "#workshop-24",
+                          "data-workshop-index": "23"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "24",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "  <strong>Промзона Мягловская, Всеволожский муниципальный район, Ленинградская область, Круговая улица, д. 47</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "attributes": {
+                          "class": "workshop-card",
+                          "id": "workshop-25",
+                          "href": "#workshop-25",
+                          "data-workshop-index": "24"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": "25",
+                            "attributes": {
+                              "class": "workshop-card__number"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "span",
+                            "text": " <small>м. Электросила</small> <strong>ул. Решетникова, д.3</strong> <span class=\"workshop-card__phone\">+7 (812) 242-99-45</span> ",
+                            "attributes": {}
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "tag": "p",
+                "text": "Не хотите ехать? Позвоните — мы сами заберём технику в мастерскую за 390 ₽.",
+                "attributes": {
+                  "class": "workshops-map__note"
+                }
+              }
+            ]
+          }
+        ],
+        "name": "Выберите удобную мастерскую"
       }
     },
     {
@@ -509,8 +1287,9 @@
         "type": "element",
         "tag": "section",
         "attributes": {
-          "class": "vehicles section vehicles--nav",
-          "aria-labelledby": "vehicles-title"
+          "class": "workshop section",
+          "id": "workshop",
+          "aria-labelledby": "workshop-title"
         },
         "children": [
           {
@@ -521,33 +1300,42 @@
             },
             "children": [
               {
-                "type": "text",
-                "tag": "p",
-                "text": " ВЫБЕРИТЕ ТИП ТЕХНИКИ ",
-                "attributes": {
-                  "class": "eyebrow"
-                }
-              },
-              {
                 "type": "element",
                 "tag": "div",
                 "attributes": {
-                  "class": "section-head"
+                  "class": "section-top workshop__intro"
                 },
                 "children": [
                   {
-                    "type": "text",
-                    "tag": "h2",
-                    "text": " Перейти к другому разделу ",
-                    "attributes": {
-                      "id": "vehicles-title"
-                    }
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "ЗАКУЛИСЬЕ МАСТЕРСКОЙ",
+                        "attributes": {
+                          "class": "eyebrow"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h2",
+                        "text": "Показываем, как появляется аккуратное сиденье",
+                        "attributes": {
+                          "id": "workshop-title"
+                        }
+                      }
+                    ]
                   },
                   {
                     "type": "text",
                     "tag": "p",
-                    "text": " На каждой странице — подходящие примеры, варианты работ и вопросы для оценки сиденья. ",
-                    "attributes": {}
+                    "text": "Каждый этап влияет на посадку, внешний вид и срок службы обивки. Поэтому мы показываем не только результат, но и работу за ним.",
+                    "attributes": {
+                      "class": "section-lead"
+                    }
                   }
                 ]
               },
@@ -555,133 +1343,291 @@
                 "type": "element",
                 "tag": "div",
                 "attributes": {
-                  "class": "vehicles__grid"
+                  "class": "workshop__features"
                 },
                 "children": [
                   {
                     "type": "element",
-                    "tag": "a",
+                    "tag": "article",
                     "attributes": {
-                      "class": "vehicle",
-                      "style": "--vehicle-color: #244f9d",
-                      "href": "/peretyazhka-sidenij-mototransporta-motocikly/",
-                      "data-cta": "vehicle_page"
+                      "class": "workshop-feature"
                     },
                     "children": [
                       {
-                        "type": "text",
-                        "tag": "h3",
-                        "text": "Мотоциклы",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "p",
-                        "text": "Обивка, индивидуальный дизайн и посадка водителя и пассажира.",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "type": "element",
+                        "tag": "div",
                         "attributes": {
-                          "class": "vehicle__link"
-                        }
+                          "class": "workshop-feature__copy"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "01 · ТОЧНЫЙ РАСКРОЙ",
+                            "attributes": {
+                              "class": "workshop-feature__kicker"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Снимаем мерки с вашего сиденья",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "Размечаем выкройки по основанию и форме посадки, чтобы новый чехол повторял геометрию сиденья без лишнего натяжения.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "figure",
+                        "attributes": {
+                          "class": "workshop-feature__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/01-cutting-table-documentary.webp",
+                              "alt": "Мастер размечает выкройку чехла мотоциклетного сиденья на рабочем столе",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
                       }
                     ]
                   },
                   {
                     "type": "element",
-                    "tag": "div",
+                    "tag": "article",
                     "attributes": {
-                      "class": "vehicle vehicle--active",
-                      "style": "--vehicle-color: #006d68",
-                      "aria-label": "Скутеры — текущий раздел"
+                      "class": "workshop-feature workshop-feature--reverse"
                     },
                     "children": [
                       {
-                        "type": "text",
-                        "tag": "h3",
-                        "text": "Скутеры",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "p",
-                        "text": "Восстановление обивки и подбор покрытия для ежедневных поездок.",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "text": "Текущий раздел",
+                        "type": "element",
+                        "tag": "div",
                         "attributes": {
-                          "class": "vehicle__link"
-                        }
+                          "class": "workshop-feature__copy"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "02 · АККУРАТНЫЙ ПОШИВ",
+                            "attributes": {
+                              "class": "workshop-feature__kicker"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Собираем чехол на промышленной машине",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "Настраиваем длину стежка и натяжение нити под конкретный материал. Так шов выглядит ровно и выдерживает ежедневную нагрузку.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "figure",
+                        "attributes": {
+                          "class": "workshop-feature__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/02-sewing-documentary.webp",
+                              "alt": "Пошив чехла мотоциклетного сиденья на промышленной швейной машине",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
                       }
                     ]
                   },
                   {
                     "type": "element",
-                    "tag": "a",
+                    "tag": "article",
                     "attributes": {
-                      "class": "vehicle",
-                      "style": "--vehicle-color: #52632f",
-                      "href": "/peretyazhka-sidenij-mototransporta-kvadrocikly/",
-                      "data-cta": "vehicle_page"
+                      "class": "workshop-feature"
                     },
                     "children": [
                       {
-                        "type": "text",
-                        "tag": "h3",
-                        "text": "Квадроциклы",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "p",
-                        "text": "Обивка и фактура с учётом активной эксплуатации открытой техники.",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "type": "element",
+                        "tag": "div",
                         "attributes": {
-                          "class": "vehicle__link"
-                        }
+                          "class": "workshop-feature__copy"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "03 · МАТЕРИАЛ ПОД ЗАДАЧУ",
+                            "attributes": {
+                              "class": "workshop-feature__kicker"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Подбираем покрытие по условиям поездок",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "Сравниваем фактуру, сцепление, влагостойкость и уход. Вы видите реальные образцы до того, как мы запускаем пошив.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "figure",
+                        "attributes": {
+                          "class": "workshop-feature__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/04-material-selection-documentary.webp",
+                              "alt": "Образцы кожи, винила и микрозамши на столе в мастерской",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
                       }
                     ]
                   },
                   {
                     "type": "element",
-                    "tag": "a",
+                    "tag": "article",
                     "attributes": {
-                      "class": "vehicle",
-                      "style": "--vehicle-color: #97462f",
-                      "href": "/peretyazhka-sidenij-mototransporta-baggi/",
-                      "data-cta": "vehicle_page"
+                      "class": "workshop-feature workshop-feature--reverse"
                     },
                     "children": [
                       {
-                        "type": "text",
-                        "tag": "h3",
-                        "text": "Багги",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "p",
-                        "text": "Перетяжка подушек, спинок и отдельных кресел или комплекта.",
-                        "attributes": {}
-                      },
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "type": "element",
+                        "tag": "div",
                         "attributes": {
-                          "class": "vehicle__link"
-                        }
+                          "class": "workshop-feature__copy"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "04 · ПРОВЕРКА ШВОВ",
+                            "attributes": {
+                              "class": "workshop-feature__kicker"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Проверяем результат до выдачи",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "Смотрим посадку чехла, края, кант и рисунок строчки. Несогласованные детали не уезжают к клиенту случайно.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "figure",
+                        "attributes": {
+                          "class": "workshop-feature__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/03-quality-check-documentary.webp",
+                              "alt": "Мастер проверяет швы и посадку готового чехла мотоциклетного сиденья",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "article",
+                    "attributes": {
+                      "class": "workshop-feature"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "workshop-feature__copy"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "05 · ФИНАЛЬНАЯ ПРИМЕРКА",
+                            "attributes": {
+                              "class": "workshop-feature__kicker"
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "tag": "h3",
+                            "text": "Собираем сиденье в готовый результат",
+                            "attributes": {}
+                          },
+                          {
+                            "type": "text",
+                            "tag": "p",
+                            "text": "После установки проверяем профиль, переходы и удобство посадки. Вы получаете согласованный дизайн, а не просто новый кусок обивки.",
+                            "attributes": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "figure",
+                        "attributes": {
+                          "class": "workshop-feature__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/05-fitting-documentary.webp",
+                              "alt": "Готовое обновлённое мотоциклетное сиденье на стенде в мастерской",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
                       }
                     ]
                   }
@@ -690,7 +1636,7 @@
             ]
           }
         ],
-        "name": "Перейти к другому разделу"
+        "name": "Показываем, как появляется аккуратное сиденье"
       }
     },
     {
@@ -882,7 +1828,8 @@
                                 "tag": "span",
                                 "text": "До",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--before"
+                                  "class": "case-card__label case-card__label--before",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -890,7 +1837,8 @@
                                 "tag": "span",
                                 "text": "После",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--after"
+                                  "class": "case-card__label case-card__label--after",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1030,7 +1978,8 @@
                                 "tag": "span",
                                 "text": "До",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--before"
+                                  "class": "case-card__label case-card__label--before",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1038,7 +1987,8 @@
                                 "tag": "span",
                                 "text": "После",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--after"
+                                  "class": "case-card__label case-card__label--after",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1178,7 +2128,8 @@
                                 "tag": "span",
                                 "text": "До",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--before"
+                                  "class": "case-card__label case-card__label--before",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1186,7 +2137,8 @@
                                 "tag": "span",
                                 "text": "После",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--after"
+                                  "class": "case-card__label case-card__label--after",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1326,7 +2278,8 @@
                                 "tag": "span",
                                 "text": "До",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--before"
+                                  "class": "case-card__label case-card__label--before",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1334,7 +2287,8 @@
                                 "tag": "span",
                                 "text": "После",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--after"
+                                  "class": "case-card__label case-card__label--after",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1474,7 +2428,8 @@
                                 "tag": "span",
                                 "text": "До",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--before"
+                                  "class": "case-card__label case-card__label--before",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -1482,7 +2437,8 @@
                                 "tag": "span",
                                 "text": "После",
                                 "attributes": {
-                                  "class": "case-card__label case-card__label--after"
+                                  "class": "case-card__label case-card__label--after",
+                                  "aria-hidden": "true"
                                 }
                               },
                               {
@@ -2081,6 +3037,340 @@
         "type": "element",
         "tag": "section",
         "attributes": {
+          "class": "materials-carousel section",
+          "id": "materials-gallery",
+          "aria-labelledby": "materials-gallery-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "section-top materials-carousel__head"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "МАТЕРИАЛЫ И ФАКТУРЫ",
+                        "attributes": {
+                          "class": "eyebrow"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h2",
+                        "text": "Выбираем не по экрану, а по образцу",
+                        "attributes": {
+                          "id": "materials-gallery-title"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Покажем реальные покрытия и подберём сочетание под технику, экипировку и привычный уход.",
+                    "attributes": {
+                      "class": "section-lead"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "materials-carousel__carousel"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "swiper materials-swiper",
+                  "data-materials-swiper": "",
+                  "aria-roledescription": "carousel",
+                  "aria-label": "Материалы и фактуры"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "swiper-wrapper"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide material-card"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/01-vinyl.webp",
+                              "alt": "Фактура матового чёрного автовинила",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "material-card__caption"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Автовинил",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "Практичный и простой в уходе",
+                                "attributes": {}
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide material-card"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/02-leather.webp",
+                              "alt": "Фактура кожи оттенка коньяк с прошитым краем",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "material-card__caption"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Натуральная кожа",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "Тёплая фактура и выразительный рисунок",
+                                "attributes": {}
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide material-card"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/03-microsuede.webp",
+                              "alt": "Фактура тёмной микрозамши с красной строчкой",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "material-card__caption"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Микрозамша",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "Цепкая поверхность для активной езды",
+                                "attributes": {}
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide material-card"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/04-perforated.webp",
+                              "alt": "Перфорированный чёрный материал с ровной строчкой",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "material-card__caption"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Перфорация",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "Акцентная вставка и дополнительная вентиляция",
+                                "attributes": {}
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide material-card"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/05-marine-fabric.webp",
+                              "alt": "Слои плотной ткани оттенков графит и тёмно-синий",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "material-card__caption"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Морская ткань",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "Плотное покрытие для открытой техники",
+                                "attributes": {}
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "article",
+                        "attributes": {
+                          "class": "swiper-slide material-card"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/06-piping-thread.webp",
+                              "alt": "Образцы канта и контрастных нитей рядом с чёрной обивкой",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "attributes": {
+                              "class": "material-card__caption"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "tag": "h3",
+                                "text": "Кант и строчка",
+                                "attributes": {}
+                              },
+                              {
+                                "type": "text",
+                                "tag": "p",
+                                "text": "Деталь, которая собирает дизайн",
+                                "attributes": {}
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Выбираем не по экрану, а по образцу"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
           "class": "section price-area",
           "id": "cost"
         },
@@ -2533,20 +3823,44 @@
         },
         "children": [
           {
-            "type": "text",
-            "tag": "p",
-            "text": "КАК ВСЁ ПРОХОДИТ",
+            "type": "element",
+            "tag": "div",
             "attributes": {
-              "class": "eyebrow"
-            }
-          },
-          {
-            "type": "text",
-            "tag": "h2",
-            "text": "От вашей идеи<br>к готовому сиденью",
-            "attributes": {
-              "id": "process-title"
-            }
+              "class": "process__head"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "КАК ВСЁ ПРОХОДИТ",
+                    "attributes": {
+                      "class": "eyebrow"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": "От вашей идеи<br>к готовому сиденью",
+                    "attributes": {
+                      "id": "process-title"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "tag": "p",
+                "text": "\nШесть понятных шагов — от первого фото до проверки посадки и выдачи\n      заказа.\n",
+                "attributes": {
+                  "class": "process__lead"
+                }
+              }
+            ]
           },
           {
             "type": "element",
@@ -2561,10 +3875,35 @@
                 "attributes": {},
                 "children": [
                   {
-                    "type": "text",
-                    "tag": "span",
-                    "text": "01",
-                    "attributes": {}
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "timeline__topline"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "01",
+                        "attributes": {
+                          "class": "timeline__number"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "attributes": {
+                          "class": "timeline__icon",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "art",
+                            "key": "art-0993096d7f95"
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "type": "text",
@@ -2575,7 +3914,7 @@
                   {
                     "type": "text",
                     "tag": "p",
-                    "text": "Пройдите короткий подбор и выберите удобный способ обратной связи.",
+                    "text": "Ответьте на несколько вопросов и выберите удобный способ связи.",
                     "attributes": {}
                   }
                 ]
@@ -2586,10 +3925,35 @@
                 "attributes": {},
                 "children": [
                   {
-                    "type": "text",
-                    "tag": "span",
-                    "text": "02",
-                    "attributes": {}
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "timeline__topline"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "02",
+                        "attributes": {
+                          "class": "timeline__number"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "attributes": {
+                          "class": "timeline__icon",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "art",
+                            "key": "art-3e41f7e8ea69"
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "type": "text",
@@ -2600,7 +3964,7 @@
                   {
                     "type": "text",
                     "tag": "p",
-                    "text": "Отправьте фотографии в мессенджере. Специалист обсудит вариант и предварительную стоимость.",
+                    "text": "Пришлите общий вид сверху и сбоку, повреждения и пример желаемого дизайна.",
                     "attributes": {}
                   }
                 ]
@@ -2611,21 +3975,46 @@
                 "attributes": {},
                 "children": [
                   {
-                    "type": "text",
-                    "tag": "span",
-                    "text": "03",
-                    "attributes": {}
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "timeline__topline"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "03",
+                        "attributes": {
+                          "class": "timeline__number"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "attributes": {
+                          "class": "timeline__icon",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "art",
+                            "key": "art-0971b1f77fe1"
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "type": "text",
                     "tag": "h3",
-                    "text": "Передайте сиденье",
+                    "text": "Согласуем передачу",
                     "attributes": {}
                   },
                   {
                     "type": "text",
                     "tag": "p",
-                    "text": "Согласуем приём сиденья или техники и возможность доставки.",
+                    "text": "Напишите модель скутера и снято ли сиденье. Если оно закрывает багажный отсек, покажите также основание и прилегание к кузову. Способ передачи и возможность доставки уточним до приёма.",
                     "attributes": {}
                   }
                 ]
@@ -2636,21 +4025,46 @@
                 "attributes": {},
                 "children": [
                   {
-                    "type": "text",
-                    "tag": "span",
-                    "text": "04",
-                    "attributes": {}
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "timeline__topline"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "04",
+                        "attributes": {
+                          "class": "timeline__number"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "attributes": {
+                          "class": "timeline__icon",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "art",
+                            "key": "art-e10b53e1fe47"
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "type": "text",
                     "tag": "h3",
-                    "text": "Согласуйте детали",
+                    "text": "Подберём материал",
                     "attributes": {}
                   },
                   {
                     "type": "text",
                     "tag": "p",
-                    "text": "После осмотра выберем материал, дизайн, окончательную стоимость и срок.",
+                    "text": "Покажем реальные образцы, обсудим цвет, фактуру, кант и рисунок строчки.",
                     "attributes": {}
                   }
                 ]
@@ -2661,21 +4075,96 @@
                 "attributes": {},
                 "children": [
                   {
-                    "type": "text",
-                    "tag": "span",
-                    "text": "05",
-                    "attributes": {}
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "timeline__topline"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "05",
+                        "attributes": {
+                          "class": "timeline__number"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "attributes": {
+                          "class": "timeline__icon",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "art",
+                            "key": "art-09642084d9a2"
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "type": "text",
                     "tag": "h3",
-                    "text": "Примите работу",
+                    "text": "Сошьём и проверим",
                     "attributes": {}
                   },
                   {
                     "type": "text",
                     "tag": "p",
-                    "text": "Проверим посадку чехла, швы и детали. Вы получите готовое сиденье и документы на заказ.",
+                    "text": "Проверим посадку чехла, края, швы и соответствие согласованному решению.",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "attributes": {},
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "timeline__topline"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "06",
+                        "attributes": {
+                          "class": "timeline__number"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "attributes": {
+                          "class": "timeline__icon",
+                          "aria-hidden": "true"
+                        },
+                        "children": [
+                          {
+                            "type": "art",
+                            "key": "art-a902c1fbdc3f"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "tag": "h3",
+                    "text": "Получите готовое сиденье",
+                    "attributes": {}
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": "Передадим заказ с зафиксированными условиями и гарантией на выполненную работу.",
                     "attributes": {}
                   }
                 ]
@@ -2684,222 +4173,6 @@
           }
         ],
         "name": "От вашей идеик готовому сиденью"
-      }
-    },
-    {
-      "type": "reference",
-      "tree": {
-        "type": "element",
-        "tag": "section",
-        "attributes": {
-          "class": "logistics section"
-        },
-        "children": [
-          {
-            "type": "element",
-            "tag": "div",
-            "attributes": {
-              "class": "container logistics__grid"
-            },
-            "children": [
-              {
-                "type": "element",
-                "tag": "div",
-                "attributes": {},
-                "children": [
-                  {
-                    "type": "text",
-                    "tag": "p",
-                    "text": "ВЫБЕРИТЕ УДОБНЫЙ СПОСОБ ПЕРЕДАЧИ",
-                    "attributes": {
-                      "class": "eyebrow"
-                    }
-                  },
-                  {
-                    "type": "text",
-                    "tag": "h2",
-                    "text": "\nСпособ передачи согласуем заранее\n",
-                    "attributes": {}
-                  },
-                  {
-                    "type": "text",
-                    "tag": "p",
-                    "text": " Напишите модель скутера и снято ли сиденье. Если оно закрывает багажный отсек, покажите также основание и прилегание к кузову. Способ передачи и возможность доставки уточним до приёма. ",
-                    "attributes": {
-                      "class": "section-lead"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "element",
-                "tag": "div",
-                "attributes": {
-                  "class": "logistics__call"
-                },
-                "children": [
-                  {
-                    "type": "text",
-                    "tag": "span",
-                    "text": "КОНСУЛЬТАЦИЯ",
-                    "attributes": {}
-                  },
-                  {
-                    "type": "element",
-                    "tag": "a",
-                    "attributes": {
-                      "href": "tel:+78123444444"
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "raw": true,
-                        "text": "+7 (812) 344-44-44",
-                        "attributes": {}
-                      }
-                    ]
-                  },
-                  {
-                    "type": "text",
-                    "tag": "p",
-                    "text": "Диспетчерская работает круглосуточно, без выходных.",
-                    "attributes": {}
-                  },
-                  {
-                    "type": "element",
-                    "tag": "a",
-                    "attributes": {
-                      "href": "#callback",
-                      "data-cta": "callback_logistics"
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "raw": true,
-                        "text": "Или оставить заявку →",
-                        "attributes": {}
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "name": "Способ передачи согласуем заранее"
-      }
-    },
-    {
-      "type": "reference",
-      "tree": {
-        "type": "element",
-        "tag": "section",
-        "attributes": {
-          "class": "quality section",
-          "aria-labelledby": "quality-title"
-        },
-        "children": [
-          {
-            "type": "element",
-            "tag": "div",
-            "attributes": {
-              "class": "container quality__grid"
-            },
-            "children": [
-              {
-                "type": "element",
-                "tag": "div",
-                "attributes": {},
-                "children": [
-                  {
-                    "type": "text",
-                    "tag": "p",
-                    "text": "КОНТРОЛЬ СОГЛАСОВАННОГО РЕЗУЛЬТАТА",
-                    "attributes": {
-                      "class": "eyebrow"
-                    }
-                  },
-                  {
-                    "type": "text",
-                    "tag": "h2",
-                    "text": "Проверяем посадку чехла, швы и согласованный дизайн",
-                    "attributes": {
-                      "id": "quality-title"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "element",
-                "tag": "ul",
-                "attributes": {
-                  "class": "check-list"
-                },
-                "children": [
-                  {
-                    "type": "element",
-                    "tag": "li",
-                    "attributes": {},
-                    "children": [
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "raw": true,
-                        "text": "Состав работ зафиксирован",
-                        "attributes": {}
-                      }
-                    ]
-                  },
-                  {
-                    "type": "element",
-                    "tag": "li",
-                    "attributes": {},
-                    "children": [
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "raw": true,
-                        "text": "Материал и дизайн согласованы",
-                        "attributes": {}
-                      }
-                    ]
-                  },
-                  {
-                    "type": "element",
-                    "tag": "li",
-                    "attributes": {},
-                    "children": [
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "raw": true,
-                        "text": "Заказ проверен перед выдачей",
-                        "attributes": {}
-                      }
-                    ]
-                  },
-                  {
-                    "type": "element",
-                    "tag": "li",
-                    "attributes": {},
-                    "children": [
-                      {
-                        "type": "text",
-                        "tag": "span",
-                        "raw": true,
-                        "text": " Гарантия 1 год — условия фиксируем в документах на заказ ",
-                        "attributes": {}
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "name": "Проверяем посадку чехла, швы и согласованный дизайн"
       }
     },
     {
@@ -3106,6 +4379,476 @@
         "type": "element",
         "tag": "section",
         "attributes": {
+          "class": "vehicles section vehicles--nav",
+          "aria-labelledby": "vehicles-title"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "attributes": {
+              "class": "container"
+            },
+            "children": [
+              {
+                "type": "text",
+                "tag": "p",
+                "text": " ВЫБЕРИТЕ ТИП ТЕХНИКИ ",
+                "attributes": {
+                  "class": "eyebrow"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "section-head"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "tag": "h2",
+                    "text": " Перейти к другому разделу ",
+                    "attributes": {
+                      "id": "vehicles-title"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "tag": "p",
+                    "text": " На каждой странице — подходящие примеры, варианты работ и вопросы для оценки сиденья. ",
+                    "attributes": {}
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": "vehicles__grid"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #244f9d",
+                      "href": "/peretyazhka-sidenij-mototransporta-motocikly/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/motorcycles.webp",
+                              "alt": "Мотоцикл с детально прошитым сиденьем в мастерской",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Мотоциклы",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Обивка, индивидуальный дизайн и посадка водителя и пассажира.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": "vehicle vehicle--active",
+                      "style": "--vehicle-color: #006d68",
+                      "aria-label": "Скутеры — текущий раздел"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/scooters.webp",
+                              "alt": "Городской скутер с длинным сиденьем в мастерской",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Скутеры",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Восстановление обивки и подбор покрытия для ежедневных поездок.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "Текущий раздел",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #52632f",
+                      "href": "/peretyazhka-sidenij-mototransporta-kvadrocikly/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/atv.webp",
+                              "alt": "Квадроцикл с усиленным сиденьем и фактурной обивкой",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Квадроциклы",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Обивка и фактура с учётом активной эксплуатации открытой техники.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #97462f",
+                      "href": "/peretyazhka-sidenij-mototransporta-baggi/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/buggy.webp",
+                              "alt": "Багги с креслом и ременными отверстиями в мастерской",
+                              "width": "1448",
+                              "height": "1086",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Багги",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Перетяжка подушек, спинок и отдельных кресел или комплекта.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #b65c1b",
+                      "href": "/pitbajki/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/pitbajki-hero.png",
+                              "alt": "Питбайк с обновлённым сиденьем в мастерской",
+                              "width": "1536",
+                              "height": "1024",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Питбайки",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Цепкая обивка и ремонт сиденья для тренировок, лесных маршрутов и города.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #477141",
+                      "href": "/enduro/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/enduro-hero.png",
+                              "alt": "Мотоцикл эндуро с фактурным сиденьем",
+                              "width": "1536",
+                              "height": "1024",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Эндуро",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Восстановление сиденья эндуро с учётом грязи, воды и активной посадки.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #733b52",
+                      "href": "/choppery/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/choppery-hero.png",
+                              "alt": "Сиденье чоппера с декоративной строчкой",
+                              "width": "1536",
+                              "height": "1024",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Чопперы и круизеры",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Двухуровневые седла, спинки и декоративная строчка в стиле круизера.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "attributes": {
+                      "class": "vehicle",
+                      "style": "--vehicle-color: #2a6475",
+                      "href": "/mototurizm/",
+                      "data-cta": "vehicle_page"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "attributes": {
+                          "class": "vehicle__media"
+                        },
+                        "children": [
+                          {
+                            "type": "image",
+                            "attributes": {
+                              "src": "{{pluginUrl}}/assets/reference/mototurizm-hero.png",
+                              "alt": "Туринговое мотоциклетное сиденье в мастерской",
+                              "width": "1536",
+                              "height": "1024",
+                              "loading": "lazy"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "tag": "h3",
+                        "text": "Туринговые мотоциклы",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "p",
+                        "text": "Комфорт водителя и пассажира для дальних поездок и путешествий.",
+                        "attributes": {}
+                      },
+                      {
+                        "type": "text",
+                        "tag": "span",
+                        "text": "\nПерейти <span aria-hidden=\"true\">→</span> ",
+                        "attributes": {
+                          "class": "vehicle__link"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "name": "Перейти к другому разделу"
+      }
+    },
+    {
+      "type": "reference",
+      "tree": {
+        "type": "element",
+        "tag": "section",
+        "attributes": {
           "class": "wrap contact",
           "id": "contact"
         },
@@ -3246,6 +4989,10 @@
                     },
                     "children": [
                       {
+                        "type": "art",
+                        "key": "art-67ad417c4c96"
+                      },
+                      {
                         "type": "text",
                         "tag": "strong",
                         "text": "Telegram",
@@ -3283,6 +5030,10 @@
                     },
                     "children": [
                       {
+                        "type": "art",
+                        "key": "art-8ee002cafc1f"
+                      },
+                      {
                         "type": "text",
                         "tag": "strong",
                         "text": "MAX",
@@ -3319,6 +5070,10 @@
                       "aria-label": "Открыть VK"
                     },
                     "children": [
+                      {
+                        "type": "art",
+                        "key": "art-905d6c7011be"
+                      },
                       {
                         "type": "text",
                         "tag": "strong",
@@ -3372,20 +5127,13 @@
       "key": "mobile-bar"
     }
   ],
-  "seo": {
-    "title": "Перетяжка сидений скутеров в СПб | Ленремонт",
-    "description": "Перетяжка сидений скутеров и максискутеров в Санкт-Петербурге. Замена изношенной обивки, подбор материала и дизайна. Предварительная оценка по фото.",
-    "breadcrumbsTitle": "Перетяжка сидений скутеров",
-    "ogTitle": "Перетяжка сидений скутеров в СПб | Ленремонт",
-    "ogDescription": "Перетяжка сидений скутеров и максискутеров в Санкт-Петербурге. Замена изношенной обивки, подбор материала и дизайна. Предварительная оценка по фото."
-  },
   "integrations": {
     "map": {
       "provider": "2GIS",
       "plugin": "dynamic-map",
       "gutenbergBlock": "lenremont/dynamic-map",
       "shortcode": "[lenremont_workshops_map]",
-      "placement": "after:benefits",
+      "placement": "inside:workshops-map",
       "markerCount": 25,
       "center": {
         "lat": 59.95,

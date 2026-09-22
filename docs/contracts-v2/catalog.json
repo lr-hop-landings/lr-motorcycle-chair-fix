@@ -5,38 +5,43 @@
   "pages": [
     {
       "file": "main-motorcycle-seats.json",
-      "title": "Перетяжка сидений мотоциклов и квадроциклов в СПб",
+      "title": "Перетяжка мотосидений в СПб",
       "slug": "peretyazhka-sidenij-mototransporta",
       "path": "/peretyazhka-sidenij-mototransporta/",
-      "source": "src/pages/index.astro"
+      "source": "src/pages/index.astro",
+      "sections": 13
     },
     {
       "file": "motocikly.json",
       "title": "Перетяжка сидений мотоциклов в СПб",
       "slug": "peretyazhka-sidenij-mototransporta-motocikly",
       "path": "/peretyazhka-sidenij-mototransporta-motocikly/",
-      "source": "src/pages/[vehicle].astro"
+      "source": "src/pages/[vehicle].astro",
+      "sections": 13
     },
     {
       "file": "skutery.json",
       "title": "Перетяжка сидений скутеров в СПб",
       "slug": "peretyazhka-sidenij-mototransporta-skutery",
       "path": "/peretyazhka-sidenij-mototransporta-skutery/",
-      "source": "src/pages/[vehicle].astro"
+      "source": "src/pages/[vehicle].astro",
+      "sections": 13
     },
     {
       "file": "kvadrocikly.json",
       "title": "Перетяжка сидений квадроциклов в СПб",
       "slug": "peretyazhka-sidenij-mototransporta-kvadrocikly",
       "path": "/peretyazhka-sidenij-mototransporta-kvadrocikly/",
-      "source": "src/pages/[vehicle].astro"
+      "source": "src/pages/[vehicle].astro",
+      "sections": 13
     },
     {
       "file": "baggi.json",
       "title": "Перетяжка сидений багги в СПб",
       "slug": "peretyazhka-sidenij-mototransporta-baggi",
       "path": "/peretyazhka-sidenij-mototransporta-baggi/",
-      "source": "src/pages/[vehicle].astro"
+      "source": "src/pages/[vehicle].astro",
+      "sections": 13
     }
   ],
   "integrations": {
@@ -45,9 +50,12 @@
       "plugin": "dynamic-map",
       "gutenbergBlock": "lenremont/dynamic-map",
       "shortcode": "[lenremont_workshops_map]",
-      "placement": "after:benefits",
+      "placement": "inside:workshops-map",
       "markerCount": 25,
-      "center": { "lat": 59.95, "lng": 30.3 },
+      "center": {
+        "lat": 59.95,
+        "lng": 30.3
+      },
       "zoom": 10
     }
   }

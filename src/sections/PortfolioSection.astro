@@ -1,73 +1,172 @@
 ---
 import { caseStudies as allCases } from "../data/cases";
 import ButtonLink from "../components/ButtonLink.astro";
-interface Props { vehicleSlug?: string; }
+interface Props {
+  vehicleSlug?: string;
+}
 const { vehicleSlug } = Astro.props;
 const illustrative = Boolean(vehicleSlug);
-const caseStudies = vehicleSlug ? allCases.filter(item => item.vehicle === vehicleSlug) : allCases.filter(item => item.featured);
+const caseStudies = vehicleSlug
+  ? allCases.filter((item) => item.vehicle === vehicleSlug)
+  : allCases.filter((item) => item.featured);
 const single = caseStudies.length === 1;
 ---
-<section class:list={["portfolio section section--dark", { "portfolio--single": single, "portfolio--illustrative": illustrative }]} id="portfolio" aria-labelledby="portfolio-title">
+
+<section
+  class:list={[
+    "portfolio section section--dark",
+    { "portfolio--single": single, "portfolio--illustrative": illustrative },
+  ]}
+  id="portfolio"
+  aria-labelledby="portfolio-title"
+>
   <div class="container portfolio__intro">
     <div>
-      <p class="eyebrow">ДО И ПОСЛЕ · {caseStudies.length} КЕЙСОВ</p>
-      <h2 id="portfolio-title">Один ракурс — заметная разница</h2>
-      <p class="section-lead">{illustrative ? "Иллюстративные пары для обсуждения обивки, фактуры и строчки. Потяните разделитель и покажите понравившиеся детали." : "Сначала показываем результат, затем — тот же кадр с естественными следами износа. Потяните разделитель, чтобы сравнить состояние обивки."}</p>
+      <h2 id="portfolio-title">Сравните сиденье до и после</h2>
     </div>
-    <div class="portfolio__actions"><ButtonLink href="#quiz" variant="outline" dataCta="portfolio">Подобрать похожее решение <span aria-hidden="true">↘</span></ButtonLink></div>
+    <div class="portfolio__actions">
+      <ButtonLink href="#quiz" variant="outline" dataCta="portfolio"
+        >Подобрать похожее решение <span aria-hidden="true">↘</span></ButtonLink
+      >
+    </div>
   </div>
   <div class="portfolio__carousel">
-    <div class="swiper case-swiper" data-case-swiper={single ? undefined : true} aria-roledescription={single ? undefined : "carousel"} aria-label="Кейсы до и после">
+    <div
+      class="swiper case-swiper"
+      data-case-swiper={single ? undefined : true}
+      aria-roledescription={single ? undefined : "carousel"}
+      aria-label="Кейсы до и после"
+    >
       <div class="swiper-wrapper">
-        {caseStudies.map(item => (
-          <article class="swiper-slide case-card" data-case-card style="--compare-position: 52%;">
-            <div class="case-card__media">
-              <>
-                <img class="case-card__image case-card__image--before-base" src={item.before.src} alt={'До обновления: ' + item.title} loading="lazy" width={item.before.width} height={item.before.height} />
-                <img class="case-card__image case-card__image--after" src={item.after.src} alt={'После обновления: ' + item.title} loading="lazy" width={item.after.width} height={item.after.height} />
-                <div class="case-card__before"><img class="case-card__image" src={item.before.src} alt="" loading="lazy" width={item.before.width} height={item.before.height} /></div>
-                <div class="case-card__divider" aria-hidden="true"><span>↔</span></div>
-                <span class="case-card__label case-card__label--before" aria-hidden="true">До</span><span class="case-card__label case-card__label--after" aria-hidden="true">После</span>
-                <input class="case-card__range" type="range" min="12" max="88" value="52" aria-label={'Сравнение состояния сиденья: до и после. ' + item.title} />
-              </>
-            </div>
-            <div class="case-card__body">
-              <p>{item.tags}</p>
-              <div><div><h3>{item.title}</h3><p>{item.text}</p></div></div>
-            </div>
-          </article>
-        ))}
+        {
+          caseStudies.map((item) => (
+            <article
+              class="swiper-slide case-card"
+              data-case-card
+              style="--compare-position: 52%;"
+            >
+              <div class="case-card__media">
+                <>
+                  <img
+                    class="case-card__image case-card__image--before-base"
+                    src={item.before.src}
+                    alt={"До обновления: " + item.title}
+                    loading="lazy"
+                    width={item.before.width}
+                    height={item.before.height}
+                  />
+                  <img
+                    class="case-card__image case-card__image--after"
+                    src={item.after.src}
+                    alt={"После обновления: " + item.title}
+                    loading="lazy"
+                    width={item.after.width}
+                    height={item.after.height}
+                  />
+                  <div class="case-card__before">
+                    <img
+                      class="case-card__image"
+                      src={item.before.src}
+                      alt=""
+                      loading="lazy"
+                      width={item.before.width}
+                      height={item.before.height}
+                    />
+                  </div>
+                  <div class="case-card__divider swiper-no-swiping" aria-hidden="true">
+                    <span />
+                  </div>
+                  <>
+                    <span
+                      class="case-card__label case-card__label--before"
+                      aria-hidden="true"
+                    >
+                      До
+                    </span>
+                    <span
+                      class="case-card__label case-card__label--after"
+                      aria-hidden="true"
+                    >
+                      После
+                    </span>
+                  </>
+                  <input
+                    class="case-card__range"
+                    type="range"
+                    min="12"
+                    max="88"
+                    value="52"
+                    aria-label={
+                      "Сравнение состояния сиденья: до и после. " + item.title
+                    }
+                  />
+                </>
+              </div>
+              <div class="case-card__body">
+                <p>{item.tags}</p>
+                <div>
+                  <div>
+                    <>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))
+        }
       </div>
     </div>
   </div>
-  {!single && <div class="container portfolio__controls" role="group" aria-label="Листать кейсы">
-    <button type="button" data-case-prev aria-label="Предыдущий пример"><svg aria-hidden="true"><use href="#arrow" /></svg></button>
-    <button type="button" data-case-next aria-label="Следующий пример"><svg aria-hidden="true"><use href="#arrow" /></svg></button>
-  </div>}
-  <div class="portfolio__bottom-action container"><ButtonLink href="#quiz" variant="outline" dataCta="portfolio">Подобрать похожее решение <span aria-hidden="true">↘</span></ButtonLink></div>
+  <div class="portfolio__bottom-action container">
+    <ButtonLink href="#quiz" variant="outline" dataCta="portfolio"
+      >Подобрать похожее решение <span aria-hidden="true">↘</span></ButtonLink
+    >
+  </div>
 </section>
 <script>
   import Swiper from "swiper";
-  import { A11y, Navigation } from "swiper/modules";
+  import { A11y } from "swiper/modules";
   import "swiper/css";
 
   const hopRoot = document.getElementById("hop-gutenberg") || document;
   hopRoot.querySelectorAll("[data-case-card]").forEach((card) => {
     const range = card.querySelector<HTMLInputElement>(".case-card__range");
+    const media = card.querySelector<HTMLElement>(".case-card__media");
+    const divider = card.querySelector<HTMLElement>(".case-card__divider");
     const updatePosition = () =>
       card.style.setProperty("--compare-position", `${range?.value ?? 52}%`);
+    const updatePositionFromPointer = (clientX: number) => {
+      if (!media || !range) return;
+      const bounds = media.getBoundingClientRect();
+      const position = Math.min(88, Math.max(12, ((clientX - bounds.left) / bounds.width) * 100));
+      range.value = String(Math.round(position));
+      updatePosition();
+    };
+
     range?.addEventListener("input", updatePosition);
+    divider?.addEventListener("pointerdown", (event) => {
+      divider.setPointerCapture(event.pointerId);
+      updatePositionFromPointer(event.clientX);
+      event.preventDefault();
+      event.stopPropagation();
+    });
+    divider?.addEventListener("pointermove", (event) => {
+      if (!divider.hasPointerCapture(event.pointerId)) return;
+      updatePositionFromPointer(event.clientX);
+      event.preventDefault();
+      event.stopPropagation();
+    });
   });
   const caseSwiper = hopRoot.querySelector("[data-case-swiper]");
-  const caseCards = [...hopRoot.querySelectorAll<HTMLElement>("[data-case-card]")];
+  const caseCards = [
+    ...hopRoot.querySelectorAll<HTMLElement>("[data-case-card]"),
+  ];
   if (!caseSwiper) caseCards[0]?.classList.add("is-active");
   if (caseSwiper) {
     new Swiper(caseSwiper, {
-      modules: [A11y, Navigation],
-      navigation: {
-        prevEl: hopRoot.querySelector("[data-case-prev]"),
-        nextEl: hopRoot.querySelector("[data-case-next]"),
-      },
+      modules: [A11y],
       slidesPerView: 1.1,
       spaceBetween: 14,
       grabCursor: true,
@@ -86,18 +185,28 @@ const single = caseStudies.length === 1;
 </script>
 
 <style>
-  .portfolio__controls { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
-  .portfolio__controls button { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--cyan); border-radius: 12px; color: var(--cyan); background: transparent; cursor: pointer; }
-  .portfolio__controls button:hover { background: #9ee4fc22; }
-  .portfolio__controls button:disabled { opacity: .35; cursor: default; }
-  .portfolio__controls svg { width: 22px; height: 22px; }
-  [data-case-prev] svg { transform: rotate(180deg); }
-  .portfolio--single .portfolio__carousel { width: min(var(--container-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
-  .portfolio--single .swiper-wrapper { display: block; }
-  .portfolio--single .case-swiper .swiper-slide { width: 100%; }
-  .portfolio--single .case-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
-  .portfolio--single .case-card__body { align-self: center; }
-  @media(max-width: 767px) { .portfolio--single .case-card { grid-template-columns: minmax(0, 1fr); } }
+  .portfolio--single .portfolio__carousel {
+    width: min(var(--container-width), calc(100% - var(--gutter) * 2));
+    margin-inline: auto;
+  }
+  .portfolio--single .swiper-wrapper {
+    display: block;
+  }
+  .portfolio--single .case-swiper .swiper-slide {
+    width: 100%;
+  }
+  .portfolio--single .case-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+  .portfolio--single .case-card__body {
+    align-self: center;
+  }
+  @media (max-width: 767px) {
+    .portfolio--single .case-card {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
 
   .portfolio {
     overflow: hidden;
@@ -131,8 +240,8 @@ const single = caseStudies.length === 1;
     display: none;
   }
   .portfolio__carousel {
-    width: calc(100% - max(var(--gutter), (100% - var(--container-width)) / 2));
-    margin-left: max(var(--gutter), (100% - var(--container-width)) / 2);
+    width: min(var(--container-width), calc(100% - var(--gutter) * 2));
+    margin-inline: auto;
   }
   .case-swiper {
     overflow: visible;
@@ -182,7 +291,8 @@ const single = caseStudies.length === 1;
     transform: translateX(-50%);
     background: #fff;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 18%);
-    pointer-events: none;
+    cursor: ew-resize;
+    touch-action: none;
   }
   .case-card__divider span {
     position: absolute;
@@ -194,14 +304,26 @@ const single = caseStudies.length === 1;
     place-items: center;
     border: 3px solid #fff;
     border-radius: 50%;
-    color: #fff;
     background: var(--yellow);
-    color: var(--ink);
     box-shadow: 0 5px 16px rgb(0 0 0 / 28%);
-    font-size: 19px;
-    font-weight: 800;
-    line-height: 1;
     transform: translate(-50%, -50%);
+  }
+  .case-card__divider span::before,
+  .case-card__divider span::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--ink);
+    content: "";
+  }
+  .case-card__divider span::before {
+    transform: translate(-50%, calc(-50% - 6px));
+  }
+  .case-card__divider span::after {
+    transform: translate(-50%, calc(-50% + 6px));
   }
   .case-card__label {
     position: absolute;
@@ -234,6 +356,7 @@ const single = caseStudies.length === 1;
     margin: 0;
     cursor: ew-resize;
     opacity: 0.001;
+    pointer-events: none;
     touch-action: pan-y;
   }
   .case-card__media:has(.case-card__range:focus-visible) {
@@ -290,9 +413,6 @@ const single = caseStudies.length === 1;
   }
 
   @media (max-width: 767px) {
-    .portfolio__controls {
-      display: none;
-    }
     .portfolio__intro {
       margin-bottom: 24px;
     }
@@ -310,8 +430,8 @@ const single = caseStudies.length === 1;
       width: 100%;
     }
     .portfolio__carousel {
-      width: calc(100% - var(--gutter));
-      margin-left: var(--gutter);
+      width: calc(100% - var(--gutter) * 2);
+      margin-inline: auto;
     }
     .case-swiper .swiper-slide {
       width: auto;
@@ -334,7 +454,6 @@ const single = caseStudies.length === 1;
       width: 56px;
       height: 56px;
       border-width: 3px;
-      font-size: 21px;
     }
     .case-card__before {
       clip-path: inset(0);
@@ -361,9 +480,17 @@ const single = caseStudies.length === 1;
   }
 
   @keyframes case-card-mobile-fade {
-    0%, 22% { opacity: 1; }
-    48%, 72% { opacity: 0; }
-    100% { opacity: 1; }
+    0%,
+    22% {
+      opacity: 1;
+    }
+    48%,
+    72% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -372,5 +499,4 @@ const single = caseStudies.length === 1;
       opacity: 1;
     }
   }
-
 </style>

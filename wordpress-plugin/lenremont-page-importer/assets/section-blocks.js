@@ -14,7 +14,7 @@
 		var empty = patterns.find(function (p) { return p.name === 'lenremont/source-empty'; });
 		var sprite = wp.blocks.parse(empty.content)[0].innerBlocks[0];
 		var spriteHtml = (window.LenremontReferenceAssets.art || {})[sprite.attributes.asset] || '';
-		var icons = { hero: 'cover-image', messengers: 'format-chat', benefits: 'awards', vehicles: 'grid-view', portfolio: 'images-alt2', solutions: 'layout', materials: 'format-image', prices: 'list-view', process: 'editor-ol', logistics: 'location', quality: 'yes-alt', faq: 'editor-help', contact: 'phone' };
+		var icons = { hero: 'cover-image', vehicles: 'grid-view', workshops: 'location', benefits: 'awards', workshop: 'admin-tools', portfolio: 'images-alt2', solutions: 'layout', materials: 'format-image', prices: 'list-view', process: 'editor-ol', faq: 'editor-help', contact: 'phone' };
 		var categories = wp.blocks.getCategories();
 		if (!categories.some(function (c) { return c.slug === 'lenremont-sections'; })) wp.blocks.setCategories([{ slug: 'lenremont-sections', title: 'Ленремонт — готовые секции' }].concat(categories));
 		function position(clientId, defaults) {

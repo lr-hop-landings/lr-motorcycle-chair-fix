@@ -26,8 +26,8 @@ const converter = context.module.exports({ createBlock }, { LenremontReferenceBl
 const result = converter.convertManifest(manifest);
 
 assert.equal(manifest.version, 2);
-assert.equal(manifest.sections.length, 13);
-assert.equal(result.summary.sections, 13);
+assert.equal(manifest.sections.length, 12);
+assert.equal(result.summary.sections, 12);
 assert.equal(result.summary.warnings.length, 0);
 assert.ok(result.summary.blocks > 100, 'Expected the full landing to produce more than 100 blocks.');
 assert.equal(result.blocks[0].name, 'core/group');
@@ -72,8 +72,8 @@ editorCss.walkRules(rule => {
 	}
 });
 const catalog = JSON.parse(readFileSync(join(pluginDir, 'examples/catalog.json'), 'utf8'));
-assert.equal(catalog.length, 5);
-assert.equal(new Set(catalog.map(p => p.path)).size, 5);
+assert.equal(catalog.length, 9);
+assert.equal(new Set(catalog.map(p => p.path)).size, 9);
 for (const page of catalog) {
 	assert.equal(page.path, '/peretyazhka-sidenij-mototransporta' + (page.key === 'main' ? '' : '-' + page.key) + '/');
 	const source = JSON.parse(readFileSync(join(pluginDir, 'examples', page.example), 'utf8'));
@@ -82,11 +82,11 @@ for (const page of catalog) {
 	assert.equal(converted.blocks[0].attributes.anchor, 'hop-gutenberg');
 	const blocks = flatten(converted.blocks);
 	const quiz = blocks.find(b => b.name === 'lenremont/reference-quiz');
-	assert.equal(converted.summary.sections, 13);
+	assert.equal(converted.summary.sections, 12);
 	assert.equal(quiz.attributes.attributes['data-page-path'], page.path);
 	assert.equal(quiz.attributes.attributes['data-vehicle'] || '', page.key === 'main' ? '' : page.key);
 	const links = blocks.filter(b => b.name === 'lenremont/element' && b.attributes.tag === 'a').map(b => b.attributes.attributes.href);
-	for (const target of catalog.filter(p => p.key !== page.key)) assert.ok(links.includes(target.path), `${page.key} must link to ${target.key}`);
+	for (const target of catalog.filter(p => p.key !== 'main' && p.key !== page.key)) assert.ok(links.includes(target.path), `${page.key} must link to ${target.key}`);
 	if (page.key !== 'main') {
 		const hero = blocks.find(b => b.name === 'lenremont/element' && b.attributes.attributes.class?.includes('hero--vehicle'));
 		assert.match(hero.attributes.attributes.style, /--blue:/);

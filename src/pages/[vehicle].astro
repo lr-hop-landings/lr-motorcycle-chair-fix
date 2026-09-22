@@ -10,7 +10,6 @@ import WorkshopSection from "../sections/WorkshopSection.astro";
 import VehicleSection from "../sections/VehicleSection.astro";
 import PortfolioSection from "../sections/PortfolioSection.astro";
 import ServiceOptionsSection from "../sections/ServiceOptionsSection.astro";
-import MaterialsSection from "../sections/MaterialsSection.astro";
 import MaterialsCarouselSection from "../sections/MaterialsCarouselSection.astro";
 import PricingSection from "../sections/PricingSection.astro";
 import ProcessSection from "../sections/ProcessSection.astro";
@@ -50,8 +49,7 @@ const canonical = Astro.site
       )
     }
     <ServiceOptionsSection vehicle={vehicle} />
-    <MaterialsSection vehicle={vehicle} />
-    <MaterialsCarouselSection />
+    <MaterialsCarouselSection vehicle={vehicle} />
     <PricingSection vehicle={vehicle} />
     <ProcessSection vehicle={vehicle} />
     <FaqSection vehicle={vehicle} />

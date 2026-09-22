@@ -34,9 +34,10 @@ assert.throws(() => seo.apply(plan));
 assert.equal(inputs[seo.fields.description].value, '');
 delete inputs[seo.fields.canonical];
 assert.deepEqual(seo.plan({ canonical: '/test/' }, doc, false).missing, ['canonical']);
-for (const name of ['main-motorcycle-seats', 'motocikly', 'skutery', 'kvadrocikly', 'baggi']) {
+const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '../lenremont-page-importer/examples/catalog.json')));
+for (const name of catalog.map(page => page.example.replace(/\.json$/, ''))) {
   const m = JSON.parse(fs.readFileSync(path.join(__dirname, '../lenremont-page-importer/examples', name + '.json')));
   assert.equal(Object.keys(seo.normalize(m.seo, doc.location.href)).length, 5);
   assert.ok(!m.seo.canonical && !m.seo.robots, 'no accidental canonical or indexing changes');
 }
-console.log('SEO tests passed: mappings, validation, preserve, overwrite, undo, stale preview, missing fields, five manifests.');
+console.log('SEO tests passed: mappings, validation, preserve, overwrite, undo, stale preview, missing fields, all manifests.');

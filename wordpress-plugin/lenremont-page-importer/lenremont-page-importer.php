@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lenremont - Gutenberg Page Importer
  * Description: Converts structured landing-page manifests and semantic HTML into editable Gutenberg blocks.
- * Version: 0.13.0
+ * Version: 0.14.0
  * Requires at least: 6.7
  * Requires PHP: 7.4
  * Author: Goraie

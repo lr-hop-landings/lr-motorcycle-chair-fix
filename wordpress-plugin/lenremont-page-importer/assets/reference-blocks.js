@@ -7,7 +7,7 @@
 	'use strict';
 	var tags = ['div', 'section', 'article', 'main', 'header', 'footer', 'nav', 'aside', 'figure', 'a', 'button', 'ol', 'ul', 'li', 'details', 'summary', 'span', 'strong', 'p', 'label', 'input'];
 	var textTags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'span', 'figcaption', 'small', 'summary'];
-	var fields = ['id', 'class', 'title', 'role', 'href', 'target', 'rel', 'type', 'min', 'max', 'value', 'tabindex', 'width', 'height', 'alt', 'src', 'loading', 'fetchpriority', 'hidden', 'disabled', 'data-case-card', 'data-case-swiper', 'data-case-prev', 'data-case-next', 'data-intent', 'data-contact', 'data-cta', 'data-lead-root', 'data-vehicle', 'data-vehicle-options', 'data-page-path'];
+	var fields = ['id', 'class', 'title', 'role', 'href', 'target', 'rel', 'type', 'min', 'max', 'value', 'tabindex', 'width', 'height', 'alt', 'src', 'loading', 'fetchpriority', 'hidden', 'disabled', 'data-case-card', 'data-case-swiper', 'data-case-prev', 'data-case-next', 'data-materials-swiper', 'data-intent', 'data-contact', 'data-cta', 'data-lead-root', 'data-vehicle', 'data-vehicle-options', 'data-page-path'];
 	function url(value) {
 		return typeof value === 'string' && !/[\u0000-\u0020\u007f\\]/.test(value) && /^(https?:|tel:|mailto:|\/|#)/i.test(value) ? value : '';
 	}
@@ -108,7 +108,7 @@
 		}));
 		wp.blocks.registerBlockType('lenremont/reference-widget', Object.assign({}, shared, {
 			title: 'Окно / мобильная панель', icon: 'welcome-widgets-menus', attributes: { widget: { type: 'string', default: '' } },
-			edit: function (p) { var key = /^callback(?:-(motocikly|skutery|kvadrocikly|baggi))?$/.test(p.attributes.widget) ? 'callback' : p.attributes.widget; return el('div', be.useBlockProps({ className: 'lr-widget-editor' }), ({ 'contact-dialog': 'Окно подготовки сообщения', callback: 'Окно обратного звонка', 'mobile-bar': 'Мобильная панель: звонок и подбор решения' })[key] || 'Элемент интерфейса'); },
+			edit: function (p) { var key = /^callback(?:-(motocikly|skutery|kvadrocikly|baggi|pitbajki|enduro|choppery|mototurizm))?$/.test(p.attributes.widget) ? 'callback' : p.attributes.widget; return el('div', be.useBlockProps({ className: 'lr-widget-editor' }), ({ 'contact-dialog': 'Окно подготовки сообщения', callback: 'Окно обратного звонка', 'mobile-bar': 'Мобильная панель: звонок и подбор решения' })[key] || 'Элемент интерфейса'); },
 			save: function () { return null; }
 		}));
 		wp.blocks.registerBlockType('lenremont/reference-quiz', Object.assign({}, shared, {

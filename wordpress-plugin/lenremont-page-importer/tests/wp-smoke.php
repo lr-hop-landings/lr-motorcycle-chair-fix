@@ -62,7 +62,7 @@ if ('' !== do_blocks('<!-- wp:lenremont/art {"asset":"../../wp-config.php"} /-->
 if (false === strpos(do_blocks('<!-- wp:lenremont/reference-widget {"widget":"contact-dialog"} /-->'), 'id="contact-dialog"')) {
 	$failures[] = 'Trusted dialog did not render.';
 }
-foreach (array('motocikly', 'skutery', 'kvadrocikly', 'baggi') as $vehicle) {
+foreach (array('motocikly', 'skutery', 'kvadrocikly', 'baggi', 'pitbajki', 'enduro', 'choppery', 'mototurizm') as $vehicle) {
 	$callback = do_blocks('<!-- wp:lenremont/reference-widget {"widget":"callback-' . $vehicle . '"} /-->');
 	if (false === strpos($callback, 'id="callback"') || false === strpos($callback, 'value="/peretyazhka-sidenij-mototransporta-' . $vehicle . '/"')) {
 		$failures[] = 'Vehicle callback did not render its page path: ' . $vehicle;

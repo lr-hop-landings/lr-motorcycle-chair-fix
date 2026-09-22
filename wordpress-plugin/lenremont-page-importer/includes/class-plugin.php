@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Lenremont\PageImporter;
 
 final class Plugin {
-	private const VERSION = '0.13.0';
+	private const VERSION = '0.14.0';
 
 	private static ?self $instance = null;
 
@@ -137,7 +137,7 @@ final class Plugin {
 			}
 			register_block_type('lenremont/' . $name, $args);
 		}
-		foreach (array('hero-main', 'hero-motocikly', 'hero-skutery', 'hero-kvadrocikly', 'hero-baggi', 'messengers', 'benefits', 'vehicles', 'portfolio', 'solutions', 'materials', 'prices', 'process', 'logistics', 'quality', 'faq', 'contact') as $section) {
+		foreach (array('hero-main', 'hero-motocikly', 'hero-skutery', 'hero-kvadrocikly', 'hero-baggi', 'hero-pitbajki', 'hero-enduro', 'hero-choppery', 'hero-mototurizm', 'vehicles', 'workshops', 'benefits', 'workshop', 'portfolio', 'solutions', 'materials', 'prices', 'process', 'faq', 'contact', 'messengers', 'logistics', 'quality') as $section) {
 			register_block_type('lenremont/section-' . $section, array('api_version' => 3, 'supports' => array('html' => false, 'customClassName' => false, 'multiple' => false, 'reusable' => false)));
 		}
 		wp_register_style(
@@ -216,7 +216,7 @@ final class Plugin {
 			return json_decode($raw, true) ?: array();
 		};
 		$reference_library = array('placeholder' => LENREMONT_PAGE_IMPORTER_URL . 'assets/placeholder.svg', 'main' => $read_manifest('main-motorcycle-seats.json'), 'heroes' => array());
-		foreach (array('motocikly' => 'мотоциклы', 'skutery' => 'скутеры', 'kvadrocikly' => 'квадроциклы', 'baggi' => 'багги') as $key => $label) {
+		foreach (array('motocikly' => 'мотоциклы', 'skutery' => 'скутеры', 'kvadrocikly' => 'квадроциклы', 'baggi' => 'багги', 'pitbajki' => 'питбайки', 'enduro' => 'эндуро', 'choppery' => 'чопперы и круизеры', 'mototurizm' => 'туринговые мотоциклы') as $key => $label) {
 			$manifest = $read_manifest($key . '.json');
 			$manifest['sections'] = array_slice($manifest['sections'] ?? array(), 0, 1);
 			$reference_library['heroes'][] = array('key' => $key, 'label' => $label, 'manifest' => $manifest);
@@ -272,14 +272,15 @@ final class Plugin {
 		);
 
 		$catalog = json_decode((string) file_get_contents(LENREMONT_PAGE_IMPORTER_DIR . 'examples/catalog.json'), true);
-		$examples = array_map(static function (array $page): array {
-			return array('label' => $page['title'], 'value' => LENREMONT_PAGE_IMPORTER_URL . 'examples/' . $page['example']);
+		$manifest_version = '?v=' . rawurlencode((string) filemtime(LENREMONT_PAGE_IMPORTER_DIR . 'examples/catalog.json'));
+		$examples = array_map(static function (array $page) use ($manifest_version): array {
+			return array('label' => $page['title'], 'value' => LENREMONT_PAGE_IMPORTER_URL . 'examples/' . $page['example'] . $manifest_version);
 		}, $catalog ?: array());
 		wp_add_inline_script(
 			'lenremont-page-importer-editor',
 			'window.LenremontPageImporterConfig = ' . wp_json_encode(
 				array(
-					'exampleUrl' => LENREMONT_PAGE_IMPORTER_URL . 'examples/main-motorcycle-seats.json',
+					'exampleUrl' => LENREMONT_PAGE_IMPORTER_URL . 'examples/main-motorcycle-seats.json' . $manifest_version,
 					'examples' => $examples,
 					'pluginUrl'  => untrailingslashit(LENREMONT_PAGE_IMPORTER_URL),
 				)
@@ -310,7 +311,7 @@ final class Plugin {
 			wp_enqueue_style('lenremont-reference-original');
 			$is_library = false !== strpos($content, 'lr-reference-library');
 			if ($is_library) wp_enqueue_script('lenremont-reference-library-runtime', LENREMONT_PAGE_IMPORTER_URL . 'assets/reference-library-runtime.js', array(), self::VERSION, true);
-			for ($i = 0; $i < 3; $i++) {
+			for ($i = 0; $i < 4; $i++) {
 				if ($is_library && 0 === $i && ! has_block('lenremont/reference-quiz', $post)) continue;
 				wp_enqueue_script_module('lenremont-reference-' . $i, LENREMONT_PAGE_IMPORTER_URL . 'assets/reference/interaction-' . $i . '.js', array(), self::VERSION);
 			}
