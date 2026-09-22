@@ -30,13 +30,14 @@ const isNavigation = Boolean(activeVehicleSlug);
       </p>
     </div><div class="vehicles__grid">
       {
-        vehiclePages.map(({ name, cardText, slug, theme }) => {
+        vehiclePages.map(({ name, cardText, slug, theme, image }) => {
           const content = (
             <>
-              <>
-                <h3>{name}</h3>
-                <p>{cardText}</p>
-              </>
+              <div class="vehicle__media">
+                <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
+              </div>
+              <h3>{name}</h3>
+              <p>{cardText}</p>
             </>
           );
           return activeVehicleSlug === slug ? (
@@ -130,6 +131,30 @@ const isNavigation = Boolean(activeVehicleSlug);
       border-color 0.18s ease,
       transform 0.18s ease;
   }
+  .vehicle__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    margin: -38px -28px 24px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--vehicle-color) 18%, var(--night));
+  }
+  .vehicle__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgb(0 0 0 / 0.22));
+    pointer-events: none;
+  }
+  .vehicle__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+  a.vehicle:hover .vehicle__media img {
+    transform: scale(1.035);
+  }
   .vehicle::before {
     content: "";
     position: absolute;
@@ -186,6 +211,9 @@ const isNavigation = Boolean(activeVehicleSlug);
     .vehicle {
       min-height: unset;
       padding: 36px 25px 25px;
+    }
+    .vehicle__media {
+      margin: -36px -25px 22px;
     }
     .vehicle p {
       min-height: 0;

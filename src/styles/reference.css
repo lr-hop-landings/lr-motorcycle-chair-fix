@@ -137,6 +137,7 @@ p {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
   object-fit: cover
 }
 
@@ -313,7 +314,7 @@ svg {
 .hero-intro p {
   color: #c0d0e3;
   max-width: 390px;
-  font-size: 20px;
+  font-size: 18px;
   padding-top: 36px
 }
 

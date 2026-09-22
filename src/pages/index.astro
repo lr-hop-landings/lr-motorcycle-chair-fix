@@ -1,18 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../sections/HeroSection.astro";
-import HeroMessengers from "../sections/HeroMessengers.astro";
 import WorkshopsMapSection from "../sections/WorkshopsMapSection.astro";
 import ProofSection from "../sections/ProofSection.astro";
+import WorkshopSection from "../sections/WorkshopSection.astro";
 
 import VehicleSection from "../sections/VehicleSection.astro";
 import PortfolioSection from "../sections/PortfolioSection.astro";
 import ServiceOptionsSection from "../sections/ServiceOptionsSection.astro";
 import MaterialsSection from "../sections/MaterialsSection.astro";
+import MaterialsCarouselSection from "../sections/MaterialsCarouselSection.astro";
 import PricingSection from "../sections/PricingSection.astro";
 import ProcessSection from "../sections/ProcessSection.astro";
-import LogisticsSection from "../sections/LogisticsSection.astro";
-import QualitySection from "../sections/QualitySection.astro";
 import FaqSection from "../sections/FaqSection.astro";
 import ContactSection from "../sections/ContactSection.astro";
 import MobileActions from "../components/MobileActions.astro";
@@ -23,26 +22,26 @@ import CallbackModal from "../components/CallbackModal.astro";
 <BaseLayout
   title="Перетяжка мотосидений в СПб | Ленремонт"
   description="Перетяжка и ремонт мотосидений в Санкт-Петербурге: яркая новая обивка, аккуратная строчка и удобная посадка. Выберите мастерскую или отправьте фото на оценку."
-  canonical={Astro.site ? new URL("/", Astro.site).href : "https://www.lenremont.ru/peretyazhka-sidenya-motoczikla.htm"}
+  canonical={Astro.site
+    ? new URL("/", Astro.site).href
+    : "https://www.lenremont.ru/peretyazhka-sidenya-motoczikla.htm"}
 >
-  <a class="skip" href="#quiz">Перейти к подбору</a>
   <main id="top">
     <HeroSection />
-    <HeroMessengers />
+    <VehicleSection />
     <WorkshopsMapSection />
     <ProofSection />
-    <VehicleSection />
+    <WorkshopSection />
     <PortfolioSection />
     <ServiceOptionsSection />
     <MaterialsSection />
+    <MaterialsCarouselSection />
     <PricingSection />
     <ProcessSection />
-    <LogisticsSection />
-    <QualitySection />
     <FaqSection />
     <ContactSection />
   </main>
   <ServiceSchema />
   <CallbackModal />
-  <MobileActions />
+  <!-- <MobileActions /> -->
 </BaseLayout>

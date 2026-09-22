@@ -38,6 +38,38 @@ import buggy04Before from "../assets/cases/generated/buggy-04-before.webp";
 import buggy04After from "../assets/cases/generated/buggy-04-after.webp";
 import buggy05Before from "../assets/cases/generated/buggy-05-before.webp";
 import buggy05After from "../assets/cases/generated/buggy-05-after.webp";
+import pitbike02Before from "../assets/cases/generated/pitbike-02-before.png";
+import pitbike02After from "../assets/cases/generated/pitbike-02-after.png";
+import pitbike03Before from "../assets/cases/generated/pitbike-03-before.png";
+import pitbike03After from "../assets/cases/generated/pitbike-03-after.png";
+import pitbike04Before from "../assets/cases/generated/pitbike-04-before.png";
+import pitbike04After from "../assets/cases/generated/pitbike-04-after.png";
+import pitbike05Before from "../assets/cases/generated/pitbike-05-before.png";
+import pitbike05After from "../assets/cases/generated/pitbike-05-after.png";
+import enduro02Before from "../assets/cases/generated/enduro-02-before.png";
+import enduro02After from "../assets/cases/generated/enduro-02-after.png";
+import enduro03Before from "../assets/cases/generated/enduro-03-before.png";
+import enduro03After from "../assets/cases/generated/enduro-03-after.png";
+import enduro04Before from "../assets/cases/generated/enduro-04-before.png";
+import enduro04After from "../assets/cases/generated/enduro-04-after.png";
+import enduro05Before from "../assets/cases/generated/enduro-05-before.png";
+import enduro05After from "../assets/cases/generated/enduro-05-after.png";
+import choppery02Before from "../assets/cases/generated/choppery-02-before.png";
+import choppery02After from "../assets/cases/generated/choppery-02-after.png";
+import choppery03Before from "../assets/cases/generated/choppery-03-before.png";
+import choppery03After from "../assets/cases/generated/choppery-03-after.png";
+import choppery04Before from "../assets/cases/generated/choppery-04-before.png";
+import choppery04After from "../assets/cases/generated/choppery-04-after.png";
+import choppery05Before from "../assets/cases/generated/choppery-05-before.png";
+import choppery05After from "../assets/cases/generated/choppery-05-after.png";
+import mototurizm02Before from "../assets/cases/generated/mototurizm-02-before.png";
+import mototurizm02After from "../assets/cases/generated/mototurizm-02-after.png";
+import mototurizm03Before from "../assets/cases/generated/mototurizm-03-before.png";
+import mototurizm03After from "../assets/cases/generated/mototurizm-03-after.png";
+import mototurizm04Before from "../assets/cases/generated/mototurizm-04-before.png";
+import mototurizm04After from "../assets/cases/generated/mototurizm-04-after.png";
+import mototurizm05Before from "../assets/cases/generated/mototurizm-05-before.png";
+import mototurizm05After from "../assets/cases/generated/mototurizm-05-after.png";
 
 export const caseStudies = [
   {
@@ -69,6 +101,126 @@ export const caseStudies = [
     title: "Эндуро: цепкая поверхность для активной езды",
     text: "До: потёртая до основы поверхность и надорванные края. После: поперечные рёбра, плотные боковины и усиленные швы.",
     tags: "ЭНДУРО · ЦЕПКАЯ ФАКТУРА",
+  },
+  {
+    id: "pitbajki-01", vehicle: "pitbajki", before: moto02Before, after: moto02After,
+    title: "Питбайк: цепкая центральная вставка",
+    text: "До: потёртая посадочная зона и повреждённые боковины. После: плотная фактура по центру, восстановленный профиль и контрастная строчка.",
+    tags: "ПИТБАЙК · ЦЕПКАЯ ФАКТУРА",
+  },
+  {
+    id: "enduro-01", vehicle: "enduro", before: moto05Before, after: moto05After,
+    title: "Эндуро: усиленные края и поперечные рёбра",
+    text: "До: покрытие протёрлось до основы, края надорвались. После: цепкая посадочная зона, плотные боковины и аккуратные усиленные швы.",
+    tags: "ЭНДУРО · УСИЛЕННЫЕ ШВЫ",
+  },
+  {
+    id: "choppery-01", vehicle: "choppery", before: moto04Before, after: moto04After,
+    title: "Круизер: двухуровневое седло",
+    text: "До: разрыв на изгибе и потеря формы пассажирской секции. После: ровные зоны, матовая обивка и подчёркнутый поясничный упор.",
+    tags: "КРУИЗЕР · ДВУХУРОВНЕВОЕ СЕДЛО",
+  },
+  {
+    id: "mototurizm-01", vehicle: "mototurizm", before: moto01Before, after: moto01After,
+    title: "Туринг: две фактуры для долгой поездки",
+    text: "До: растрескавшаяся обивка и повреждённый боковой шов. После: гладкие боковины, цепкая центральная вставка и аккуратная контрастная отстрочка.",
+    tags: "ТУРИНГ · ДВЕ ФАКТУРЫ",
+  },
+  {
+    id: "pitbajki-02", vehicle: "pitbajki", before: pitbike02Before, after: pitbike02After,
+    title: "Питбайк: восстановленный нос сиденья",
+    text: "До: трещины, выцветание и открывшийся шов. После: графитовая обивка, оранжевая центральная вставка и плотная двойная строчка.",
+    tags: "ПИТБАЙК · ОРАНЖЕВАЯ ВСТАВКА",
+  },
+  {
+    id: "pitbajki-03", vehicle: "pitbajki", before: pitbike03Before, after: pitbike03After,
+    title: "Питбайк: усиленный передний край",
+    text: "До: порванный нос и потёртые боковины после тренировок. После: чёрная техническая обивка, красная вставка и усиленная кромка.",
+    tags: "ПИТБАЙК · УСИЛЕННЫЙ НОС",
+  },
+  {
+    id: "pitbajki-04", vehicle: "pitbajki", before: pitbike04Before, after: pitbike04After,
+    title: "Питбайк: восстановленная форма",
+    text: "До: просевшая пена, складки и следы грязи. После: ровный профиль, чёрная фактура и оливковые боковые панели.",
+    tags: "ПИТБАЙК · НОВАЯ ФОРМА",
+  },
+  {
+    id: "pitbajki-05", vehicle: "pitbajki", before: pitbike05Before, after: pitbike05After,
+    title: "Питбайк: защита краёв и швов",
+    text: "До: разошедшийся шов и истёртые углы. После: матовый чехол, синий акцент и аккуратно защищённые края.",
+    tags: "ПИТБАЙК · ЗАЩИЩЁННЫЕ КРАЯ",
+  },
+  {
+    id: "enduro-02", vehicle: "enduro", before: enduro02Before, after: enduro02After,
+    title: "Эндуро: усиленный задний край",
+    text: "До: грязь, глубокие трещины и изношенная задняя кромка. После: графитовый чехол, оливковая вставка и усиленный шов.",
+    tags: "ЭНДУРО · ЗАДНЯЯ КРОМКА",
+  },
+  {
+    id: "enduro-03", vehicle: "enduro", before: enduro03Before, after: enduro03After,
+    title: "Эндуро: цепкая вставка у бака",
+    text: "До: разрыв бокового шва и открывшийся наполнитель. После: матовая чёрная обивка, синяя посадочная зона и аккуратный кант.",
+    tags: "ЭНДУРО · ЦЕПКАЯ ВСТАВКА",
+  },
+  {
+    id: "enduro-04", vehicle: "enduro", before: enduro04Before, after: enduro04After,
+    title: "Эндуро: восстановленная поддержка",
+    text: "До: растянутая обивка и просевшая посадочная часть. После: ровная форма, графитовая фактура и тёмно-зелёная ребристая вставка.",
+    tags: "ЭНДУРО · ПОДДЕРЖКА",
+  },
+  {
+    id: "enduro-05", vehicle: "enduro", before: enduro05Before, after: enduro05After,
+    title: "Эндуро: новый чехол после активного сезона",
+    text: "До: выгоревший нос, грязь и разрывы. После: износостойкая чёрная поверхность, оранжевый кант и двойная строчка.",
+    tags: "ЭНДУРО · ИЗНОСОСТОЙКАЯ ОБИВКА",
+  },
+  {
+    id: "choppery-02", vehicle: "choppery", before: choppery02Before, after: choppery02After,
+    title: "Круизер: водительская и пассажирская зоны",
+    text: "До: треснувший чехол и разошедшийся кант. После: чёрная обивка, бордовая вставка и аккуратная красная окантовка.",
+    tags: "КРУИЗЕР · БОРДОВАЯ ВСТАВКА",
+  },
+  {
+    id: "choppery-03", vehicle: "choppery", before: choppery03Before, after: choppery03After,
+    title: "Круизер: восстановленная спинка",
+    text: "До: просевшая подушка и повреждённый край спинки. После: поддерживающее седло, коричневая вставка и чистый контурный кант.",
+    tags: "КРУИЗЕР · СПИНКА ПАССАЖИРА",
+  },
+  {
+    id: "choppery-04", vehicle: "choppery", before: choppery04Before, after: choppery04After,
+    title: "Круизер: ромбовидная прострочка",
+    text: "До: выцветшее покрытие, складки и потёртые боковины. После: глубокий чёрный цвет, ромбовидная строчка и восстановленная форма.",
+    tags: "КРУИЗЕР · РОМБОВИДНАЯ СТРОЧКА",
+  },
+  {
+    id: "choppery-05", vehicle: "choppery", before: choppery05Before, after: choppery05After,
+    title: "Круизер: обновление пассажирской секции",
+    text: "До: разрыв на пассажирской части и потёртые панели. После: графитовое седло, тёмно-красные вставки и ровные швы.",
+    tags: "КРУИЗЕР · ПАССАЖИРСКАЯ СЕКЦИЯ",
+  },
+  {
+    id: "mototurizm-02", vehicle: "mototurizm", before: mototurizm02Before, after: mototurizm02After,
+    title: "Туринг: восстановленная водительская зона",
+    text: "До: трещины, просевшая пена и потеря поддержки. После: графитовая обивка, перфорированная бирюзовая вставка и ровный профиль.",
+    tags: "ТУРИНГ · ПОДДЕРЖКА ВОДИТЕЛЯ",
+  },
+  {
+    id: "mototurizm-03", vehicle: "mototurizm", before: mototurizm03Before, after: mototurizm03After,
+    title: "Туринг: новая пассажирская зона",
+    text: "До: разошедшийся шов и потёртые края. После: чёрная техническая обивка, сине-серая вставка и двойная строчка.",
+    tags: "ТУРИНГ · ПАССАЖИРСКАЯ ЗОНА",
+  },
+  {
+    id: "mototurizm-04", vehicle: "mototurizm", before: mototurizm04Before, after: mototurizm04After,
+    title: "Туринг: защита от поездок и погоды",
+    text: "До: следы воды, растянутая обивка и просевшая посадка. После: плотный графитовый чехол, бирюзовая поясничная вставка и контурные швы.",
+    tags: "ТУРИНГ · ГРАФИТ И БИРЮЗА",
+  },
+  {
+    id: "mototurizm-05", vehicle: "mototurizm", before: mototurizm05Before, after: mototurizm05After,
+    title: "Туринг: обновление сиденья с подогревом",
+    text: "До: трещины и разрыв заднего края. После: чёрная обивка, тёмно-синяя вставка, перфорация и аккуратный кант.",
+    tags: "ТУРИНГ · ПЕРФОРАЦИЯ",
   },
   {
     id: "skutery-01", vehicle: "skutery", featured: true, before: scooter01Before, after: scooter01After,

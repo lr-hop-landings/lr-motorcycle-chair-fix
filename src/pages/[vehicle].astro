@@ -6,14 +6,14 @@ import HeroSection from "../sections/HeroSection.astro";
 import HeroMessengers from "../sections/HeroMessengers.astro";
 import WorkshopsMapSection from "../sections/WorkshopsMapSection.astro";
 import ProofSection from "../sections/ProofSection.astro";
+import WorkshopSection from "../sections/WorkshopSection.astro";
 import VehicleSection from "../sections/VehicleSection.astro";
 import PortfolioSection from "../sections/PortfolioSection.astro";
 import ServiceOptionsSection from "../sections/ServiceOptionsSection.astro";
 import MaterialsSection from "../sections/MaterialsSection.astro";
+import MaterialsCarouselSection from "../sections/MaterialsCarouselSection.astro";
 import PricingSection from "../sections/PricingSection.astro";
 import ProcessSection from "../sections/ProcessSection.astro";
-import LogisticsSection from "../sections/LogisticsSection.astro";
-import QualitySection from "../sections/QualitySection.astro";
 import FaqSection from "../sections/FaqSection.astro";
 import ContactSection from "../sections/ContactSection.astro";
 import ServiceSchema from "../sections/ServiceSchema.astro";
@@ -21,32 +21,41 @@ import CallbackModal from "../components/CallbackModal.astro";
 import MobileActions from "../components/MobileActions.astro";
 
 export function getStaticPaths() {
-  return vehiclePages.map(vehicle => ({ params: { vehicle: vehicle.slug }, props: { vehicle } }));
+  return vehiclePages.map((vehicle) => ({
+    params: { vehicle: vehicle.slug },
+    props: { vehicle },
+  }));
 }
 
-interface Props { vehicle: VehiclePage; }
+interface Props {
+  vehicle: VehiclePage;
+}
 const { vehicle } = Astro.props;
 const title = `${vehicle.service} в СПб | Ленремонт`;
 const description = `${vehicle.service} в Санкт-Петербурге. ${vehicle.cardText} Подберите решение и обсудите стоимость по фото.`;
-const canonical = Astro.site ? new URL(`/${vehicle.slug}/`, Astro.site).href : undefined;
+const canonical = Astro.site
+  ? new URL(`/${vehicle.slug}/`, Astro.site).href
+  : undefined;
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
-  <a class="skip" href="#quiz">Перейти к подбору</a>
   <main id="top">
     <HeroSection vehicle={vehicle} />
-    <HeroMessengers />
     <WorkshopsMapSection />
     <ProofSection />
-    <VehicleSection activeVehicleSlug={vehicle.slug} />
-    {caseStudies.some(item => item.vehicle === vehicle.slug) && <PortfolioSection vehicleSlug={vehicle.slug} />}
+    <WorkshopSection />
+    {
+      caseStudies.some((item) => item.vehicle === vehicle.slug) && (
+        <PortfolioSection vehicleSlug={vehicle.slug} />
+      )
+    }
     <ServiceOptionsSection vehicle={vehicle} />
     <MaterialsSection vehicle={vehicle} />
+    <MaterialsCarouselSection />
     <PricingSection vehicle={vehicle} />
-    <ProcessSection />
-    <LogisticsSection vehicle={vehicle} />
-    <QualitySection />
+    <ProcessSection vehicle={vehicle} />
     <FaqSection vehicle={vehicle} />
+    <VehicleSection activeVehicleSlug={vehicle.slug} />
     <ContactSection vehicle={vehicle} />
   </main>
   <ServiceSchema name={vehicle.service} description={description} />

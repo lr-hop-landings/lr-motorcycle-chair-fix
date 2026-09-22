@@ -27,7 +27,7 @@ const single = caseStudies.length === 1;
                 <img class="case-card__image case-card__image--after" src={item.after.src} alt={'После обновления: ' + item.title} loading="lazy" width={item.after.width} height={item.after.height} />
                 <div class="case-card__before"><img class="case-card__image" src={item.before.src} alt="" loading="lazy" width={item.before.width} height={item.before.height} /></div>
                 <div class="case-card__divider" aria-hidden="true"><span>↔</span></div>
-                <span class="case-card__label case-card__label--before">До</span><span class="case-card__label case-card__label--after">После</span>
+                <span class="case-card__label case-card__label--before" aria-hidden="true">До</span><span class="case-card__label case-card__label--after" aria-hidden="true">После</span>
                 <input class="case-card__range" type="range" min="12" max="88" value="52" aria-label={'Сравнение состояния сиденья: до и после. ' + item.title} />
               </>
             </div>
@@ -59,6 +59,8 @@ const single = caseStudies.length === 1;
     range?.addEventListener("input", updatePosition);
   });
   const caseSwiper = hopRoot.querySelector("[data-case-swiper]");
+  const caseCards = [...hopRoot.querySelectorAll<HTMLElement>("[data-case-card]")];
+  if (!caseSwiper) caseCards[0]?.classList.add("is-active");
   if (caseSwiper) {
     new Swiper(caseSwiper, {
       modules: [A11y, Navigation],
@@ -147,7 +149,7 @@ const single = caseStudies.length === 1;
   }
   .case-card__media {
     position: relative;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     background: #0d0d0e;
   }
@@ -172,11 +174,11 @@ const single = caseStudies.length === 1;
   }
   .case-card__divider {
     position: absolute;
-    z-index: 3;
+    z-index: 5;
     top: 0;
     bottom: 0;
     left: var(--compare-position);
-    width: 2px;
+    width: 3px;
     transform: translateX(-50%);
     background: #fff;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 18%);
@@ -187,8 +189,8 @@ const single = caseStudies.length === 1;
     top: 50%;
     left: 50%;
     display: grid;
-    width: 46px;
-    height: 46px;
+    width: 52px;
+    height: 52px;
     place-items: center;
     border: 3px solid #fff;
     border-radius: 50%;
@@ -225,13 +227,14 @@ const single = caseStudies.length === 1;
   }
   .case-card__range {
     position: absolute;
-    z-index: 4;
+    z-index: 6;
     inset: 0;
     width: 100%;
     height: 100%;
     margin: 0;
     cursor: ew-resize;
     opacity: 0.001;
+    touch-action: pan-y;
   }
   .case-card__media:has(.case-card__range:focus-visible) {
     outline: 3px solid var(--orange);
@@ -287,6 +290,9 @@ const single = caseStudies.length === 1;
   }
 
   @media (max-width: 767px) {
+    .portfolio__controls {
+      display: none;
+    }
     .portfolio__intro {
       margin-bottom: 24px;
     }
@@ -325,10 +331,23 @@ const single = caseStudies.length === 1;
       right: 12px;
     }
     .case-card__divider span {
-      width: 38px;
-      height: 38px;
-      border-width: 2px;
-      font-size: 16px;
+      width: 56px;
+      height: 56px;
+      border-width: 3px;
+      font-size: 21px;
+    }
+    .case-card__before {
+      clip-path: inset(0);
+      opacity: 1;
+    }
+    .case-card.swiper-slide-active .case-card__before,
+    .case-card.is-active .case-card__before {
+      animation: case-card-mobile-fade 6s ease-in-out infinite;
+    }
+    .case-card__divider,
+    .case-card__label,
+    .case-card__range {
+      display: none;
     }
     .case-card__body {
       padding: 18px 16px 20px;
@@ -338,6 +357,19 @@ const single = caseStudies.length === 1;
     }
     .case-card__body h3 {
       font-size: 20px;
+    }
+  }
+
+  @keyframes case-card-mobile-fade {
+    0%, 22% { opacity: 1; }
+    48%, 72% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-card__before {
+      animation: none;
+      opacity: 1;
     }
   }
 

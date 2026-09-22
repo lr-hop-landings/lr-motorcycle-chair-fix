@@ -1,0 +1,100 @@
+---
+const features = [
+  {
+    kicker: "01 · ТОЧНЫЙ РАСКРОЙ",
+    title: "Снимаем мерки с вашего сиденья",
+    text: "Размечаем выкройки по основанию и форме посадки, чтобы новый чехол повторял геометрию сиденья без лишнего натяжения.",
+    image: "/assets/reference/workshop/01-cutting-table-documentary.webp",
+    alt: "Мастер размечает выкройку чехла мотоциклетного сиденья на рабочем столе",
+  },
+  {
+    kicker: "02 · АККУРАТНЫЙ ПОШИВ",
+    title: "Собираем чехол на промышленной машине",
+    text: "Настраиваем длину стежка и натяжение нити под конкретный материал. Так шов выглядит ровно и выдерживает ежедневную нагрузку.",
+    image: "/assets/reference/workshop/02-sewing-documentary.webp",
+    alt: "Пошив чехла мотоциклетного сиденья на промышленной швейной машине",
+  },
+  {
+    kicker: "03 · МАТЕРИАЛ ПОД ЗАДАЧУ",
+    title: "Подбираем покрытие по условиям поездок",
+    text: "Сравниваем фактуру, сцепление, влагостойкость и уход. Вы видите реальные образцы до того, как мы запускаем пошив.",
+    image: "/assets/reference/workshop/04-material-selection-documentary.webp",
+    alt: "Образцы кожи, винила и микрозамши на столе в мастерской",
+  },
+  {
+    kicker: "04 · ПРОВЕРКА ШВОВ",
+    title: "Проверяем результат до выдачи",
+    text: "Смотрим посадку чехла, края, кант и рисунок строчки. Несогласованные детали не уезжают к клиенту случайно.",
+    image: "/assets/reference/workshop/03-quality-check-documentary.webp",
+    alt: "Мастер проверяет швы и посадку готового чехла мотоциклетного сиденья",
+  },
+  {
+    kicker: "05 · ФИНАЛЬНАЯ ПРИМЕРКА",
+    title: "Собираем сиденье в готовый результат",
+    text: "После установки проверяем профиль, переходы и удобство посадки. Вы получаете согласованный дизайн, а не просто новый кусок обивки.",
+    image: "/assets/reference/workshop/05-fitting-documentary.webp",
+    alt: "Готовое обновлённое мотоциклетное сиденье на стенде в мастерской",
+  },
+];
+---
+
+<section class="workshop section" id="workshop" aria-labelledby="workshop-title">
+  <div class="container">
+    <div class="section-top workshop__intro">
+      <div>
+        <p class="eyebrow">ЗАКУЛИСЬЕ МАСТЕРСКОЙ</p>
+        <h2 id="workshop-title">Показываем, как появляется аккуратное сиденье</h2>
+      </div>
+      <p class="section-lead">Каждый этап влияет на посадку, внешний вид и срок службы обивки. Поэтому мы показываем не только результат, но и работу за ним.</p>
+    </div>
+
+    <div class="workshop__features">
+      {features.map((feature, index) => (
+        <article class:list={["workshop-feature", { "workshop-feature--reverse": index % 2 === 1 }]}>
+          <div class="workshop-feature__copy">
+            <p class="workshop-feature__kicker">{feature.kicker}</p>
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </div>
+          <figure class="workshop-feature__media">
+            <img src={feature.image} alt={feature.alt} width="1448" height="1086" loading="lazy" />
+          </figure>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .workshop { background: var(--paper); }
+  .workshop__intro { align-items: end; margin-bottom: 56px; }
+  .workshop__intro h2 { max-width: 760px; margin: 18px 0 0; }
+  .workshop__intro .section-lead { max-width: 430px; margin: 0; }
+  .workshop__features { display: grid; gap: 20px; }
+  .workshop-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    grid-template-areas: "copy media";
+    gap: clamp(28px, 6vw, 92px);
+    align-items: center;
+    min-height: 360px;
+    padding: clamp(24px, 4vw, 52px) 0;
+    border-top: 1px solid var(--line);
+  }
+  .workshop-feature--reverse { grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr); grid-template-areas: "media copy"; }
+  .workshop-feature__copy { grid-area: copy; max-width: 470px; }
+  .workshop-feature__copy h3 { max-width: 470px; margin: 14px 0 16px; font-size: clamp(28px, 3vw, 42px); line-height: 1.04; }
+  .workshop-feature__copy > p:last-child { max-width: 430px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.55; }
+  .workshop-feature__kicker { margin: 0; color: var(--blue); font-size: 12px; font-weight: 850; letter-spacing: .12em; }
+  .workshop-feature__media { grid-area: media; margin: 0; overflow: hidden; border-radius: 24px; background: var(--night); box-shadow: 0 20px 60px rgb(9 43 84 / .12); }
+  .workshop-feature__media img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .45s ease; }
+  .workshop-feature:hover .workshop-feature__media img { transform: scale(1.025); }
+  @media (max-width: 760px) {
+    .workshop__intro { margin-bottom: 30px; }
+    .workshop-feature, .workshop-feature--reverse { grid-template-columns: 1fr; grid-template-areas: "media" "copy"; gap: 22px; min-height: 0; padding-block: 30px; }
+    .workshop-feature__copy h3 { font-size: 30px; }
+    .workshop-feature__copy > p:last-child { font-size: 16px; }
+    .workshop-feature__media { border-radius: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .workshop-feature__media img { transition: none; } }
+</style>

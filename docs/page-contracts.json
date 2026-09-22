@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-22",
+  "project": "lr-motorcycle-chair-fix",
+  "locale": "ru-RU",
+  "contentModel": {
+    "sharedSections": [
+      "hero",
+      "workshopsMap",
+      "proof",
+      "workshop",
+      "portfolio",
+      "serviceOptions",
+      "materials",
+      "materialsCarousel",
+      "pricing",
+      "process",
+      "faq",
+      "vehicleTypes",
+      "contact"
+    ],
+    "integrations": {
+      "workshopsMap": {
+        "provider": "2GIS",
+        "wpPlugin": "dynamic-map",
+        "shortcode": "[lenremont_workshops_map]",
+        "gutenbergBlock": "lenremont/dynamic-map",
+        "markerCount": 25,
+        "center": { "lat": 59.95, "lng": 30.3 },
+        "zoom": 10
+      }
+    }
+  },
+  "pages": [
+    {
+      "route": "/",
+      "kind": "landing",
+      "source": "src/pages/index.astro",
+      "seo": {
+        "title": "Перетяжка мотосидений в СПб | Ленремонт",
+        "description": "Перетяжка и ремонт мотосидений в Санкт-Петербурге: яркая новая обивка, аккуратная строчка и удобная посадка.",
+        "canonical": "/"
+      },
+      "sections": [
+        "hero",
+        "vehicleTypes",
+        "workshopsMap",
+        "proof",
+        "workshop",
+        "portfolio",
+        "serviceOptions",
+        "materials",
+        "materialsCarousel",
+        "pricing",
+        "process",
+        "faq",
+        "contact"
+      ]
+    },
+    {
+      "route": "/{vehicle}/",
+      "kind": "vehicleLanding",
+      "source": "src/pages/[vehicle].astro",
+      "pathParam": "vehicle",
+      "vehicleSlugs": [
+        "motocikly",
+        "skutery",
+        "kvadrocikly",
+        "baggi",
+        "pitbajki",
+        "enduro",
+        "choppery",
+        "mototurizm"
+      ],
+      "seoTemplate": {
+        "title": "{service} в СПб | Ленремонт",
+        "description": "{service} в Санкт-Петербурге. {cardText} Подберите решение и обсудите стоимость по фото.",
+        "canonical": "/{vehicle}/"
+      },
+      "sections": [
+        "hero",
+        "workshopsMap",
+        "proof",
+        "workshop",
+        "portfolioIfCaseStudiesExist",
+        "serviceOptions",
+        "materials",
+        "materialsCarousel",
+        "pricing",
+        "process",
+        "faq",
+        "vehicleTypes",
+        "contact"
+      ],
+      "dataSource": "src/data/vehicles.ts",
+      "resolvedRoutes": [
+        { "route": "/motocikly/", "slug": "motocikly", "service": "Перетяжка сидений мотоциклов" },
+        { "route": "/skutery/", "slug": "skutery", "service": "Перетяжка сидений скутеров" },
+        { "route": "/kvadrocikly/", "slug": "kvadrocikly", "service": "Перетяжка сидений квадроциклов" },
+        { "route": "/baggi/", "slug": "baggi", "service": "Перетяжка сидений багги" },
+        { "route": "/pitbajki/", "slug": "pitbajki", "service": "Перетяжка сидений питбайков" },
+        { "route": "/enduro/", "slug": "enduro", "service": "Перетяжка сидений эндуро" },
+        { "route": "/choppery/", "slug": "choppery", "service": "Перетяжка сидений чопперов и круизеров" },
+        { "route": "/mototurizm/", "slug": "mototurizm", "service": "Перетяжка сидений туринговых мотоциклов" }
+      ]
+    }
+  ],
+  "wordpressSnapshot": {
+    "site": "testing-gutenberg",
+    "database": "local",
+    "capturedAt": "2026-09-22",
+    "publishedPages": [
+      {
+        "id": 11,
+        "slug": "peretyazhka-sidenij-mototransporta",
+        "title": "Перетяжка сидений мотоциклов и квадроциклов в СПб",
+        "status": "publish",
+        "contract": "vehicleLanding"
+      },
+      {
+        "id": 19,
+        "slug": "peretyazhka-sidenij-mototransporta-motocikly",
+        "title": "Перетяжка сидений мотоциклов в СПб",
+        "status": "publish",
+        "contract": "vehicleLanding"
+      },
+      {
+        "id": 20,
+        "slug": "peretyazhka-sidenij-mototransporta-skutery",
+        "title": "Перетяжка сидений скутеров в СПб",
+        "status": "publish",
+        "contract": "vehicleLanding"
+      },
+      {
+        "id": 21,
+        "slug": "peretyazhka-sidenij-mototransporta-kvadrocikly",
+        "title": "Перетяжка сидений квадроциклов в СПб",
+        "status": "publish",
+        "contract": "vehicleLanding"
+      },
+      {
+        "id": 22,
+        "slug": "peretyazhka-sidenij-mototransporta-baggi",
+        "title": "Перетяжка сидений багги в СПб",
+        "status": "publish",
+        "contract": "vehicleLanding"
+      }
+    ],
+    "mapIntegrationTarget": "lenremont/dynamic-map"
+  }
+}

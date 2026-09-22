@@ -1,0 +1,90 @@
+---
+const materials = [
+  { title: "Автовинил", note: "Практичный и простой в уходе", image: "/assets/reference/materials/01-vinyl.webp", alt: "Фактура матового чёрного автовинила" },
+  { title: "Натуральная кожа", note: "Тёплая фактура и выразительный рисунок", image: "/assets/reference/materials/02-leather.webp", alt: "Фактура кожи оттенка коньяк с прошитым краем" },
+  { title: "Микрозамша", note: "Цепкая поверхность для активной езды", image: "/assets/reference/materials/03-microsuede.webp", alt: "Фактура тёмной микрозамши с красной строчкой" },
+  { title: "Перфорация", note: "Акцентная вставка и дополнительная вентиляция", image: "/assets/reference/materials/04-perforated.webp", alt: "Перфорированный чёрный материал с ровной строчкой" },
+  { title: "Морская ткань", note: "Плотное покрытие для открытой техники", image: "/assets/reference/materials/05-marine-fabric.webp", alt: "Слои плотной ткани оттенков графит и тёмно-синий" },
+  { title: "Кант и строчка", note: "Деталь, которая собирает дизайн", image: "/assets/reference/materials/06-piping-thread.webp", alt: "Образцы канта и контрастных нитей рядом с чёрной обивкой" },
+];
+---
+
+<section class="materials-carousel section" id="materials-gallery" aria-labelledby="materials-gallery-title">
+  <div class="container">
+    <div class="section-top materials-carousel__head">
+      <div>
+        <p class="eyebrow">МАТЕРИАЛЫ И ФАКТУРЫ</p>
+        <h2 id="materials-gallery-title">Выбираем не по экрану, а по образцу</h2>
+      </div>
+      <p class="section-lead">Покажем реальные покрытия и подберём сочетание под технику, экипировку и привычный уход.</p>
+    </div>
+  </div>
+
+  <div class="materials-carousel__carousel">
+    <div class="swiper materials-swiper" data-materials-swiper aria-roledescription="carousel" aria-label="Материалы и фактуры">
+      <div class="swiper-wrapper">
+        {materials.map((material) => (
+          <article class="swiper-slide material-card">
+            <img src={material.image} alt={material.alt} width="1448" height="1086" loading="lazy" />
+            <div class="material-card__caption">
+              <h3>{material.title}</h3>
+              <p>{material.note}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import { A11y } from "swiper/modules";
+  import "swiper/css";
+
+  const hopRoot = document.getElementById("hop-gutenberg") || document;
+  const materialsSwiper = hopRoot.querySelector("[data-materials-swiper]");
+  if (materialsSwiper) {
+    new Swiper(materialsSwiper, {
+      modules: [A11y],
+      slidesPerView: 1.15,
+      spaceBetween: 12,
+      grabCursor: true,
+      a11y: {
+        prevSlideMessage: "Предыдущий материал",
+        nextSlideMessage: "Следующий материал",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: "auto",
+          spaceBetween: 18,
+        },
+      },
+    });
+  }
+</script>
+
+<style>
+  .materials-carousel { overflow: hidden; background: var(--white); }
+  .materials-carousel__head { align-items: end; margin-bottom: 42px; }
+  .materials-carousel__head h2 { margin: 18px 0 0; }
+  .materials-carousel__head .section-lead { max-width: 430px; margin: 0; }
+  .materials-carousel__carousel { width: min(var(--container-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+  .materials-swiper { overflow: visible; }
+  .materials-swiper .swiper-slide { width: clamp(292px, 25vw, 352px); height: auto; }
+  .material-card { overflow: hidden; height: 100%; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+  .material-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  .material-card__caption { padding: 18px 18px 20px; }
+  .material-card__caption h3 { margin: 0 0 6px; font-size: 22px; }
+  .material-card__caption p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.4; }
+  @media (max-width: 767px) {
+    .materials-carousel__head { margin-bottom: 28px; }
+    .materials-carousel__head .section-lead { font-size: 15px; }
+    .materials-carousel__carousel { width: calc(100% - var(--gutter) * 2); margin-inline: auto; }
+    .materials-swiper .swiper-slide { width: calc(100vw - var(--gutter) * 2 - 12px); }
+    .material-card { border-radius: 18px; }
+    .material-card__caption { padding: 16px 16px 18px; }
+    .material-card__caption h3 { font-size: 20px; }
+  }
+</style>

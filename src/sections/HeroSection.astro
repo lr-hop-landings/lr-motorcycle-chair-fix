@@ -1,5 +1,6 @@
 ---
 import EstimateQuiz from "../components/EstimateQuiz.astro";
+import HeroMessengers from "../sections/HeroMessengers.astro";
 import MotoSymbols from "../components/MotoSymbols.astro";
 import type { VehiclePage } from "../data/vehicles";
 interface Props {
@@ -8,27 +9,135 @@ interface Props {
 const { vehicle } = Astro.props;
 const heroComparisons = {
   home: {
-    before: { src: "/assets/reference/hero-new-landscape/home-before.webp", alt: "До перетяжки: изношенное мотоциклетное сиденье", width: 1200, height: 900 },
-    after: { src: "/assets/reference/hero-new-landscape/home-after.webp", alt: "После перетяжки: обновлённое мотоциклетное сиденье", width: 1200, height: 900 },
+    before: {
+      src: "/assets/reference/hero-new-landscape/home-before.webp",
+      alt: "До перетяжки: изношенное мотоциклетное сиденье",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/home-after.webp",
+      alt: "После перетяжки: обновлённое мотоциклетное сиденье",
+      width: 1200,
+      height: 900,
+    },
   },
   motocikly: {
-    before: { src: "/assets/reference/hero-new-landscape/motocikly-before.webp", alt: "До перетяжки: изношенное спортивное мотосиденье", width: 1200, height: 900 },
-    after: { src: "/assets/reference/hero-new-landscape/motocikly-after.webp", alt: "После перетяжки: спортивное мотосиденье с красной строчкой", width: 1200, height: 900 },
+    before: {
+      src: "/assets/reference/hero-new-landscape/motocikly-before.webp",
+      alt: "До перетяжки: изношенное спортивное мотосиденье",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/motocikly-after.webp",
+      alt: "После перетяжки: спортивное мотосиденье с красной строчкой",
+      width: 1200,
+      height: 900,
+    },
   },
   skutery: {
-    before: { src: "/assets/reference/hero-new-landscape/skutery-before.webp", alt: "До перетяжки: выцветшее сиденье скутера", width: 1200, height: 900 },
-    after: { src: "/assets/reference/hero-new-landscape/skutery-after.webp", alt: "После перетяжки: сиденье скутера с бирюзовой вставкой", width: 1200, height: 900 },
+    before: {
+      src: "/assets/reference/hero-new-landscape/skutery-before.webp",
+      alt: "До перетяжки: выцветшее сиденье скутера",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/skutery-after.webp",
+      alt: "После перетяжки: сиденье скутера с бирюзовой вставкой",
+      width: 1200,
+      height: 900,
+    },
   },
   kvadrocikly: {
-    before: { src: "/assets/reference/hero-new-landscape/kvadrocikly-before.webp", alt: "До перетяжки: повреждённое сиденье квадроцикла", width: 1200, height: 900 },
-    after: { src: "/assets/reference/hero-new-landscape/kvadrocikly-after.webp", alt: "После перетяжки: сиденье квадроцикла с оливковыми панелями", width: 1200, height: 900 },
+    before: {
+      src: "/assets/reference/hero-new-landscape/kvadrocikly-before.webp",
+      alt: "До перетяжки: повреждённое сиденье квадроцикла",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/kvadrocikly-after.webp",
+      alt: "После перетяжки: сиденье квадроцикла с оливковыми панелями",
+      width: 1200,
+      height: 900,
+    },
   },
   baggi: {
-    before: { src: "/assets/reference/hero-new-landscape/baggi-before.webp", alt: "До перетяжки: изношенное кресло багги", width: 1200, height: 900 },
-    after: { src: "/assets/reference/hero-new-landscape/baggi-after.webp", alt: "После перетяжки: кресло багги с оранжевыми вставками", width: 1200, height: 900 },
+    before: {
+      src: "/assets/reference/hero-new-landscape/baggi-before.webp",
+      alt: "До перетяжки: изношенное кресло багги",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/baggi-after.webp",
+      alt: "После перетяжки: кресло багги с оранжевыми вставками",
+      width: 1200,
+      height: 900,
+    },
+  },
+  pitbajki: {
+    before: {
+      src: "/assets/reference/hero-new-landscape/pitbajki-before.png",
+      alt: "До перетяжки: потрескавшееся сиденье питбайка",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/pitbajki-after.png",
+      alt: "После перетяжки: сиденье питбайка с оранжевой вставкой",
+      width: 1200,
+      height: 900,
+    },
+  },
+  enduro: {
+    before: {
+      src: "/assets/reference/hero-new-landscape/enduro-before.png",
+      alt: "До перетяжки: изношенное сиденье эндуро",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/enduro-after.png",
+      alt: "После перетяжки: сиденье эндуро с оливковой вставкой",
+      width: 1200,
+      height: 900,
+    },
+  },
+  choppery: {
+    before: {
+      src: "/assets/reference/hero-new-landscape/choppery-before.png",
+      alt: "До перетяжки: изношенное седло чоппера",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/choppery-after.png",
+      alt: "После перетяжки: седло чоппера с ромбовидной строчкой",
+      width: 1200,
+      height: 900,
+    },
+  },
+  mototurizm: {
+    before: {
+      src: "/assets/reference/hero-new-landscape/mototurizm-before.png",
+      alt: "До перетяжки: выцветшее туринговое сиденье",
+      width: 1200,
+      height: 900,
+    },
+    after: {
+      src: "/assets/reference/hero-new-landscape/mototurizm-after.png",
+      alt: "После перетяжки: туринговое сиденье с бирюзовой вставкой",
+      width: 1200,
+      height: 900,
+    },
   },
 } as const;
-const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons] ?? heroComparisons.home;
+const comparison =
+  heroComparisons[vehicle?.slug as keyof typeof heroComparisons] ??
+  heroComparisons.home;
 ---
 
 <MotoSymbols />
@@ -39,52 +148,62 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
   aria-labelledby="hero-title"
 >
   <div class="wrap">
-    {
-      vehicle && (
-        <a class="hero-back" href="#vehicles-title">
-          Все виды техники
-        </a>
-      )
-    }
-    <div class="hero-intro">
-      <div>
-        <div class="eyebrow">Санкт-Петербург и Ленинградская область</div>
-        <h1 id="hero-title">
-          {
-            vehicle ? (
-              <>
-                {vehicle.service} <em>в Санкт-Петербурге</em>
-              </>
-            ) : (
-              <>
-                Перетяжка мотосидений в СПб <em>под вашу задачу.</em>
-              </>
-            )
-          }
-        </h1>
-      </div>
-      <p>
-        {
-          vehicle?.intro ??
-            "Порвалась обивка, хочется другой дизайн или неудобно сидеть? Начните с того, что хотите изменить."
-        }
-      </p>
-    </div>
     <div class="hero-grid">
+      <div class="hero-intro">
+        <div>
+          <div class="eyebrow">Санкт-Петербург и Ленинградская область</div>
+          <h1 id="hero-title">
+            {
+              vehicle ? (
+                <>
+                  {vehicle.service} <em>в Санкт-Петербурге</em>
+                </>
+              ) : (
+                <>
+                  Перетяжка мотосидений в СПб <em>под вашу задачу.</em>
+                </>
+              )
+            }
+          </h1>
+        </div>
+        <p>
+          {
+            vehicle?.intro ??
+              "Порвалась обивка, хочется другой дизайн или неудобно сидеть? Начните с того, что хотите изменить."
+          }
+        </p>
+      </div>
       <div class="quiz" id="quiz">
         <span id="estimate" aria-hidden="true"></span>
         <EstimateQuiz vehicle={vehicle} />
       </div>
       <figure class="photo-panel photo-panel--compare">
-        <div class="hero-compare" style="--compare-position: 52%">
-          <img class="hero-compare__image" src={comparison.after.src} alt={comparison.after.alt} width={comparison.after.width} height={comparison.after.height} fetchpriority="high" />
-          <div class="hero-compare__before">
-            <img class="hero-compare__image" src={comparison.before.src} alt={comparison.before.alt} width={comparison.before.width} height={comparison.before.height} />
+        <div class="hero-stack-compare">
+          <div
+            class="hero-stack-compare__frame hero-stack-compare__frame--before"
+          >
+            <img
+              class="hero-stack-compare__image"
+              src={comparison.before.src}
+              alt={comparison.before.alt}
+              width={comparison.before.width}
+              height={comparison.before.height}
+              fetchpriority="high"
+            />
+            <span class="hero-stack-compare__label">До перетяжки</span>
           </div>
-          <div class="hero-compare__divider" aria-hidden="true"><span>↔</span></div>
-          <span class="hero-compare__label hero-compare__label--before" aria-hidden="true">До</span>
-          <span class="hero-compare__label hero-compare__label--after" aria-hidden="true">После</span>
-          <input class="hero-compare__range" type="range" min="12" max="88" value="52" aria-label={`Сравнение сиденья ${vehicle ? vehicle.name.toLowerCase() : "мотоцикла"} до и после перетяжки`} />
+          <div
+            class="hero-stack-compare__frame hero-stack-compare__frame--after"
+          >
+            <img
+              class="hero-stack-compare__image"
+              src={comparison.after.src}
+              alt={comparison.after.alt}
+              width={comparison.after.width}
+              height={comparison.after.height}
+            />
+            <span class="hero-stack-compare__label">После перетяжки</span>
+          </div>
         </div>
       </figure>
     </div>
@@ -95,14 +214,9 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
       <a href="tel:+78123444444">+7 (812) 344-44-44</a>
     </div>
   </div>
-</section>
 
-<script>
-  document.querySelectorAll(".hero-compare").forEach((compare) => {
-    const range = compare.querySelector<HTMLInputElement>(".hero-compare__range");
-    range?.addEventListener("input", () => compare.style.setProperty("--compare-position", `${range.value}%`));
-  });
-</script>
+  <HeroMessengers />
+</section>
 
 <style>
   .hero-back {
@@ -142,7 +256,7 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
     outline-color: var(--blue);
   }
   .hero--vehicle .hero-intro {
-    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    display: block;
   }
   .hero--vehicle h1 {
     font-size: clamp(38px, 4.6vw, 66px);
@@ -152,12 +266,38 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
   .hero--vehicle .hero-intro p {
     padding-top: 0;
   }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+  .hero-grid .hero-intro {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    margin: 0;
+  }
+  .hero-grid .hero-intro p {
+    max-width: 100%;
+    margin-top: 24px;
+    padding-top: 0;
+  }
+  .hero-grid .quiz {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .hero-grid .photo-panel--compare {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
   .hero--vehicle .photo-panel {
     min-height: 0;
     aspect-ratio: 4 / 3;
     align-self: center;
     box-shadow: 0 24px 54px
       color-mix(in srgb, var(--vehicle-color) 28%, transparent);
+  }
+  .hero--vehicle .photo-panel--compare {
+    aspect-ratio: auto;
   }
   .hero--vehicle .photo-panel img {
     object-position: center;
@@ -174,98 +314,127 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
     max-width: 100%;
     aspect-ratio: 4 / 3;
   }
-  .photo-panel > img {
-    filter: saturate(1.08) brightness(1.06) contrast(1.03);
-  }
-  .hero-compare {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    max-width: 100%;
+  .photo-panel--compare {
+    aspect-ratio: auto;
+    padding: 10px;
     overflow: hidden;
-    background: #0d0d0e;
+    background: rgba(240, 240, 240, 0.1);
   }
-  .hero-compare__image {
+  .photo-panel--compare::after {
+    display: none;
+  }
+  .hero-stack-compare {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-stack-compare__frame {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border-radius: 17px;
+    background: #0d0d0e;
+    box-shadow: 0 16px 28px #0000002b;
+    isolation: isolate;
+  }
+  .hero-stack-compare__frame::after {
     position: absolute;
+    z-index: 1;
     inset: 0;
+    background: linear-gradient(180deg, #07121d1c 35%, #07121dcc 100%);
+    content: "";
+    pointer-events: none;
+  }
+  .hero-stack-compare__frame::before {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: #07121d9c;
+    content: "";
+    pointer-events: none;
+    animation: hero-stack-compare-before-focus 6s ease-in-out infinite;
+  }
+  .hero-stack-compare__frame--after::before {
+    animation-name: hero-stack-compare-after-focus;
+  }
+  .hero-stack-compare__frame--after::after {
+    background: linear-gradient(180deg, #07121d0a 28%, #07121dba 100%);
+  }
+  .hero-stack-compare__image {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: saturate(1.08) brightness(1.06) contrast(1.03);
   }
-  .hero-compare__before {
-    position: absolute;
-    z-index: 2;
-    inset: 0;
-    overflow: hidden;
-    clip-path: inset(0 calc(100% - var(--compare-position)) 0 0);
-  }
-  .hero-compare__divider {
-    position: absolute;
-    z-index: 5;
-    top: 0;
-    bottom: 0;
-    left: var(--compare-position);
-    width: 3px;
-    transform: translateX(-50%);
-    background: #fff;
-    box-shadow: 0 0 0 1px #0000002e;
-    pointer-events: none;
-  }
-  .hero-compare__divider span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: grid;
-    width: 52px;
-    height: 52px;
-    place-items: center;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    color: var(--ink);
-    background: var(--yellow);
-    box-shadow: 0 5px 16px #00000047;
-    font-size: 19px;
-    font-weight: 800;
-    line-height: 1;
-    transform: translate(-50%, -50%);
-  }
-  .hero-compare__label {
+  .hero-stack-compare__label {
     position: absolute;
     z-index: 3;
-    top: 18px;
-    padding: 7px 12px;
-    border-radius: 999px;
+    bottom: 16px;
+    left: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 13px;
+    border-radius: 10px;
     color: #fff;
-    background: #1d1919c2;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    pointer-events: none;
+    background: #0c1826d9;
+    box-shadow: 0 5px 14px #0000002e;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+    line-height: 1;
   }
-  .hero-compare__label--before { left: 18px; }
-  .hero-compare__label--after { right: 18px; color: #241f20; background: #f7f2ed; }
-  .hero-compare__range {
-    position: absolute;
-    z-index: 6;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    cursor: ew-resize;
-    opacity: .001;
-    touch-action: pan-y;
+  .hero-stack-compare__label::before {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 3px #8fe8ff2b;
+    content: "";
+    transform-origin: center;
+    animation: hero-stack-dot-before-blink 6s ease-in-out infinite;
   }
-  .hero-compare:has(.hero-compare__range:focus-visible) {
-    outline: 3px solid var(--cyan);
-    outline-offset: -3px;
+  .hero-stack-compare__frame--after .hero-stack-compare__label {
+    color: #18212b;
+    background: #fff;
+  }
+  .hero-stack-compare__frame--after .hero-stack-compare__label::before {
+    background: #0dbb25;
+    box-shadow: 0 0 0 3px #0dbb2524;
+    animation-name: hero-stack-dot-after-blink;
   }
   .hero--vehicle .photo-tag {
     font-size: 11px;
     max-width: calc(100% - 40px);
   }
   @media (max-width: 760px) {
+    .hero .wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero .photo-panel--compare {
+      order: 0 !important;
+      padding: 0;
+    }
+    .hero .hero-back {
+      order: 1;
+    }
+    .hero .hero-intro {
+      order: 2;
+    }
+    .hero .hero-grid {
+      display: contents !important;
+    }
+    .hero .hero-grid .quiz {
+      order: 3;
+      margin-top: 24px;
+    }
+    .hero .hero-call {
+      order: 4;
+    }
     .hero--vehicle::before {
       background: radial-gradient(
         ellipse 95% 42% at 88% 22%,
@@ -292,30 +461,50 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
     .hero .photo-panel--compare {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
-      margin-top: 16px;
+      aspect-ratio: auto;
+      height: auto !important;
+      min-height: 0 !important;
+      margin-top: 0;
+      margin-bottom: 16px;
       border-radius: 18px;
     }
-    .hero .photo-panel--compare .hero-compare__divider span {
-      width: 56px;
-      height: 56px;
-      font-size: 21px;
+    .hero-stack-compare {
+      position: relative;
+      display: block;
+      aspect-ratio: 4 / 3;
     }
-    .hero .photo-panel--compare .hero-compare__label {
-      top: 12px;
-      padding: 7px 10px;
-      font-size: 9px;
+    .hero-stack-compare__frame {
+      position: absolute;
+      inset: 0;
+      aspect-ratio: 4 / 3;
+      border-radius: 14px;
     }
-    .hero .photo-panel--compare .hero-compare__label--before { left: 12px; }
-    .hero .photo-panel--compare .hero-compare__label--after { right: 12px; }
-    .hero .photo-panel--compare .hero-compare__before {
-      clip-path: inset(0);
-      animation: hero-compare-mobile-fade 6s ease-in-out infinite;
+    .hero-stack-compare__frame::before,
+    .hero-stack-compare__frame--after::before {
+      animation: none;
+      opacity: 0;
     }
-    .hero .photo-panel--compare .hero-compare__divider,
-    .hero .photo-panel--compare .hero-compare__label,
-    .hero .photo-panel--compare .hero-compare__range {
-      display: none;
+    .hero-stack-compare__frame--before {
+      z-index: 2;
+      animation: hero-stack-compare-mobile-fade 8s ease-in-out infinite;
+    }
+    .hero-stack-compare__label {
+      bottom: 11px;
+      left: 11px;
+      padding: 9px 11px;
+      font-size: 11px;
+    }
+    .hero-stack-compare__frame--before .hero-stack-compare__label {
+      top: 11px;
+      right: auto;
+      bottom: auto;
+      left: 11px;
+    }
+    .hero-stack-compare__frame--after .hero-stack-compare__label {
+      top: auto;
+      right: 11px;
+      bottom: 11px;
+      left: auto;
     }
     .hero--vehicle h1 {
       font-size: clamp(32px, 8.8vw, 48px);
@@ -328,6 +517,7 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
     justify-items: center;
     gap: 12px;
     margin-top: 32px;
+    margin-bottom: 16px;
     text-align: center;
   }
   .hero-call a {
@@ -342,16 +532,141 @@ const comparison = heroComparisons[vehicle?.slug as keyof typeof heroComparisons
     text-underline-offset: 6px;
   }
 
-  @keyframes hero-compare-mobile-fade {
-    0%, 22% { opacity: 1; }
-    48%, 72% { opacity: 0; }
-    100% { opacity: 1; }
+  @keyframes hero-stack-compare-before-focus {
+    0%,
+    24%,
+    100% {
+      opacity: 0.84;
+    }
+    43%,
+    70% {
+      opacity: 0.02;
+    }
+  }
+
+  @keyframes hero-stack-compare-after-focus {
+    0%,
+    24%,
+    100% {
+      opacity: 0.02;
+    }
+    43%,
+    70% {
+      opacity: 0.84;
+    }
+  }
+
+  @keyframes hero-stack-dot-before-blink {
+    0%,
+    24% {
+      opacity: 0.16;
+      transform: scale(0.88);
+    }
+    40% {
+      opacity: 0.76;
+      transform: scale(1);
+    }
+    46% {
+      opacity: 1;
+      transform: scale(1.16);
+    }
+    53% {
+      opacity: 0.64;
+      transform: scale(0.9);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.16);
+    }
+    67% {
+      opacity: 0.64;
+      transform: scale(0.9);
+    }
+    73%,
+    100% {
+      opacity: 0.16;
+      transform: scale(0.88);
+    }
+  }
+
+  @keyframes hero-stack-dot-after-blink {
+    0% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+    5% {
+      opacity: 1;
+      transform: scale(1.16);
+    }
+    12% {
+      opacity: 0.48;
+      transform: scale(0.9);
+    }
+    19% {
+      opacity: 1;
+      transform: scale(1.16);
+    }
+    26%,
+    67% {
+      opacity: 0.16;
+      transform: scale(0.88);
+    }
+    73% {
+      opacity: 0.76;
+      transform: scale(1);
+    }
+    79% {
+      opacity: 1;
+      transform: scale(1.16);
+    }
+    86% {
+      opacity: 0.64;
+      transform: scale(0.9);
+    }
+    93% {
+      opacity: 1;
+      transform: scale(1.16);
+    }
+  }
+
+  @keyframes hero-stack-compare-mobile-fade {
+    0%,
+    22% {
+      opacity: 1;
+    }
+    48%,
+    72% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero .photo-panel--compare .hero-compare__before {
+    .hero-stack-compare__frame--before {
       animation: none;
       opacity: 1;
+    }
+    .hero-stack-compare__frame::before {
+      animation: none;
+    }
+    .hero-stack-compare__frame--before::before {
+      opacity: 0.84;
+    }
+    .hero-stack-compare__frame--after::before {
+      opacity: 0.02;
+    }
+    .hero-stack-compare__label::before {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+    .hero-stack-compare__frame::before {
+      opacity: 0;
     }
   }
 </style>
